@@ -1,0 +1,2 @@
+DIR C:\DAS_Final\*.* /OG > VER_APP.TXT
+DIR C:\NAM\TEST2\*.* /OG > VER_DAT.TXT

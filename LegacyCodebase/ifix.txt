@@ -1,0 +1,211 @@
+DB Integrity Fix Errors Log
+Product ID from Batch Table 0000001583 is not found in product table
+Product ID from Batch Table 0000001584 is not found in product table
+Product ID from Batch Table 0000001585 is not found in product table
+Product ID from Batch Table 0000001586 is not found in product table
+Product ID from Batch Table 0000001587 is not found in product table
+Product ID from Batch Table 0000001588 is not found in product table
+Product ID from Batch Table 0000001589 is not found in product table
+Product ID from Batch Table 0000001590 is not found in product table
+Product ID from Batch Table 0000001591 is not found in product table
+Product ID from Batch Table 0000001592 is not found in product table
+Product ID from Batch Table 0000001593 is not found in product table
+Product ID from Batch Table 0000001594 is not found in product table
+Product ID from Batch Table 0000001595 is not found in product table
+Product ID from Batch Table 0000001596 is not found in product table
+Product ID from Batch Table 0000001597 is not found in product table
+Product ID from Batch Table 0000001598 is not found in product table
+Product ID from Batch Table 0000001599 is not found in product table
+Product ID from Batch Table 0000001600 is not found in product table
+Product ID from Batch Table 0000001601 is not found in product table
+Product ID from Batch Table 0000001602 is not found in product table
+Product ID from Batch Table 0000001603 is not found in product table
+Product ID from Batch Table 0000001604 is not found in product table
+Product ID from Batch Table 0000001605 is not found in product table
+Product ID from Batch Table 0000001606 is not found in product table
+Product ID from Batch Table 0000001607 is not found in product table
+Product ID from Batch Table 0000001608 is not found in product table
+Product ID from Batch Table 0000001609 is not found in product table
+Product ID from Batch Table 0000001610 is not found in product table
+Product ID from Batch Table 0000001611 is not found in product table
+Product ID from Batch Table 0000001612 is not found in product table
+Product ID from Batch Table 0000001613 is not found in product table
+Product ID from Batch Table 0000001614 is not found in product table
+Product ID from Batch Table 0000001615 is not found in product table
+Product ID from Batch Table 0000001616 is not found in product table
+Product ID from Batch Table 0000001617 is not found in product table
+Product ID from Batch Table 0000001618 is not found in product table
+Product ID from Batch Table 0000001619 is not found in product table
+Product ID from Batch Table 0000001620 is not found in product table
+Product ID from Batch Table 0000001621 is not found in product table
+Product ID from Batch Table 0000001622 is not found in product table
+Product ID from Batch Table 0000001623 is not found in product table
+Product ID from Batch Table 0000001624 is not found in product table
+Product ID from Batch Table 0000001625 is not found in product table
+Product ID from Batch Table 0000001626 is not found in product table
+Product ID from Batch Table 0000001627 is not found in product table
+Product ID from Batch Table 0000001628 is not found in product table
+Product ID from Batch Table 0000001629 is not found in product table
+Product ID from Batch Table 0000001630 is not found in product table
+Product ID from Batch Table 0000001631 is not found in product table
+Product ID from Batch Table 0000001632 is not found in product table
+Product ID from Batch Table 0000001633 is not found in product table
+Product ID from Batch Table 0000001634 is not found in product table
+Product ID from Batch Table 0000001635 is not found in product table
+Product ID from Batch Table 0000001636 is not found in product table
+Product ID from Batch Table 0000001637 is not found in product table
+Product ID from Batch Table 0000001638 is not found in product table
+Product ID from Batch Table 0000001639 is not found in product table
+Product ID from Batch Table 0000001640 is not found in product table
+Product ID from Batch Table 0000001641 is not found in product table
+Product ID from Batch Table 0000001642 is not found in product table
+Product ID from Batch Table 0000001643 is not found in product table
+Product ID from Batch Table 0000001644 is not found in product table
+Product ID from Batch Table 0000001645 is not found in product table
+Product ID from Batch Table 0000001646 is not found in product table
+Product ID from Batch Table 0000001647 is not found in product table
+Product ID from Batch Table 0000001648 is not found in product table
+Product ID from Batch Table 0000001649 is not found in product table
+Product ID from Batch Table 0000001650 is not found in product table
+Product ID from Batch Table 0000001651 is not found in product table
+Product ID from Batch Table 0000001652 is not found in product table
+Product ID from Batch Table 0000001653 is not found in product table
+Product ID from Batch Table 0000001654 is not found in product table
+Product ID from Batch Table 0000001655 is not found in product table
+Product ID from Batch Table 0000001656 is not found in product table
+Product ID from Batch Table 0000001657 is not found in product table
+Product ID from Batch Table 0000001658 is not found in product table
+Product ID from Batch Table 0000001659 is not found in product table
+Product ID from Batch Table 0000001660 is not found in product table
+Product ID from Batch Table 0000001661 is not found in product table
+Product ID from Batch Table 0000001662 is not found in product table
+Product ID from Batch Table 0000001663 is not found in product table
+Product ID from Batch Table 0000001664 is not found in product table
+Product ID from Batch Table 0000001665 is not found in product table
+Product ID from Batch Table 0000001666 is not found in product table
+Product ID from Batch Table 0000001667 is not found in product table
+Product ID from Batch Table 0000001668 is not found in product table
+Product ID from Batch Table 0000001669 is not found in product table
+Product ID from Batch Table 0000001670 is not found in product table
+Product ID from Batch Table 0000001671 is not found in product table
+Product ID from Batch Table 0000001672 is not found in product table
+Product ID from Batch Table 0000001673 is not found in product table
+Product ID from Batch Table 0000001674 is not found in product table
+Product ID from Batch Table 0000001675 is not found in product table
+Product ID from Batch Table 0000001676 is not found in product table
+Product ID from Batch Table 0000001677 is not found in product table
+Product ID from Batch Table 0000001678 is not found in product table
+Product ID from Batch Table 0000001679 is not found in product table
+Product ID from Batch Table 0000001680 is not found in product table
+Product ID from Batch Table 0000001681 is not found in product table
+Product ID from Batch Table 0000001682 is not found in product table
+Product ID from Batch Table 0000001683 is not found in product table
+Product ID from Batch Table 0000001684 is not found in product table
+Product ID from Batch Table 0000001685 is not found in product table
+Product ID from Batch Table 0000001686 is not found in product table
+Product ID from Batch Table 0000001687 is not found in product table
+Product ID from Batch Table 0000001688 is not found in product table
+Product ID from Batch Table 0000001689 is not found in product table
+Product ID from Batch Table 0000001690 is not found in product table
+Product ID from Batch Table 0000001691 is not found in product table
+Product ID from Batch Table 0000001692 is not found in product table
+Product ID from Batch Table 0000001693 is not found in product table
+Product ID from Batch Table 0000001694 is not found in product table
+Product ID from Batch Table 0000001695 is not found in product table
+Product ID from Batch Table 0000001696 is not found in product table
+Product ID from Batch Table 0000001697 is not found in product table
+Product ID from Batch Table 0000001698 is not found in product table
+Product ID from Batch Table 0000001699 is not found in product table
+Product ID from Batch Table 0000001700 is not found in product table
+Product ID from Batch Table 0000001701 is not found in product table
+Product ID from Batch Table 0000001702 is not found in product table
+Product ID from Batch Table 0000001703 is not found in product table
+Product ID from Batch Table 0000001704 is not found in product table
+Product ID from Batch Table 0000001705 is not found in product table
+Product ID from Batch Table 0000001706 is not found in product table
+Product ID from Batch Table 0000001707 is not found in product table
+Product ID from Batch Table 0000001708 is not found in product table
+Product ID from Batch Table 0000001709 is not found in product table
+Product ID from Batch Table 0000001710 is not found in product table
+Product ID from Batch Table 0000001711 is not found in product table
+Product ID from Batch Table 0000001712 is not found in product table
+Product ID from Batch Table 0000001713 is not found in product table
+Batch ID from Inv Table BAT0000001 is not found in batch table
+Product ID from Inv Table 0000000001 is not found in product table
+Batch ID from Inv Table BAT0000003 is not found in batch table
+Product ID from Inv Table 0000000003 is not found in product table
+Batch ID from Inv Table BAT0000002 is not found in batch table
+Product ID from Inv Table 0000000002 is not found in product table
+Batch ID from Inv Table BAT0000016 is not found in batch table
+Product ID from Inv Table 0000000016 is not found in product table
+Batch ID from Inv Table BAT0000049 is not found in batch table
+Product ID from Inv Table 0000000049 is not found in product table
+Batch ID from Inv Table BAT0000063 is not found in batch table
+Product ID from Inv Table 0000000063 is not found in product table
+Batch ID from Inv Table BAT0000001 is not found in batch table
+Product ID from Inv Table 0000000001 is not found in product table
+Batch ID from Inv Table BAT0000003 is not found in batch table
+Product ID from Inv Table 0000000003 is not found in product table
+Batch ID from VAN Table BAT0000001 is not found in batch table
+Product ID from VAN Table 0000000001 is not found in product table
+Batch ID from VAN Table BAT0000003 is not found in batch table
+Product ID from VAN Table 0000000003 is not found in product table
+Batch ID from VAN Table BAT0000002 is not found in batch table
+Product ID from VAN Table 0000000002 is not found in product table
+Batch ID from VAN Table BAT0000001 is not found in batch table
+Product ID from VAN Table 0000000001 is not found in product table
+Batch ID from VAN Table BAT0000001 is not found in batch table
+Product ID from VAN Table 0000000001 is not found in product table
+Batch ID from VAN Table BAT0000003 is not found in batch table
+Product ID from VAN Table 0000000003 is not found in product table
+Batch ID from VAN Table BAT0000001 is not found in batch table
+Product ID from VAN Table 0000000001 is not found in product table
+Batch ID from VAN Table BAT0000002 is not found in batch table
+Product ID from VAN Table 0000000002 is not found in product table
+Batch ID from VAN Table BAT0000003 is not found in batch table
+Product ID from VAN Table 0000000003 is not found in product table
+Batch ID from VAN Table BAT0000001 is not found in batch table
+Product ID from VAN Table 0000000001 is not found in product table
+Batch ID from VAN Table BAT0000003 is not found in batch table
+Product ID from VAN Table 0000000003 is not found in product table
+Product ID from SHL (Shell) Table 0000000001 is not found in product table
+Product ID from SHL (Shell) Table 0000000002 is not found in product table
+Product ID from SHL (Shell) Table 0000000003 is not found in product table
+Product ID from SHL (Shell) Table 0000000004 is not found in product table
+Product ID from SHL (Shell) Table 0000000005 is not found in product table
+Product ID from SHL (Shell) Table 0000000006 is not found in product table
+Product ID from SHL (Shell) Table 0000000007 is not found in product table
+Product ID from SHL (Shell) Table 0000000016 is not found in product table
+Product ID from SHL (Shell) Table 0000000017 is not found in product table
+Product ID from SHL (Shell) Table 0000000023 is not found in product table
+Product ID from SHL (Shell) Table 0000000024 is not found in product table
+Product ID from SHL (Shell) Table 0000000025 is not found in product table
+Product ID from SHL (Shell) Table 0000000026 is not found in product table
+Product ID from SHL (Shell) Table 0000000027 is not found in product table
+Product ID from SHL (Shell) Table 0000000028 is not found in product table
+Product ID from SHL (Shell) Table 0000000029 is not found in product table
+Product ID from SHL (Shell) Table 0000000101 is not found in product table
+Product ID from SHL (Shell) Table 0000000102 is not found in product table
+Product ID from SHL (Shell) Table 0000000108 is not found in product table
+Product ID from SHL (Shell) Table 0000000114 is not found in product table
+Product ID from SHL (Shell) Table 0000000115 is not found in product table
+Product ID from SHL (Shell) Table 0000000122 is not found in product table
+Product ID from SHL (Shell) Table 0000000123 is not found in product table
+Product ID from SHL (Shell) Table 0000000130 is not found in product table
+Product ID from SHL (Shell) Table 0000000133 is not found in product table
+Product ID from SHL (Shell) Table 0000000134 is not found in product table
+Product ID from SHL (Shell) Table 0000000135 is not found in product table
+Product ID from SHL (Shell) Table 0000000055 is not found in product table
+Product ID from SHL (Shell) Table 0000000056 is not found in product table
+Product ID from SHL (Shell) Table 0000000057 is not found in product table
+Product ID from SHL (Shell) Table 0000000058 is not found in product table
+Product ID from SHL (Shell) Table 0000000059 is not found in product table
+Product ID from SHL (Shell) Table 0000000116 is not found in product table
+Product ID from SHL (Shell) Table 0000000124 is not found in product table
+Product ID from SHL (Shell) Table 0000000139 is not found in product table
+Product ID from SNV Table 0000000001 is not found in Product table
+Product ID from SNV Table 0000000002 is not found in Product table
+Product ID from SNV Table 0000000003 is not found in Product table
+Product ID from SNV Table 0000000016 is not found in Product table
+Product ID from SNV Table 0000000001 is not found in Product table
+Product ID from SNV Table 0000000003 is not found in Product table

@@ -1,0 +1,5 @@
+Distributor : Training Db 2008
+Address     : Ver 02
+Telephone   : 
+DAS Code-ID : C4000341
+Text File   : C:\DEX\FBKPDASC4000341080427124709.ZIP

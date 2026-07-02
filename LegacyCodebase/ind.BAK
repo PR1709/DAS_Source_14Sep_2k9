@@ -1,0 +1,556 @@
+* :: Effmcg Ver.4.0
+* :: Date: 09.01.2003
+* :: P N Ramaneshwar
+* :: Module to index all tables (CDX) - Free Tables - Effmcg Ver.4.0
+* :: Ind.prg
+* ::
+set escape on                  		&& Environment Settings
+set ansi on
+set autosave on
+set bell off
+set border to
+set carry off
+set century on
+set color to
+set collate to "MACHINE"
+set compatible on
+set compatible FOXPLUS
+set cpcompile to 1252
+set cpdialog off
+set confirm off
+set currency to "Rs."
+set currency right
+set cursor on
+set date british
+set decimals to 2
+set debug off
+*set deleted on
+set delimiters off
+set development on
+set device to screen
+set display to VGA50
+set echo off
+set escape off
+set exact off
+set exclusive on
+set fixed off
+set hours to 12
+set intensity on
+set keycomp to DOS
+set notify off
+set optimize on
+set point to "."
+set precision to
+set reprocess to automatic
+set safety off
+set scoreboard off
+set separator to ","
+set status on
+set status bar on
+set step off
+set title on
+set talk off
+set udfparms to reference
+set unique off
+set view off
+* ::
+     use ACT exclusive					&& Accounts DBF
+     index on ACT_IDY tag ACT_IDY of ACT
+     index on ACT_NME tag ACT_NME of ACT
+     pack
+     use
+* :
+     use ATT exclusive					&& AssetType DBF
+     index on ATT_IDY tag ATT_IDY of ATT
+     pack
+     use
+* :
+     use ASM exclusive					&& Asset Master DBF
+     index on ASM_IDY tag ASM_IDY of ASM
+     index on ATT_IDY tag ATT_IDY of ASM
+     index on ACT_IDY tag ACT_IDY of ASM
+     index on MFG_IDY tag MFG_IDY of ASM
+     pack
+     use
+* :
+     use AST exclusive					&& Asset Transaction DBF
+     index on TXN_IDY tag TXN_IDY of AST
+     index on ASM_IDY tag ASM_IDY of AST
+     index on AST_IDY tag AST_IDY of AST
+     index on PTY_IDY tag PTY_IDY of AST
+     pack
+     use
+* :
+     use RDY exclusive                                  && Routes, Days and Salesmen DBF
+     index on ACT_IDY tag ACT_IDY of RDY
+     index on SMN_IDY tag SMN_IDY of RDY
+     index on ROU_IDY tag ROU_IDY of RDY
+     pack
+     use
+* :
+     use RP1 exclusive					&& Reports (One) Temporary DBF
+     zap
+     index on CHR_ONE tag CHR_ONE of RP1
+     index on CHR_TWO tag CHR_TWO of RP1
+     index on CHR_THR tag CHR_THR of RP1
+     index on CHR_FOR tag CHR_FOR of RP1
+     index on CHR_FIV tag CHR_FIV of RP1
+     index on CHR_SIX tag CHR_SIX of RP1
+     index on CHR_SEV tag CHR_SEV of RP1
+     index on CHR_EIG tag CHR_EIG of RP1
+     index on CHR_NIN tag CHR_NIN of RP1
+     index on CHR_TEN tag CHR_TEN of RP1
+     pack
+     use
+* :
+     use RP2 exclusive					&& Reports (Two) Temporary DBF
+     zap
+     index on CHR_ONE tag CHR_ONE of RP2
+     index on CHR_TWO tag CHR_TWO of RP2
+     index on CHR_THR tag CHR_THR of RP2
+     index on CHR_FOR tag CHR_FOR of RP2
+     index on CHR_FIV tag CHR_FIV of RP2
+     index on CHR_SIX tag CHR_SIX of RP2
+     index on CHR_SEV tag CHR_SEV of RP2
+     index on CHR_EIG tag CHR_EIG of RP2
+     index on CHR_NIN tag CHR_NIN of RP2
+     index on CHR_TEN tag CHR_TEN of RP2
+     pack
+     use
+* :
+     use RTP exclusive					&& Rate Variance Database
+     index on PRD_IDY tag PRD_IDY of RTP
+     pack
+     use
+* :
+     use AGD exclusive					&& Ageing Temporary Database
+     index on DUE_DAT tag DUE_DAT of AGD
+     index on INV_IDY tag INV_IDY of AGD
+     index on CST_IDY tag CST_IDY of AGD
+     pack
+     use
+* :
+     use BRD exclusive                                  && Batches DBF
+     index on PRD_IDY tag PRD_IDY of BRD
+     index on BAT_IDY tag BAT_IDY of BRD
+     pack
+     use
+* :
+     use CAT exclusive					&& Categories DBF
+     index on CAT_IDY tag CAT_IDY of CAT
+     index on CAT_NME tag CAT_NME of CAT
+     pack
+     use
+* :
+     use CLD exclusive					&& Stocks Consolidated Output Database
+     index on PRD_IDY tag PRD_IDY of CLD
+     pack
+     use
+* :
+     use DIR exclusive					&& Directory DBF
+     index on DIR_IDY+DIR_IDX tag DIR_IDY of DIR
+     pack
+     use
+* : 
+     use GRP exclusive					&& Groups DBF
+     index on GRP_IDY tag GRP_IDY of GRP
+     index on GRP_NME tag GRP_NME of GRP
+     pack
+     use
+* :
+     use INL exclusive					&& Inventory (Master) Link DBF
+     index on INV_IDY tag INV_IDY of INL
+     index on dtos(INV_DAT) tag INV_DAT of INL
+     index on CST_IDY tag CST_IDY of INL
+     index on ORD_IDY tag ORD_IDY of INL
+     index on VCH_IDY tag VCH_IDY of INL
+     index on SCH_IDY tag SCH_IDY of INL
+     index on DCH_IDY tag DCH_IDY of INL
+     pack
+     use
+* :
+     use INV exclusive					&& Inventory (Detail) Base DBF
+     index on INV_IDY tag INV_IDY of INV
+     index on dtos(INV_DAT) tag INV_DAT of INV
+     index on PRD_IDY tag PRD_IDY of INV
+     index on BAT_IDY tag BAT_IDY of INV
+     index on SCH_IDY tag SCH_IDY of INV
+     index on ORD_IDY tag ORD_IDY of INV
+     pack
+     use
+* :
+     use SNV exclusive					&& Shells & Empties Detail DBF
+     index on INV_IDY tag INV_IDY of SNV
+     index on INV_DAT tag INV_DAT of SNV
+     index on TXN_IDY tag TXN_IDY of SNV
+     index on TXN_DAT tag TXN_DAT of SNV
+     index on PRD_IDY tag PRD_IDY of SNV
+     index on PCK_IDY tag PCK_IDY of SNV
+     index on CST_IDY tag CST_IDY of SNV
+     index on SHL_IDY tag SHL_IDY of SNV
+     pack
+     use
+* :
+     use IRT exclusive					&& Invoices Vs.Receipts Matching DBF
+     index on INV_IDY tag INV_IDY of IRT
+     index on ACT_IDY tag ACT_IDY of IRT
+     index on PTY_IDY tag PTY_IDY of IRT
+     index on SMN_IDY tag SMN_IDY of IRT
+     pack
+     use
+* :
+     use LDS exclusive					&& Loading Sheet DBF
+     index on LDS_IDY tag LDS_IDY of LDS
+     index on dtos(LDS_DAT) tag LDS_DAT of LDS
+     pack
+     use
+* :
+     use LED exclusive					&& Ledgers Output Database
+     zap
+     index on dtos(INV_DAT) tag INV_DAT of LED
+     index on INV_IDY tag INV_IDY of LED
+     index on ACT_IDY tag ACT_IDY of LED
+     pack
+     use
+* :
+     use LEV exclusive					&& Discounts & Taxes DBF
+     index on LEV_IDY tag LEV_IDY of LEV
+     index on BAS_IDY tag BAS_IDY of LEV
+     pack
+     use
+* :
+     use LNV exclusive					&& Discounts & Taxes Detail DBF for INL
+     index on INV_IDY tag INV_IDY of LNV
+     index on LEV_IDY tag LEV_IDY of LNV
+     pack
+     use
+* :
+     use LOC exclusive					&& Locations DBF
+     index on LOC_IDY tag LOC_IDY of LOC
+     index on LOC_NME tag LOC_NME of LOC
+     pack
+     use
+* :
+     use MAR exclusive					&& Markets DBF
+     index on MAR_IDY tag MAR_IDY of MAR
+     index on MAR_NME tag MAR_NME of MAR
+     pack
+     use
+* :
+     use MBR exclusive					&& Monthly Business Record Database
+     index on str(MTH_IDY,2) tag MTH_IDY of MBR
+     pack
+     use
+* :
+     use MCL exclusive					&& Max Credit Limit DBF
+     index on INV_IDY tag INV_IDY of MCL
+     index on dtos(INV_DAT) tag INV_DAT of MCL
+     index on CST_IDY tag CST_IDY of MCL
+     index on REF_DOC tag REF_DOC of MCL
+     pack
+     use
+* :
+     use NPO exclusive
+     zap
+     pack
+     use     
+* :
+     use OPA exclusive					&& Opening Accounts DBF
+     index on ACT_IDY tag ACT_IDY of OPA
+     pack
+     use
+* :
+     use OPS exclusive					&& Opening Stocks DBF
+     index on PRD_IDY tag PRD_IDY of OPS
+     pack
+     use
+* :
+     use ORD exclusive					&& Orders DBF
+     index on ORD_IDY tag ORD_IDY of ORD
+     index on dtos(ORD_DAT) tag ORD_DAT of ORD
+     index on PRD_IDY tag PRD_IDY of ORD
+     index on ACT_IDY tag ACT_IDY of ORD
+     pack
+     use
+* :
+     use PGR exclusive					&& Product Group DBF
+     index on GRP_IDY tag GRP_IDY of PGR
+     index on GRP_CAT tag GRP_CAT of PGR
+     index on GRP_CLS tag GRP_CLS of PGR
+     pack
+     use
+* :
+     use PNL exclusive
+     index on INV_IDY tag INV_IDY of PNL
+     index on dtos(INV_DAT) tag INV_DAT of PNL
+     index on CST_IDY tag CST_IDY of PNL
+     index on ORD_IDY tag ORD_IDY of PNL
+     index on VCH_IDY tag VCH_IDY of PNL
+     index on SCH_IDY tag SCH_IDY of PNL
+     index on DCH_IDY tag DCH_IDY of PNL
+     pack
+     use
+* :
+     use PNV exclusive
+     index on INV_IDY tag INV_IDY of PNV
+     index on dtos(INV_DAT) tag INV_DAT of PNV
+     index on GRP_IDY tag GRP_IDY of PNV
+     index on ORD_IDY tag ORD_IDY of PNV
+     index on BAT_IDY tag BAT_IDY of PNV
+     index on SCH_IDY tag SCH_IDY of PNV
+     pack
+     use
+* :
+     use PRD exclusive					&& Products DBF
+     index on PRD_IDY tag PRD_IDY of PRD
+     index on PRD_NME tag PRD_NME of PRD
+     index on PRD_PRN tag PRD_PRN of PRD
+     index on GRP_IDY tag GRP_IDY of PRD
+     index on CMP_IDY tag CMP_IDY of PRD
+     index on ALT_IDY tag ALT_IDY of PRD
+     pack
+     use
+* :
+     use SCH exclusive 					&& Schemes DBF
+     index on SCH_IDY tag SCH_IDY of SCH
+     index on BAT_IDY tag BAT_IDY of SCH
+     index on B_PRD_IDY tag B_PRD_IDY of SCH
+     index on F_PRD_IDY tag F_PRD_IDY of SCH
+     pack
+     use
+* :
+     use SHL exclusive
+     index on SHL_IDY tag SHL_IDY of SHL
+     index on PRD_IDY tag PRD_IDY of SHL
+     pack
+     use
+* :
+     use SMN exclusive					&& Salesman DBF
+     index on SMN_IDY tag SMN_IDY of SMN
+     index on SMN_NME tag SMN_NME of SMN
+     pack
+     use
+* :
+     use STA exclusive					&& Stocks Ageing Temporary Database
+     zap
+     index on dtos(TXN_DAT) tag TXN_DAT of STA
+     index on TXN_IDY tag TXN_IDY of STA
+     index on PRD_IDY tag PRD_IDY of STA
+     pack
+     use
+* :
+     use STL exclusive					&& Stocks Ledger Output Database
+     zap
+     index on dtos(INV_DAT) tag INV_DAT of STL
+     index on PRD_IDY tag PRD_IDY of STL
+     index on CST_IDY tag CST_IDY of STL
+     pack
+     use
+* :
+     use TGT exclusive					&& Targets (SKU) DBF
+     index on SMN_IDY tag SMN_IDY of TGT
+     index on PRD_IDY tag PRD_IDY of TGT
+     pack
+     use
+* :
+     use TGB exclusive					&& Targets (Brands) DBF
+     index on SMN_IDY tag SMN_IDY of TGB
+     pack
+     use
+* :
+     use TGS exclusive					&& Targets (Segments) DBF
+     index on SMN_IDY tag SMN_IDY of TGS
+     pack 
+     use
+* :
+     use TGC exclusive					&& Targets (Categories) DBF
+     index on SMN_IDY tag SMN_IDY of TGC
+     pack
+     use
+* :
+     use TRT exclusive					&& Targets Temporary DBF
+     index on PRD_IDY tag PRD_IDY of TRT
+     pack
+     use
+* :
+     use TPD exclusive					&& Temporary Product Database (for Stock Movement Calculation)
+     index on PRD_IDY tag PRD_IDY of TPD
+     pack
+     use
+* :
+     use TYP exclusive					&& Account Types DBF
+     index on TYP_DEF tag TYP_DEF of TYP
+     use
+* :
+     use USR exclusive
+     pack
+     use
+* :
+     use VAN exclusive
+     pack
+     index on INV_IDY tag INV_IDY of VAN
+     index on dtos(INV_DAT) tag INV_DAT of VAN
+     index on PRD_IDY tag PRD_IDY of VAN
+     index on BAT_IDY tag BAT_IDY of VAN
+     index on ACT_IDY tag ACT_IDY of VAN
+     index on CST_IDY tag CST_IDY of VAN
+     index on SMN_IDY tag SMN_IDY of VAN
+     index on BIL_IDY tag BIL_IDY of VAN
+     use
+* :
+     use CUR exclusive					&& Currency Database for VAN Settlement
+     index on INV_IDY tag INV_IDY of CUR
+     pack
+     use
+* :
+     use VCH exclusive					&& Vouchers Database
+     index on TXN_IDY tag TXN_IDY of VCH
+     index on dtos(TXN_DAT) tag TXN_DAT of VCH
+     index on INV_IDY tag INV_IDY of VCH
+     index on DBT_IDY tag DBT_IDY of VCH
+     index on CRT_IDY tag CRT_IDY of VCH
+     pack
+     use
+* :
+     use WEK exclusive					&& Sales Calendar DBF
+     pack
+     use
+* :
+     use ACA exclusive					&& Assets Opening Account DBF
+     index on ACT_IDY tag ACT_IDY of ACA
+     index on ASM_IDY tag ASM_IDY of ACA
+     pack
+     use
+* :
+     use SCL exclusive
+     pack
+     use
+* :
+     use QPS exclusive
+     pack
+     use
+* :
+* :     use BRK exclusive
+* :     pack
+* :     use
+* :
+     use LOG exclusive
+     pack
+     use
+* :
+     use DSU exclusive
+     pack
+     use
+* :
+     use INE exclusive
+     pack
+     use
+* :
+     use PPC exclusive
+     pack
+     use
+* :
+     use PRE exclusive
+     pack
+     use
+* :
+     use CSR exclusive
+     pack
+     use
+* :
+     use PRT exclusive
+     pack
+     use
+* :
+     use STS exclusive
+     pack
+     use
+* :
+     use TOP exclusive
+     pack
+     use
+* :
+     use IDY exclusive
+     pack
+     use
+* :
+     use FUN exclusive
+     use
+* :
+     use SIC exclusive					&& Incentives and Commissions DBF
+     index on ACT_IDY tag ACT_IDY of SIC
+     index on PRD_IDY tag PRD_IDY of SIC
+     index on BAT_IDY tag BAT_IDY of SIC
+     pack
+     use
+* :
+	 use CSR exclusive					&& HVO and Customer Specific Rates - Discounts DBF
+	 index on ACT_IDY tag ACT_IDY of CSR
+	 index on CSR_IDY tag CSR_IDY of CSR
+	 index on XCSR_IDY tag XCSR_IDY of CSR
+	 index on MER_IDY tag MER_IDY of CSR
+	 index on SCH_IDY tag SCH_IDY of CSR
+	 index on B_PRD_IDY tag B_PRD_IDY of CSR
+	 index on ACT_IDY+B_PRD_IDY tag ACT_PRD of CSR
+	 index on ACT_IDY+B_BAT_IDY tag ACT_BRD of CSR
+	 pack
+	 use
+* :
+     use RRI exclusive
+     use
+* :
+     use YER exclusive					&& Years DBF
+     index on YER_IDY tag YER_IDY of YER
+     use
+* :
+	 use BNV exclusive					&& Backup INV
+	 zap
+	 pack
+	 use BNL exclusive					&& Backup INL
+	 zap
+	 pack
+	 use XNV exclusive					&& Backup PNV
+	 zap
+	 pack
+	 use XNL exclusive					&& Backup PNL
+	 zap
+	 pack
+	 use CNV exclusive					&& Backup LNV
+	 zap
+	 pack
+	 use VBK exclusive					&& Backup VAN
+	 zap
+	 pack
+	 use CBK exclusive					&& Backup CUR
+	 zap
+	 pack
+	 use SBK exclusive					&& Backup SNV
+	 zap
+	 pack     
+* ::
+close all
+clear all
+set exclusive on
+set unique on
+set exact on
+clear
+DO CND
+close all
+clear all
+select 0
+use DIR index DIR
+set order to DIR_IDY
+seek "DDB"+"IND"
+if .not. found()
+	select DIR
+	append blank
+	replace DIR_IDY with "DDB", DIR_IDX with "IND", DIR_ALS with "IND.EXE", DIR_MSG with "Version 4.01 Date 01.01.2009", DIR_DAT with ctod("01/01/2009")
+else
+	replace DIR_ALS with "IND.EXE", DIR_MSG with "Version 4.01 Date 01.01.2009", DIR_DAT with ctod("01/01/2009")
+endif
+close all
+clear all
+return
+* :
+* : End of ind.prg
+

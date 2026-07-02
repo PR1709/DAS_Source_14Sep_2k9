@@ -1,0 +1,1350 @@
+VERSION 5.00
+Object = "{5E9E78A0-531B-11CF-91F6-C2863C385E30}#1.0#0"; "MSFLXGRD.OCX"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.OCX"
+Begin VB.Form M_FRM_RUT 
+   BorderStyle     =   1  'Fixed Single
+   Caption         =   "Route Sequence"
+   ClientHeight    =   5625
+   ClientLeft      =   45
+   ClientTop       =   330
+   ClientWidth     =   8790
+   Icon            =   "M_FRM_RUT.frx":0000
+   KeyPreview      =   -1  'True
+   LinkTopic       =   "Form1"
+   LockControls    =   -1  'True
+   MaxButton       =   0   'False
+   MinButton       =   0   'False
+   ScaleHeight     =   5625
+   ScaleWidth      =   8790
+   StartUpPosition =   2  'CenterScreen
+   Begin TabDlg.SSTab SSTab1 
+      Height          =   5150
+      Left            =   0
+      TabIndex        =   1
+      TabStop         =   0   'False
+      Top             =   480
+      Width           =   8775
+      _ExtentX        =   15478
+      _ExtentY        =   9075
+      _Version        =   393216
+      Style           =   1
+      Tabs            =   2
+      TabsPerRow      =   2
+      TabHeight       =   520
+      ShowFocusRect   =   0   'False
+      TabCaption(0)   =   "Se&quence"
+      TabPicture(0)   =   "M_FRM_RUT.frx":0442
+      Tab(0).ControlEnabled=   -1  'True
+      Tab(0).Control(0)=   "Label2"
+      Tab(0).Control(0).Enabled=   0   'False
+      Tab(0).Control(1)=   "Label1"
+      Tab(0).Control(1).Enabled=   0   'False
+      Tab(0).Control(2)=   "MS"
+      Tab(0).Control(2).Enabled=   0   'False
+      Tab(0).Control(3)=   "PB"
+      Tab(0).Control(3).Enabled=   0   'False
+      Tab(0).Control(4)=   "DT"
+      Tab(0).Control(4).Enabled=   0   'False
+      Tab(0).Control(5)=   "Command1"
+      Tab(0).Control(5).Enabled=   0   'False
+      Tab(0).Control(6)=   "txtVar"
+      Tab(0).Control(6).Enabled=   0   'False
+      Tab(0).Control(7)=   "cmdSort"
+      Tab(0).Control(7).Enabled=   0   'False
+      Tab(0).Control(8)=   "Frame1"
+      Tab(0).Control(8).Enabled=   0   'False
+      Tab(0).Control(9)=   "Combo2"
+      Tab(0).Control(9).Enabled=   0   'False
+      Tab(0).Control(10)=   "Combo3"
+      Tab(0).Control(10).Enabled=   0   'False
+      Tab(0).Control(11)=   "txtsmn"
+      Tab(0).Control(11).Enabled=   0   'False
+      Tab(0).Control(12)=   "Combo1"
+      Tab(0).Control(12).Enabled=   0   'False
+      Tab(0).Control(13)=   "Option1(2)"
+      Tab(0).Control(13).Enabled=   0   'False
+      Tab(0).ControlCount=   14
+      TabCaption(1)   =   "View"
+      TabPicture(1)   =   "M_FRM_RUT.frx":045E
+      Tab(1).ControlEnabled=   0   'False
+      Tab(1).Control(0)=   "LST_CAP"
+      Tab(1).Control(1)=   "list4"
+      Tab(1).ControlCount=   2
+      Begin VB.OptionButton Option1 
+         Caption         =   "&Day"
+         Height          =   195
+         Index           =   2
+         Left            =   120
+         TabIndex        =   20
+         TabStop         =   0   'False
+         Top             =   840
+         Width           =   615
+      End
+      Begin VB.ComboBox Combo1 
+         Enabled         =   0   'False
+         Height          =   315
+         ItemData        =   "M_FRM_RUT.frx":047A
+         Left            =   840
+         List            =   "M_FRM_RUT.frx":0496
+         Style           =   2  'Dropdown List
+         TabIndex        =   19
+         TabStop         =   0   'False
+         Top             =   780
+         Width           =   1215
+      End
+      Begin VB.TextBox txtsmn 
+         Appearance      =   0  'Flat
+         Height          =   330
+         Left            =   4320
+         TabIndex        =   17
+         TabStop         =   0   'False
+         Top             =   2400
+         Visible         =   0   'False
+         Width           =   1455
+      End
+      Begin VB.ComboBox Combo3 
+         Enabled         =   0   'False
+         Height          =   315
+         ItemData        =   "M_FRM_RUT.frx":04DC
+         Left            =   6840
+         List            =   "M_FRM_RUT.frx":04DE
+         TabIndex        =   16
+         TabStop         =   0   'False
+         Text            =   "Combo3"
+         Top             =   2760
+         Visible         =   0   'False
+         Width           =   735
+      End
+      Begin VB.ComboBox Combo2 
+         Enabled         =   0   'False
+         Height          =   315
+         ItemData        =   "M_FRM_RUT.frx":04E0
+         Left            =   3360
+         List            =   "M_FRM_RUT.frx":04F9
+         Style           =   2  'Dropdown List
+         TabIndex        =   15
+         TabStop         =   0   'False
+         Top             =   2760
+         Visible         =   0   'False
+         Width           =   1335
+      End
+      Begin VB.Frame Frame1 
+         Height          =   735
+         Left            =   2160
+         TabIndex        =   8
+         Top             =   480
+         Width           =   5055
+         Begin VB.TextBox SMN_IDY 
+            Appearance      =   0  'Flat
+            Enabled         =   0   'False
+            Height          =   330
+            Left            =   3480
+            TabIndex        =   12
+            TabStop         =   0   'False
+            Top             =   292
+            Width           =   1455
+         End
+         Begin VB.ComboBox cmbRoute 
+            Enabled         =   0   'False
+            Height          =   315
+            ItemData        =   "M_FRM_RUT.frx":053D
+            Left            =   960
+            List            =   "M_FRM_RUT.frx":053F
+            TabIndex        =   11
+            TabStop         =   0   'False
+            Top             =   300
+            Width           =   1335
+         End
+         Begin VB.OptionButton Option1 
+            Caption         =   "&Salesman"
+            Height          =   195
+            Index           =   1
+            Left            =   2400
+            TabIndex        =   10
+            TabStop         =   0   'False
+            Top             =   360
+            Width           =   1095
+         End
+         Begin VB.OptionButton Option1 
+            Caption         =   "&Route"
+            Height          =   195
+            Index           =   0
+            Left            =   120
+            TabIndex        =   9
+            TabStop         =   0   'False
+            Top             =   360
+            Width           =   735
+         End
+      End
+      Begin VB.CommandButton cmdSort 
+         Caption         =   "&Order Retailers"
+         Enabled         =   0   'False
+         Height          =   330
+         Left            =   7305
+         TabIndex        =   6
+         TabStop         =   0   'False
+         Top             =   900
+         Width           =   1335
+      End
+      Begin VB.TextBox txtVar 
+         Appearance      =   0  'Flat
+         Height          =   285
+         Left            =   120
+         MaxLength       =   4
+         TabIndex        =   5
+         TabStop         =   0   'False
+         Top             =   1680
+         Visible         =   0   'False
+         Width           =   1095
+      End
+      Begin VB.CommandButton Command1 
+         Caption         =   "&Get Retailers"
+         Enabled         =   0   'False
+         Height          =   375
+         Left            =   7320
+         TabIndex        =   3
+         TabStop         =   0   'False
+         Top             =   480
+         Width           =   1335
+      End
+      Begin MSComCtl2.DTPicker DT 
+         Height          =   255
+         Left            =   2880
+         TabIndex        =   2
+         TabStop         =   0   'False
+         Top             =   1920
+         Visible         =   0   'False
+         Width           =   975
+         _ExtentX        =   1720
+         _ExtentY        =   450
+         _Version        =   393216
+         Format          =   74186754
+         CurrentDate     =   37874
+      End
+      Begin MSComctlLib.ProgressBar PB 
+         Height          =   255
+         Left            =   100
+         TabIndex        =   4
+         Top             =   4800
+         Visible         =   0   'False
+         Width           =   4335
+         _ExtentX        =   7646
+         _ExtentY        =   450
+         _Version        =   393216
+         Appearance      =   1
+         Scrolling       =   1
+      End
+      Begin MSFlexGridLib.MSFlexGrid MS 
+         Height          =   3435
+         Left            =   120
+         TabIndex        =   7
+         TabStop         =   0   'False
+         Top             =   1320
+         Width           =   8625
+         _ExtentX        =   15214
+         _ExtentY        =   6059
+         _Version        =   393216
+         Cols            =   7
+         FixedCols       =   0
+         RowHeightMin    =   330
+         BackColor       =   -2147483633
+         BackColorSel    =   14737632
+         ForeColorSel    =   8388608
+         GridColor       =   8421504
+         GridColorFixed  =   4210752
+         FocusRect       =   0
+         HighLight       =   2
+         GridLines       =   2
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+      End
+      Begin MSComctlLib.ListView list4 
+         Height          =   3375
+         Left            =   -74760
+         TabIndex        =   13
+         Top             =   1080
+         Visible         =   0   'False
+         Width           =   8295
+         _ExtentX        =   14631
+         _ExtentY        =   5953
+         View            =   3
+         LabelEdit       =   1
+         Sorted          =   -1  'True
+         LabelWrap       =   -1  'True
+         HideSelection   =   0   'False
+         AllowReorder    =   -1  'True
+         FullRowSelect   =   -1  'True
+         GridLines       =   -1  'True
+         HotTracking     =   -1  'True
+         _Version        =   393217
+         ForeColor       =   -2147483640
+         BackColor       =   -2147483643
+         BorderStyle     =   1
+         Appearance      =   0
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         NumItems        =   2
+         BeginProperty ColumnHeader(1) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+            Object.Width           =   2646
+         EndProperty
+         BeginProperty ColumnHeader(2) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+            SubItemIndex    =   1
+            Object.Width           =   6174
+         EndProperty
+      End
+      Begin VB.Label Label1 
+         Alignment       =   1  'Right Justify
+         AutoSize        =   -1  'True
+         Caption         =   "Press Delete Key  to Delete Existing Route Sequence Record"
+         ForeColor       =   &H00FF0000&
+         Height          =   195
+         Left            =   4200
+         TabIndex        =   21
+         Top             =   0
+         Width           =   4485
+      End
+      Begin VB.Label Label2 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Loading Retailers List....Please Wait....."
+         Height          =   255
+         Left            =   3360
+         TabIndex        =   18
+         Top             =   4800
+         Visible         =   0   'False
+         Width           =   3255
+      End
+      Begin VB.Label LST_CAP 
+         Alignment       =   2  'Center
+         Appearance      =   0  'Flat
+         BackColor       =   &H00FF0000&
+         BorderStyle     =   1  'Fixed Single
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   12
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H80000005&
+         Height          =   375
+         Left            =   -74760
+         TabIndex        =   14
+         Top             =   720
+         Width           =   8175
+      End
+   End
+   Begin MSComctlLib.ImageList ImageList1 
+      Left            =   6360
+      Top             =   3240
+      _ExtentX        =   1005
+      _ExtentY        =   1005
+      BackColor       =   -2147483643
+      ImageWidth      =   16
+      ImageHeight     =   16
+      MaskColor       =   12632256
+      _Version        =   393216
+      BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
+         NumListImages   =   12
+         BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "M_FRM_RUT.frx":0541
+            Key             =   "p"
+         EndProperty
+         BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "M_FRM_RUT.frx":0A85
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "M_FRM_RUT.frx":0E4D
+            Key             =   "c"
+         EndProperty
+         BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "M_FRM_RUT.frx":11A1
+            Key             =   "e"
+         EndProperty
+         BeginProperty ListImage5 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "M_FRM_RUT.frx":17D9
+            Key             =   "s"
+         EndProperty
+         BeginProperty ListImage6 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "M_FRM_RUT.frx":1B2D
+            Key             =   "h"
+         EndProperty
+         BeginProperty ListImage7 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "M_FRM_RUT.frx":1F8D
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage8 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "M_FRM_RUT.frx":2281
+            Key             =   "pr"
+         EndProperty
+         BeginProperty ListImage9 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "M_FRM_RUT.frx":268D
+            Key             =   "d"
+         EndProperty
+         BeginProperty ListImage10 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "M_FRM_RUT.frx":2799
+            Key             =   "pre"
+         EndProperty
+         BeginProperty ListImage11 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "M_FRM_RUT.frx":2AED
+            Key             =   "brw"
+         EndProperty
+         BeginProperty ListImage12 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "M_FRM_RUT.frx":2F01
+            Key             =   "cpy"
+         EndProperty
+      EndProperty
+   End
+   Begin MSComctlLib.Toolbar Toolbar1 
+      Align           =   1  'Align Top
+      Height          =   420
+      Left            =   0
+      TabIndex        =   0
+      Top             =   0
+      Width           =   8790
+      _ExtentX        =   15505
+      _ExtentY        =   741
+      ButtonWidth     =   609
+      ButtonHeight    =   582
+      AllowCustomize  =   0   'False
+      Appearance      =   1
+      ImageList       =   "ImageList1"
+      _Version        =   393216
+      BeginProperty Buttons {66833FE8-8583-11D1-B16A-00C0F0283628} 
+         NumButtons      =   16
+         BeginProperty Button1 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Object.Visible         =   0   'False
+            Key             =   "n"
+            Object.ToolTipText     =   "New (Ctrl+N)"
+            ImageIndex      =   2
+         EndProperty
+         BeginProperty Button2 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Key             =   "s"
+            Object.ToolTipText     =   "Save (Ctrl+S)"
+            ImageIndex      =   5
+         EndProperty
+         BeginProperty Button3 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Key             =   "c"
+            Object.ToolTipText     =   "Cancel (Ctrl+Q)"
+            ImageIndex      =   3
+         EndProperty
+         BeginProperty Button4 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Style           =   3
+         EndProperty
+         BeginProperty Button5 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Key             =   "p"
+            Object.ToolTipText     =   "Print (Ctrl+P)"
+            ImageIndex      =   1
+            BeginProperty ButtonMenus {66833FEC-8583-11D1-B16A-00C0F0283628} 
+               NumButtonMenus  =   8
+               BeginProperty ButtonMenu1 {66833FEE-8583-11D1-B16A-00C0F0283628} 
+                  Key             =   "ACT_LST"
+                  Text            =   "&1 All Accounts List"
+               EndProperty
+               BeginProperty ButtonMenu2 {66833FEE-8583-11D1-B16A-00C0F0283628} 
+                  Key             =   "RET_CAT"
+                  Text            =   "&2 Retailer Category"
+               EndProperty
+               BeginProperty ButtonMenu3 {66833FEE-8583-11D1-B16A-00C0F0283628} 
+                  Key             =   "RET_LOC"
+                  Text            =   "&3 Retailer Location"
+               EndProperty
+               BeginProperty ButtonMenu4 {66833FEE-8583-11D1-B16A-00C0F0283628} 
+                  Key             =   "RET_MAR"
+                  Text            =   "&4 Retailer Market"
+               EndProperty
+               BeginProperty ButtonMenu5 {66833FEE-8583-11D1-B16A-00C0F0283628} 
+                  Key             =   "RET_ROU"
+                  Text            =   "&5 Retailer Beat"
+               EndProperty
+               BeginProperty ButtonMenu6 {66833FEE-8583-11D1-B16A-00C0F0283628} 
+                  Key             =   "RET_SMN"
+                  Text            =   "&6 Retailer Salesman"
+               EndProperty
+               BeginProperty ButtonMenu7 {66833FEE-8583-11D1-B16A-00C0F0283628} 
+                  Key             =   "SUP_LST"
+                  Text            =   "&7 Supplier List"
+               EndProperty
+               BeginProperty ButtonMenu8 {66833FEE-8583-11D1-B16A-00C0F0283628} 
+                  Key             =   "RET_ID_LST"
+                  Text            =   "&8 Retailer ID List"
+               EndProperty
+            EndProperty
+         EndProperty
+         BeginProperty Button6 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Enabled         =   0   'False
+            Object.Visible         =   0   'False
+            Key             =   "pr"
+            Object.ToolTipText     =   "Print Preview (Ctrl+R)"
+            ImageIndex      =   8
+            Style           =   5
+            BeginProperty ButtonMenus {66833FEC-8583-11D1-B16A-00C0F0283628} 
+               NumButtonMenus  =   3
+               BeginProperty ButtonMenu1 {66833FEE-8583-11D1-B16A-00C0F0283628} 
+                  Key             =   "act"
+                  Text            =   "&Accounts List"
+               EndProperty
+               BeginProperty ButtonMenu2 {66833FEE-8583-11D1-B16A-00C0F0283628} 
+                  Key             =   "dlr"
+                  Text            =   "&Dealers List"
+               EndProperty
+               BeginProperty ButtonMenu3 {66833FEE-8583-11D1-B16A-00C0F0283628} 
+                  Key             =   "sup"
+                  Text            =   "&Supplier List"
+               EndProperty
+            EndProperty
+         EndProperty
+         BeginProperty Button7 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Object.Visible         =   0   'False
+            Key             =   "s2"
+            Style           =   3
+         EndProperty
+         BeginProperty Button8 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Key             =   "h"
+            Object.ToolTipText     =   "Help (F1)"
+            ImageIndex      =   6
+         EndProperty
+         BeginProperty Button9 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Key             =   "ed"
+            Object.ToolTipText     =   "View (Ctrl+E)"
+            ImageIndex      =   7
+         EndProperty
+         BeginProperty Button10 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Key             =   "s3"
+            Style           =   3
+         EndProperty
+         BeginProperty Button11 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Object.Visible         =   0   'False
+            Key             =   "pre"
+            Object.ToolTipText     =   "Prefix Account ID "
+            ImageIndex      =   10
+         EndProperty
+         BeginProperty Button12 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Object.Visible         =   0   'False
+            Key             =   "crt"
+            Object.ToolTipText     =   "Create by (Ctrl+C)"
+            ImageIndex      =   12
+         EndProperty
+         BeginProperty Button13 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Enabled         =   0   'False
+            Object.Visible         =   0   'False
+            Key             =   "brw"
+            Object.ToolTipText     =   "Browse (Ctrl+B)"
+            ImageIndex      =   11
+         EndProperty
+         BeginProperty Button14 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Object.Visible         =   0   'False
+            Style           =   3
+         EndProperty
+         BeginProperty Button15 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Object.Visible         =   0   'False
+            Key             =   "d"
+            Object.ToolTipText     =   "Delete (Ctrl+D)"
+            ImageIndex      =   9
+         EndProperty
+         BeginProperty Button16 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Key             =   "e"
+            Object.ToolTipText     =   "Exit (Ctrl+X)"
+            ImageIndex      =   4
+         EndProperty
+      EndProperty
+   End
+End
+Attribute VB_Name = "M_FRM_RUT"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Dim rsact As New ADODB.Recordset
+Dim rsrou As New ADODB.Recordset
+Dim rsmar As New ADODB.Recordset
+Dim RSCAT As New ADODB.Recordset
+Dim r As Integer, C As Integer
+Dim MD As Boolean
+
+Private Sub cmbRoute_Change()
+If Len(Trim(cmbRoute)) = 15 Then SLT
+End Sub
+
+Private Sub cmbRoute_KeyDown(K As Integer, Shift As Integer)
+If K = 13 Then
+    If Len(Trim(cmbRoute.Text)) > 0 Then
+        Command1.Enabled = True
+        Command1.SetFocus
+        cmdSort.Enabled = True
+    Else
+        MsgBox "Select a Route!", vbExclamation, "DAS Version 4.0"
+        cmbRoute.SetFocus
+    End If
+End If
+End Sub
+
+Private Sub cmbRoute_keypress(K As Integer)
+If K = 39 Or K = 41 Or K = 37 Then K = 0
+If K > 47 And K < 58 Or K = 8 Or K = 13 Then
+ElseIf K > 96 And K < 123 Then
+    K = K - 32
+ElseIf K > 64 And K < 91 Then
+Else
+    K = 0
+End If
+End Sub
+
+Private Sub cmdSort_Click()
+MS.Col = 0
+MS.ColSel = 0
+If MS.Rows = 1 Then Exit Sub
+Me.MousePointer = vbHourglass
+MS.Sort = 2
+r = 1
+Do While Val(MS.TextMatrix(r, 0)) <> 0
+    C = r + 1
+    If C <> MS.Rows Then
+    Do While Val(MS.TextMatrix(C, 0)) <> 0
+        If Val(MS.TextMatrix(r, 0)) > Val(MS.TextMatrix(C, 0)) Then
+            SNUM = Val(MS.TextMatrix(r, 0))
+            RNAME = MS.TextMatrix(r, 1)
+            MNAME = MS.TextMatrix(r, 2)
+            ROUT = Trim(MS.TextMatrix(r, 3))
+            SMN = Trim(MS.TextMatrix(r, 4))
+            VDAY = Trim(MS.TextMatrix(r, 5))
+            DIST = Val(MS.TextMatrix(r, 6))
+            ARRT = Trim(MS.TextMatrix(r, 7))
+            DEPT = Trim(MS.TextMatrix(r, 8))
+            CNAME = Trim(MS.TextMatrix(r, 9))
+            LNAME = Trim(MS.TextMatrix(r, 10))
+            smnid = Trim(MS.TextMatrix(r, 11))
+            ACTID = Trim(MS.TextMatrix(r, 12))
+            MS.TextMatrix(r, 0) = MS.TextMatrix(C, 0)
+            MS.TextMatrix(r, 1) = MS.TextMatrix(C, 1)
+            MS.TextMatrix(r, 2) = MS.TextMatrix(C, 2)
+            MS.TextMatrix(r, 3) = MS.TextMatrix(C, 3)
+            MS.TextMatrix(r, 4) = MS.TextMatrix(C, 4)
+            MS.TextMatrix(r, 5) = MS.TextMatrix(C, 5)
+            MS.TextMatrix(r, 6) = MS.TextMatrix(C, 6)
+            MS.TextMatrix(r, 7) = MS.TextMatrix(C, 7)
+            MS.TextMatrix(r, 8) = MS.TextMatrix(C, 8)
+            MS.TextMatrix(r, 9) = MS.TextMatrix(C, 9)
+            MS.TextMatrix(r, 10) = MS.TextMatrix(C, 10)
+            MS.TextMatrix(r, 11) = MS.TextMatrix(C, 11)
+            MS.TextMatrix(r, 12) = MS.TextMatrix(C, 12)
+            MS.TextMatrix(C, 0) = SNUM
+            MS.TextMatrix(C, 1) = RNAME
+            MS.TextMatrix(C, 2) = MNAME
+            MS.TextMatrix(C, 3) = ROUT
+            MS.TextMatrix(C, 4) = SMN
+            MS.TextMatrix(C, 5) = VDAY
+            MS.TextMatrix(C, 6) = DIST
+            MS.TextMatrix(C, 7) = ARRT
+            MS.TextMatrix(C, 8) = DEPT
+            MS.TextMatrix(C, 9) = CNAME
+            MS.TextMatrix(C, 10) = LNAME
+            MS.TextMatrix(C, 11) = smnid
+            MS.TextMatrix(C, 12) = ACTID
+        End If
+        C = C + 1
+        If C = MS.Rows Then
+            Exit Do
+        End If
+    Loop
+    End If
+    r = r + 1
+    If r = MS.Rows Then
+        Exit Do
+    End If
+Loop
+MS.SetFocus
+MS.Col = 1
+Me.MousePointer = vbDefault
+End Sub
+
+Private Sub Combo1_keypress(K As Integer)
+If K = 13 Then
+    If Len(Trim(Combo1.Text)) > 0 Then
+        Option1(0).SetFocus
+    Else
+        MsgBox "Select Visit Day!", vbCritical + vbOKOnly, "DAS Version 4.0"
+        Option1(2).SetFocus
+    End If
+'    Command1.Enabled = True
+'    cmdSort.Enabled = True
+'    Command1.SetFocus
+End If
+End Sub
+
+Private Sub Combo2_keypress(l As Integer)
+If l = 13 Then
+    MS.Text = Combo2
+    Combo2.Visible = False
+    MS.SetFocus
+End If
+End Sub
+
+Private Sub Combo3_Change()
+If Len(Trim(Combo3)) = 15 Then SLT
+End Sub
+
+Private Sub Combo3_KeyDown(l As Integer, Shift As Integer)
+If l = 13 Then
+    C = 0
+    STMP = MS.TextMatrix(MS.Row, 0)
+    SNUM = MS.Row
+    For r = 1 To MS.Rows - 1
+        If Val(MS.TextMatrix(r, 0)) = STMP And Trim(MS.TextMatrix(r, 3)) = Trim(Combo3.Text) Then
+            MS.TextMatrix(SNUM, 0) = 0
+            Exit For
+        End If
+    Next
+    MS.Text = Combo3
+    Combo3.Visible = False
+    MS.SetFocus
+End If
+End Sub
+
+Private Sub Combo3_keypress(K As Integer)
+If K = 39 Or K = 41 Or K = 37 Then K = 0
+If K > 47 And K < 58 Or K = 8 Or K = 13 Then
+ElseIf K > 96 And K < 123 Then
+K = K - 32
+ElseIf K > 64 And K < 91 Then
+Else
+K = 0
+End If
+End Sub
+
+Private Sub Command1_Click()
+    Label2.Visible = True
+    Label2.Caption = "Processing Query..."
+    Me.MousePointer = vbHourglass
+    DoEvents
+    Command1.Enabled = False
+    If rsmar.State = 1 Then rsmar.Close
+    With MS
+        .Rows = 2
+        r = 1
+        If rs.State = 1 Then rs.Close
+        If Option1(0).Value = True Then
+            MS.FixedCols = 0
+            'RS.Open "SELECT SEQ_NUM,ACT_NME,CAT_NME,ROU_DST,TIM_INN,TIM_OUT,MAR_NME,SMN_NME,DAY_IDY,RDY.ROU_IDY RDY_IDY,RDY.SMN_IDY RDY_SMN_IDY,ACT.ACT_IDY,LOC.LOC_NME FROM smn,mar,RDY,LOC,ACT left join cat on act.cat_idy =cat.cat_idy WHERE ACT.ACT_IDY LIKE RDY.ACT_IDY AND rdy.smn_idy like smn.smn_idy AND ACT.MAR_IDY LIKE MAR.MAR_IDY AND ACT.LOC_IDY LIKE LOC.LOC_IDY AND RDY.ROU_IDY LIKE '" & Trim(cmbRoute) & "' AND ACT.CST_TYP LIKE 'Retailer' ORDER BY ACT_NME", CON, adOpenKeyset, adlockpessimistic ' By radhika
+            'RS.Open "SELECT SEQ_NUM,ACT_NME,CAT_NME,ROU_DST,TIM_INN,TIM_OUT,MAR_NME,SMN_NME,DAY_IDY,RDY.ROU_IDY RDY_IDY,RDY.SMN_IDY RDY_SMN_IDY,ACT.ACT_IDY,LOC.LOC_NME FROM smn,mar,RDY,LOC,ACT left join cat on act.cat_idy =cat.cat_idy WHERE ACT.ACT_IDY LIKE RDY.ACT_IDY AND rdy.smn_idy like smn.smn_idy AND ACT.MAR_IDY LIKE MAR.MAR_IDY AND ACT.LOC_IDY LIKE LOC.LOC_IDY AND RDY.ROU_IDY LIKE '" & Trim(cmbRoute) & "' ORDER BY ACT_NME", CON, adOpenKeyset, adlockpessimistic
+            rs.Open "SELECT SEQ_NUM,ACT_NME,CAT_NME,ROU_DST,TIM_INN,TIM_OUT,MAR_NME,SMN_NME,DAY_IDY,RDY.ROU_IDY RDY_IDY,RDY.SMN_IDY RDY_SMN_IDY,ACT.ACT_IDY,LOC.LOC_NME FROM smn,mar,RDY,LOC,ACT left join cat on act.cat_idy =cat.cat_idy WHERE ACT.ACT_IDY LIKE RDY.ACT_IDY AND rdy.smn_idy like smn.smn_idy AND ACT.MAR_IDY LIKE MAR.MAR_IDY AND ACT.LOC_IDY LIKE LOC.LOC_IDY AND RDY.ROU_IDY LIKE '" & Trim(cmbRoute) & "' and rdy.day_idy =" & Val(Combo1.ListIndex) & " AND ACT.CST_TYP IN ('Retailer','Key A/c','Local Key A/c','Regnl Key A/c') ORDER BY ACT_NME", con, adOpenKeyset, adLockPessimistic
+            'GROUP BY RDY.ACT_IDY
+        ElseIf Option1(1).Value = True Then
+            MS.FixedCols = 1
+            'RS.Open "SELECT SEQ_NUM,ACT_NME,CAT_NME,ROU_DST,TIM_INN,TIM_OUT,MAR_NME,SMN_NME,DAY_IDY,RDY.ROU_IDY RDY_IDY,RDY.SMN_IDY RDY_SMN_IDY,ACT.ACT_IDY,LOC.LOC_NME FROM smn,mar,RDY,LOC,ACT left join cat on act.cat_idy =cat.cat_idy WHERE ACT.ACT_IDY LIKE RDY.ACT_IDY AND rdy.smn_idy like smn.smn_idy AND ACT.MAR_IDY LIKE MAR.MAR_IDY AND ACT.LOC_IDY LIKE LOC.LOC_IDY AND RDY.SMN_IDY LIKE '" & Trim(SMN_IDY.Tag) & "' ORDER BY ACT_NME", CON, adOpenKeyset, adlockpessimistic
+'            RS.Open "SELECT SEQ_NUM,ACT_NME,CAT_NME,ROU_DST,TIM_INN,TIM_OUT,MAR_NME,SMN_NME,DAY_IDY,RDY.ROU_IDY RDY_IDY,RDY.SMN_IDY RDY_SMN_IDY,ACT.ACT_IDY,LOC.LOC_NME FROM smn,mar,RDY,LOC,ACT left join cat on act.cat_idy =cat.cat_idy WHERE ACT.ACT_IDY LIKE RDY.ACT_IDY AND rdy.smn_idy like smn.smn_idy AND ACT.MAR_IDY LIKE MAR.MAR_IDY AND ACT.LOC_IDY LIKE LOC.LOC_IDY AND RDY.SMN_IDY LIKE '" & Trim(SMN_IDY.Tag) & "' AND ACT.CST_TYP LIKE 'Retailer' ORDER BY ACT_NME", CON, adOpenKeyset, adlockpessimistic ' By Radhika
+             rs.Open "SELECT SEQ_NUM,ACT_NME,CAT_NME,ROU_DST,TIM_INN,TIM_OUT,MAR_NME,SMN_NME,DAY_IDY,RDY.ROU_IDY RDY_IDY,RDY.SMN_IDY RDY_SMN_IDY,ACT.ACT_IDY,LOC.LOC_NME FROM smn,mar,RDY,LOC,ACT left join cat on act.cat_idy =cat.cat_idy WHERE ACT.ACT_IDY LIKE RDY.ACT_IDY AND rdy.smn_idy like smn.smn_idy AND ACT.MAR_IDY LIKE MAR.MAR_IDY AND ACT.LOC_IDY LIKE LOC.LOC_IDY AND RDY.SMN_IDY LIKE '" & Trim(SMN_IDY.Tag) & "' and rdy.day_idy =" & Val(Combo1.ListIndex) & " AND ACT.CST_TYP IN ('Retailer','Key A/c','Local Key A/c','Regnl Key A/c') ORDER BY ACT_NME", con, adOpenKeyset, adLockPessimistic
+        ElseIf Option1(2).Value = True Then
+'            MS.FixedCols = 1
+'            'RS.Open "SELECT SEQ_NUM,ACT_NME,CAT_NME,ROU_DST,TIM_INN,TIM_OUT,MAR_NME,SMN_NME,DAY_IDY,RDY.ROU_IDY RDY_IDY,RDY.SMN_IDY RDY_SMN_IDY,ACT.ACT_IDY,LOC.LOC_NME FROM smn,mar,RDY,LOC,ACT left join cat on act.cat_idy =cat.cat_idy WHERE ACT.ACT_IDY LIKE RDY.ACT_IDY AND rdy.smn_idy like smn.smn_idy AND ACT.MAR_IDY LIKE MAR.MAR_IDY AND ACT.LOC_IDY LIKE LOC.LOC_IDY AND RDY.DAY_IDY = " & Val(Combo1.ListIndex + 1) & " GROUP BY RDY.ACT_IDY ORDER BY ACT_NME", CON, adOpenKeyset, adlockpessimistic
+'            RS.Open "SELECT SEQ_NUM,ACT_NME,CAT_NME,ROU_DST,TIM_INN,TIM_OUT,MAR_NME,SMN_NME,DAY_IDY,RDY.ROU_IDY RDY_IDY,RDY.SMN_IDY RDY_SMN_IDY,ACT.ACT_IDY,LOC.LOC_NME FROM smn,mar,RDY,LOC,ACT left join cat on act.cat_idy =cat.cat_idy WHERE ACT.ACT_IDY LIKE RDY.ACT_IDY AND rdy.smn_idy like smn.smn_idy AND ACT.MAR_IDY LIKE MAR.MAR_IDY AND ACT.LOC_IDY LIKE LOC.LOC_IDY AND RDY.DAY_IDY = " & Val(Combo1.ListIndex) & " and act.cst_typ like 'Retailer' GROUP BY RDY.ACT_IDY ORDER BY ACT_NME", CON, adOpenKeyset, adlockpessimistic  ' By Radhika
+        End If
+        'DoEvents
+        
+        If rs.RecordCount > 0 Then
+        PB.Visible = True
+        Label2.Left = 4560
+        Label2.Caption = "Loading Retailers... Please Wait..."
+        Label2.Refresh
+        PB.Max = rs.RecordCount + 1
+        MS.Rows = rs.RecordCount + 1
+        For A = 1 To rs.RecordCount
+            MS.TextMatrix(A, 0) = Val(rs(0) & "")
+            MS.TextMatrix(A, 1) = Trim(rs(1))
+            MS.TextMatrix(A, 2) = Trim(rs(6) & "")
+            MS.TextMatrix(A, 3) = Trim(rs(9) & "")
+            MS.TextMatrix(A, 4) = Trim(rs(7))
+            MS.TextMatrix(A, 5) = Combo1.List(Val(rs(8) & ""))
+            MS.TextMatrix(A, 6) = Trim(rs(3))
+            MS.TextMatrix(A, 7) = Trim(rs(4))
+            MS.TextMatrix(A, 8) = Trim(rs(5))
+            MS.TextMatrix(A, 9) = Trim(rs(2) & "")
+            MS.TextMatrix(A, 10) = Trim(rs(12) & "")
+            MS.TextMatrix(A, 11) = Trim(rs(10) & "")
+            MS.TextMatrix(A, 12) = Trim(rs(11) & "")
+            rs.MoveNext
+            PB.Value = A
+        Next
+        PB.Visible = False
+        Label2.Visible = False
+        MS.SetFocus
+        If Option1(0).Value = True Then
+            MS.Col = 0
+        Else
+            MS.Col = 1
+        End If
+        Else
+            MsgBox "Retailers Not Found!", vbExclamation, "DAS Version 4.0"
+            cmdSort.Enabled = False
+            Label2.Visible = False
+            PB.Visible = False
+            CANCELRECORD
+        End If
+    End With
+    Me.MousePointer = vbNormal
+End Sub
+
+Private Sub DT_KeyDown(KeyCode As Integer, Shift As Integer)
+If KeyCode = 13 Then
+    If MS.Col = 7 Then
+        MS.Text = Format(DT, "hh:mm:ss")
+        DT.Visible = False
+        MS.SetFocus
+    ElseIf MS.Col = 8 Then
+        If Format(DT, "hh:mm:ss") > Format(MS.TextMatrix(MS.Row, 7), "hh:mm:ss") Then
+            MS.Text = Format(DT, "hh:mm:ss")
+            DT.Visible = False
+            MS.SetFocus
+        Else
+            MsgBox "Invalid Departure Time ", vbExclamation
+            DT.Visible = True
+            DT.SetFocus
+        End If
+    End If
+End If
+End Sub
+
+Private Sub Form_Activate()
+SSTab1.Tab = 0
+Option1(2).SetFocus
+SSTab1.TabEnabled(1) = False
+End Sub
+
+Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
+If KeyCode = 120 Then
+    If osversion = 1 Then Shell "c:\windows\calc.exe"
+    If osversion = 2 Then Shell "c:\winnt\system32\calc.exe"
+End If
+
+If KeyCode = 83 And Shift = 2 Then saverecord
+If KeyCode = 88 And Shift = 2 Then Unload Me
+If KeyCode = 81 And Shift = 2 Then CANCELRECORD
+If KeyCode = 112 Then M_HELP
+If KeyCode = 69 And Shift = 2 Then If M_FRM_RUT.ActiveControl.name = "SMN_IDY" Then V_SMN_LST
+If KeyCode > 111 And KeyCode < 120 Then If TypeOf M_FRM_RUT.ActiveControl Is TextBox Then M_FRM_RUT.ActiveControl.Text = FUNKEY(KeyCode)
+End Sub
+
+Private Sub Form_KeyPress(KeyAscii As Integer)
+If KeyAscii = 27 Then
+    If Me.ActiveControl.name = "Option1" Then
+        Unload Me
+    ElseIf SSTab1.Tab = 1 And list4.Visible = True Then
+        list4.Visible = False
+        SSTab1.Tab = 0
+        If SMN_IDY.Enabled = True Then SMN_IDY.SetFocus
+    Else
+        saverecord
+    End If
+End If
+End Sub
+
+Private Sub Form_Load()
+AddData cmbRoute, Me, "rou_idy", "rdy", "", "group by rou_idy"
+AddData Combo3, Me, "rou_idy", "rdy", "", "group by rou_idy"
+loadms
+End Sub
+
+Private Sub list4_DblClick()
+list4_KeyPress 13
+End Sub
+
+Private Sub list4_KeyPress(K As Integer)
+If K <> 13 Then Exit Sub
+list4.Visible = False
+SSTab1.Tab = 0
+If list4.Tag = "MS" Then
+    txtSmn.Visible = False
+    MS.Text = list4.SelectedItem.ListSubItems.Item(1)
+    MS.TextMatrix(MS.Row, 11) = list4.SelectedItem
+    MS.SetFocus
+Else
+    SMN_IDY = list4.SelectedItem.ListSubItems.Item(1)
+    SMN_IDY.Tag = list4.SelectedItem
+    Command1.Enabled = True
+    cmdSort.Enabled = True
+    Command1.SetFocus
+End If
+End Sub
+
+Private Sub MS_KeyDown(KeyCode As Integer, Shift As Integer)
+If KeyCode = 46 Then  ' Deleting a Record
+    If MsgBox("Delete Record?", vbQuestion + vbYesNo, "DAS Version 4.0") = vbYes Then
+        If Option1(0).Value = True Then
+            con.Execute "DELETE FROM RDY WHERE ROU_IDY LIKE '" & Trim(cmbRoute) & "' AND DAY_IDY=" & Trim(Combo1.ListIndex)
+            If MS.Row <> MS.Rows - 1 Then MS.Row = MS.Row + 1
+            MS.Col = 1
+            MS.RowHeight(MS.Row) = 0
+        ElseIf Option1(1).Value = True Then
+            con.Execute "DELETE FROM RDY WHERE SMN_IDY LIKE '" & Trim(SMN_IDY.Tag) & "' AND DAY_IDY=" & Trim(Combo1.ListIndex)
+            If MS.Row <> MS.Rows - 1 Then MS.Row = MS.Row + 1
+            MS.Col = 1
+            MS.RowHeight(MS.Row) = 0
+        End If
+        MS.SetFocus
+    Else
+        MS.SetFocus
+        Exit Sub
+    End If
+End If
+End Sub
+
+Private Sub MS_KeyPress(K As Integer)
+If MS.Row = 0 Then Exit Sub
+If K > 96 And K < 123 Then
+    K = K - 32
+ElseIf K > 47 And K < 58 Or K = 46 Then
+End If
+If K = 39 Or K = 41 Then K = 0
+If K = 27 Then
+Else
+    If MS.Col = 0 Or MS.Col = 6 Then
+        If K <> 13 Then
+            If K >= 48 And K <= 57 Then
+                MS.TextMatrix(MS.Row, MS.Col) = ""
+                txtVar.Visible = True
+                txtVar.Left = MS.Left + MS.CellLeft
+                txtVar.Top = MS.Top + MS.CellTop
+                txtVar.Height = MS.CellHeight
+                txtVar.Width = MS.CellWidth
+                txtVar.Visible = True
+                txtVar.SetFocus
+                If K = 13 Then
+                    K = 0
+                Else
+                    txtVar = Chr(K)
+                End If
+                txtVar.SelStart = Len(Trim(txtVar))
+            End If
+        End If
+    ElseIf MS.Col = 7 Or MS.Col = 8 Then
+        If IsDate(MS.Text) Then DT = MS.Text
+        DT.Visible = True
+        DT.Top = MS.Top + MS.CellTop
+        DT.Left = MS.CellLeft + MS.Left
+        DT.Width = MS.CellWidth
+        DT.Height = MS.CellHeight
+        DT.Visible = True
+        DT.SetFocus
+    ElseIf MS.Col = 5 Then
+        If K <> 13 Then
+            Combo2.Visible = True
+            Combo2.Enabled = True
+            Combo2.Top = MS.Top + MS.CellTop
+            Combo2.Left = MS.CellLeft + MS.Left
+            Combo2.Width = MS.CellWidth
+            Combo2.Visible = True
+            Combo2.SetFocus
+        End If
+    ElseIf MS.Col = 3 Then
+        If K <> 13 Then
+            Combo3.Visible = True
+            Combo3.Enabled = True
+            Combo3.Top = MS.Top + MS.CellTop
+            Combo3.Left = MS.CellLeft + MS.Left
+            Combo3.Width = MS.CellWidth
+            Combo3.Visible = True
+            Combo3.SetFocus
+        End If
+    ElseIf MS.Col = 4 Then
+        If K <> 0 And K <> 27 And K <> 13 Then
+            txtSmn = ""
+            txtSmn.Visible = True
+            txtSmn.Left = MS.Left + MS.CellLeft
+            txtSmn.Top = MS.Top + MS.CellTop
+            txtSmn.Height = MS.CellHeight
+            txtSmn.Width = MS.CellWidth
+            txtSmn.Visible = True
+            txtSmn.SetFocus
+            If K = 13 Then
+                K = 0
+            Else
+                txtSmn = Chr(K)
+            End If
+            txtSmn.SelStart = Len(Trim(txtSmn))
+        End If
+    End If
+End If
+End Sub
+
+Private Sub MS_LeaveCell()
+Combo2.Visible = False
+Combo3.Visible = False
+txtVar.Visible = False
+txtSmn.Visible = False
+DT.Visible = False
+End Sub
+
+Private Sub MS_Scroll()
+If txtVar.Visible = True Then
+    txtVar = ""
+    txtVar.Visible = False
+    MS.SetFocus
+ElseIf DT.Visible = True Then
+    DT.Visible = False
+    MS.SetFocus
+ElseIf Combo2.Visible = True Then
+    Combo2.Visible = False
+    MS.SetFocus
+ElseIf Combo3.Visible = True Then
+    Combo3.Visible = False
+    MS.SetFocus
+ElseIf txtSmn.Visible = True Then
+    txtSmn = ""
+    txtSmn.Visible = False
+    MS.SetFocus
+End If
+End Sub
+
+Private Sub Option1_KeyPress(i As Integer, K As Integer)
+If K = 13 Then
+    If i = 0 Then
+        If Len(Trim(Combo1.Text)) > 0 Then
+            SMN_IDY.Enabled = False
+            SMN_IDY = ""
+            'Combo1.Enabled = False
+            'If Combo1.ListCount >= 1 Then Combo1.ListIndex = 0
+            cmbRoute.Enabled = True
+            cmbRoute.SetFocus
+        Else
+            MsgBox "Select Visit Day", vbCritical + vbOKOnly, "DAS Version 4.0"
+            Option1(2).Value = True
+            If Combo1.Enabled = True Then Combo1.SetFocus
+        End If
+    ElseIf i = 1 Then
+        If Len(Trim(Combo1.Text)) > 0 Then
+            cmbRoute.Enabled = False
+            If cmbRoute.ListCount >= 1 Then cmbRoute.ListIndex = 0
+            'Combo1.Enabled = False
+            'If Combo1.ListCount >= 1 Then Combo1.ListIndex = 0
+            SMN_IDY.Enabled = True
+            SMN_IDY.SetFocus
+        Else
+            MsgBox "Select Visit Day", vbCritical + vbOKOnly, "DAS Version 4.0"
+            Option1(2).Value = True
+            Combo1.SetFocus
+        End If
+    ElseIf i = 2 Then
+        SMN_IDY.Enabled = False
+        SMN_IDY = ""
+        cmbRoute.Enabled = False
+        If cmbRoute.ListCount >= 1 Then cmbRoute.ListIndex = 0
+        Combo1.Enabled = True
+        Combo1.SetFocus
+    End If
+End If
+End Sub
+
+Private Sub Toolbar1_ButtonClick(ByVal Button As MSComctlLib.Button)
+If Button.KEY = "s" Then
+    saverecord
+ElseIf Button.KEY = "e" Then
+    Unload Me
+ElseIf Button.KEY = "p" Then
+    
+ElseIf Button.KEY = "c" Then
+    CANCELRECORD
+ElseIf Button.KEY = "h" Then
+    M_HELP
+ElseIf Button.KEY = "ed" Then
+    If Me.ActiveControl.name = "SMN_IDY" Then V_SMN_LST
+End If
+End Sub
+
+Private Sub Txtsmn_KeyPress(K As Integer)
+If K = 39 Or K = 41 Or K = 37 Then K = 0
+If K = 13 Then
+    If CHECKTB("smn.dbf") = 1 Then
+        MsgBox UCase(TNAME) & " Missing in " & Me.Caption
+        CANCELRECORD
+        Exit Sub
+    End If
+    If check("SMN", "SMN_IDY", Sincrement(Trim(txtSmn))) = True Then
+        MS.Text = GetValue("SMN_NME", "SMN WHERE SMN_IDY LIKE '" & Sincrement(Trim(txtSmn)) & "'")
+        MS.TextMatrix(MS.Row, 11) = Sincrement(Trim(txtSmn))
+        txtSmn.Visible = False
+        MS.SetFocus
+    Else
+        list4.Tag = "MS"
+        V_SMN_LST
+    End If
+End If
+End Sub
+
+Private Sub txtvar_KeyDown(KeyCode As Integer, Shift As Integer)
+If KeyCode = 13 Then
+    If MS.Col = 0 Then
+        For r = 1 To MS.Rows - 1
+            If Val(txtVar) = 0 Then
+            ElseIf Trim(MS.TextMatrix(r, MS.Col)) = Trim(txtVar) Then
+                MsgBox "Sequence should not contain duplicate values", vbExclamation
+                txtVar.Visible = True
+                txtVar.SetFocus
+                SendKeys "{home}+{end}"
+                Exit Sub
+            End If
+        Next
+        If r = MS.Rows Then
+            MS.Col = 0
+            txtVar.Visible = False
+            MS.Text = txtVar.Text
+            txtVar = ""
+            If MS.Row < MS.Rows - 1 Then
+                MS.Row = MS.Row + 1
+            End If
+            MS.SetFocus
+        End If
+    Else
+        txtVar.Visible = False
+        MS.Text = txtVar.Text
+        txtVar = ""
+        MS.Col = MS.Col + 1
+        MS.SetFocus
+    End If
+End If
+End Sub
+Private Sub saverecord()
+If MsgBox("Save Record?", vbYesNo + vbExclamation, "DAS Version 4.0") = vbNo Then
+    CANCELRECORD
+    Exit Sub
+End If
+If Option1(1).Value = True Then
+    If Trim(SMN_IDY) = "" Then
+        MsgBox "Select Salesman ID", vbExclamation
+        SSTab1.Tab = 0
+        SMN_IDY.SetFocus
+        SendKeys "{home}+{end}"
+        Exit Sub
+    End If
+End If
+If MS.Rows = 1 Then
+    MsgBox "Load Retailers ", vbExclamation
+    Command1.Enabled = True
+    cmdSort.Enabled = True
+    Command1.SetFocus
+    Exit Sub
+End If
+If rsrou.State = 1 Then rsrou.Close
+If Option1(0).Value = True Then
+    con.Execute "DELETE FROM RDY WHERE ROU_IDY LIKE '" & Trim(cmbRoute) & "' AND DAY_IDY=" & Trim(Combo1.ListIndex)
+    SAL_QRY = "RDY->ROU_IDY='" & Trim(cmbRoute) & "'"
+ElseIf Option1(1).Value = True Then
+    con.Execute "DELETE FROM RDY WHERE SMN_IDY LIKE '" & Trim(SMN_IDY.Tag) & "' AND DAY_IDY=" & Trim(Combo1.ListIndex)
+    SAL_QRY = "RDY->SMN_IDY='" & Trim(SMN_IDY.Tag) & "'"
+Else
+'    CON.Execute "DELETE FROM RDY WHERE DAY_IDY =" & Trim(Combo1.ListIndex + 1)
+'    SAL_QRY = "RDY->DAY_IDY=" & Trim(Combo1.ListIndex + 1)
+End If
+rsrou.Open "select * from rdy", con, adOpenKeyset, adLockPessimistic
+r = 1
+For r = 1 To MS.Rows - 1
+    If MS.RowHeight(r) > 0 Then
+        rsrou.AddNew
+        rsrou!rou_idy = Trim(cmbRoute & "")
+        rsrou("Act_idy") = Trim(MS.TextMatrix(r, 12)) & ""
+        rsrou("rou_dst") = Val(MS.TextMatrix(r, 6))
+        rsrou("tim_inn") = Trim(MS.TextMatrix(r, 7)) & ""
+        rsrou("tim_out") = Trim(MS.TextMatrix(r, 8)) & ""
+        rsrou("seq_num") = Val(MS.TextMatrix(r, 0))
+        If Trim(MS.TextMatrix(r, 5)) = "Monday" Then
+            dayid = 1
+        ElseIf Trim(MS.TextMatrix(r, 5)) = "Tuesday" Then
+            dayid = 2
+        ElseIf Trim(MS.TextMatrix(r, 5)) = "Wednesday" Then
+            dayid = 3
+        ElseIf Trim(MS.TextMatrix(r, 5)) = "Thursday" Then
+            dayid = 4
+        ElseIf Trim(MS.TextMatrix(r, 5)) = "Friday" Then
+            dayid = 5
+        ElseIf Trim(MS.TextMatrix(r, 5)) = "Saturday" Then
+            dayid = 6
+        ElseIf Trim(MS.TextMatrix(r, 5)) = "Sunday" Then
+            dayid = 7
+        End If
+        rsrou("DAY_IDY") = Val(Trim(dayid) & "")
+        rsrou("SMN_IDY") = Trim(MS.TextMatrix(r, 11))
+        rsrou("ROU_IDY") = Trim(MS.TextMatrix(r, 3) & "")
+        rsrou.Update
+        'rsrou.MoveNext
+    End If
+Next
+OpenReport CURDIR & "\LISTS.RP1", "Route Sequence by Route", 2, SAL_QRY, 6
+CANCELRECORD
+End Sub
+
+Private Sub txtVar_KeyPress(KeyAscii As Integer)
+If KeyAscii = 46 Then KeyAscii = 0
+End Sub
+Private Sub SMN_IDY_GotFocus()
+M_MDI.STS_BAR.Panels(1).Text = "Type Salesman ID or Press <Enter> To Select From The List"
+End Sub
+
+Private Sub smn_idy_kEYPRESS(K As Integer)
+If K > 96 And K < 123 Then K = K - 32
+If K = 39 Or K = 41 Or K = 37 Then K = 0
+If K = 13 Then
+    If CHECKTB("smn.dbf") = 1 Then
+        MsgBox UCase(TNAME) & " Missing in " & Me.Caption
+        'cancel
+        Exit Sub
+    End If
+    If check("SMN", "SMN_IDY", Sincrement(Trim(SMN_IDY))) = True Then
+        SMN_IDY.Tag = Sincrement(Trim(SMN_IDY))
+        SMN_IDY = GetValue("SMN_NME", "SMN WHERE SMN_IDY LIKE '" & Trim(SMN_IDY.Tag) & "'")
+        Command1.Enabled = True
+        cmdSort.Enabled = True
+        Command1.SetFocus
+    Else
+        list4.Tag = ""
+        V_SMN_LST
+    End If
+End If
+End Sub
+Private Sub V_SMN_LST()
+If CHECKTB("smn.dbf") = 1 Then
+    MsgBox UCase(TNAME) & " Missing in " & Me.Caption
+    'cancelrecord
+    Exit Sub
+End If
+Dim REC_SET As New ADODB.Recordset
+Dim lst As ListItem
+LST_CAP = "Select Salesman"
+If REC_SET.State = 1 Then REC_SET.Close
+If list4.Tag = "MS" Then
+REC_SET.Open "select * from SMN WHERE SMN_nme like '" & Trim(txtSmn) & "%'", con, adOpenKeyset, adLockPessimistic
+Else
+REC_SET.Open "select * from SMN WHERE SMN_nme like '" & Trim(SMN_IDY) & "%'", con, adOpenKeyset, adLockPessimistic
+End If
+list4.ListItems.CLEAR
+If REC_SET.RecordCount > 0 Then
+    list4.ColumnHeaders.Item(1).Text = "Salesman ID"
+    list4.ColumnHeaders.Item(2).Text = "Salesman Name"
+    For A = 1 To REC_SET.RecordCount
+        Set lst = list4.ListItems.Add(, , Trim(REC_SET("smn_IDY")))
+        lst.ListSubItems.Add , , Trim(REC_SET("smn_NME"))
+        REC_SET.MoveNext
+    Next
+    REC_SET.Close
+    SSTab1.Tab = 1
+    list4.Visible = True
+    list4.SetFocus
+Else
+    If SSTab1.Tab = 0 Then
+        MsgBox "Salesmen Not Found, Define Salesmen !", vbExclamation, "DAS Version 4.0"
+        SSTab1.Tab = 0
+        If list4.Tag = "MS" Then
+            txtSmn.Visible = True
+            txtSmn.SetFocus
+        Else
+            SMN_IDY.SetFocus
+        End If
+    End If
+End If
+End Sub
+
+Public Sub CANCELRECORD()
+On Error GoTo lab
+clrctr Me
+list4.Tag = ""
+SMN_IDY.Tag = ""
+If cmbRoute.ListCount >= 1 Then cmbRoute.ListIndex = 0
+If Combo1.ListCount >= 1 Then Combo1.ListIndex = 0
+MS.CLEAR
+MS.Rows = 1
+Combo2.Visible = False
+txtVar.Visible = False
+txtSmn.Visible = False
+Combo3.Visible = False
+Command1.Enabled = False
+cmdSort.Enabled = False
+Option1(2).SetFocus
+AddData cmbRoute, Me, "rou_idy", "rdy", "", "group by rou_idy"
+AddData Combo3, Me, "rou_idy", "rdy", "", "group by rou_idy"
+loadms
+Label2.Left = 3360
+SSTab1.Tab = 0
+Exit Sub
+lab:
+MsgBox err.Description
+End Sub
+Private Sub loadms()
+With MS
+.Cols = 13
+.Rows = 1
+.FixedCols = 0
+.TextMatrix(0, 0) = "Order #"
+.ColAlignment(0) = 7
+.ColWidth(0) = 700
+.Col = 0
+.Row = 0
+.CellForeColor = vbBlue
+.TextMatrix(0, 1) = "Retailer Name"
+.ColAlignment(1) = 1
+.ColWidth(1) = 1900
+.TextMatrix(0, 2) = "Market"
+.ColWidth(2) = 2100
+.ColAlignment(2) = 1
+.TextMatrix(0, 3) = "Route"
+.ColAlignment(3) = 1
+.Col = 3
+.Row = 0
+.CellForeColor = vbBlue
+.ColWidth(3) = 1400
+.TextMatrix(0, 4) = "Salesman"
+.ColAlignment(4) = 1
+.Col = 4
+.Row = 0
+.CellForeColor = vbBlue
+.ColWidth(4) = 2000
+.TextMatrix(0, 5) = "Visit day"
+.ColAlignment(5) = 1
+.Col = 5
+.Row = 0
+.CellForeColor = vbBlue
+.ColWidth(5) = 1200
+.TextMatrix(0, 6) = "Dist.Kms"
+.ColWidth(6) = 1200
+.Col = 6
+.Row = 0
+.CellForeColor = vbBlue
+.ColAlignment(6) = 7
+.ColAlignment(7) = 1
+.TextMatrix(0, 7) = "Arr.Time"
+.ColWidth(7) = 1300
+.Col = 7
+.Row = 0
+.CellForeColor = vbBlue
+.TextMatrix(0, 8) = "Dep.Time"
+.ColWidth(8) = 1300
+.ColAlignment(8) = 1
+.Row = 0
+.Col = 8
+.CellForeColor = vbBlue
+.TextMatrix(0, 9) = "Category"
+.ColWidth(9) = 1900
+.ColAlignment(9) = 1
+.TextMatrix(0, 10) = "Location"
+.ColWidth(10) = 2000
+.ColAlignment(10) = 1
+.ColWidth(11) = 0
+.ColWidth(12) = 0
+.ColWidth(11) = 0
+End With
+End Sub

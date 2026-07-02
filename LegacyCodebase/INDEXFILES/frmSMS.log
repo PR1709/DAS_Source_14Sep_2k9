@@ -1,0 +1,24 @@
+Line 13: Property Icon in frmSMS had an invalid file reference.
+Line 55: Property TabPicture(0) in SSTab1 had an invalid file reference.
+Line 74: Property TabPicture(1) in SSTab1 had an invalid file reference.
+Line 84: Property TabPicture(2) in SSTab1 had an invalid file reference.
+Line 93: Property TabPicture(3) in SSTab1 had an invalid file reference.
+Line 103: Property TabPicture(4) in SSTab1 had an invalid file reference.
+Line 141: Property ItemData in cmbSMSMode had an invalid file reference.
+Line 143: Property List in cmbSMSMode had an invalid file reference.
+Line 184: Property ItemData in lstSMSSend had an invalid file reference.
+Line 186: Property List in lstSMSSend had an invalid file reference.
+Line 202: Property ItemData in lstMsgTemplate had an invalid file reference.
+Line 204: Property List in lstMsgTemplate had an invalid file reference.
+Line 212: Property ItemData in lstFields had an invalid file reference.
+Line 214: Property List in lstFields had an invalid file reference.
+Line 255: Property ItemData in cmbBaudRate had an invalid file reference.
+Line 257: Property List in cmbBaudRate had an invalid file reference.
+Line 266: Property ItemData in cmbParity had an invalid file reference.
+Line 268: Property List in cmbParity had an invalid file reference.
+Line 277: Property ItemData in cmbDataBit had an invalid file reference.
+Line 279: Property List in cmbDataBit had an invalid file reference.
+Line 288: Property ItemData in cmbStopBit had an invalid file reference.
+Line 290: Property List in cmbStopBit had an invalid file reference.
+Line 317: Property TextRTF in rtbMsgTemplate had an invalid value.
+Line 381: Property TextRTF in RichTextBox1 had an invalid value.

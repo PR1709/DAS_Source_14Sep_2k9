@@ -1,0 +1,3 @@
+    1: Group 'Stock Receipts' is already a child of this!(FOR OBJECT: 'STOCK RECEIPTS')
+    1: Group 'Stock Issues' is already a child of this!(FOR OBJECT: 'STOCK ISSUES')
+    1: Group 'Liability' is already a child of this!(FOR OBJECT: 'LIABILITY')

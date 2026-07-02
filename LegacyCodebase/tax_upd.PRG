@@ -1,0 +1,21 @@
+close all
+clear all
+select 0
+use PRD index PRD alias PRD
+set order to PRD_IDY
+select 0
+use BRD index BRD alias BRD
+select PRD
+go top
+do while .not. eof("BRD")
+    select PRD
+	seek BRD->PRD_IDY
+	if found()
+		replace BRD->B_PUR_TAX with PRD->PUR_TAX, BRD->B_SAL_TAX with PRD->SAL_TAX
+	endif
+	select BRD
+	skip 1
+enddo
+close all
+clear all
+return

@@ -1,0 +1,683 @@
+CLOSE ALL
+CLEAR ALL
+SET TALK OFF
+SET ECHO OFF
+OPEN DATABASE EFF
+* Change of ACT Table
+select 0
+USE ACT alias ACT
+if fsize("RET_TYP") = 1
+	ALTER TABLE ACT ALTER COLUMN RET_TYP c(15) NULL
+endif
+* 
+if fcount("ACT") = 50
+	ALTER TABLE ACT ADD COLUMN SKU_RNG n(15, 2) NULL
+	REPLACE ALL SKU_RNG WITH 0
+endif
+* Change of MAR Table
+select 0
+use MAR alias MAR
+if fcount("MAR") = 9
+	ALTER TABLE MAR ADD COLUMN MAR_DOP n(10) NULL
+	ALTER TABLE MAR ADD COLUMN MAR_PGR c(50) NULL
+	ALTER TABLE MAR ADD COLUMN MAR_GRD c(15) NULL
+endif
+if fcount("MAR") = 12	
+	ALTER TABLE MAR ADD COLUMN MAR_CSG c(10) NULL
+	ALTER TABLE MAR ADD COLUMN MAR_ROC c(10) NULL
+	ALTER TABLE MAR ADD COLUMN MAR_CLU c(10) NULL
+	ALTER TABLE MAR ADD COLUMN MAR_TWC c(10) NULL
+    ALTER TABLE MAR ADD COLUMN MAR_TWN c(10) NULL
+    ALTER TABLE MAR ADD COLUMN MAR_DST c(10) NULL
+    ALTER TABLE MAR ADD COLUMN MAR_STA c(10) NULL
+    ALTER TABLE MAR ADD COLUMN MAR_COU c(10) NULL
+endif
+* Change of SMN Table
+select 0
+use SMN alias SMN
+if fcount("SMN") = 15
+	ALTER TABLE SMN ADD COLUMN SMN_SUN n(5) NULL
+	ALTER TABLE SMN ADD COLUMN SMN_MON n(5) NULL
+	ALTER TABLE SMN ADD COLUMN SMN_TUE n(5) NULL
+	ALTER TABLE SMN ADD COLUMN SMN_WED n(5) NULL
+	ALTER TABLE SMN ADD COLUMN SMN_THU n(5) NULL
+	ALTER TABLE SMN ADD COLUMN SMN_FRI n(5) NULL
+	ALTER TABLE SMN ADD COLUMN SMN_SAT n(5) NULL
+endif
+* Change of DIR Table
+select 0
+use DIR alias DIR
+if fcount("DIR") = 4
+	ALTER TABLE DIR ADD COLUMN DIR_DAT d NULL
+endif
+* Change of PRD Table
+select 0
+use PRD alias PRD
+if fcount("PRD") = 35
+	ALTER TABLE PRD ADD COLUMN TAX_TYP c(15) NULL
+endif
+* Change of VAN Table
+select 0
+use VAN alias VAN
+if fcount("VAN") = 32
+	ALTER TABLE VAN ADD COLUMN OLD_CRD n(15,2) NULL
+	ALTER TABLE VAN ADD COLUMN CUR_CRD n(15,2) NULL
+endif
+*
+if fcount("VAN") = 34
+	ALTER TABLE VAN ADD COLUMN SHT_CSH n(15,2) NULL
+	go top
+	replace all VAN.SHT_CSH with 0
+endif
+*
+if fcount("VAN") = 35
+	ALTER TABLE VAN ADD COLUMN OPN_PCS n(5,0) NULL
+	ALTER TABLE VAN ADD COLUMN ISS_PCS n(5,0) NULL
+	ALTER TABLE VAN ADD COLUMN TOT_PCS n(5,0) NULL
+	ALTER TABLE VAN ADD COLUMN RET_PCS n(5,0) NULL
+	ALTER TABLE VAN ADD COLUMN BIL_PCS n(5,0) NULL
+	ALTER TABLE VAN ADD COLUMN FRE_PCS n(5,0) NULL
+	ALTER TABLE VAN ADD COLUMN LKG_PCS n(5,0) NULL
+	ALTER TABLE VAN ADD COLUMN BRK_PCS n(5,0) NULL
+endif
+* Change of BRD Table
+select 0
+use BRD alias BRD
+if fcount("BRD") = 9
+	ALTER TABLE BRD ADD COLUMN P_INC_DIS n(15,2) NULL
+	ALTER TABLE BRD ADD COLUMN S_INC_DIS n(15,2) NULL
+	REPLACE ALL P_INC_DIS WITH 0.00
+	GO TOP
+	REPLACE ALL S_INC_DIS WITH 0.00
+	GO TOP
+endif
+if fcount("BRD") = 11
+	ALTER TABLE BRD ADD COLUMN P_PUR_VAT n(10,2) NULL
+	ALTER TABLE BRD ADD COLUMN P_CRT_RNT n(10,2) NULL
+	ALTER TABLE BRD ADD COLUMN P_CRT_VAT n(10,2) NULL
+	ALTER TABLE BRD ADD COLUMN P_TOT_VAT n(10,2) NULL
+	ALTER TABLE BRD ADD COLUMN PUR_LPP   n(15,2) NULL
+	ALTER TABLE BRD ADD COLUMN U_PUR_LPP n(10,2) NULL
+	ALTER TABLE BRD ADD COLUMN S_SAL_VAT n(10,2) NULL
+	ALTER TABLE BRD ADD COLUMN S_CRT_RNT n(10,2) NULL
+	ALTER TABLE BRD ADD COLUMN S_CRT_VAT n(10,2) NULL
+	ALTER TABLE BRD ADD COLUMN S_TOT_VAT n(10,2) NULL
+	ALTER TABLE BRD ADD COLUMN SAL_LPP   n(15,2) NULL
+	ALTER TABLE BRD ADD COLUMN U_SAL_LPP n(10,2) NULL
+	ALTER TABLE BRD ADD COLUMN SKU_SBU   n(5,0)  NULL
+	ALTER TABLE BRD ADD COLUMN B_CRT_RAT n(10,2) NULL
+	ALTER TABLE BRD ADD COLUMN B_CRT_DIS n(10,2) NULL
+	ALTER TABLE BRD ADD COLUMN B_PUR_TAX n(10,2) NULL
+	ALTER TABLE BRD ADD COLUMN B_SAL_TAX n(10,2) NULL
+endif
+* DAS BRD Table Additional Fields Update
+close all
+*select 0
+*use PRD index PRD alias PRD
+*set order to 1
+*select 0
+*use BRD alias BRD
+*select BRD
+*go top
+*do while .not. eof()
+*   select PRD
+*   seek BRD->PRD_IDY
+*   if found()
+*   		replace BRD->B_CRT_RAT with PRD->LST_RAT, BRD->B_CRT_DIS with PRD->LST_DIS,;
+*   				BRD->B_PUR_TAX with PRD->PUR_TAX, BRD->B_SAL_TAX with PRD->SAL_TAX,;
+*   				BRD->SKU_SBU with PRD->SUB_UNT
+*   		replace BRD->P_PUR_VAT with (((BRD->PRD_PDR - BRD->P_INC_DIS) * PRD->PUR_TAX)/100)
+*   		replace BRD->P_CRT_RNT with PRD->LST_RAT
+*   		replace BRD->P_CRT_VAT with ((PRD->LST_RAT * PRD->LST_DIS)/100)
+*   		replace BRD->P_TOT_VAT with (((BRD->PRD_PDR - BRD->P_INC_DIS) * PRD->PUR_TAX)/100) + ((PRD->LST_RAT * PRD->LST_DIS)/100)
+*   		replace BRD->PUR_LPP with ROUND((BRD->PRD_PDR + (((BRD->PRD_PDR - BRD->P_INC_DIS) * PRD->PUR_TAX)/100) + PRD->LST_RAT + ((PRD->LST_RAT * PRD->LST_DIS)/100)),1)
+*   		replace BRD->U_PUR_LPP with ((BRD->PRD_PDR + (((BRD->PRD_PDR - BRD->P_INC_DIS) * PRD->PUR_TAX)/100) + PRD->LST_RAT + ((PRD->LST_RAT * PRD->LST_DIS)/100)) / PRD->SUB_UNT)
+*   		
+*   		replace BRD->S_SAL_VAT with (((BRD->PRD_SDR - BRD->S_INC_DIS) * PRD->SAL_TAX)/100)
+*   		replace BRD->S_CRT_RNT with PRD->LST_RAT
+*   		replace BRD->S_CRT_VAT with ((PRD->LST_RAT * PRD->LST_DIS)/100)
+*   		replace BRD->S_TOT_VAT with (((BRD->PRD_SDR - BRD->S_INC_DIS) * PRD->SAL_TAX)/100) + ((PRD->LST_RAT * PRD->LST_DIS)/100)
+*   		replace BRD->SAL_LPP with ROUND((BRD->PRD_SDR + (((BRD->PRD_SDR - BRD->S_INC_DIS) * PRD->SAL_TAX)/100) + PRD->LST_RAT + ((PRD->LST_RAT * PRD->LST_DIS)/100)),1)
+*   		replace BRD->U_SAL_LPP with ((BRD->PRD_SDR + (((BRD->PRD_SDR - BRD->S_INC_DIS) * PRD->SAL_TAX)/100) + PRD->LST_RAT + ((PRD->LST_RAT * PRD->LST_DIS)/100)) / PRD->SUB_UNT)   		
+*   		select BRD
+*   		skip 1
+*   	endif
+*enddo
+close all
+* Change of LNV Table
+select 0
+use LNV alias LNV
+if fsize("LEV_DES") = 15
+	ALTER TABLE LNV ALTER COLUMN LEV_DES c(10) NULL
+endif
+if fcount("LNV") = 7
+    ALTER TABLE LNV ADD COLUMN P_FRE_AMT n(15, 2) NULL
+    ALTER TABLE LNV ADD COLUMN S_FRE_AMT n(15, 2) NULL
+endif
+if fcount("LNV") = 9
+	ALTER TABLE LNV ADD COLUMN MER_NUM c(25) NULL
+	ALTER TABLE LNV ADD COLUMN PRD_PCK c(15) NULL
+	ALTER TABLE LNV ADD COLUMN SUB_UNT n(3) NULL
+	ALTER TABLE LNV ADD COLUMN GRP_CAT c(25) NULL
+endif
+* Change of INL Table
+select 0
+use INL alias INL
+if fsize("TXN_RM1") = 70
+	ALTER TABLE INL ALTER COLUMN TXN_RM1 c(100) NULL
+	ALTER TABLE INL ALTER COLUMN TXN_RM2 c(100) NULL
+endif
+* Change of SNV Table
+select 0
+use SNV alias SNV
+if fcount("SNV") = 27
+	ALTER TABLE SNV ADD COLUMN SNV_TYP c(20) NULL
+	ALTER TABLE SNV ADD COLUMN SNV_RMK c(100) NULL
+endif
+if fcount("SNV") = 29
+	ALTER TABLE SNV ADD COLUMN N_SHL_NOS n(10) NULL
+	ALTER TABLE SNV ADD COLUMN N_PCK_NOS n(10) NULL
+endif
+* Change of VCH Table
+select 0
+use VCH alias VCH
+if fsize("TXN_RMK") = 70
+	ALTER TABLE VCH ALTER COLUMN TXN_RMK c(100) NULL
+endif
+if fcount("VCH") = 15
+	ALTER TABLE VCH ADD COLUMN VAN_REF c(10) NULL
+endif
+if fcount("VCH") = 16
+	ALTER TABLE VCH ADD COLUMN MER_NUM c(25) NULL
+endif
+* Change of SCH Table
+select 0
+use SCH alias SCH
+if fsize("MER_NUM") = 15
+	ALTER TABLE SCH ALTER COLUMN MER_NUM c(25) NULL
+endif
+if fsize("SCH_NME") <= 40
+	ALTER TABLE SCH ALTER COLUMN SCH_NME c(80) NULL
+endif
+if fcount("SCH") = 29
+	ALTER TABLE SCH ADD COLUMN CMP_DST c(1) NULL
+endif
+* Change of INV Table
+select 0
+use INV alias INV
+if fcount("INV") = 34
+	ALTER TABLE INV ADD COLUMN INC_TTL n(10, 2) NULL
+endif
+close all
+* Change of PNV Table
+select 0
+use PNV alias PNV
+if fcount("PNV") = 40
+    ALTER TABLE PNV ADD COLUMN INC_TTL n(10, 2) NULL
+endif
+* Change of PNV Table
+close all 		
+select 0
+use PNV alias PNV
+if fcount("PNV") = 41
+	ALTER TABLE PNV ADD COLUMN MAR_PGR c(50) NULL
+endif
+* Change of STS Table 		&& Status Sheet Table STS.DBF used for HCCBPL Report with More Fields
+if file("XNV.DBF")
+	select 0
+	use XNV alias XNV
+	if fcount("XNV") = 41
+		ALTER TABLE XNV ADD COLUMN MAR_PGR c(50) NULL
+	endif
+endif
+* Change of XNV Table		&& Change only if XNV is available on disk by this time
+close all
+* ! *
+select 0
+use STS alias STS
+if fcount("STS") = 13
+	ALTER TABLE STS ADD COLUMN CAS_SAL n(15, 3) NULL
+	ALTER TABLE STS ADD COLUMN CAS_PUR n(15, 3) NULL
+	ALTER TABLE STS ADD COLUMN CAS_PRT n(15, 3) NULL
+	ALTER TABLE STS ADD COLUMN CAS_SRN n(15, 3) NULL
+	ALTER TABLE STS ADD COLUMN CAS_STI n(15, 3) NULL
+	ALTER TABLE STS ADD COLUMN CAS_STO n(15, 3) NULL
+	ALTER TABLE STS ADD COLUMN CAS_STK n(15, 3) NULL
+	ALTER TABLE STS ADD COLUMN COL_CMP n(15, 3) NULL
+	ALTER TABLE STS ADD COLUMN COL_MKT n(15, 3) NULL
+	ALTER TABLE STS ADD COLUMN COL_NET n(15, 3) NULL
+	ALTER TABLE STS ADD COLUMN CRD_AMT n(15, 2) NULL
+	ALTER TABLE STS ADD COLUMN DBT_AMT n(15, 2) NULL
+	ALTER TABLE STS ADD COLUMN NET_AMT n(15, 2) NULL
+	ALTER TABLE STS ADD COLUMN FGS_BRK n(15, 3) NULL
+	ALTER TABLE STS ADD COLUMN EMP_BRK n(15, 3) NULL
+	ALTER TABLE STS ADD COLUMN EMP_STK n(15, 3) NULL
+	ALTER TABLE STS ADD COLUMN EXP_AMT n(15, 2) NULL
+	ALTER TABLE STS ADD COLUMN DIS_AMT n(15, 2) NULL
+endif
+close all
+* ! *
+select 0
+use PNL alias PNL
+if fcount("PNL") = 76
+	ALTER TABLE PNL ADD COLUMN MAR_DOP n(10) NULL
+endif 
+* Change of SIC Table INDEX TYPE
+select 0
+use SIC alias SIC
+ALTER TABLE SIC ALTER PRD_IDY NOT NULL
+* Change of RP2 Table INDEX TYPE
+select 0
+use RP2 alias RP2
+ALTER TABLE RP2 ALTER CHR_ONE NOT NULL
+*!*
+if .not. file("BNV.DBF")	&& Backup Table for INV.DBF
+   select 0
+   use INV
+   copy structure to BNV.DBF 
+   set database to EFF
+   add table BNV.DBF
+endif
+*!*
+if .not. file("BNL.DBF")	&& Backup Table for INL.DBF
+   select 0
+   use INL
+   copy structure to BNL.DBF
+   set database to EFF 
+   add table BNL.DBF
+endif
+*!*
+if .not. file("CNV.DBF")	&& Backup Table for LNV.DBF
+	select 0
+	use LNV
+	copy structure to CNV.DBF
+	set database to EFF
+	add table CNV.DBF
+endif
+*!*
+if .not. file("VBK.DBF")	&& Backup Table for VAN.DBF
+	select 0
+	use VAN
+	copy structure to VBK.DBF
+	set database to EFF
+	add table VBK.DBF
+endif
+*!*
+if .not. file("SBK.DBF")	&& Backup Table for SNV.DBF
+	select 0
+	use SNV
+	copy structure to SBK.DBF
+	set database to EFF
+	add table SBK.DBF
+else
+	select 0
+	use SBK alias SBK
+	if fcount("SBK") = 29
+		ALTER TABLE SBK ADD COLUMN N_SHL_NOS n(10) NULL
+		ALTER TABLE SBK ADD COLUMN N_PCK_NOS n(10) NULL
+	endif	
+endif
+*!*
+if .not. file("CBK.DBF")	&& Backup Table for CUR.DBF
+	select 0
+	use CUR
+	copy structure to CBK.DBF
+	set database to EFF
+	add table CBK.DBF
+endif
+*!*
+if .not. file("XNV.DBF")	&& Backup Table for PNV.DBF
+	close all
+	select 0
+	use PNV
+	copy structure to XNV.DBF
+endif
+*!*
+if .not. file("XNL.DBF")	&& Backup Table for PNL.DBF
+	close all
+	select 0
+	use PNL
+	copy structure to XNL.DBF
+endif
+*!*	
+if file("XNL.DBF")
+	select 0
+	use XNL alias XNL
+	if fcount("XNL") = 76
+		ALTER TABLE XNL ADD COLUMN MAR_DOP n(10) NULL
+	endif
+endif
+* ! *	
+select 0
+USE CUR alias CUR
+ALTER TABLE CUR ALTER COLUMN ONE_IDY n(15,2) NULL
+ALTER TABLE CUR ALTER COLUMN TWO_IDY n(15,2) NULL
+ALTER TABLE CUR ALTER COLUMN THR_IDY n(15,2) NULL
+ALTER TABLE CUR ALTER COLUMN FOR_IDY n(15,2) NULL
+ALTER TABLE CUR ALTER COLUMN FIV_IDY n(15,2) NULL
+ALTER TABLE CUR ALTER COLUMN SIX_IDY n(15,2) NULL
+ALTER TABLE CUR ALTER COLUMN SEV_IDY n(15,2) NULL
+ALTER TABLE CUR ALTER COLUMN EIG_IDY n(15,2) NULL
+ALTER TABLE CUR ALTER COLUMN NIN_IDY n(15,2) NULL
+ALTER TABLE CUR ALTER COLUMN TEN_IDY n(15,2) NULL
+ALTER TABLE CUR ALTER COLUMN CHG_IDY n(15,2) NULL
+go top
+replace all NIN_IDY with 0.00
+close all	
+*  ! *	
+select 0
+USE RP1 alias RP1
+ALTER TABLE RP1 ALTER COLUMN CHR_ONE c(15) NOT NULL
+close all
+clear all
+* ! *
+If file("CSR.DBF")
+	select 0
+	use CSR alias CSR
+	if fcount("CSR") = 4
+		set safety off
+		zap
+		ALTER TABLE CSR DROP COLUMN ACT_IDY
+		ALTER TABLE CSR DROP COLUMN PRD_IDY
+		ALTER TABLE CSR DROP COLUMN PRD_RAT
+
+		ALTER TABLE CSR ADD COLUMN CSR_IDY c(10) NOT NULL	&& CSR ID Unique
+		ALTER TABLE CSR ADD COLUMN XCSR_IDY c(10) NULL		&& CSR XRef Unique for Storing Free Records Related in the Same CSR 
+		ALTER TABLE CSR ADD COLUMN CSR_DAT date NULL		&& CSR Date of Creation
+		
+		ALTER TABLE CSR DROP COLUMN BAT_IDY
+				
+		ALTER TABLE CSR ADD COLUMN SCH_IDY c(10) NULL		&& Scheme ID Unique from SCH table
+		ALTER TABLE CSR ADD COLUMN MER_IDY c(20) NULL		&& MER ID from SCH table or independently entered in CSR
+		ALTER TABLE CSR ADD COLUMN MER_QTY n(15,3) NULL		&& MER Budget Quantity
+		ALTER TABLE CSR ADD COLUMN MER_AMT n(15,2) NULL		&& MER Budget Amount
+		ALTER TABLE CSR ADD COLUMN USG_QTY n(15,3) NULL		&& MER Usage or Applied Quantity
+		ALTER TABLE CSR ADD COLUMN USG_AMT n(15,2) NULL		&& MER Usage of Applied Value
+		ALTER TABLE CSR ADD COLUMN BAL_QTY n(15,3) NULL		&& MER Balance Quantity for next bill
+		ALTER TABLE CSR ADD COLUMN BAL_AMT n(15,2) NULL		&& MER Balance Amount for next bill
+		ALTER TABLE CSR ADD COLUMN CLM_QTY n(15,3) NULL		&& MER Claim Applied For in Quantity
+		ALTER TABLE CSR ADD COLUMN CLM_AMT n(15,2) NULL		&& MER Claim Applied For in Amount
+		ALTER TABLE CSR ADD COLUMN CLM_APP n(15,2) NULL		&& MER Claim Applied and Approved in Amount
+		ALTER TABLE CSR ADD COLUMN CLM_RCD n(15,2) NULL		&& MER Claim Received in Amount
+		ALTER TABLE CSR ADD COLUMN CLM_PNG n(15,2) NULL		&& MER Claim Pending in Amount
+		ALTER TABLE CSR ADD COLUMN CLM_TYP	c(20)	NULL	&& Claim Type ie, Credit Note/Cash/Quantity/Adjustment/Dispute/Pending/Expense/Replacement
+		ALTER TABLE CSR ADD COLUMN CSR_TYP c(3) NULL		&& CSR Type ie, Transaction Type based on which transactions are interpreted
+		ALTER TABLE CSR ADD COLUMN ACT_IDY c(10) NULL		&& Customer ID in ACT.DBF
+
+		ALTER TABLE CSR ADD COLUMN PGR_IDY c(10) NULL	&& Specific to a Particular Product Category / Segment ID
+		ALTER TABLE CSR ADD COLUMN BRD_NME c(15) NULL	&& Brand Name
+		ALTER TABLE CSR ADD COLUMN PCK_SIZ c(15) NULL	&& Pack Size (Numeric Value)
+		ALTER TABLE CSR ADD COLUMN PCK_TYP c(15) NULL 	&& Pack Type (Character Value)
+		ALTER TABLE CSR ADD COLUMN PRD_UOM n(15,3) NULL	&& SKU UOM Based
+
+		ALTER TABLE CSR ADD COLUMN B_PRD_IDY c(10) NULL		&& Product / SKU ID in PRD.DBF
+		ALTER TABLE CSR ADD COLUMN B_BAT_IDY c(10) NULL		&& Batch ID in BRD.DBF
+		ALTER TABLE CSR ADD COLUMN B_PRD_RAT n(15,2) NULL		&& Selling Rate as per Batch SALE PRICE
+		ALTER TABLE CSR ADD COLUMN B_PRD_TAX n(10,2) NULL		&& Selling Tax Percent as per Batch Sale Tax
+		ALTER TABLE CSR ADD COLUMN B_PRD_INC n(10,2) NULL		&& Incentive Amount
+		ALTER TABLE CSR ADD COLUMN B_PRD_LST n(10,2) NULL		&& Incentive Tax Percent
+		ALTER TABLE CSR ADD COLUMN B_PRD_LSR n(15,2) NULL		&& Incentive Tax Amount
+		ALTER TABLE CSR ADD COLUMN B_PRD_SUT n(15) NULL		&& SKU Sub Units
+		ALTER TABLE CSR ADD COLUMN B_PRD_UOM n(15,3) NULL		&& SKU Unit of Measurement
+		ALTER TABLE CSR ADD COLUMN B_PRD_QTY n(15,3) NULL		&& SKU Quantity in 15,3 format
+		ALTER TABLE CSR ADD COLUMN B_PRD_PCS n(15) NULL		&& SKU Pieces as Applicable in CSR (user value)
+		ALTER TABLE CSR ADD COLUMN B_PRD_CAS n(15) NULL		&& SKU Cases as Applicable in CSR (user value)
+		ALTER TABLE CSR ADD COLUMN B_BAS_QTY n(15,3) NULL		&& SKU Base Quantity
+		ALTER TABLE CSR ADD COLUMN B_BAS_AMT n(15,2) NULL		&& SKU Base Amount
+		
+		ALTER TABLE CSR ADD COLUMN B_INT_TYP c(10)	NULL		&& Interpreted as DIRECT/OR/AND/MIXED/EXCLUDE/INCLUDE
+		ALTER TABLE CSR ADD COLUMN F_INT_TYP c(10)	NULL		&& Interpreted as DIRECT/OR/AND/MIXED/EXCLUDE/INCLUDE
+				
+		ALTER TABLE CSR ADD COLUMN F_PRD_IDY c(10) NULL		&& Product / SKU ID in PRD.DBF
+		ALTER TABLE CSR ADD COLUMN F_BAT_IDY c(10) NULL		&& Batch ID in BRD.DBF
+		ALTER TABLE CSR ADD COLUMN F_PRD_RAT n(15,2) NULL		&& Selling Rate as per Batch SALE PRICE
+		ALTER TABLE CSR ADD COLUMN F_PRD_TAX n(10,2) NULL		&& Selling Tax Percent as per Batch Sale Tax
+		ALTER TABLE CSR ADD COLUMN F_PRD_INC n(10,2) NULL		&& Incentive Amount
+		ALTER TABLE CSR ADD COLUMN F_PRD_LST n(10,2) NULL		&& Incentive Tax Percent
+		ALTER TABLE CSR ADD COLUMN F_PRD_LSR n(15,2) NULL		&& Incentive Tax Amount
+		ALTER TABLE CSR ADD COLUMN F_PRD_SUT n(15) NULL		&& SKU Sub Units
+		ALTER TABLE CSR ADD COLUMN F_PRD_UOM n(15,3) NULL		&& SKU Unit of Measurement
+		ALTER TABLE CSR ADD COLUMN F_PRD_QTY n(15,3) NULL		&& SKU Quantity in 15,3 format
+		ALTER TABLE CSR ADD COLUMN F_PRD_PCS n(15) NULL		&& SKU Pieces as Applicable in CSR (user value)
+		ALTER TABLE CSR ADD COLUMN F_PRD_CAS n(15) NULL		&& SKU Cases as Applicable in CSR (user value)
+		ALTER TABLE CSR ADD COLUMN F_FRE_QTY n(15,3) NULL		&& SKU Free Quantity
+		ALTER TABLE CSR ADD COLUMN F_FRE_AMT n(15,2) NULL		&& SKU Free Amount
+		ALTER TABLE CSR ADD COLUMN F_CPN_QTY n(15,3) NULL		&& SKU Coupon Quantity
+		ALTER TABLE CSR ADD COLUMN F_CPN_AMT n(15,2) NULL		&& SKU Coupon Amount
+		
+		ALTER TABLE CSR ADD COLUMN DIS_TYP c(20) NULL	&& Discount Type ie, On Spot / Periodic
+		ALTER TABLE CSR ADD COLUMN DIS_PCG n(10,2) NULL	&& Discount Percentage (User Keyed in Value)
+		ALTER TABLE CSR ADD COLUMN DIS_AMT n(15,2) NULL	&& Discount Amount (Calculated by application and stored here)
+		ALTER TABLE CSR ADD COLUMN EXP_AMT n(15,2) NULL && Expense Amount in Case of Direct Expenses Made
+		ALTER TABLE CSR ADD COLUMN BEG_DAT date NULL	&& Scheme Beginning Date
+		ALTER TABLE CSR ADD COLUMN END_DAT date NULL	&& Scheme Ending Date
+		ALTER TABLE CSR ADD COLUMN CLS_IDY c(10) NULL	&& Applicable Customer Price List Class ID
+		ALTER TABLE CSR ADD COLUMN LST_IDY c(10) NULL	&& Applicable SKU Price List Class ID
+		ALTER TABLE CSR ADD COLUMN PRC_CLS c(20) NULL	&& Applicable Customer Price List Amount (Price @ Batch Level)
+		ALTER TABLE CSR ADD COLUMN PRC_LST c(20) NULL	&& Applicable SKU Price List Amount (Price @ Batch Level)
+		ALTER TABLE CSR ADD COLUMN R_BEG_SLB n(15,2) NULL 	&& Beginning Slab in Rupees
+		ALTER TABLE CSR ADD COLUMN R_END_SLB n(15,2) NULL 	&& Ending Slab in Rupees
+		ALTER TABLE CSR ADD COLUMN Q_BEG_SLB n(15,3) NULL	&& Beginning Slab in Quantity
+		ALTER TABLE CSR ADD COLUMN Q_END_SLB n(15,3) NULL	&& Ending Slab in Rupees
+		ALTER TABLE CSR ADD COLUMN S_BEG_SLB n(15) 	 NULL	&& Beginning Score
+		ALTER TABLE CSR ADD COLUMN S_END_SLB n(15)	 NULL	&& Ending Score
+		ALTER TABLE CSR ADD COLUMN L_BEG_SLB n(15,3) NULL	&& Beginning Limit
+		ALTER TABLE CSR ADD COLUMN L_END_SLB n(15,3) NULL 	&& Ending Limit
+		ALTER TABLE CSR ADD COLUMN PRO_RAT c(10) NULL		&& Pro Rata Check whether Pro_Rata / Fixed 
+		ALTER TABLE CSR ADD COLUMN CSR_STS c(10) NULL		&& Active / Inactive / Closed / Suspended or any other status
+		ALTER TABLE CSR ADD COLUMN SYS_DAT date NULL		&& Record Date
+		ALTER TABLE CSR ADD COLUMN SYS_TIM time NULL 		&& Record Time
+		ALTER TABLE CSR ADD COLUMN USR_IDY c(10) NULL		&& USER ID 
+		ALTER TABLE CSR ADD COLUMN USR_NME c(20) NULL		&& USER Name
+		ALTER TABLE CSR ADD COLUMN CMP_DST c(10) NULL		&& CSR Entry Authority ie, either Supplier or Distributor
+		ALTER TABLE CSR ADD COLUMN CSR_NME c(70) NULL		&& CSR Remarks Entry
+		ALTER TABLE CSR ADD COLUMN CLM_TPS c(20) NULL		&& Claim Top Sheet - System Generated or Assigned will be common for many records as such
+
+		ALTER TABLE CSR ADD COLUMN MAR_IDY c(10) NULL		&& CSR if applicable for a specific Market
+		ALTER TABLE CSR ADD COLUMN SMN_IDY c(10) NULL		&& CSR if applicable for a specific Salesman
+		ALTER TABLE CSR ADD COLUMN ROU_IDY c(15) NULL		&& CSR if applicable for a specific Route
+		ALTER TABLE CSR ADD COLUMN LOC_IDY c(10) NULL		&& CSR if applicable for a specific Location
+		ALTER TABLE CSR ADD COLUMN CAT_IDY c(10) NULL		&& CSR if applicable for a specific Category/Channel
+		ALTER TABLE CSR ADD COLUMN OUT_TYP c(15) NULL		&& CSR if applicable for a specific Outlet Type - Diamond/Gold/Silver/Bronze
+		ALTER TABLE CSR ADD COLUMN OUT_CLS c(15) NULL		&& CSR if applicable for a specific Outlet Class - HVO/RED/Key A/c
+		ALTER TABLE CSR ADD COLUMN OUT_CAP n(15) NULL		&& CSR if applicable for a specific Outlet Capacity Offtake - SGA
+		ALTER TABLE CSR ADD COLUMN SGA_CAP n(15) NULL 		&& CSR if applicable for a SGA Capacity
+		
+	endif
+	if fcount("CSR") = 92
+		ALTER TABLE CSR ALTER COLUMN MER_IDY c(25) NULL
+		ALTER TABLE CSR ALTER COLUMN MER_IDY c(25) NOT NULL
+		ALTER TABLE CSR ALTER COLUMN XCSR_IDY c(10) NOT NULL
+		ALTER TABLE CSR ALTER COLUMN ACT_IDY c(10) NOT NULL
+		ALTER TABLE CSR ALTER COLUMN B_PRD_IDY c(10) NOT NULL		
+		ALTER TABLE CSR ALTER COLUMN B_BAT_IDY c(10) NOT NULL
+	endif
+endif
+close all
+clear all	
+* ! *
+select 0
+if file("IDY.DBF")
+	select 0
+	use IDY alias IDY
+	if fcount("IDY") = 41
+		ALTER TABLE IDY ADD COLUMN IDY_CSR c(10) NULL
+		ALTER TABLE IDY ADD COLUMN IDY_SSO c(10) NULL
+		ALTER TABLE IDY ADD COLUMN IDY_PPO c(10) NULL
+		ALTER TABLE IDY ADD COLUMN IDY_CVO c(10) NULL
+		ALTER TABLE IDY ADD COLUMN IDY_CBL c(10) NULL
+		ALTER TABLE IDY ADD COLUMN IDY_CB1 c(10) NULL
+		ALTER TABLE IDY ADD COLUMN IDY_CB2 c(10) NULL
+		ALTER TABLE IDY ADD COLUMN IDY_CB3 c(10) NULL
+		ALTER TABLE IDY ADD COLUMN IDY_CB4 c(10) NULL
+		ALTER TABLE IDY ADD COLUMN IDY_CB5 c(10) NULL
+		ALTER TABLE IDY ADD COLUMN IDY_CB6 c(10) NULL
+		ALTER TABLE IDY ADD COLUMN IDY_CB7 c(10) NULL
+		ALTER TABLE IDY ADD COLUMN IDY_CB8 c(10) NULL
+		ALTER TABLE IDY ADD COLUMN IDY_CB9 c(10) NULL
+		ALTER TABLE IDY ADD COLUMN IDY_CB10 c(10) NULL
+		ALTER TABLE IDY ADD COLUMN IDY_CB11 c(10) NULL
+		ALTER TABLE IDY ADD COLUMN IDY_CB12 c(10) NULL
+		ALTER TABLE IDY ADD COLUMN IDY_CB13 c(10) NULL
+		ALTER TABLE IDY ADD COLUMN IDY_CB14 c(10) NULL
+		ALTER TABLE IDY ADD COLUMN IDY_CB15 c(10) NULL
+	endif
+endif
+* ! *
+select 0
+if file("LDS.DBF")
+	select 0
+	use LDS alias LDS
+	if fcount("LDS") = 10
+		ALTER TABLE LDS ADD COLUMN LDS_TYP c(3) NULL
+	endif
+endif
+* ! *
+close all
+select 0
+use INV alias INV
+if fcount("INV") = 35
+	ALTER TABLE INV ADD COLUMN CSR_IDY c(10) NULL
+endif
+close all
+* ! *
+select 0
+use PNV alias PNV
+if fcount("PNV") = 42
+	ALTER TABLE PNV ADD COLUMN CSR_IDY c(10) NULL
+endif
+close all
+* ! *
+select 0
+use XNV alias XNV
+if fcount("XNV") = 42
+	ALTER TABLE XNV ADD COLUMN CSR_IDY c(10) NULL
+endif
+close all
+* ! *
+select 0
+use BNV alias BNV
+if fcount("BNV") = 35
+	ALTER TABLE BNV ADD COLUMN CSR_IDY c(10) NULL
+endif
+close all
+clear all
+* ! *
+select 0
+use CNV alias CNV
+if fcount("CNV") = 9
+	ALTER TABLE CNV ADD COLUMN MER_NUM c(25) NULL
+	ALTER TABLE CNV ADD COLUMN PRD_PCK c(15) NULL
+	ALTER TABLE CNV ADD COLUMN SUB_UNT n(3) NULL
+	ALTER TABLE CNV ADD COLUMN GRP_CAT c(25) NULL
+endif
+* ! *
+select 0
+if .not. file("GCC.DBF")
+	create table GCC ;
+		(GCC_ID c(25) NULL, ;
+			ENT_ID c(25) NULL, ;
+			SIT_ID c(25) NULL, ;
+			SE_ID  c(25) NULL, ;
+			DRI_ID c(25) NULL, ;
+			CST_TYP c(15) NULL, ;
+			CST_NME c(40) NULL, ;
+			CST_SME c(40) NULL, ;
+			ADR_ONE c(25) NULL, ;
+			ADR_TWO c(25) NULL, ;
+			LOC_ID  c(10) NULL, ;
+			LOC_NME c(25) NULL, ;
+			PIN_COD c(15) NULL, ;
+			CSS_CST c(25) NULL, ;
+			RSA_CST c(25) NULL, ;
+			CHN_ID  c(10) NULL, ;
+			STA_ID  c(25) NULL, ;
+			DST_ID  c(25) NULL, ;
+			TWN_ID  c(25) NULL, ;
+			CNT_CPN c(25) NULL, ;
+			TEL_FAX c(25) NULL, ;
+			MBL_NUM c(25) NULL, ;
+			NKA_ID  c(25) NULL, ;
+			VPO_ID  c(25) NULL, ;
+			MAR_ID  c(25) NULL, ;
+			MAR_NME c(25) NULL, ;
+			TER_ID  c(25) NULL, ;
+			TER_NME c(25) NULL, ;
+			MD_ID   c(10) NULL, ;
+			MD_NME  c(25) NULL, ;
+			DAS_ID  c(10) not NULL, ;
+			EML_ID  c(50) NULL, ;
+			LAT_ID  c(25) NULL, ;
+			LON_ID  c(25) NULL)
+* :
+		if file("GCC.DBF")
+			open database EFF
+			set database to EFF
+			add table GCC
+		endif
+endif
+* ! *
+close all
+clear all
+* ! *
+select 0
+use VAN alias VAN
+if fcount("VAN") = 43
+	ALTER TABLE VAN ADD COLUMN VAN_SUT n(5) NULL
+endif
+close all
+clear all
+* ! *
+select 0
+use LDS alias LDS
+if fcount("LDS") = 11
+	ALTER TABLE LDS ADD COLUMN VAN_IDY c(10) NULL
+endif
+close all
+clear all
+* ! *
+select 0
+use VAN alias VAN
+if fcount("VAN") = 44
+	ALTER TABLE VAN ADD COLUMN LDS_IDY c(10) NULL
+endif
+close all
+clear all
+*!*
+select 0
+use VBK alias VBK
+if fcount("VBK") = 35
+	ALTER TABLE VBK ADD COLUMN OPN_PCS n(5,0) NULL
+	ALTER TABLE VBK ADD COLUMN ISS_PCS n(5,0) NULL
+	ALTER TABLE VBK ADD COLUMN TOT_PCS n(5,0) NULL
+	ALTER TABLE VBK ADD COLUMN RET_PCS n(5,0) NULL
+	ALTER TABLE VBK ADD COLUMN BIL_PCS n(5,0) NULL
+	ALTER TABLE VBK ADD COLUMN FRE_PCS n(5,0) NULL
+	ALTER TABLE VBK ADD COLUMN LKG_PCS n(5,0) NULL
+	ALTER TABLE VBK ADD COLUMN BRK_PCS n(5,0) NULL
+endif
+close all
+clear all
+* ! *
+select 0
+use VBK alias VBK
+if fcount("VBK") = 43
+	ALTER TABLE VBK ADD COLUMN VAN_SUT n(5) NULL
+endif
+close all
+clear all
+* ! *
+select 0
+use VBK alias VBK
+if fcount("VBK") = 44
+	ALTER TABLE VBK ADD COLUMN LDS_IDY c(10) NULL
+endif
+close all
+clear all
+* ! *
+*OPEN DATABASE EFF
+*VALIDATE DATABASE
+*CLOSE DATABASES
+close all
+CLEAR ALL
+return

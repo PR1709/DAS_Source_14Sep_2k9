@@ -1,0 +1,28 @@
+////////////////////////////////////////////////
+//////////////////////////////////////////////
+//////////////////////////////////////////////
+///////////////////////////////////////////////
+/////////////////////////////////////////////////
+////////////////////////////////////////////////
+Asset:Yes:No
+Bank Book:Yes:No
+Bank Overdraft:No:No
+Cash Book:Yes:No
+ClsStockPL:No:Yes
+Creditor:No:No
+Debtor:Yes:No
+Depreciation:Yes:Yes
+Expense:Yes:Yes
+Income:No:Yes
+Liability:No:No
+Opening:Yes:No
+OpeningStockPL:Yes:No
+Purch Discount:Yes:No
+Purchase Return:Yes:No
+Purchases:Yes:Yes
+Sales:No:Yes
+Sales Discount:Yes:No
+Sales Return:Yes:No
+Stock BS:Yes:No
+Stock Issues:Yes:No
+Stock Receipts:Yes:No

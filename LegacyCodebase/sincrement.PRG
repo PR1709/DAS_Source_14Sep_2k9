@@ -1,0 +1,10 @@
+close all
+clear all
+store "0100" to var1
+	
+		var1 = replicate("0", (10 - len(var1))) + var1
+
+? var1
+wait
+close all
+return

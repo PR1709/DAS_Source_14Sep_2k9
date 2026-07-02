@@ -1,0 +1,227 @@
+
+CANON LBP-4/LBP-8II/IIR/IIT/LBP-8 MARK III
+==========================================
+
+Because the control codes for specifying paper sizes are different for 
+portrait and landscape orientation, you may encounter problems when printing
+landscape reports on Legal, A4, or Executive paper.  By default, R&R sends
+codes for selected paper sizes in portrait mode.  If you wish to use these
+paper sizes in landscape mode, you need to place the following codes 
+in the Letter, Legal, Executive, and A4 Tray Sequence fields using RRSETUP.
+
+Letter, Landscape: 27,91,"31p"
+  (Letter, Portrait: 27,91,"30p")
+A4, Landscape: 27,91,"15p"
+  (A4, Portrait: 27,91,"14p")
+Legal, Landscape: 27,91,"33p"
+  (Legal, Portrait: 27,91,"32p")
+Executive, Landscape: 27,91,"41p"
+  (Executive, Portrait: 27,91,"40p")
+
+
+EPSON LQ SERIES
+===============
+
+R&R uses Quadruple Density Graphics mode to allow the greatest flexibility in 
+positioning fields on your report.  This may cause a slow, jerky movement of 
+the printhead.  Some Epson printers support an alternative method of
+horizontal position which you may prefer to use.  This can be done by changing
+the Horizontal Position Sequence in RRSETUP from 27,"Z%r" to 27,"\%r".  The
+Horizontal Position Resolution should be changed from 240 to 120 for draft 
+mode, and from 240 to 180 for letter quality.
+
+
+HP LASERJET II/IIP/IID
+======================
+
+Two new font information files are available in R&R Version 5 for the
+LaserJet II, IIP, and IID printers.  These printers have a limited number of
+internal fonts: Courier 10 Pitch, Courier 12 Pitch (IIP and IID only), and 
+Line Printer Compressed. These are the only fonts included in the font 
+information files.  If you have purchased soft fonts or a font cartridge for 
+one of these printers, select the font information file that corresponds to 
+your soft fonts or cartridge.
+
+SIMPLEX/DUPLEX PRINTING (IID ONLY)
+----------------------------------
+Separate configurations are provided for Simplex and Duplex operation.  
+The Duplex configuration is designed to support Long Edge Binding.  If
+you wish to use Short Edge Binding, you must make the following change to
+the configuration file, using RRSETUP:
+
+Replace the 27,"&l1S" at the end of the Portrait Mode Sequence and Landscape 
+Mode Sequence with 27,"&l2S". (Note: The "&" is followed by a lower case l.
+Do not use the number 1.)
+
+PAPER BIN SELECTION (IID ONLY)
+------------------------------
+R&R uses the default paper bin in your printer unless you select a different 
+bin using the "Paper Feed" option in /Print Options Control-Printing.  
+The LaserJet configurations provided with R&R use the default bin as 
+Continuous, the upper bin as Bin 1, and the lower bin as Bin 2.  You may 
+change these assignments by specifying the appropriate printer control codes 
+in the Auxiliary Paper Bin sequences of your configuration file.  Consult 
+your printer documentation for the appropriate control codes.
+
+
+HP LaserJet III/IIIP/IIID/IIISi
+===============================
+
+FONTS
+-----
+The LaserJet III series printers support Courier 10 and 12 Pitch, Line 
+Printer Compressed, and two scalable internal fonts: CG Times and Univers. 
+The LaserJet IIISi also has an internal Univers Condensed font. R&R supports 
+these fonts as well as a variety of optional soft fonts which may be 
+purchased for the LaserJet III series printers.  In order to use any of the
+fonts labeled "Optional Soft Font", you must have purchased these fonts, and
+they must be available in your printer's memory, or you must use RRSETUP 
+to modify the font information file so that R&R will download them for you.
+Please refer to the Font Information File Appendix in your R&R User's Guide
+for further instructions on downloading fonts from R&R.
+
+SIMPLEX/DUPLEX PRINTING (IIID/IIISi W/DUPLEX OPTION ONLY)
+---------------------------------------------------------
+Separate configurations are provided for Simplex and Duplex operation.  
+The Duplex configurations are designed to support Long Edge Binding.  If
+you wish to use Short Edge Binding, you must make the following change to
+the configuration file, using RRSETUP:
+
+Replace the 27,"&l1S" at the end of the Portrait Mode Sequence and Landscape 
+Mode Sequence with 27,"&l2S". (Note: The "&" is followed by a lower case l.
+Do not use the number 1.)
+
+Note that if you have a LaserJet IIISi without the optional Duplex accessory,
+you should select the HP LaserJet IIISi Standard configuration.
+
+PAPER BIN SELECTION (IIID/IIISi ONLY)
+-------------------------------------
+R&R uses the default paper bin in your printer unless you select a different 
+bin using the "Paper Feed" option in /Print Options Control-Printing.  
+The LaserJet configurations provided with R&R use the default bin as 
+Continuous, the upper bin as Bin 1, and the lower bin as Bin 2.  You may 
+change these assignments by specifying the appropriate printer control codes 
+in the Auxiliary Paper Bin sequences of your configuration file.  Consult 
+your printer documentation for the appropriate control codes.
+
+LANGUAGE SWITCHING (IIISi ONLY)
+-------------------------------
+For printers which have the optional PostScript support, R&R switches the 
+printer into PCL mode at the beginning of the print job, then switches it 
+back to the default language at the end of the print job.  
+
+Note that software switching requires that you configure your printer for
+SYS SWITCH=ON*.  Please consult your printer manual for instructions.
+
+If you wish to have R&R use the printer in PostScript mode, you should select 
+the PostScript configuration in RRSETUP, and attach one of the PostScript 
+font information files to your report.  Refer to the "Using Fonts" chapter
+of your R&R User's Guide for further information on PostScript printing.
+
+
+IBM PPSII 2390/2391
+===================
+
+PRINT MODES
+-----------
+Configurations are included for both Letter Quality and Draft mode.
+
+FONTS
+-----
+
+Two Font Information Files are available, and should be used with
+the IBM 2390/2391 Letter Quality configuration.  Both Font Information Files 
+are designed for use with Code Page 437, which is the printer's default code 
+page for U.S. English.
+
+RR_IBM_1.FIF includes Courier, Prestige, Gothic, Presentor, 
+Double High/Double Wide, Outline, and Shadow fonts.
+RR_IBM_2.FIF includes Courier, Script, Gothic, Orator, 
+Double High/Double Wide, Superscript, and Subscript fonts.
+
+R&R supports all of the above typefaces in 7 pitch options, including 
+proportional spacing.  
+
+
+IBM LaserPrinter 4019
+=====================
+
+The font information file, RR_I4019.FIF, supports the internal fonts and a
+selection of fonts available on font cards from IBM.  Fonts from IBM font 
+cards include the IBM part number as part of the font name (i.e. P/N 1255803).
+In order to use any of these fonts, the font card must be installed in your
+printer.  When there are multiple Code Pages available for a given font, R&R
+uses Code Page 437.
+
+Most font cards provide only a limited number of italic and bold italic fonts.
+When the italic attribute is not available for a given font, R&R substitutes
+normal for italic, and bold for bold italic.
+
+
+IBM LaserPrinter 4029 Series
+============================
+
+The font information file, RR_I4029.FIF, supports the internal scalable
+fonts in a selection of point sizes.  R&R uses Code Page 437 with the 
+Courier fonts, and Code Page 850 with the Times New Roman, Helvetica, and
+Helvetica Narrow fonts.
+
+The 4019 font information file, RR_I4019.FIF, may also be used with 4029
+series printers.  This font information file supports a selection of fonts 
+available on font cards from IBM.  In order to use any of these fonts, the 
+appropriate font card must be installed in your printer.
+
+
+PANASONIC 4450/4450i
+====================
+
+EMULATION MODES
+---------------   
+This printer supports six emulation modes; Panasonic LP, EPSON, 
+Panasonic Standard, IBM, Panasonic IBM, and DIABLO.  R&R configurations 
+are available for the Panasonic LP and EPSON modes.  R&R will put the 
+printer into the specified mode before printing your report, and will leave 
+the printer in that mode when the report is complete.  If you wish to restore 
+the printer to an emulation mode other than that used by R&R, you can do so 
+by replacing the END OF REPORT SEQUENCE with one of the following codes:
+
+Panasonic LP: 27,27,"H"
+EPSON: 27,27,"E"
+Panasonic Standard: 27,27,"PS"
+IBM: 27,27,"I"
+Panasonic IBM: 27,27,"PI"
+DIABLO: 27,27,"D"
+
+FONTS
+-----
+R&R comes with three font information files for this printer.
+
+RR_PAN_1.FIF supports the printer's Courier and Century 702 resident fonts.  
+It also supports font cartridges KX-P470, KX-P471, KX-P472, KX-P473, and 
+KX-P474.  Note that you must have the appropriate cartridge installed in your 
+printer in order to use fonts with a cartridge number in brackets following 
+the font name, e.g., Prestige ASCII 10 Pt. [KX-P472].  The printer must be in 
+Panasonic LP mode when using this font file.
+
+RR_PAN_2.FIF supports the Courier and Century 702 internal fonts, and 
+cartridges KX-P460 and KX-P461. The printer must be in Panasonic LP mode 
+when using this font file.
+
+RR_PAN_E supports the double height, double width, superscript and subscript 
+fonts in PICA, Elite, or Compressed print, available when the printer is in 
+EPSON mode.  It also supports the Century 702 10 point proportional font.
+
+
+PAPER BINS
+----------
+R&R uses the default paper bin in your printer unless you select a different 
+bin using the "Paper Feed" option in /Print Options Control-Printing.  
+The Panasonic 4450/4450i configurations provided with R&R use the default bin 
+as Continuous, the upper bin as Bin 1, and the lower bin as Bin 2.  You may 
+change these assignments by specifying the appropriate printer control codes 
+in the Auxiliary Paper Bin sequences of your configuration file.  Consult 
+your printer documentation for the appropriate control codes.
+
+
+
+

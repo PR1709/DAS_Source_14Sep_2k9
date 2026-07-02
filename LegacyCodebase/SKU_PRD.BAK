@@ -1,0 +1,232 @@
+* : * (c) PVM Innvensys Pvt Ltd
+* : * Date Written: 22nd Mar 2009
+* : * Author	  : Ramaneshwar
+* : * Program Code: To check the SKU.DBF table on disk ie, local path and do PRD.DBF update
+* : * Applicable  : Applicable to all EFF.DBC applications
+* : * Last Modfied: 22nd Mar 2009 for all EFF.DBC applications
+* : *
+clear
+close all
+clear all
+set talk off
+set echo off
+set status off
+set safety off
+set date BRITISH
+* : *
+if .not. file("C:\DEX\INBOX\SKU.DBF")
+	wait window "Required File SKU.DBF not found in the folder C:\DEX\INBOX, Terminating SKU_PRD utility, Press any Key"
+	close all
+	clear all
+	return
+endif
+* : *
+select 0
+use PGR exclusive
+index on upper(alltrim(GRP_CAT))+upper(alltrim(GRP_CLS)) tag CAT_CLS of PGR
+reindex
+close all
+clear all
+select 0
+use IDY.DBF alias IDY
+go 1
+select 0
+use C:\DEX\INBOX\SKU.DBF alias SKU
+select 0
+use PGR index PGR alias PGR exclusive
+set order to 4
+select 0
+use PRD index PRD alias PRD
+set order to 6
+select 0
+use BRD index BRD alias BRD
+select SKU
+go top
+do while .not. eof("SKU")
+	store space(10) to M_GRP_IDY
+	select PGR
+	set order to 4
+	seek upper(alltrim(SKU.GRP_CAT))+upper(alltrim(SKU.GRP_CLS)) 	
+	if .not. found()
+		select IDY
+		go 1
+		M_GRP_IDY = str(val(alltrim(IDY.IDY_PGR)) + 1)
+		replace IDY.IDY_PGR with str(val(alltrim(IDY.IDY_PGR)) + 1)
+		M_GRP_IDY = replicate("0", (10 - len(alltrim(M_GRP_IDY)))) + alltrim(M_GRP_IDY)
+		select PGR
+		append blank
+		replace PGR.GRP_IDY with M_GRP_IDY, PGR.GRP_CAT with upper(alltrim(SKU.GRP_CAT)), PGR.GRP_CLS with upper(alltrim(SKU.GRP_CLS))
+	endif
+	select SKU
+	skip 1
+enddo
+* : *
+select SKU
+go top
+do while .not. eof("SKU")
+	select PRD
+	set order to 6
+	seek alltrim(SKU.ALT_IDY)
+	if .not. found()
+		if len(alltrim(SKU.ALT_IDY)) = 4
+			if SKU.SUB_UNT > 0
+				store space(10) to M_GRP_IDY
+				select PGR
+				set order to 4
+				seek upper(alltrim(SKU.GRP_CAT))+upper(alltrim(SKU.GRP_CLS))
+				if found()
+					M_GRP_IDY = PGR.GRP_IDY
+				else
+					M_GRP_IDY = space(10)
+				endif
+				store space(10) to M_PRD_IDY
+				select IDY
+				go 1
+				M_PRD_IDY = str(val(alltrim(IDY.IDY_PRD)) + 1)
+				replace IDY.IDY_PRD with str(val(alltrim(IDY.IDY_PRD)) + 1)
+				select PRD
+				append blank
+				M_PRD_IDY = replicate("0", (10 - len(alltrim(M_PRD_IDY)))) + alltrim(M_PRD_IDY)
+				replace PRD.PRD_IDY with M_PRD_IDY, PRD.GRP_IDY with M_GRP_IDY
+				replace PRD.PRD_NME with SKU.PRD_NME, PRD.BRD_NME with SKU.BRD_NME,;
+						PRD.PRD_PCK with SKU.PRD_PCK, PRD.PRD_PKT with SKU.PRD_PKT,;
+						PRD.CON_FAC with SKU.VOL_WGT, PRD.PRD_UOM with SKU.PRD_UOM,;
+						PRD.SUB_UNT with SKU.SUB_UNT, PRD.STK_TYP with SKU.STK_TYP,;
+						PRD.BRW_SEQ with SKU.BRW_SEQ, PRD.PRD_PRN with SKU.SHT_NME,;
+						PRD.TOD_PCG with SKU.AGE, PRD.ALT_IDY with SKU.ALT_IDY, PRD.CMP_IDY with "0000000001",;
+						PRD.PUR_RAT with SKU.PUR_RAT, PRD.PUR_TAX with SKU.PUR_TAX, PRD.PUR_DIS with SKU.PUR_DIS,;
+						PRD.SAL_RAT with SKU.SAL_RAT, PRD.SAL_TAX with SKU.SAL_TAX, PRD.SAL_DIS with SKU.SAL_DIS,;
+						PRD.MRP_RAT with SKU.MRP_RAT
+			endif
+		else
+			if len(alltrim(SKU.ALT_IDY))= 5 
+				if substr(alltrim(SKU.ALT_IDY),1,1) = "7"
+					store space(10) to M_GRP_IDY
+					select PGR
+					set order to 4
+					seek upper(alltrim(SKU.GRP_CAT))+upper(alltrim(SKU.GRP_CLS))
+					if found()
+						M_GRP_IDY = PGR.GRP_IDY
+					else
+						M_GRP_IDY = space(10)
+					endif
+					store space(10) to M_PRD_IDY
+					select IDY
+					go 1
+					M_PRD_IDY = str(val(alltrim(IDY.IDY_PRD)) + 1)
+					replace IDY.IDY_PRD with str(val(alltrim(IDY.IDY_PRD)) + 1)
+					select PRD
+					append blank
+					M_PRD_IDY = replicate("0", (10 - len(M_PRD_IDY))) + alltrim(M_PRD_IDY)
+					replace PRD.PRD_IDY with M_PRD_IDY, PRD.GRP_IDY with M_GRP_IDY
+					replace PRD.PRD_NME with SKU.PRD_NME, PRD.BRD_NME with SKU.BRD_NME,;
+							PRD.PRD_PCK with SKU.PRD_PCK, PRD.PRD_PKT with SKU.PRD_PKT,;
+							PRD.CON_FAC with SKU.VOL_WGT, PRD.PRD_UOM with SKU.PRD_UOM,;
+							PRD.SUB_UNT with SKU.SUB_UNT, PRD.STK_TYP with SKU.STK_TYP,;
+							PRD.BRW_SEQ with SKU.BRW_SEQ, PRD.PRD_PRN with SKU.SHT_NME,;
+							PRD.TOD_PCG with SKU.AGE, PRD.ALT_IDY with SKU.ALT_IDY, PRD.CMP_IDY with "0000000001",;
+							PRD.PUR_RAT with SKU.PUR_RAT, PRD.PUR_TAX with SKU.PUR_TAX, PRD.PUR_DIS with SKU.PUR_DIS,;
+							PRD.SAL_RAT with SKU.SAL_RAT, PRD.SAL_TAX with SKU.SAL_TAX, PRD.SAL_DIS with SKU.SAL_DIS,;
+							PRD.MRP_RAT with SKU.MRP_RAT
+				endif
+			endif		
+		endif
+	else
+		if len(alltrim(SKU.ALT_IDY)) = 4 
+			if SKU.SUB_UNT > 0
+				replace PRD.PRD_NME with SKU.PRD_NME, PRD.BRD_NME with SKU.BRD_NME,;
+						PRD.PRD_PCK with SKU.PRD_PCK, PRD.PRD_PKT with SKU.PRD_PKT,;
+						PRD.CON_FAC with SKU.VOL_WGT, PRD.PRD_UOM with SKU.PRD_UOM,;
+						PRD.SUB_UNT with SKU.SUB_UNT, ;
+						PRD.BRW_SEQ with SKU.BRW_SEQ, PRD.PRD_PRN with SKU.SHT_NME,;
+						PRD.TOD_PCG with SKU.AGE, PRD.ALT_IDY with SKU.ALT_IDY
+*						PRD.STK_TYP with SKU.STK_TYP,
+			endif
+		else 
+			if len(alltrim(SKU.ALT_IDY))= 5 
+				if substr(alltrim(SKU.ALT_IDY),1,1) = "7"
+					replace PRD.PRD_NME with SKU.PRD_NME, PRD.BRD_NME with SKU.BRD_NME,;
+							PRD.PRD_PCK with SKU.PRD_PCK, PRD.PRD_PKT with SKU.PRD_PKT,;
+							PRD.CON_FAC with SKU.VOL_WGT, PRD.PRD_UOM with SKU.PRD_UOM,;
+							PRD.SUB_UNT with SKU.SUB_UNT, ;
+							PRD.BRW_SEQ with SKU.BRW_SEQ, PRD.PRD_PRN with SKU.SHT_NME,;
+							PRD.TOD_PCG with SKU.AGE, PRD.ALT_IDY with SKU.ALT_IDY
+*							PRD.STK_TYP with SKU.STK_TYP,
+				endif
+			endif
+		endif	
+	endif
+	select SKU
+	skip 1
+enddo
+* : *
+CLOSE ALL
+CLEAR ALL
+select 0
+use PRD alias PRD
+do while .not. eof("PRD")
+	if len(alltrim(ALT_IDY)) <> 4	
+		if len(alltrim(ALT_IDY)) < 4
+			select PRD
+			delete
+		endif
+		if SUB_UNT = 0
+			select PRD
+			delete
+		endif
+		if len(trim(ALT_IDY)) > 4
+			if substr(alltrim(ALT_IDY),1,1) <> "7"
+				select PRD
+				delete
+			endif
+		endif
+*!*			if (alltrim(ALT_IDY)) = "75500005"
+*!*				select PRD
+*!*				delete
+*!*			endif
+	endif
+	select PRD
+	skip 1
+enddo
+close all
+clear all
+* : *
+close all
+clear all
+select 0
+use IDY alias IDY
+select 0
+use PRD index PRD alias PRD
+set order to 1
+select 0
+use BRD index BRD alias BRD
+set order to 1
+do while .not. eof("PRD")
+	select BRD
+	seek PRD.PRD_IDY
+	if .not. found()
+		select IDY
+		go 1
+		M_BAT_IDY = str(val(alltrim(IDY.IDY_BAT)) + 1)
+		replace IDY.IDY_BAT with str(val(alltrim(IDY.IDY_BAT)) + 1)
+		M_BAT_IDY = replicate("0", (10 - len(alltrim(M_BAT_IDY)))) + alltrim(M_BAT_IDY)
+		M_BAT_IDY = stuff(M_BAT_IDY, 1, 3, "BAT")
+		select BRD
+		append blank
+		replace BRD.PRD_IDY with PRD.PRD_IDY, BRD.BAT_NME with "MRP : " + alltrim(str(PRD.MRP_RAT));
+				BRD.PRD_PDR WITH PRD.PUR_RAT, BRD.PRD_SDR WITH PRD.SAL_RAT, BRD.PRD_MRP WITH PRD.MRP_RAT,;
+				BRD.PRD_QTY WITH 0, BRD.BRD_DOM WITH DATE(), BRD.BRD_DOE WITH DATE(), BRD.P_INC_DIS WITH 0,;
+				BRD.S_INC_DIS WITH 0, BRD.P_PUR_VAT WITH 0, BRD.P_CRT_RNT WITH 0, BRD.P_CRT_VAT WITH 0,;
+				BRD.P_TOT_VAT WITH 0, BRD.PUR_LPP WITH 0, BRD.U_PUR_LPP WITH 0, BRD.S_SAL_VAT WITH 0,;
+				BRD.S_CRT_RNT WITH 0, BRD.S_CRT_VAT WITH 0, BRD.S_CRT_RNT WITH 0, BRD.S_CRT_VAT WITH 0,;
+				BRD.S_TOT_VAT WITH 0, BRD.SAL_LPP WITH 0, BRD.U_SAL_LPP WITH 0, BRD.SKU_SBU WITH PRD.SUB_UNT,;
+				BRD.B_CRT_RAT WITH 0, BRD.B_CRT_DIS WITH 0, B_PUR_TAX WITH PRD.PUR_TAX, BRD.B_SAL_TAX WITH PRD.SAL_TAX
+		replace BRD.BAT_IDY with M_BAT_IDY
+	endif
+	select PRD
+	skip 1
+enddo
+close all
+clear all
+wait window "PRD File Updated from SKU.DBF" nowait
+return

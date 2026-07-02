@@ -1,0 +1,24 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////    SMS MESSAGES DESCRIPTION    /////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////
+Advertorial|select act_nme as Account_Name, act_idy as ID, act_mbl as Mobile  from  act|act_nme,|Account_Name,|2| 
+Aging Due|select act_nme as Account_Name, inv_idy as Invoice_ID, due_dat - inv_dat as Due_Days, net_amt as Net_Amt, inv_dat as Invoice_Date, due_dat as Due_Date , act_bal as Bal_Amt, rcd_amt as Recd_Amt, pty_idy  as Party_Id, act_mbl as Mobile from irt, act where act.act_idy = irt.pty_idy and txn_typ = 'SAL'  and (due_dat - inv_dat) >= 0 |act_nme, inv_idy, Due_Days, net_amt ,inv_dat ,due_dat ,act_bal ,rcd_amt ,pty_idy ,|Account_Name,Invoice_ID,Due_Days,Net_Amt,Invoice_Date,Due_Date,Bal_Amt,Recd_Amt,Party_Id,|2| 
+Aging OverDue|select act_nme as Account_Name, inv_idy as Invoice_ID, inv_dat as Invoice_Date, due_dat as Due_Date , due_dat - inv_dat as Due_Days, net_amt as Net_Amt, act_bal as Bal_Amt, rcd_amt as Recd_Amt, pty_idy  as Party_Id, act_mbl as Mobile from irt, act where act.act_idy = irt.pty_idy and txn_typ = 'SAL'  and (due_dat - inv_dat) >= 0 |act_nme, inv_idy, Due_Days, net_amt ,inv_dat ,due_dat ,act_bal ,rcd_amt ,pty_idy ,|Account_Name,Invoice_ID,Due_Days,Net_Amt,Invoice_Date,Due_Date,Bal_Amt,Recd_Amt,Party_Id,|2| 
+Bill Intimation||||| 
+Collection Confirmation||||| 
+Claims Receipt||||| 
+Credit Note Intimation| SELECT TXN_IDY AS Vch_ID, TXN_DAT as Vch_Date,TXN_AMT AS Amount,  DBT_IDY AS Dr_Ac, CRT_IDY AS Cr_Ac, ACT1.ACT_NME AS Dr_Name , ACT2.ACT_NME AS Cr_Name,  ACT2.ACT_MBL AS Cr_Mobile FROM VCH, ACT ACT1, ACT ACT2 WHERE DBT_IDY = ACT1.ACT_IDY AND CRT_IDY = ACT2.ACT_IDY AND TXN_TYP = 'CRN'|TXN_IDY,TXN_DAT,TXN_AMT,DBT_IDY,CRT_IDY,ACT1.ACT_NME,ACT2.ACT_NME,AC2.ACT_MBL,|Vch_ID,Vch_Date,Amount,Dr_Ac,Cr_Ac,Dr_Name,Cr_Name,Cr_Mobile,|2| 
+Debit Note Intimation| SELECT TXN_IDY AS Vch_ID, TXN_DAT as Vch_Date,TXN_AMT AS Amount,  DBT_IDY AS Dr_Ac, CRT_IDY AS Cr_Ac, ACT1.ACT_NME AS Dr_Name , ACT2.ACT_NME AS Cr_Name, ACT1.ACT_MBL AS Dr_Mobile FROM VCH, ACT ACT1, ACT ACT2 WHERE DBT_IDY = ACT1.ACT_IDY AND CRT_IDY = ACT2.ACT_IDY AND TXN_TYP = 'DBN'|TXN_IDY,TXN_DAT,DBT_IDY,CRT_IDY,ACT1.ACT_NME,ACT2.ACT_NME,AC1.ACT_MBL,|Vch_ID,Vch_Date,Amount,Dr_Ac,Cr_Ac,Dr_Name,Cr_Name,Dr_Mobile,|2| 
+Dispatch Intimation||||| 
+Order Confirmation||||| 
+Payment Reminder||||| 
+Party ID - Name |SELECT ACT_IDY AS Party_ID, ACT_NME AS Party_Name, ACT_MBL AS Mobile  FROM ACT WHERE CST_TYp='Retailer'|ACT_IDY,ACT_NME, ACT_MBL,|Party_ID,Party_Name,Mobile,|1| 
+Rate - Quote Intimation||||| 
+Stock Intimation|SELECT PRD_IDY AS Prd_ID, PRD_NME AS Prd_Name, BRD_NME AS Brand, CUR_LEV AS Stk_Present FROM PRD WHERE STK_TYP = 'Salable' AND CUR_LEV > 0 |PRD_IDY,PRD_NME,BRD_NME,CUR_LEV, |Prd_ID,Name,Brand,Stk_Present,|1| 
+Shipment Details||||| 
+Sales Return Intimation|SELECT INV_IDY AS ID, INV_DAT as Inv_Date , ORD_IDY AS Order_ID, CST_IDY AS Cust_ID, NET_AMT AS Net_Amt,  ACT_NME AS Cust_Name, act_mbl as Mobile FROM INL, ACT WHERE ACT.ACT_IDY = INL.CST_IDY AND INL.TXN_TYP = 'SRN'|INV_IDY, INV_DAT, ORD_IDY, CST_IDY, NET_AMT, ACT_NME,|ID,Inv_Date,Order_ID,Cust_ID,Net_amt,Cust_Name, |2| 
+Scheme Intimation||||| 
+SKU ID - Name|select prd_idy as ID, prd_nme as Part_No from prd|prd_idy,prd_nme,|ID,Part_No,|1| 
+SKU ID - Sale Rate, Discount, MRP|select prd_idy as ID, prd_nme as Part_No,mrp_rat as MRP, sal_dis as Discount from prd|prd_idy,prd_nme,pmrp_rate,sal_dis,|ID,Part_No,MRP,Discount,|1| 
+VCard|select act_nme as Account_Name, act_idy as ID, act_mbl as Mobile from act|act_nme,act_idy,|Account_Name,Mobile,|2| 
+Welcome Message|select act_nme as Account_Name, act_idy as ID, act_mbl as Mobile from act|act_nme,act_idy,|Account_Name,Mobile,|2|

@@ -1,0 +1,1052 @@
+[Root]
+Most Recent Package=Standard Setup Package 5
+
+
+[Package|Standard Setup Package 3|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=C:\COKE_PACKAGE
+
+[Package|Standard Setup Package 3|Configure DAO ISAMs]
+Applicable=Yes
+Xbase=Yes
+Lotus=Yes
+Exchange=Yes
+Text=Yes
+Paradox=Yes
+Excel=Yes
+Jet 2.x=Yes
+
+[Package|Standard Setup Package 3|Configure DAO ODBC]
+JetWorkspace=Yes
+ODBCDirect=Yes
+
+[Package|Standard Setup Package 3|Files Found]
+
+[Package|Standard Setup Package 3|Files Released]
+
+[Package|Standard Setup Package 3|Missing Dependency Information]
+C:\WINDOWS\SYSTEM\MSEXCH35.DLL=
+C:\WINDOWS\SYSTEM\rrw32.ocx=
+C:\WINDOWS\SYSTEM\dec.dll=
+C:\WINDOWS\SYSTEM\enc.dll=
+C:\Program Files\Common Files\SYSTEM\ADO\msado25.tlb=
+C:\Program Files\Microsoft Office\Office\XL5EN32.OLB=
+
+[Package|Standard Setup Package 3|Out-of-Date Dependency Information]
+
+[Package|Standard Setup Package 3|Files Added]
+
+[Package|Standard Setup Package 3|Files Removed]
+
+[Package|Standard Setup Package 3|Files In Project]
+C:\Development\Chennai_Version\EFFMCG.exe=Yes
+C:\WINDOWS\SYSTEM\MSVBVM60.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\ASYCFILT.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\STDOLE2.TLB=Yes
+C:\WINDOWS\SYSTEM\COMCAT.DLL=Yes
+C:\Development\Chennai_Version\cl32.dll=Yes
+C:\Program Files\Common Files\Microsoft Shared\DAO\dao350.dll=Yes
+C:\Development\Chennai_Version\msjet35.dll=Yes
+C:\Development\Chennai_Version\MSJTER35.DLL=Yes
+C:\Development\Chennai_Version\MSJINT35.DLL=Yes
+C:\WINDOWS\SYSTEM\VBAJET32.DLL=Yes
+C:\WINDOWS\SYSTEM\expsrv.dll=Yes
+C:\Development\Chennai_Version\MSRD2X35.DLL=Yes
+C:\Development\Chennai_Version\msrepl35.dll=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=Yes
+C:\Development\Chennai_Version\vb5db.dll=Yes
+C:\WINDOWS\SYSTEM\MSDBRPTR.DLL=Yes
+C:\WINDOWS\SYSTEM\MSSTDFMT.DLL=Yes
+C:\Program Files\Common Files\Designer\MSDERUN.DLL=Yes
+C:\Program Files\Microsoft Office\Office\XL5EN32.OLB=Yes
+C:\Program Files\Common Files\SYSTEM\ADO\msado25.tlb=Yes
+C:\WINDOWS\SYSTEM\enc.dll=Yes
+C:\WINDOWS\SYSTEM\dec.dll=Yes
+C:\WINDOWS\SYSTEM\MSADODC.OCX=Yes
+C:\WINDOWS\SYSTEM\MSFLXGRD.OCX=Yes
+C:\WINDOWS\SYSTEM\MSCOMCT2.OCX=Yes
+C:\WINDOWS\SYSTEM\MSMASK32.OCX=Yes
+C:\WINDOWS\SYSTEM\TABCTL32.OCX=Yes
+C:\WINDOWS\SYSTEM\MSCOMCTL.OCX=Yes
+C:\WINDOWS\SYSTEM\rrw32.ocx=Yes
+C:\WINDOWS\SYSTEM\comdlg32.ocx=Yes
+C:\WINDOWS\SYSTEM\SYSINFO.OCX=Yes
+C:\WINDOWS\SYSTEM\MSEXCL35.DLL=Yes
+C:\WINDOWS\SYSTEM\MSEXCH35.DLL=Yes
+C:\WINDOWS\SYSTEM\MSLTUS35.DLL=Yes
+C:\WINDOWS\SYSTEM\MSRDO20.DLL=Yes
+C:\WINDOWS\SYSTEM\RDOCURS.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=Yes
+C:\WINDOWS\SYSTEM\MSPDOX35.DLL=Yes
+C:\WINDOWS\SYSTEM\MSTEXT35.DLL=Yes
+C:\WINDOWS\SYSTEM\MSXBSE35.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+C:\WINDOWS\SYSTEM\VB6STKIT.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+
+[Package|Standard Setup Package 3|Configure Registry Files]
+Applicable=No
+
+[Package|Standard Setup Package 3|Configure Remote Servers]
+Applicable=No
+
+[Package|Standard Setup Package 3|Install Locations]
+C:\Development\Chennai_Version\EFFMCG.exe=$(AppPath)
+C:\WINDOWS\SYSTEM\MSVBVM60.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\ASYCFILT.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\STDOLE2.TLB=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\COMCAT.DLL=$(WinSysPathSysFile)
+C:\Development\Chennai_Version\cl32.dll=$(AppPath)
+C:\Program Files\Common Files\Microsoft Shared\DAO\dao350.dll=$(MSDAOPath)
+C:\Development\Chennai_Version\msjet35.dll=$(WinSysPathSysFile)
+C:\Development\Chennai_Version\MSJTER35.DLL=$(WinSysPathSysFile)
+C:\Development\Chennai_Version\MSJINT35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\VBAJET32.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\expsrv.dll=$(WinSysPathSysFile)
+C:\Development\Chennai_Version\MSRD2X35.DLL=$(WinSysPathSysFile)
+C:\Development\Chennai_Version\msrepl35.dll=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=$(WinSysPathSysFile)
+C:\Development\Chennai_Version\vb5db.dll=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSDBRPTR.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSSTDFMT.DLL=$(WinSysPath)
+C:\Program Files\Common Files\Designer\MSDERUN.DLL=$(CommonFiles)\designer
+C:\Program Files\Microsoft Office\Office\XL5EN32.OLB=$(WinSysPath)
+C:\Program Files\Common Files\SYSTEM\ADO\msado25.tlb=$(WinSysPath)
+C:\WINDOWS\SYSTEM\enc.dll=$(WinSysPath)
+C:\WINDOWS\SYSTEM\dec.dll=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSADODC.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSFLXGRD.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSCOMCT2.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSMASK32.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\TABCTL32.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSCOMCTL.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\rrw32.ocx=$(WinSysPath)
+C:\WINDOWS\SYSTEM\comdlg32.ocx=$(WinSysPath)
+C:\WINDOWS\SYSTEM\SYSINFO.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSEXCL35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\MSEXCH35.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSLTUS35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\MSRDO20.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\RDOCURS.DLL=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=$(AppPath)
+C:\WINDOWS\SYSTEM\MSPDOX35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\MSTEXT35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\MSXBSE35.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\WINDOWS\SYSTEM\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+
+[Package|Standard Setup Package 3|Configure Shared Files]
+Applicable=Yes
+C:\Development\Chennai_Version\EFFMCG.exe=No
+C:\Development\Chennai_Version\cl32.dll=No
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=No
+
+[Package|Standard Setup Package 3|Distribution]
+Type=single
+Size=
+Title=Visual Effmcg Ver.4.0
+
+[Package|Standard Setup Package 3|IconGroups]
+Group0=Visual Effmcg Ver.4.0
+PrivateGroup0=-1
+Parent0=$(Programs)
+
+[Package|Standard Setup Package 3|Visual Effmcg Ver.4.0]
+Icon1=EFFMCG.exe
+Title1=Visual Effmcg Ver.4.0
+StartIn1=$(AppPath)
+Key1=Icon1
+
+[Package|Standard Setup Package 3|Package]
+PackageFolder=C:\COKE_PACKAGE
+ProjectFolder=C:\Development\Chennai_Version
+ServerSideCab=
+File1=C:\COKE_PACKAGE\setup.exe
+File2=C:\COKE_PACKAGE\Setup.Lst
+File3=C:\COKE_PACKAGE\EFFMCG.CAB
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz
+
+
+[Package|Standard Setup Package 4|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=C:\Package
+
+[Package|Standard Setup Package 4|Configure DAO ISAMs]
+Applicable=Yes
+Xbase=Yes
+Lotus=Yes
+Exchange=Yes
+Text=Yes
+Paradox=Yes
+Excel=Yes
+Jet 2.x=Yes
+
+[Package|Standard Setup Package 4|Configure DAO ODBC]
+JetWorkspace=Yes
+ODBCDirect=Yes
+
+[Package|Standard Setup Package 4|Files Found]
+
+[Package|Standard Setup Package 4|Files Released]
+
+[Package|Standard Setup Package 4|Missing Dependency Information]
+C:\WINDOWS\SYSTEM\MSEXCH35.DLL=
+C:\WINDOWS\SYSTEM\rrw32.ocx=
+C:\WINDOWS\SYSTEM\dec.dll=
+C:\WINDOWS\SYSTEM\enc.dll=
+C:\Program Files\Common Files\SYSTEM\ADO\msado25.tlb=
+C:\Program Files\Microsoft Office\Office\XL5EN32.OLB=
+
+[Package|Standard Setup Package 4|Out-of-Date Dependency Information]
+
+[Package|Standard Setup Package 4|Files Added]
+
+[Package|Standard Setup Package 4|Files Removed]
+c:\program files\common files\system\ado\msado25.tlb=
+
+[Package|Standard Setup Package 4|Files In Project]
+C:\Effmcg_Standard_Source\EFFMCG.exe=Yes
+C:\WINDOWS\SYSTEM\MSVBVM60.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\ASYCFILT.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\STDOLE2.TLB=Yes
+C:\WINDOWS\SYSTEM\COMCAT.DLL=Yes
+C:\Effmcg_Standard_Source\cl32.dll=Yes
+C:\Program Files\Common Files\Microsoft Shared\DAO\dao350.dll=Yes
+C:\Effmcg_Standard_Source\msjet35.dll=Yes
+C:\Effmcg_Standard_Source\MSJTER35.DLL=Yes
+C:\Effmcg_Standard_Source\MSJINT35.DLL=Yes
+C:\WINDOWS\SYSTEM\VBAJET32.DLL=Yes
+C:\WINDOWS\SYSTEM\expsrv.dll=Yes
+C:\Effmcg_Standard_Source\MSRD2X35.DLL=Yes
+C:\Effmcg_Standard_Source\msrepl35.dll=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=Yes
+C:\Effmcg_Standard_Source\vb5db.dll=Yes
+C:\WINDOWS\SYSTEM\MSDBRPTR.DLL=Yes
+C:\WINDOWS\SYSTEM\MSSTDFMT.DLL=Yes
+C:\Program Files\Common Files\Designer\MSDERUN.DLL=Yes
+C:\Program Files\Microsoft Office\Office\XL5EN32.OLB=Yes
+C:\Program Files\Common Files\SYSTEM\ADO\msado25.tlb=No
+C:\WINDOWS\SYSTEM\enc.dll=Yes
+C:\WINDOWS\SYSTEM\dec.dll=Yes
+C:\WINDOWS\SYSTEM\MSADODC.OCX=Yes
+C:\WINDOWS\SYSTEM\MSFLXGRD.OCX=Yes
+C:\WINDOWS\SYSTEM\MSCOMCT2.OCX=Yes
+C:\WINDOWS\SYSTEM\MSMASK32.OCX=Yes
+C:\WINDOWS\SYSTEM\TABCTL32.OCX=Yes
+C:\WINDOWS\SYSTEM\MSCOMCTL.OCX=Yes
+C:\WINDOWS\SYSTEM\rrw32.ocx=Yes
+C:\WINDOWS\SYSTEM\comdlg32.ocx=Yes
+C:\WINDOWS\SYSTEM\SYSINFO.OCX=Yes
+C:\WINDOWS\SYSTEM\MSEXCL35.DLL=Yes
+C:\WINDOWS\SYSTEM\MSEXCH35.DLL=Yes
+C:\WINDOWS\SYSTEM\MSLTUS35.DLL=Yes
+C:\WINDOWS\SYSTEM\MSRDO20.DLL=Yes
+C:\WINDOWS\SYSTEM\RDOCURS.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=Yes
+C:\WINDOWS\SYSTEM\MSPDOX35.DLL=Yes
+C:\WINDOWS\SYSTEM\MSTEXT35.DLL=Yes
+C:\WINDOWS\SYSTEM\MSXBSE35.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+C:\WINDOWS\SYSTEM\VB6STKIT.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+
+[Package|Standard Setup Package 4|Configure Registry Files]
+Applicable=No
+
+[Package|Standard Setup Package 4|Configure Remote Servers]
+Applicable=No
+
+[Package|Standard Setup Package 4|Install Locations]
+C:\Effmcg_Standard_Source\EFFMCG.exe=$(AppPath)
+C:\WINDOWS\SYSTEM\MSVBVM60.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\ASYCFILT.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\STDOLE2.TLB=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\COMCAT.DLL=$(WinSysPathSysFile)
+C:\Effmcg_Standard_Source\cl32.dll=$(AppPath)
+C:\Program Files\Common Files\Microsoft Shared\DAO\dao350.dll=$(MSDAOPath)
+C:\Effmcg_Standard_Source\msjet35.dll=$(WinSysPathSysFile)
+C:\Effmcg_Standard_Source\MSJTER35.DLL=$(WinSysPathSysFile)
+C:\Effmcg_Standard_Source\MSJINT35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\VBAJET32.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\expsrv.dll=$(WinSysPathSysFile)
+C:\Effmcg_Standard_Source\MSRD2X35.DLL=$(WinSysPathSysFile)
+C:\Effmcg_Standard_Source\msrepl35.dll=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=$(WinSysPathSysFile)
+C:\Effmcg_Standard_Source\vb5db.dll=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSDBRPTR.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSSTDFMT.DLL=$(WinSysPath)
+C:\Program Files\Common Files\Designer\MSDERUN.DLL=$(CommonFiles)\designer
+C:\Program Files\Microsoft Office\Office\XL5EN32.OLB=$(WinSysPath)
+C:\WINDOWS\SYSTEM\enc.dll=$(WinSysPath)
+C:\WINDOWS\SYSTEM\dec.dll=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSADODC.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSFLXGRD.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSCOMCT2.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSMASK32.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\TABCTL32.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSCOMCTL.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\rrw32.ocx=$(WinSysPath)
+C:\WINDOWS\SYSTEM\comdlg32.ocx=$(WinSysPath)
+C:\WINDOWS\SYSTEM\SYSINFO.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSEXCL35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\MSEXCH35.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSLTUS35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\MSRDO20.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\RDOCURS.DLL=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=$(AppPath)
+C:\WINDOWS\SYSTEM\MSPDOX35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\MSTEXT35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\MSXBSE35.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\WINDOWS\SYSTEM\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+
+[Package|Standard Setup Package 4|Configure Shared Files]
+Applicable=Yes
+C:\Effmcg_Standard_Source\EFFMCG.exe=No
+C:\Effmcg_Standard_Source\cl32.dll=No
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=No
+
+[Package|Standard Setup Package 4|Distribution]
+Type=single
+Size=
+Title=Visual Effmcg 4.0
+
+[Package|Standard Setup Package 4|IconGroups]
+Group0=Visual Effmcg 4.0
+PrivateGroup0=-1
+Parent0=$(Programs)
+
+[Package|Standard Setup Package 4|Visual Effmcg 4.0]
+Icon1=EFFMCG.exe
+Title1=Visual Effmcg 4.0
+StartIn1=$(AppPath)
+Key1=Icon1
+
+[Package|Standard Setup Package 4|Package]
+PackageFolder=C:\Package
+ProjectFolder=C:\Effmcg_Standard_Source
+ServerSideCab=
+File1=C:\Package\setup.exe
+File2=C:\Package\Setup.Lst
+File3=C:\Package\EFFMCG.CAB
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz
+
+
+[Package|Standard Setup Package 1|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=C:\Package\Package
+
+[Package|Standard Setup Package 1|Configure DAO ISAMs]
+Applicable=Yes
+Xbase=Yes
+Lotus=Yes
+Exchange=Yes
+Text=Yes
+Paradox=Yes
+Excel=Yes
+Jet 2.x=Yes
+
+[Package|Standard Setup Package 1|Configure DAO ODBC]
+JetWorkspace=Yes
+ODBCDirect=Yes
+
+[Package|Standard Setup Package 1|Files Found]
+
+[Package|Standard Setup Package 1|Files Released]
+
+[Package|Standard Setup Package 1|Missing Dependency Information]
+C:\WINDOWS\SYSTEM\MSEXCH35.DLL=
+C:\WINDOWS\SYSTEM\rrw32.ocx=
+C:\Program Files\Common Files\SYSTEM\ADO\msado25.tlb=
+C:\Program Files\Microsoft Office\Office\XL5EN32.OLB=
+C:\WINDOWS\SYSTEM\dec.dll=
+C:\WINDOWS\SYSTEM\enc.dll=
+
+[Package|Standard Setup Package 1|Out-of-Date Dependency Information]
+
+[Package|Standard Setup Package 1|Files Added]
+
+[Package|Standard Setup Package 1|Files Removed]
+
+[Package|Standard Setup Package 1|Files In Project]
+C:\WINDOWS\SYSTEM\MSVBVM60.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\ASYCFILT.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\STDOLE2.TLB=Yes
+C:\WINDOWS\SYSTEM\COMCAT.DLL=Yes
+C:\Program Files\Common Files\Microsoft Shared\DAO\dao350.dll=Yes
+C:\WINDOWS\SYSTEM\VBAJET32.DLL=Yes
+C:\WINDOWS\SYSTEM\expsrv.dll=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=Yes
+C:\WINDOWS\SYSTEM\MSDBRPTR.DLL=Yes
+C:\WINDOWS\SYSTEM\MSSTDFMT.DLL=Yes
+C:\Program Files\Common Files\Designer\MSDERUN.DLL=Yes
+C:\Program Files\Microsoft Office\Office\XL5EN32.OLB=Yes
+C:\Program Files\Common Files\SYSTEM\ADO\msado25.tlb=Yes
+C:\WINDOWS\SYSTEM\MSADODC.OCX=Yes
+C:\WINDOWS\SYSTEM\MSFLXGRD.OCX=Yes
+C:\WINDOWS\SYSTEM\MSCOMCT2.OCX=Yes
+C:\WINDOWS\SYSTEM\MSMASK32.OCX=Yes
+C:\WINDOWS\SYSTEM\TABCTL32.OCX=Yes
+C:\WINDOWS\SYSTEM\MSCOMCTL.OCX=Yes
+C:\WINDOWS\SYSTEM\rrw32.ocx=Yes
+C:\WINDOWS\SYSTEM\comdlg32.ocx=Yes
+C:\WINDOWS\SYSTEM\SYSINFO.OCX=Yes
+C:\WINDOWS\SYSTEM\MSEXCL35.DLL=Yes
+C:\WINDOWS\SYSTEM\MSEXCH35.DLL=Yes
+C:\WINDOWS\SYSTEM\MSLTUS35.DLL=Yes
+C:\WINDOWS\SYSTEM\MSRDO20.DLL=Yes
+C:\WINDOWS\SYSTEM\RDOCURS.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=Yes
+C:\WINDOWS\SYSTEM\MSPDOX35.DLL=Yes
+C:\WINDOWS\SYSTEM\MSTEXT35.DLL=Yes
+C:\WINDOWS\SYSTEM\MSXBSE35.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+C:\WINDOWS\SYSTEM\VB6STKIT.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+C:\Effmcg_Standard_Source\EFFMCG.exe=Yes
+C:\Effmcg_Standard_Source\cl32.dll=Yes
+C:\Effmcg_Standard_Source\msjet35.dll=Yes
+C:\Effmcg_Standard_Source\MSJTER35.DLL=Yes
+C:\Effmcg_Standard_Source\MSJINT35.DLL=Yes
+C:\Effmcg_Standard_Source\MSRD2X35.DLL=Yes
+C:\Effmcg_Standard_Source\msrepl35.dll=Yes
+C:\Effmcg_Standard_Source\vb5db.dll=Yes
+C:\WINDOWS\SYSTEM\enc.dll=Yes
+C:\WINDOWS\SYSTEM\dec.dll=Yes
+
+[Package|Standard Setup Package 1|Configure Registry Files]
+Applicable=No
+
+[Package|Standard Setup Package 1|Configure Remote Servers]
+Applicable=No
+
+[Package|Standard Setup Package 1|Install Locations]
+C:\Development\Chennai_Version\EFFMCG.exe=$(AppPath)
+C:\WINDOWS\SYSTEM\MSVBVM60.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\ASYCFILT.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\STDOLE2.TLB=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\COMCAT.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\cl32.dll=$(AppPath)
+C:\Program Files\Common Files\Microsoft Shared\DAO\dao350.dll=$(MSDAOPath)
+C:\WINDOWS\SYSTEM\MSJET35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\msjter35.dll=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\msjint35.dll=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\VBAJET32.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\expsrv.dll=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\msrd2x35.dll=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\MSREPL35.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\vb5db.dll=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSDBRPTR.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSSTDFMT.DLL=$(WinSysPath)
+C:\Program Files\Common Files\Designer\MSDERUN.DLL=$(CommonFiles)\designer
+C:\Program Files\Microsoft Office\Office\XL5EN32.OLB=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSADODC.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSFLXGRD.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSCOMCT2.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSMASK32.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\TABCTL32.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSCOMCTL.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\rrw32.ocx=$(WinSysPath)
+C:\WINDOWS\SYSTEM\comdlg32.ocx=$(WinSysPath)
+C:\WINDOWS\SYSTEM\SYSINFO.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSEXCL35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\MSEXCH35.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSLTUS35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\MSRDO20.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\RDOCURS.DLL=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=$(AppPath)
+C:\WINDOWS\SYSTEM\MSPDOX35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\MSTEXT35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\MSXBSE35.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\WINDOWS\SYSTEM\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+C:\Effmcg_Standard_Source\EFFMCG.exe=$(AppPath)
+C:\Effmcg_Standard_Source\cl32.dll=$(AppPath)
+C:\Effmcg_Standard_Source\msjet35.dll=$(WinSysPathSysFile)
+C:\Effmcg_Standard_Source\MSJTER35.DLL=$(WinSysPathSysFile)
+C:\Effmcg_Standard_Source\MSJINT35.DLL=$(WinSysPathSysFile)
+C:\Effmcg_Standard_Source\MSRD2X35.DLL=$(WinSysPathSysFile)
+C:\Effmcg_Standard_Source\msrepl35.dll=$(WinSysPathSysFile)
+C:\Effmcg_Standard_Source\vb5db.dll=$(WinSysPath)
+C:\WINDOWS\SYSTEM\enc.dll=$(WinSysPath)
+C:\WINDOWS\SYSTEM\dec.dll=$(WinSysPath)
+C:\Program Files\Common Files\SYSTEM\ADO\msado25.tlb=$(WinSysPath)
+
+[Package|Standard Setup Package 1|Configure Shared Files]
+Applicable=Yes
+C:\Development\Chennai_Version\EFFMCG.exe=No
+C:\WINDOWS\SYSTEM\cl32.dll=No
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=No
+C:\Effmcg_Standard_Source\EFFMCG.exe=No
+C:\Effmcg_Standard_Source\cl32.dll=No
+
+[Package|Standard Setup Package 1|Distribution]
+Type=single
+Size=
+Title=Visual Effmcg Ver.4.0
+
+[Package|Standard Setup Package 1|Package]
+PackageFolder=C:\Package\Package
+ProjectFolder=C:\Effmcg_Standard_Source
+ServerSideCab=
+File1=C:\Package\Package\setup.exe
+File2=C:\Package\Package\Setup.Lst
+File3=C:\Package\Package\EFFMCG.CAB
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz
+
+[Package|Standard Setup Package 1|IconGroups]
+Group0=Visual Effmcg Ver.4.0
+PrivateGroup0=-1
+Parent0=$(Programs)
+
+[Package|Standard Setup Package 1|Visual Effmcg Ver.4.0]
+Icon1=EFFMCG.exe
+Title1=Visual Effmcg Ver.4.0
+StartIn1=$(AppPath)
+Key1=Icon1
+
+[Package|Standard Setup Package 2|Visual Effmcg Ver.4.0]
+Icon1=EFFMCG.exe
+Title1=Visual Effmcg Ver.4.0
+StartIn1=$(AppPath)
+Key1=Icon1
+
+
+[Package|Standard Setup Package 2|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=C:\Effmcg_Package\Package\Package
+
+[Package|Standard Setup Package 2|Configure DAO ISAMs]
+Applicable=Yes
+Xbase=Yes
+Lotus=Yes
+Exchange=Yes
+Text=Yes
+Paradox=Yes
+Excel=Yes
+Jet 2.x=Yes
+
+[Package|Standard Setup Package 2|Configure DAO ODBC]
+JetWorkspace=Yes
+ODBCDirect=Yes
+
+[Package|Standard Setup Package 2|Files Found]
+
+[Package|Standard Setup Package 2|Files Released]
+2=
+3=
+
+[Package|Standard Setup Package 2|Missing Dependency Information]
+C:\WINDOWS\SYSTEM\MSEXCH35.DLL=
+C:\WINDOWS\SYSTEM\rrw32.ocx=
+C:\WINDOWS\SYSTEM\dec.dll=
+C:\WINDOWS\SYSTEM\enc.dll=
+C:\Program Files\Common Files\SYSTEM\ADO\msado25.tlb=
+C:\Program Files\Microsoft Office\Office\XL5EN32.OLB=
+C:\WINNT\system32\MSEXCH35.DLL=
+C:\WINNT\system32\rrw32.ocx=
+C:\Effmcg\dec.dll=
+C:\Effmcg\enc.dll=
+C:\WINNT\system32\iashlpr.dll=
+C:\WINNT\system32\vbscript.dll=
+C:\WINNT\system32\scrobj.dll=
+C:\WINNT\system32\msscript.ocx=
+C:\WINNT\system32\dec.dll=
+C:\WINNT\system32\enc.dll=
+C:\WINXP\system32\MSEXCH35.DLL=
+C:\WINXP\system32\rrw32.ocx=
+C:\WINXP\system32\vbscript.dll=
+C:\WINXP\system32\scrobj.dll=
+C:\WINXP\system32\msscript.ocx=
+C:\WINXP\system32\dec.dll=
+C:\WINXP\system32\enc.dll=
+C:\WINDOWS\system32\MSEXCH35.DLL=
+C:\Program Files\Effmcg4\ColaZip.dll=
+C:\WINDOWS\system32\vbscript.dll=
+C:\WINDOWS\system32\scrobj.dll=
+C:\WINDOWS\system32\msscript.ocx=
+C:\WINDOWS\system32\dec.dll=
+C:\WINDOWS\system32\enc.dll=
+
+[Package|Standard Setup Package 2|Out-of-Date Dependency Information]
+C:\WINNT\system32\scrrun.dll=
+C:\WINXP\system32\scrrun.dll=
+C:\WINDOWS\system32\scrrun.dll=
+
+[Package|Standard Setup Package 2|Files Added]
+
+[Package|Standard Setup Package 2|Files Removed]
+c:\program files\common files\system\ado\msado25.tlb=
+
+[Package|Standard Setup Package 2|Files In Project]
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\ASYCFILT.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\STDOLE2.TLB=Yes
+C:\Program Files\Common Files\Microsoft Shared\DAO\dao350.dll=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=Yes
+C:\Program Files\Common Files\Designer\MSDERUN.DLL=Yes
+C:\Program Files\Common Files\SYSTEM\ADO\msado25.tlb=No
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+E:\cpq2500\DAS_Final\EFFMCG.exe=Yes
+C:\WINDOWS\system32\MSVBVM60.DLL=Yes
+E:\cpq2500\DAS_Final\CL32.DLL=Yes
+E:\cpq2500\DAS_Final\msjet35.dll=Yes
+E:\cpq2500\DAS_Final\MSJTER35.DLL=Yes
+E:\cpq2500\DAS_Final\MSJINT35.DLL=Yes
+C:\WINDOWS\system32\vbajet32.dll=Yes
+C:\WINDOWS\system32\expsrv.dll=Yes
+E:\cpq2500\DAS_Final\MSRD2X35.DLL=Yes
+E:\cpq2500\DAS_Final\msrepl35.dll=Yes
+E:\cpq2500\DAS_Final\vb5db.dll=Yes
+C:\WINDOWS\system32\MSDBRPTR.DLL=Yes
+C:\WINDOWS\system32\MSSTDFMT.DLL=Yes
+C:\WINDOWS\system32\enc.dll=Yes
+C:\WINDOWS\system32\dec.dll=Yes
+C:\WINDOWS\system32\scrrun.dll=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT.DLL=Yes
+C:\WINDOWS\system32\msscript.ocx=Yes
+C:\WINDOWS\system32\scrobj.dll=Yes
+C:\WINDOWS\system32\vbscript.dll=Yes
+C:\Program Files\Effmcg4\ColaZip.dll=Yes
+C:\WINDOWS\system32\MSADODC.OCX=Yes
+C:\WINDOWS\system32\MSFLXGRD.OCX=Yes
+C:\WINDOWS\system32\MSCOMCT2.OCX=Yes
+C:\WINDOWS\system32\MSMASK32.OCX=Yes
+C:\WINDOWS\system32\TABCTL32.OCX=Yes
+C:\WINDOWS\system32\MSCOMCTL.OCX=Yes
+C:\WINDOWS\system\rrw32.ocx=Yes
+C:\WINDOWS\system32\COMDLG32.OCX=Yes
+C:\WINDOWS\system32\SYSINFO.OCX=Yes
+C:\WINDOWS\system32\MSCOMM32.OCX=Yes
+C:\WINDOWS\system32\MSXBSE35.DLL=Yes
+C:\WINDOWS\system32\MSLTUS35.DLL=Yes
+C:\WINDOWS\system32\MSEXCH35.DLL=Yes
+C:\WINDOWS\system32\MSTEXT35.DLL=Yes
+C:\WINDOWS\system32\MSPDOX35.DLL=Yes
+C:\WINDOWS\system32\MSEXCL35.DLL=Yes
+C:\WINDOWS\system32\MSRDO20.DLL=Yes
+C:\WINDOWS\system32\RDOCURS.DLL=Yes
+C:\WINDOWS\system32\VB6STKIT.DLL=Yes
+
+[Package|Standard Setup Package 2|Configure Registry Files]
+Applicable=No
+
+[Package|Standard Setup Package 2|Configure Remote Servers]
+Applicable=No
+
+[Package|Standard Setup Package 2|Install Locations]
+C:\Development\Chennai_Version\EFFMCG.exe=$(AppPath)
+C:\WINDOWS\SYSTEM\MSVBVM60.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\ASYCFILT.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\STDOLE2.TLB=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\COMCAT.DLL=$(WinSysPathSysFile)
+C:\Development\Chennai_Version\cl32.dll=$(AppPath)
+C:\Program Files\Common Files\Microsoft Shared\DAO\dao350.dll=$(MSDAOPath)
+C:\Development\Chennai_Version\msjet35.dll=$(WinSysPathSysFile)
+C:\Development\Chennai_Version\MSJTER35.DLL=$(WinSysPathSysFile)
+C:\Development\Chennai_Version\MSJINT35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\VBAJET32.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\expsrv.dll=$(WinSysPathSysFile)
+C:\Development\Chennai_Version\MSRD2X35.DLL=$(WinSysPathSysFile)
+C:\Development\Chennai_Version\msrepl35.dll=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=$(WinSysPathSysFile)
+C:\Development\Chennai_Version\vb5db.dll=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSDBRPTR.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSSTDFMT.DLL=$(WinSysPath)
+C:\Program Files\Common Files\Designer\MSDERUN.DLL=$(CommonFiles)\designer
+C:\Program Files\Microsoft Office\Office\XL5EN32.OLB=$(WinSysPath)
+C:\WINDOWS\SYSTEM\enc.dll=$(WinSysPath)
+C:\WINDOWS\SYSTEM\dec.dll=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSADODC.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSFLXGRD.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSCOMCT2.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSMASK32.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\TABCTL32.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSCOMCTL.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\rrw32.ocx=$(WinSysPath)
+C:\WINDOWS\SYSTEM\comdlg32.ocx=$(WinSysPath)
+C:\WINDOWS\SYSTEM\SYSINFO.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSEXCL35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\MSEXCH35.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSLTUS35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\MSRDO20.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\RDOCURS.DLL=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=$(AppPath)
+C:\WINDOWS\SYSTEM\MSPDOX35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\MSTEXT35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\MSXBSE35.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\WINDOWS\SYSTEM\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+C:\Effmcg\EFFMCG.exe=$(AppPath)
+C:\WINNT\system32\MSVBVM60.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+C:\Effmcg\cl32.dll=$(AppPath)
+C:\Effmcg\msjet35.dll=$(WinSysPathSysFile)
+C:\Effmcg\MSJTER35.DLL=$(WinSysPathSysFile)
+C:\Effmcg\MSJINT35.DLL=$(WinSysPathSysFile)
+C:\WINNT\system32\vbajet32.dll=$(WinSysPathSysFile)
+C:\WINNT\system32\expsrv.dll=$(WinSysPathSysFile)
+C:\Effmcg\MSRD2X35.DLL=$(WinSysPathSysFile)
+C:\Effmcg\msrepl35.dll=$(WinSysPathSysFile)
+C:\Effmcg\vb5db.dll=$(WinSysPath)
+C:\WINNT\system32\MSDBRPTR.DLL=$(WinSysPath)
+C:\WINNT\system32\MSSTDFMT.DLL=$(WinSysPath)
+C:\Effmcg\enc.dll=$(WinSysPath)
+C:\Effmcg\dec.dll=$(WinSysPath)
+C:\WINNT\system32\MSADODC.OCX=$(WinSysPath)
+C:\WINNT\system32\MSFLXGRD.OCX=$(WinSysPath)
+C:\WINNT\system32\MSCOMCT2.OCX=$(WinSysPath)
+C:\WINNT\system32\MSMASK32.OCX=$(WinSysPath)
+C:\WINNT\system32\TABCTL32.OCX=$(WinSysPath)
+C:\WINNT\system32\MSCOMCTL.OCX=$(WinSysPath)
+C:\WINNT\system32\rrw32.ocx=$(WinSysPath)
+C:\WINNT\system32\COMDLG32.OCX=$(WinSysPath)
+C:\WINNT\system32\SYSINFO.OCX=$(WinSysPath)
+C:\WINNT\system32\MSXBSE35.DLL=$(WinSysPathSysFile)
+C:\WINNT\system32\MSLTUS35.DLL=$(WinSysPathSysFile)
+C:\WINNT\system32\MSEXCH35.DLL=$(WinSysPath)
+C:\WINNT\system32\MSTEXT35.DLL=$(WinSysPathSysFile)
+C:\WINNT\system32\MSPDOX35.DLL=$(WinSysPathSysFile)
+C:\WINNT\system32\MSEXCL35.DLL=$(WinSysPathSysFile)
+C:\WINNT\system32\MSRDO20.DLL=$(WinSysPath)
+C:\WINNT\system32\RDOCURS.DLL=$(WinSysPath)
+C:\WINNT\system32\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\WINNT\system32\enc.dll=$(WinSysPath)
+C:\WINNT\system32\dec.dll=$(WinSysPath)
+C:\WINNT\system32\scrrun.dll=$(WinSysPath)
+C:\WINNT\system32\msvcrt.dll=$(WinSysPathSysFile)
+C:\WINNT\system32\msscript.ocx=$(WinSysPath)
+C:\WINNT\system32\scrobj.dll=$(WinSysPath)
+C:\WINNT\system32\vbscript.dll=$(WinSysPath)
+C:\WINNT\system32\iashlpr.dll=$(WinSysPath)
+C:\WINNT\system32\MSCOMM32.OCX=$(WinSysPath)
+C:\WINXP\system32\MSVBVM60.DLL=$(WinSysPathSysFile)
+C:\WINXP\system32\vbajet32.dll=$(WinSysPathSysFile)
+C:\WINXP\system32\expsrv.dll=$(WinSysPathSysFile)
+C:\WINXP\system32\MSDBRPTR.DLL=$(WinSysPath)
+C:\WINXP\system32\MSSTDFMT.DLL=$(WinSysPath)
+C:\WINXP\system32\enc.dll=$(WinSysPath)
+C:\WINXP\system32\dec.dll=$(WinSysPath)
+C:\WINXP\system32\scrrun.dll=$(WinSysPath)
+C:\WINXP\system32\msvcrt.dll=$(WinSysPathSysFile)
+C:\WINXP\system32\msscript.ocx=$(WinSysPath)
+C:\WINXP\system32\scrobj.dll=$(WinSysPath)
+C:\WINXP\system32\vbscript.dll=$(WinSysPath)
+C:\WINXP\system32\MSADODC.OCX=$(WinSysPath)
+C:\WINXP\system32\MSFLXGRD.OCX=$(WinSysPath)
+C:\WINXP\system32\MSCOMCT2.OCX=$(WinSysPath)
+C:\WINXP\system32\MSMASK32.OCX=$(WinSysPath)
+C:\WINXP\system32\TABCTL32.OCX=$(WinSysPath)
+C:\WINXP\system32\MSCOMCTL.OCX=$(WinSysPath)
+C:\WINXP\system32\rrw32.ocx=$(WinSysPath)
+C:\WINXP\system32\COMDLG32.OCX=$(WinSysPath)
+C:\WINXP\system32\SYSINFO.OCX=$(WinSysPath)
+C:\WINXP\system32\MSCOMM32.OCX=$(WinSysPath)
+C:\WINXP\system32\MSXBSE35.DLL=$(WinSysPathSysFile)
+C:\WINXP\system32\MSLTUS35.DLL=$(WinSysPathSysFile)
+C:\WINXP\system32\MSEXCH35.DLL=$(WinSysPath)
+C:\WINXP\system32\MSTEXT35.DLL=$(WinSysPathSysFile)
+C:\WINXP\system32\MSPDOX35.DLL=$(WinSysPathSysFile)
+C:\WINXP\system32\MSEXCL35.DLL=$(WinSysPathSysFile)
+C:\WINXP\system32\MSRDO20.DLL=$(WinSysPath)
+C:\WINXP\system32\RDOCURS.DLL=$(WinSysPath)
+C:\WINXP\system32\VB6STKIT.DLL=$(WinSysPathSysFile)
+E:\cpq2500\DAS_Final\EFFMCG.exe=$(AppPath)
+C:\WINDOWS\system32\MSVBVM60.DLL=$(WinSysPathSysFile)
+E:\cpq2500\DAS_Final\CL32.DLL=$(AppPath)
+E:\cpq2500\DAS_Final\msjet35.dll=$(WinSysPathSysFile)
+E:\cpq2500\DAS_Final\MSJTER35.DLL=$(WinSysPathSysFile)
+E:\cpq2500\DAS_Final\MSJINT35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\vbajet32.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\expsrv.dll=$(WinSysPathSysFile)
+E:\cpq2500\DAS_Final\MSRD2X35.DLL=$(WinSysPathSysFile)
+E:\cpq2500\DAS_Final\msrepl35.dll=$(WinSysPathSysFile)
+E:\cpq2500\DAS_Final\vb5db.dll=$(WinSysPath)
+C:\WINDOWS\system32\MSDBRPTR.DLL=$(WinSysPath)
+C:\WINDOWS\system32\MSSTDFMT.DLL=$(WinSysPath)
+C:\WINDOWS\system32\enc.dll=$(WinSysPath)
+C:\WINDOWS\system32\dec.dll=$(WinSysPath)
+C:\WINDOWS\system32\scrrun.dll=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\msscript.ocx=$(WinSysPath)
+C:\WINDOWS\system32\scrobj.dll=$(WinSysPath)
+C:\WINDOWS\system32\vbscript.dll=$(WinSysPath)
+C:\Program Files\Effmcg4\ColaZip.dll=$(WinSysPath)
+C:\WINDOWS\system32\MSADODC.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSFLXGRD.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSCOMCT2.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSMASK32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\TABCTL32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSCOMCTL.OCX=$(WinSysPath)
+C:\WINDOWS\system32\COMDLG32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\SYSINFO.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSCOMM32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSXBSE35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\MSLTUS35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\MSEXCH35.DLL=$(WinSysPath)
+C:\WINDOWS\system32\MSTEXT35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\MSPDOX35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\MSEXCL35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\MSRDO20.DLL=$(WinSysPath)
+C:\WINDOWS\system32\RDOCURS.DLL=$(WinSysPath)
+C:\WINDOWS\system32\VB6STKIT.DLL=$(WinSysPathSysFile)
+
+[Package|Standard Setup Package 2|Configure Shared Files]
+Applicable=Yes
+C:\Development\Chennai_Version\EFFMCG.exe=No
+C:\Development\Chennai_Version\cl32.dll=No
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=Yes
+C:\Effmcg\EFFMCG.exe=No
+C:\Effmcg\cl32.dll=No
+E:\cpq2500\DAS_Final\EFFMCG.exe=No
+E:\cpq2500\DAS_Final\CL32.DLL=No
+
+[Package|Standard Setup Package 2|Distribution]
+Type=single
+Size=1.44 MB
+Title=DAS Ver.4.0
+
+[Package|Standard Setup Package 2|IconGroups]
+Group0=DAS Ver.4.0
+PrivateGroup0=0
+Parent0=$(Programs)
+
+[Package|Standard Setup Package 2|DAS Ver.4.0]
+Icon1=EFFMCG.exe
+Title1=DAS Ver.4.0
+StartIn1=$(AppPath)
+Key1=Icon1
+
+[Package|Standard Setup Package 2|Package]
+PackageFolder=C:\Effmcg_Package\Package\Package
+ProjectFolder=E:\cpq2500\DAS_Final
+ServerSideCab=
+File1=C:\Effmcg_Package\Package\Package\setup.exe
+File2=C:\Effmcg_Package\Package\Package\Setup.Lst
+File3=C:\Effmcg_Package\Package\Package\EFFMCG.CAB
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz
+
+
+[Package|Standard Setup Package 5|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=c:\Effmcg_Package\Package
+
+[Package|Standard Setup Package 5|Configure DAO ISAMs]
+Applicable=Yes
+Xbase=Yes
+Excel=Yes
+Exchange=Yes
+Text=Yes
+Jet 2.x=Yes
+Lotus=Yes
+Paradox=Yes
+
+[Package|Standard Setup Package 5|Configure DAO ODBC]
+JetWorkspace=Yes
+ODBCDirect=Yes
+
+[Package|Standard Setup Package 5|Files Found]
+
+[Package|Standard Setup Package 5|Files Released]
+3=
+
+[Package|Standard Setup Package 5|Missing Dependency Information]
+C:\WINDOWS\system32\MSEXCH35.DLL=
+C:\WINDOWS\system32\rrw32.ocx=
+C:\WINDOWS\system32\ColaZip.dll=
+C:\WINDOWS\system32\vbscript.dll=
+C:\WINDOWS\system32\scrobj.dll=
+C:\WINDOWS\system32\msscript.ocx=
+C:\WINDOWS\system32\dec.dll=
+C:\WINDOWS\system32\enc.dll=
+C:\Program Files\Common Files\System\ado\msado25.tlb=
+
+[Package|Standard Setup Package 5|Out-of-Date Dependency Information]
+C:\WINDOWS\system32\scrrun.dll=
+
+[Package|Standard Setup Package 5|Files Added]
+
+[Package|Standard Setup Package 5|Files Removed]
+
+[Package|Standard Setup Package 5|Files In Project]
+E:\cpq2500\DAS_Final\EFFMCG.exe=Yes
+C:\WINDOWS\system32\MSVBVM60.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\ASYCFILT.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\STDOLE2.TLB=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+E:\cpq2500\DAS_Final\CL32.DLL=Yes
+C:\Program Files\Common Files\Microsoft Shared\DAO\DAO350.DLL=Yes
+E:\cpq2500\DAS_Final\msjet35.dll=Yes
+E:\cpq2500\DAS_Final\MSJTER35.DLL=Yes
+E:\cpq2500\DAS_Final\MSJINT35.DLL=Yes
+C:\WINDOWS\system32\vbajet32.dll=Yes
+C:\WINDOWS\system32\expsrv.dll=Yes
+E:\cpq2500\DAS_Final\MSRD2X35.DLL=Yes
+E:\cpq2500\DAS_Final\msrepl35.dll=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=Yes
+E:\cpq2500\DAS_Final\vb5db.dll=Yes
+C:\WINDOWS\system32\MSDBRPTR.DLL=Yes
+C:\WINDOWS\system32\MSSTDFMT.DLL=Yes
+C:\Program Files\Common Files\DESIGNER\MSDERUN.DLL=Yes
+C:\Program Files\Common Files\System\ado\msado25.tlb=Yes
+C:\WINDOWS\system32\enc.dll=Yes
+C:\WINDOWS\system32\dec.dll=Yes
+C:\WINDOWS\system32\scrrun.dll=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT.DLL=Yes
+C:\WINDOWS\system32\msscript.ocx=Yes
+C:\WINDOWS\system32\scrobj.dll=Yes
+C:\WINDOWS\system32\vbscript.dll=Yes
+C:\WINDOWS\system32\ColaZip.dll=Yes
+C:\WINDOWS\system32\MSADODC.OCX=Yes
+C:\WINDOWS\system32\MSFLXGRD.OCX=Yes
+C:\WINDOWS\system32\MSCOMCT2.OCX=Yes
+C:\WINDOWS\system32\MSMASK32.OCX=Yes
+C:\WINDOWS\system32\TABCTL32.OCX=Yes
+C:\WINDOWS\system32\MSCOMCTL.OCX=Yes
+C:\WINDOWS\system32\rrw32.ocx=Yes
+C:\WINDOWS\system32\COMDLG32.OCX=Yes
+C:\WINDOWS\system32\SYSINFO.OCX=Yes
+C:\WINDOWS\system32\MSCOMM32.OCX=Yes
+C:\WINDOWS\system32\MSEXCL35.DLL=Yes
+C:\WINDOWS\system32\MSEXCH35.DLL=Yes
+C:\WINDOWS\system32\MSLTUS35.DLL=Yes
+C:\WINDOWS\system32\MSRDO20.DLL=Yes
+C:\WINDOWS\system32\RDOCURS.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=Yes
+C:\WINDOWS\system32\MSPDOX35.DLL=Yes
+C:\WINDOWS\system32\MSTEXT35.DLL=Yes
+C:\WINDOWS\system32\MSXBSE35.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+C:\WINDOWS\system32\VB6STKIT.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+
+[Package|Standard Setup Package 5|Configure Registry Files]
+Applicable=No
+
+[Package|Standard Setup Package 5|Configure Remote Servers]
+Applicable=No
+
+[Package|Standard Setup Package 5|Install Locations]
+E:\cpq2500\DAS_Final\EFFMCG.exe=$(AppPath)
+C:\WINDOWS\system32\MSVBVM60.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\ASYCFILT.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\STDOLE2.TLB=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+E:\cpq2500\DAS_Final\CL32.DLL=$(AppPath)
+C:\Program Files\Common Files\Microsoft Shared\DAO\DAO350.DLL=$(MSDAOPath)
+E:\cpq2500\DAS_Final\msjet35.dll=$(WinSysPathSysFile)
+E:\cpq2500\DAS_Final\MSJTER35.DLL=$(WinSysPathSysFile)
+E:\cpq2500\DAS_Final\MSJINT35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\vbajet32.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\expsrv.dll=$(WinSysPathSysFile)
+E:\cpq2500\DAS_Final\MSRD2X35.DLL=$(WinSysPathSysFile)
+E:\cpq2500\DAS_Final\msrepl35.dll=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=$(WinSysPathSysFile)
+E:\cpq2500\DAS_Final\vb5db.dll=$(WinSysPath)
+C:\WINDOWS\system32\MSDBRPTR.DLL=$(WinSysPath)
+C:\WINDOWS\system32\MSSTDFMT.DLL=$(WinSysPath)
+C:\Program Files\Common Files\DESIGNER\MSDERUN.DLL=$(CommonFiles)\designer
+C:\Program Files\Common Files\System\ado\msado25.tlb=$(WinSysPath)
+C:\WINDOWS\system32\enc.dll=$(WinSysPath)
+C:\WINDOWS\system32\dec.dll=$(WinSysPath)
+C:\WINDOWS\system32\scrrun.dll=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\msscript.ocx=$(WinSysPath)
+C:\WINDOWS\system32\scrobj.dll=$(WinSysPath)
+C:\WINDOWS\system32\vbscript.dll=$(WinSysPath)
+C:\WINDOWS\system32\ColaZip.dll=$(WinSysPath)
+C:\WINDOWS\system32\MSADODC.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSFLXGRD.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSCOMCT2.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSMASK32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\TABCTL32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSCOMCTL.OCX=$(WinSysPath)
+C:\WINDOWS\system32\rrw32.ocx=$(WinSysPath)
+C:\WINDOWS\system32\COMDLG32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\SYSINFO.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSCOMM32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSEXCL35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\MSEXCH35.DLL=$(WinSysPath)
+C:\WINDOWS\system32\MSLTUS35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\MSRDO20.DLL=$(WinSysPath)
+C:\WINDOWS\system32\RDOCURS.DLL=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=$(AppPath)
+C:\WINDOWS\system32\MSPDOX35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\MSTEXT35.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\MSXBSE35.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\WINDOWS\system32\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+
+[Package|Standard Setup Package 5|Configure Shared Files]
+Applicable=Yes
+E:\cpq2500\DAS_Final\EFFMCG.exe=No
+E:\cpq2500\DAS_Final\CL32.DLL=No
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=No
+
+[Package|Standard Setup Package 5|Distribution]
+Type=single
+Size=
+Title=DAS Ver.4.0
+
+[Package|Standard Setup Package 5|IconGroups]
+Group0=DAS Ver.4.0
+PrivateGroup0=-1
+Parent0=$(Programs)
+
+[Package|Standard Setup Package 5|DAS Ver.4.0]
+Icon1=EFFMCG.exe
+Title1=DAS Ver.4.0
+StartIn1=$(AppPath)
+Key1=Icon1
+
+[Package|Standard Setup Package 5|Package]
+PackageFolder=c:\Effmcg_Package\Package
+ProjectFolder=E:\cpq2500\DAS_Final
+ServerSideCab=
+File1=c:\Effmcg_Package\Package\setup.exe
+File2=c:\Effmcg_Package\Package\Setup.Lst
+File3=c:\Effmcg_Package\Package\EFFMCG.CAB
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz

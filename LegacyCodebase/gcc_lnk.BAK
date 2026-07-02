@@ -1,0 +1,10 @@
+close all
+clear all
+SET CONFIRM OFF
+SET SAFETY OFF
+OPEN DATABASE EFF
+REMOVE TABLE GCC.DBF
+ADD TABLE GCC.DBF
+close all
+clear all
+return

@@ -1,0 +1,407 @@
+* : * (c) PVM Innvensys Pvt Ltd
+* : * Date Written: 15th Mar 2009
+* : * Author	  : Ramaneshwar
+* : * Program Code: To check the EFF.DBC container tables on disk ie, local path and do Financial Year Transition for Next FY
+* : *				Change the Financial Year Status Flag to "Y" WITH Master Data "As it is"
+* : * Applicable  : Applicable to all EFF.DBC applications
+* : * Last Modfied: 15th Mar 2009 for all EFF.DBC applications
+* : *
+ON ERROR
+clear
+close all
+clear all
+set talk off
+set echo off
+set status off
+set safety off
+set date BRITISH
+* : *	- Initialize Distributor Code and Target Directory Variables
+CurrentPath = sys(5) + "\" + sys(2003)
+store space(08) to M_WDS_IDY
+store space(13) to M_WDS_DIR
+* : * 	- Open Control File to Get Required Values for the Variables Above and Start Process
+select 0
+use DIR index DIR alias DIR
+set order to 1
+seek "WDS"+"IDY"
+if found()
+	M_WDS_IDY = trim(DIR.DIR_ALS)
+else
+	wait window "No 8 Digit ID found to run this Utility, Quitting the Utility Now!"
+	close all
+	return
+endif
+if len(trim(M_WDS_IDY)) > 0
+	M_WDS_DIR = trim(M_WDS_IDY)+"_"+rtrim(ltrim(str(year(date()))))
+else
+	wait window "Invalid Deployment - Distributor Code"
+endif
+M_WDS_CHK = "C:\PROGRA~1\EFFMCG4\" + rtrim(ltrim(M_WDS_DIR))
+seek "SYS"+"TT1"
+if found()
+	M_NME_CHK = rtrim(ltrim(DIR.DIR_MSG))
+	store 1 to CTR
+	do while .t.
+		if len((M_NME_CHK)) = CTR
+			exit
+		endif
+		if substr(M_NME_CHK, CTR, CTR) = chr(32)
+			M_NME_CHK = stuff(M_NME_CHK, CTR, 1, "_")
+		endif
+		CTR = CTR + 1
+	enddo
+	M_WDS_NME = '"'+rtrim(ltrim(str(year(date()))))+"_"+M_NME_CHK+"@Path@"+rtrim(ltrim(M_WDS_CHK))+'"'
+endif
+select DIR
+seek "SYS"+"IND"
+if .not. found()
+	select DIR
+	append blank
+	replace DIR_IDY with "SYS", DIR_IDX with "IND", DIR_MSG with "PROPER SHUTDOWN", DIR_ALS with space(10)
+else
+	replace DIR_MSG with "PROPER SHUTDOWN"
+endif
+close all
+close databases
+close indexes
+wait window M_WDS_CHK
+* : * 	- Create Directory for Next Financial Year and Copy All Required Files and Initialize all Transaction Files
+If .not. DIRECTORY("&M_WDS_CHK")
+	mkdir "&M_WDS_CHK"
+	close databases
+	close indexes
+	set default to
+	copy file eff.* to "&M_WDS_CHK"
+	
+	copy file a*.DBF to "&M_WDS_CHK"
+	copy file a*.FPT to "&M_WDS_CHK"
+	copy file b*.DBF to "&M_WDS_CHK"
+	copy file c*.DBF to "&M_WDS_CHK"
+	copy file d*.DBF to "&M_WDS_CHK"
+	copy file fun.DBF to "&M_WDS_CHK"
+	copy file g*.DBF to "&M_WDS_CHK"
+	copy file h*.DBF to "&M_WDS_CHK"
+	copy file i*.DBF to "&M_WDS_CHK"
+
+	copy file l*.DBF to "&M_WDS_CHK"
+	copy file m*.DBF to "&M_WDS_CHK"
+	copy file n*.DBF to "&M_WDS_CHK"
+	copy file o*.DBF to "&M_WDS_CHK"
+	copy file p*.DBF to "&M_WDS_CHK"
+	copy file q*.DBF to "&M_WDS_CHK"
+	copy file r*.DBF to "&M_WDS_CHK"
+	copy file s*.DBF to "&M_WDS_CHK"
+	copy file t*.DBF to "&M_WDS_CHK"
+	copy file u*.DBF to "&M_WDS_CHK"
+	copy file v*.DBF to "&M_WDS_CHK"
+	copy file w*.DBF to "&M_WDS_CHK"
+	copy file x*.DBF to "&M_WDS_CHK"
+	copy file y*.DBF to "&M_WDS_CHK"
+
+	copy file *.CDX to "&M_WDS_CHK"
+	copy file *.RP1 to "&M_WDS_CHK"
+	copy file *.RRW to "&M_WDS_CHK"
+	copy file *.LZH to "&M_WDS_CHK"
+	copy file *.CNF to "&M_WDS_CHK"
+	copy file *.BAT to "&M_WDS_CHK"
+
+	copy file SETDB.* to "&M_WDS_CHK"
+
+	copy file BBD.exe to "&M_WDS_CHK"
+	copy file BRD_UPD.EXE to "&M_WDS_CHK"
+	copy file CIND.EXE to "&M_WDS_CHK"
+	copy file DAS_DBU13.exe to "&M_WDS_CHK"
+	copy file DAY_CLS.exe to "&M_WDS_CHK"
+	copy file dbclean.EXE to "&M_WDS_CHK"
+	copy file DB_RESTORE.exe to "&M_WDS_CHK"
+	copy file DIR_INF.TXT to "&M_WDS_CHK"
+	copy file DNB.exe to "&M_WDS_CHK"
+	copy file EFFMCG.EXE to "&M_WDS_CHK"
+	copy file ENB.exe to "&M_WDS_CHK"
+	copy file FastBkp.exe to "&M_WDS_CHK"
+	copy file FBKPath.txt to "&M_WDS_CHK"
+	copy file fcr.EXE to "&M_WDS_CHK"
+	copy file FOXUSER.DBF to "&M_WDS_CHK"
+	copy file FOXUSER.FPT to "&M_WDS_CHK"
+
+	copy file LHA.EXE to "&M_WDS_CHK"
+	copy file LNV_UPD.exe to "&M_WDS_CHK"
+	copy file pnv_pnl.exe to "&M_WDS_CHK"
+	copy file PRB.EXE to "&M_WDS_CHK"
+	copy file PRI.EXE to "&M_WDS_CHK"
+	copy file RR.EXE to "&M_WDS_CHK"
+	copy file RRSETUP.EXE to "&M_WDS_CHK"
+	copy file RRUN.EXE to "&M_WDS_CHK"
+	copy file RRUNTIME.EXE to "&M_WDS_CHK"
+	copy file RRUSERS.EXE to "&M_WDS_CHK"
+	copy file SPD.EXE to "&M_WDS_CHK"
+	copy file TMP.FPT to "&M_WDS_CHK"
+	copy file VLD_BAT.Exe to "&M_WDS_CHK"
+	copy file VND.EXE to "&M_WDS_CHK"
+
+*!*		copy file *.EXE to "&M_WDS_CHK"	
+*!*	FY_XFR.EXE to "&M_WDS_CHK"
+*!*		copy file IND.EXE to "&M_WDS_CHK"
+*!*		copy file CND.EXE to "&M_WDS_CHK"
+	
+	close all
+    chdir "&M_WDS_CHK"
+    set default to
+	if file("AGD.DBF")
+		use AGD
+		zap
+	endif
+	if file("BNL.DBF")
+		use BNL
+		zap
+	endif
+	if file("BNV.DBF")
+		use BNV
+		zap
+	endif
+	if file("CBK.DBF")
+		use CBK
+		zap
+	endif
+	if file("CLD.DBF")
+		use CLD
+		zap
+	endif
+	if file("CNV.DBF")
+		use CNV
+		zap
+	endif
+	if file("CUR.DBF")
+		use CUR
+		zap
+	endif
+	if file("DIR.DBF")
+		use DIR
+		delete all for DIR_IDY = "DAY"
+		go top
+		pack
+	endif
+	if file("DSU.DBF")
+		use DSU
+		zap
+	endif
+	if file("HHT.DBF")
+		use HHT
+		zap
+	endif
+	if file("INE.DBF")
+		use INE
+		zap
+	endif
+	if file("INL.DBF")
+		use INL
+		zap
+	endif
+	if file("INV.DBF")
+		use INV
+		zap
+	endif
+	if file("IRT.DBF")
+		use IRT
+		zap
+	endif
+	if file("LDS.DBF")
+		use LDS
+		zap
+	endif
+	if file("LED.DBF")
+		use LED
+		zap
+	endif
+	if file("LEV.DBF")
+		use LEV
+		zap
+	endif
+	if file("LNV.DBF")
+		use LNV
+		zap
+	endif
+	if file("LOG.DBF")
+		use LOG
+		zap
+	endif
+	if file("MBR.DBF")
+		use MBR
+		zap
+	endif
+	if file("MCL.DBF")
+		use MCL
+		zap
+	endif
+	if file("NPO.DBF")
+		use NPO
+		zap
+	endif
+	if file("OPA.DBF")
+		use OPA
+		zap
+	endif
+	if file("OPS.DBF")
+		use OPS
+		zap
+	endif
+	if file("ORD.DBF")
+		use ORD
+		zap
+	endif
+	if file("PNL.DBF")
+		use PNL
+		zap
+	endif
+	if file("PNV.DBF")
+		use PNV
+		zap
+	endif
+	if file("PPC.DBF")
+		use PPC
+		zap
+	endif
+	if file("RP1.DBF")
+		use RP1
+		zap
+	endif
+	if file("RP2.DBF")
+		use RP2
+		zap
+	endif
+	if file("SCH.DBF")
+		use SCH
+		zap
+	endif
+	if file("STS.DBF")
+		use STS
+		zap
+	endif
+	if file("SNV.DBF")
+		use SNV
+		zap
+	endif
+	if file("TOP.DBF")
+		use TOP
+		zap
+	endif
+	if file("VAN.DBF")
+		use VAN
+		zap
+	endif
+	if file("VBK.DBF")
+		use VBK
+		zap
+	endif
+	if file("VCH.DBF")
+		use VCH
+		zap
+	endif
+	if file("XNL.DBF")
+		use XNL
+		zap
+	endif
+	if file("XNV.DBF")
+		use XNV
+		zap
+	endif
+	close all
+	if file("IDY.DBF")
+		use IDY	alias IDY
+		go top
+		do while .not. eof("IDY")
+			replace IDY_OPN with space(10), IDY_JRN with space(10), IDY_PAY with space(10), IDY_RCT with space(10),;
+					IDY_CRN with space(10), IDY_DBN with space(10), IDY_SAL with space(10), IDY_PUR with space(10),;
+					IDY_OPS with space(10), IDY_SRN with space(10), IDY_PRT with space(10), IDY_STI with space(10),;
+					IDY_STO with space(10), IDY_ORD with space(10), IDY_RSI with space(10), IDY_IRT with space(10),;
+					IDY_LDS with space(10), IDY_LEV with space(10), IDY_OTC with space(10), IDY_AIN with space(10),;
+					IDY_AOU with space(10), IDY_SHT with space(10), IDY_TXN with space(10), IDY_CON with space(10),;
+					IDY_TXN with space(10), IDY_QPS with space(10), IDY_BRK with space(10)
+			skip 1
+		enddo
+	endif
+	close all
+	if file("BRD.DBF")
+		use BRD alias BRD
+		go top
+		do while .not. eof("BRD")
+			if BRD->PRD_QTY = 0
+				delete
+			endif
+			skip 1
+		enddo
+	endif
+	close all
+	store space(09) to M_YER_CHK
+	M_YER_CHK = ltrim(rtrim(str(year(date()))))+"/"+ltrim(rtrim(str(year(date())+1)))
+	if file("YER.DBF")
+		select 0
+		use CSR alias CSR
+		go top
+		select 0
+		use YER index YER alias YER
+		set order to 1
+		replace all ACT_PAS with "N"
+		go top
+		seek ltrim(rtrim(M_YER_CHK))
+		if found()
+			replace ACT_PAS with "Y"
+			select CSR
+			do while .not. eof("CSR")
+				replace CSR.CSR_DAT with YER.FRM_DAT, CSR.BEG_DAT with YER.FRM_DAT, CSR.END_DAT with YER.TO_DAT
+				select CSR
+				skip 1
+			enddo
+		endif
+	endif
+	close all
+	if file('C:\WINNT\SYSTEM\EFFMCG4.TXT')
+	   	gnErrFile = FOPEN('C:\WINNT\SYSTEM\EFFMCG4.TXT',12)  && If so, open read-write	   	
+	else
+   		gnErrFile = FCREATE('errors.txt')  && If not, create it
+	endif
+	IF gnErrFile < 0  && Check for error opening file
+   		WAIT 'Cannot open or create output file' WINDOW NOWAIT
+	ELSE  && If no error, write to file
+		=FSEEK(gnErrFile, 0, 2)
+   		=FPUTS(gnErrFile, '&M_WDS_NME')
+	ENDIF
+	=FCLOSE(gnErrFile)  && Close file
+	close all
+	clear all
+*	MODIFY FILE errors.txt NOWAIT  && Open file in edit window 
+	do IND
+	do CND
+*	set default to '&CurrentPath'
+	close all
+	clear all
+	return
+else
+	wait window "Directory Found - Cannot Progress Further"
+	close all
+	clear all
+	return
+endif
+close all
+clear all
+return
+
+* : * Procedure CHKTBL for checking tables and other files on common path / disk
+* : * Procedure to check files on the disk
+procedure CHKTBL
+parameters sFile
+sFileLen = len(trim(SFile))
+store 1 to S_POS
+store 7 to E_POS
+for gnCount = 0 TO sFileLen STEP E_POS
+	tbN = substr(sFile, S_POS, E_POS)	   
+	if len(trim(tbN)) > 0
+		if .not. file("&tbN")
+			wait window "Critical Tables Missing " + tbN
+			exit
+		else
+			S_POS = S_POS + 8
+		endif
+	endif
+endfor
+* : * End of procedure to check files on the disk

@@ -1,0 +1,58 @@
+
+Structure for table:    C:\DAS_FINAL\INL.DBF
+Number of data records: 3       
+Date of last update:    31/05/2007
+Code Page:              1252    
+Field  Field Name      Type                Width    Dec   Index   Collate Nulls
+    1  INV_IDY         Character              10            Asc   Machine    No
+    2  INV_DAT         Date                    8                             No
+    3  ORD_IDY         Character              10            Asc   Machine    No
+    4  CST_IDY         Character              10            Asc   Machine    No
+    5  ACT_IDY         Character              10                            Yes
+    6  GRS_AMT         Numeric                15      2                     Yes
+    7  SPD_PCG         Numeric                 7      2                     Yes
+    8  SPD_AMT         Numeric                15      2                     Yes
+    9  CSD_PCG         Numeric                 7      2                     Yes
+   10  CSD_AMT         Numeric                15      2                     Yes
+   11  EXD_PCG         Numeric                 7      2                     Yes
+   12  EXD_CAL         Character               1                            Yes
+   13  EXD_AMT         Numeric                15      2                     Yes
+   14  TAX_PCG         Numeric                 7      2                     Yes
+   15  TAX_AMT         Numeric                15      2                     Yes
+   16  NET_AMT         Numeric                15      2                     Yes
+   17  SMN_IDY         Character              10                            Yes
+   18  TXN_TYP         Character               3                            Yes
+   19  FRT_TYP         Character               1                            Yes
+   20  FRT_AMT         Numeric                15      2                     Yes
+   21  DCH_IDY         Character              10            Asc   Machine    No
+   22  DCH_DAT         Date                    8                            Yes
+   23  LRN_IDY         Character              10                            Yes
+   24  LRN_DAT         Date                    8                            Yes
+   25  LRN_AMT         Numeric                15      2                     Yes
+   26  WBL_IDY         Character              10                            Yes
+   27  WBL_DAT         Date                    8                            Yes
+   28  PKG_CST         Numeric                15      2                     Yes
+   29  TTL_CAS         Numeric                15      2                     Yes
+   30  TXN_RMK         Character              70                            Yes
+   31  TXN_TPT         Character              40                            Yes
+   32  TAX_ACT         Character              10                            Yes
+   33  ROU_ACT         Character              10                            Yes
+   34  ROU_OFF         Numeric                 5      2                     Yes
+   35  FRT_ACT         Character              10                            Yes
+   36  CRT_DAY         Numeric                 4                            Yes
+   37  DUE_DAT         Date                    8                            Yes
+   38  DES_MOD         Character               1                            Yes
+   39  STO_RMK         Character               4                            Yes
+   40  ROU_IDY         Character              15                            Yes
+   41  TXN_RM1         Character             100                            Yes
+   42  TXN_RM2         Character             100                            Yes
+   43  VCH_IDY         Character              10            Asc   Machine    No
+   44  VCH_DAT         Date                    8                            Yes
+   45  SCH_CHK         Character               1                            Yes
+   46  USR_IDY         Character              20                            Yes
+   47  SYS_DAT         Date                    8                            Yes
+   48  SYS_TIM         Character               8                            Yes
+   49  SCH_IDY         Character              10            Asc   Machine    No
+   50  SRN_AMT         Numeric                15      2                     Yes
+   51  DIS_CHK         Character               1                            Yes
+** Total **                                  760

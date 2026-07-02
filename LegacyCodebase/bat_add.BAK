@@ -1,0 +1,38 @@
+close all
+clear all
+select 0
+use IDY alias IDY
+select 0
+use PRD index PRD alias PRD
+set order to 1
+select 0
+use BRD index BRD alias BRD
+set order to 1
+do while .not. eof("PRD")
+	select BRD
+	seek PRD.PRD_IDY
+	if .not. found()
+		select IDY
+		go 1
+		M_BAT_IDY = str(val(alltrim(IDY.IDY_BAT)) + 1)
+		replace IDY.IDY_BAT with str(val(alltrim(IDY.IDY_BAT)) + 1)
+		M_BAT_IDY = replicate("0", (10 - len(alltrim(M_BAT_IDY)))) + alltrim(M_BAT_IDY)
+		M_BAT_IDY = stuff(M_BAT_IDY, 1, 3, "BAT")
+		select BRD
+		append blank
+		replace BRD.PRD_IDY with PRD.PRD_IDY, BRD.BAT_NME with "MRP : " + alltrim(str(BRD.MRP_RAT));
+				BRD.PRD_PDR WITH PRD.PUR_RAT, BRD.PRD_SDR WITH PRD.SAL_RAT, BRD.PRD_MRP WITH PRD.MRP_RAT,;
+				BRD.PRD_QTY WITH 0, BRD.BRD_DOM WITH DATE(), BRD.BRD_DOE WITH DATE(), BRD.P_INC_DIS WITH 0,;
+				BRD.S_INC_DIS WITH 0, BRD.P_PUR_VAT WITH 0, BRD.P_CRT_RNT WITH 0, BRD.P_CRT_VAT WITH 0,;
+				BRD.P_TOT_VAT WITH 0, BRD.PUR_LPP WITH 0, BRD.U_PUR_LPP WITH 0, BRD.S_SAL_VAT WITH 0,;
+				BRD.S_CRT_RNT WITH 0, BRD.S_CRT_VAT WITH 0, BRD.S_CRT_RNT WITH 0, BRD.S_CRT_VAT WITH 0,;
+				BRD.S_TOT_VAT WITH 0, BRD.SAL_LPP WITH 0, BRD.U_SAL_LPP WITH 0, BRD.SKU_SBU WITH PRD.SUB_UNT,;
+				BRD.B_CRT_RAT WITH 0, BRD.B_CRT_DIS WITH 0, B_PUR_TAX WITH PRD.PUR_TAX, BRD.B_SAL_TAX WITH PRD.SAL_TAX
+		replace BRD.BAT_IDY with M_BAT_IDY
+	endif
+	select PRD
+	skip 1
+enddo
+close all
+clear all
+return

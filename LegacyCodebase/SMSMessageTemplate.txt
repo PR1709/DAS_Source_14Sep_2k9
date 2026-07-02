@@ -1,0 +1,24 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////    SMS MESSAGES DESCRIPTION    /////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////
+Advertorial|select act_nme as "Account_Name", act_idy as "ID", act_mbl as "Mobile"  from  act  where act_typ <> ' '|act_nme,|Account_Name,|2|
+Aging Due|select act_nme as "Account_Name", inv_idy as "Invoice_ID", due_dat - inv_dat as "Due_Days", net_amt as "Net_Amt", inv_dat as "Invoice_Date", due_dat as "Due_Date" , act_bal as "Bal_Amt", rcd_amt as "Recd_Amt", pty_idy  as "Party_Id", act_mbl as "Mobile" from irt, act where act.act_idy = irt.pty_idy and txn_typ = 'SAL'  and rcd_amt > net_amt and (due_dat - inv_dat) >= 0  and act_typ <> ' '|act_nme, inv_idy, Due_Days, net_amt ,inv_dat ,due_dat ,act_bal ,rcd_amt ,pty_idy ,|Account_Name,Invoice_ID,Due_Days,Net_Amt,Invoice_Date,Due_Date,Bal_Amt,Recd_Amt,Party_Id,|2|
+Aging OverDue|select act_nme as "Account_Name", inv_idy as "Invoice_ID", inv_dat as "Invoice_Date", due_dat as "Due_Date" , due_dat - inv_dat as "Due_Days", net_amt as "Net_Amt", act_bal as "Bal_Amt", rcd_amt as "Recd_Amt", pty_idy  as "Party_Id", act_mbl as "Mobile" from irt, act where act.act_idy = irt.pty_idy and txn_typ = 'SAL'  and rcd_amt > net_amt and (due_dat - inv_dat) >= 0   and act_typ <> ' '|act_nme, inv_idy, Due_Days, net_amt ,inv_dat ,due_dat ,act_bal ,rcd_amt ,pty_idy ,|Account_Name,Invoice_ID,Due_Days,Net_Amt,Invoice_Date,Due_Date,Bal_Amt,Recd_Amt,Party_Id,|2|
+Bill Intimation||||2|
+Collection Confirmation||||2|
+Claims Receipt||||2|
+Credit Note Intimation||||2|
+Debit Note Intimation||||2|
+Dispatch Intimation||||2|
+Order Confirmation||||2|
+Payment Reminder||||2|
+Party ID - Name ||||2|
+Rate - Quote Intimation||||2|
+Stock Intimation||||2|
+Shipment Details||||2|
+Sales Return Intimation||||2|
+Scheme Intimation|select distinct sch_idy as "ID", sch_nme as "Scheme", sch_typ as "Type" from sch|sch_idy,sch_nme,sch_typ,|ID,Scheme,Type|1|
+SKU ID - Name|select prd_idy as "ID", prd_nme as "Part_No" from prd|prd_idy,prd_nme,|ID,Part_No,|1|
+SKU ID - Sale Rate, Discount, MRP|select prd_idy as "ID", prd_nme as "Part_No",mrp_rat as "MRP", sal_dis as "Discount" from prd|prd_idy,prd_nme,pmrp_rate,sal_dis,|ID,Part_No,MRP,Discount,|1|
+VCard|select act_nme as "Account_Name", act_idy as "ID" from act   where act_typ <> ' '|act_nme,|Account_Name,|2|
+Welcome Message|select act_nme as "Account_Name", act_idy as "ID" from act   where act_typ <> ' '|act_nme,|Account_Name,|2|

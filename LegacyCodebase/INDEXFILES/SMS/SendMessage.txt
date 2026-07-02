@@ -1,0 +1,893 @@
+6|9703506649|Dear HCCBPL - COCA-COLA - Message From GSM Modem - PVM|5
+6||Dear CLAIMS HCCBPL A/C - Message From GSM Modem - PVM|5
+6||Dear SALES A/C - Message From GSM Modem - PVM|5
+6||Dear SALES RETURN A/C - Message From GSM Modem - PVM|5
+6||Dear PURCHASE A/C - Message From GSM Modem - PVM|5
+6||Dear PURCHASE RETURN A/C - Message From GSM Modem - PVM|5
+6||Dear OPN. STOCK - DEBIT A/C - Message From GSM Modem - PVM|5
+6||Dear OPN. STOCK - CREDIT A/C - Message From GSM Modem - PVM|5
+6||Dear OPENING DR. - CR. A/C - Message From GSM Modem - PVM|5
+6||Dear UNPLANNED RECEIPTS A/C - Message From GSM Modem - PVM|5
+6||Dear UNPLANNED ISSUE A/C - Message From GSM Modem - PVM|5
+6||Dear BREAKAGE A/C - Message From GSM Modem - PVM|5
+6||Dear STOCK ADJST - CYCLE COUNT A/C - Message From GSM Modem - PVM|5
+6||Dear EXPENSE REIMBURSEMENT - TOBE CLAIMED - Message From GSM Modem - PVM|5
+6||Dear CASH A/C - Message From GSM Modem - PVM|5
+6||Dear BANK A/C - Message From GSM Modem - PVM|5
+6||Dear FUEL EXP - DIESEL - Message From GSM Modem - PVM|5
+6||Dear FUEL EXP - PETROL - Message From GSM Modem - PVM|5
+6||Dear VEHICLE MAINT. - TRUCK - Message From GSM Modem - PVM|5
+6||Dear VEHICLE MAINT. - AUTO - Message From GSM Modem - PVM|5
+6||Dear VEHICLE MAINT. - RICKSHAW - Message From GSM Modem - PVM|5
+6||Dear VEHICLE MAINT. - OTHERS - Message From GSM Modem - PVM|5
+6||Dear RENTAL - GODOWN - Message From GSM Modem - PVM|5
+6||Dear UTILITIES  ELECTRICITY A/C - Message From GSM Modem - PVM|5
+6||Dear TELEPHONE A/C - Message From GSM Modem - PVM|5
+6||Dear STATIONARY A/C - Message From GSM Modem - PVM|5
+6||Dear CONSULTANT A/C - Message From GSM Modem - PVM|5
+6||Dear INVST. - TRUCK - Message From GSM Modem - PVM|5
+6||Dear INVST. - AUTO - Message From GSM Modem - PVM|5
+6||Dear INVST. - RICKSHAW - Message From GSM Modem - PVM|5
+6||Dear INVST. - COMPUTER - Message From GSM Modem - PVM|5
+6||Dear INVST. - BUILDING-LAND-GODOWN-OFFICE - Message From GSM Modem - PVM|5
+6||Dear INVST. - FURNITURE AND FIXTURES - Message From GSM Modem - PVM|5
+6||Dear INVST. - EMPTY - HCCB ROD - Message From GSM Modem - PVM|5
+6||Dear INVST. - EMPTY - OTHERS NOT ROD - Message From GSM Modem - PVM|5
+6||Dear INVST. - OTHERS - Message From GSM Modem - PVM|5
+6||Dear INVENTORY FG A/C - IN GODOWN - Message From GSM Modem - PVM|5
+6||Dear RETAILER GOD - Message From GSM Modem - PVM|5
+6||Dear INVENTORY EMPTY A/C - IN GODOWN - Message From GSM Modem - PVM|5
+6||Dear INVST. - EMPTY IN TRADE - COL - Message From GSM Modem - PVM|5
+6||Dear INVST. - FG IN TRADE - Message From GSM Modem - PVM|5
+6||Dear CASES ON LOAN - HCCB ROL - Message From GSM Modem - PVM|5
+6||Dear INVST. - CDE - Message From GSM Modem - PVM|5
+6||Dear INVST. - ICE BOXES - Message From GSM Modem - PVM|5
+6||Dear PF EXPENSES A/C - Message From GSM Modem - PVM|5
+6||Dear SALARY - CASHIER - Message From GSM Modem - PVM|5
+6||Dear SALARY - COMPUTER OPERATOR - Message From GSM Modem - PVM|5
+6||Dear SALARY - HELPERS_ LOADERS - Message From GSM Modem - PVM|5
+6||Dear SALARY - HELPERS_ROUTES - Message From GSM Modem - PVM|5
+6||Dear SALARY - SALESMAN - Message From GSM Modem - PVM|5
+6||Dear SALARY - SECURITY - Message From GSM Modem - PVM|5
+6||Dear SALARY - SUPERVISOR - Message From GSM Modem - PVM|5
+6||Dear SALESMAN COMMIS. INCENTIVE - Message From GSM Modem - PVM|5
+6||Dear DEPRECIATION - ALL A/C - Message From GSM Modem - PVM|5
+6||Dear PETTY - CASH - Message From GSM Modem - PVM|5
+6||Dear BK - INTEREST BANK - Message From GSM Modem - PVM|5
+6||Dear BK - BANK CHARGES - Message From GSM Modem - PVM|5
+6||Dear INSURANCE A/C - Message From GSM Modem - PVM|5
+6||Dear VAT - PAYABLE A/C - Message From GSM Modem - PVM|5
+6||Dear VAT - PAID TO GOVT A/C - Message From GSM Modem - PVM|5
+6||Dear DISCOUNT - QTY SCHEME FREE A/C - Message From GSM Modem - PVM|5
+6||Dear VAT - INPUT A/C - Message From GSM Modem - PVM|5
+6||Dear VAT - OUTPUT A/C - Message From GSM Modem - PVM|5
+6||Dear VAT - CRATE - I_O A/C - Message From GSM Modem - PVM|5
+6||Dear DISCOUNT - CASH A/C - Message From GSM Modem - PVM|5
+6||Dear RETAILER OPENING A/C - SAMPLE_DUMMY - Message From GSM Modem - PVM|5
+6||Dear AD8V03 VEESA SWAMI STORE - Message From GSM Modem - PVM|5
+6||Dear AD7A01-AARTI PLASTIC - Message From GSM Modem - PVM|5
+6||Dear AD7A06-AGGARWAL SWEET - Message From GSM Modem - PVM|5
+6||Dear AD7G04-GOODIES STORE - Message From GSM Modem - PVM|5
+6||Dear AD7G05-GUPTA PAN - Message From GSM Modem - PVM|5
+6||Dear AD7M03-MAHESH DAIRY - Message From GSM Modem - PVM|5
+6||Dear AD7M06-MIRCH MASALA RESTAUR - Message From GSM Modem - PVM|5
+6||Dear AD7N02-NARANG CONF - Message From GSM Modem - PVM|5
+6||Dear AD7N03-NARESH PROV STORE - Message From GSM Modem - PVM|5
+6||Dear AD7N04-NEERAJ STORE - Message From GSM Modem - PVM|5
+6||Dear AD7C03-CHANDER DHABA - Message From GSM Modem - PVM|5
+6||Dear AD7P04-PARDEEP STORE - Message From GSM Modem - PVM|5
+6||Dear AD7S05-SAMRAT STUDIO - Message From GSM Modem - PVM|5
+6||Dear AD7S07-SANJAY STATIONERY - Message From GSM Modem - PVM|5
+6||Dear AD7S16-SHUBHAM MORNING STORE - Message From GSM Modem - PVM|5
+6||Dear AD7U01-USHA DEPARTMENTAL STORE - Message From GSM Modem - PVM|5
+6||Dear AD7V01-VAISHNU DHABA - Message From GSM Modem - PVM|5
+6||Dear AD7V02-VED RAM SWEETS - Message From GSM Modem - PVM|5
+6||Dear VAN DL-1L A 8244 - Message From GSM Modem - PVM|5
+6||Dear AD7M10-MANISH STORE - Message From GSM Modem - PVM|5
+6||Dear AD7F01-FRIENDS PAN - Message From GSM Modem - PVM|5
+6||Dear AD7P06-PARDEEP PAN - Message From GSM Modem - PVM|5
+6||Dear AD7J06-JAIN DIPARTMANT STORE - Message From GSM Modem - PVM|5
+6||Dear AD2R01-ROHIT STORE - Message From GSM Modem - PVM|5
+6||Dear AD2S13-SONU STORE - Message From GSM Modem - PVM|5
+6||Dear AD1N04-NASIR IQBAL - Message From GSM Modem - PVM|5
+6||Dear AD3P07-PRAVEEN TELECOM - Message From GSM Modem - PVM|5
+6||Dear AD3V03-VIJAY STORE - Message From GSM Modem - PVM|5
+6||Dear AD4L03-LAXMI CONFF. - Message From GSM Modem - PVM|5
+6||Dear AD5A01-AGGARWAL PROV. STORE - Message From GSM Modem - PVM|5
+6||Dear AD5B01-BALA STORE - Message From GSM Modem - PVM|5
+6||Dear AD5G01-GAGAN DEPT. STORE - Message From GSM Modem - PVM|5
+6||Dear AD5G02-GANGA RAM  SONS - Message From GSM Modem - PVM|5
+6||Dear AD5G03-GOEL GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD5G06-GEEPEE COMMUNI - Message From GSM Modem - PVM|5
+6||Dear AD5J01-JAI MATA PAN - Message From GSM Modem - PVM|5
+6||Dear AD5J04-JITANDER SWEETS - Message From GSM Modem - PVM|5
+6||Dear AD5K01-KRISHNA CONF. - Message From GSM Modem - PVM|5
+6||Dear AD5L01-LALIT COMMUNITION - Message From GSM Modem - PVM|5
+6||Dear AD5M04-MAAN SINGH SWEET CORNER - Message From GSM Modem - PVM|5
+6||Dear AD5N01-NAND LAL CANTEEN - Message From GSM Modem - PVM|5
+6||Dear AD5N02-NAND LAL STORE - Message From GSM Modem - PVM|5
+6||Dear AD5N04-NITIN DEPT. STORE - Message From GSM Modem - PVM|5
+6||Dear AD5P02-PRADEEP TEA STALL - Message From GSM Modem - PVM|5
+6||Dear AD5R03-RAVINDER STORE - Message From GSM Modem - PVM|5
+6||Dear AD5R05-RUBY GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD5S02-SANDEEP STORE - Message From GSM Modem - PVM|5
+6||Dear AD5S03-SHEETAL GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD5S04-SRI BALAJI STORE - Message From GSM Modem - PVM|5
+6||Dear AD5S05-SRI RAM SWEETS - Message From GSM Modem - PVM|5
+6||Dear AD5S06-STANDARD PAN CENTRE - Message From GSM Modem - PVM|5
+6||Dear AD5S07-SUNRISE BAKERY - Message From GSM Modem - PVM|5
+6||Dear AD6S14-SAINI DHABA - Message From GSM Modem - PVM|5
+6||Dear AD5T02-TINKU VAISHNU DHABA - Message From GSM Modem - PVM|5
+6||Dear AD5V04-VEENA DAIRY - Message From GSM Modem - PVM|5
+6||Dear AD5Y01-YOGESH GEN. STORE - Message From GSM Modem - PVM|5
+6||Dear AD5005-CASH - Message From GSM Modem - PVM|5
+6||Dear AD6006-CASH - Message From GSM Modem - PVM|5
+6||Dear VAN DL-1L F 0676 - Message From GSM Modem - PVM|5
+6||Dear AD5P01-PREM STORE - Message From GSM Modem - PVM|5
+6||Dear AD5D04 - Message From GSM Modem - PVM|5
+6||Dear AD6B05-BALAJI STORE - Message From GSM Modem - PVM|5
+6||Dear AD5A02-ANKURE  REST - Message From GSM Modem - PVM|5
+6||Dear AD6P06-PEAUESH STORE - Message From GSM Modem - PVM|5
+6||Dear COL - ANAND - Message From GSM Modem - PVM|5
+6||Dear AD5V05-VISHAL STORE - Message From GSM Modem - PVM|5
+6||Dear AD5B04-BABA STORE - Message From GSM Modem - PVM|5
+6||Dear AD6A04-ANNAD STORE - Message From GSM Modem - PVM|5
+6||Dear AD6S10-SHIV PRO STORE - Message From GSM Modem - PVM|5
+6||Dear AD5M09-MAHINDER STORE - Message From GSM Modem - PVM|5
+6||Dear AD3B06-BHAGWAT PAN BHANDAR - Message From GSM Modem - PVM|5
+6||Dear AD3B07-BHARAT TEA STALL - Message From GSM Modem - PVM|5
+6||Dear AD3G02-GHANSHYAM STORE - Message From GSM Modem - PVM|5
+6||Dear AD3K02-KAPIL GEN . STORE - Message From GSM Modem - PVM|5
+6||Dear AD3M02-MANOJ TEA STALL - Message From GSM Modem - PVM|5
+6||Dear AD3N04-NEW NIKKU HOTEL - Message From GSM Modem - PVM|5
+6||Dear AD3R06-RAJU GEN. STORE - Message From GSM Modem - PVM|5
+6||Dear AD4S04-SHIV VAISHNAV BHOJNALAYA - Message From GSM Modem - PVM|5
+6||Dear AD3S08-SUBHASH PAN BHANDAR - Message From GSM Modem - PVM|5
+6||Dear AD3V04-DEEPANSHU TEA STALL - Message From GSM Modem - PVM|5
+6||Dear AD3003-CASH - Message From GSM Modem - PVM|5
+6||Dear AD4N03-NOVELTY STORE - Message From GSM Modem - PVM|5
+6||Dear AD4R04-RAKESH STORE - Message From GSM Modem - PVM|5
+6||Dear AD4R05-RAM PRAKASH  SONS - Message From GSM Modem - PVM|5
+6||Dear AD4S03-SETHI STORE - Message From GSM Modem - PVM|5
+6||Dear AD4S06-SIMPLE STORE - Message From GSM Modem - PVM|5
+6||Dear AD4V02-VISHAL FRUIT JUICE - Message From GSM Modem - PVM|5
+6||Dear VAN DL-1L D 3242 - Message From GSM Modem - PVM|5
+6||Dear VAN DL-1L E 3198 - Message From GSM Modem - PVM|5
+6||Dear AD3H08-HANS RAJ STORE - Message From GSM Modem - PVM|5
+6||Dear AD3L01-LAKSHMI STORE - Message From GSM Modem - PVM|5
+6||Dear AD3P04-PANDITA DI HATTI - Message From GSM Modem - PVM|5
+6||Dear COL - AYUB - Message From GSM Modem - PVM|5
+6||Dear COL - SANJAY - Message From GSM Modem - PVM|5
+6||Dear AD4M08-MANGLA DISTRIBUTOR - Message From GSM Modem - PVM|5
+6||Dear AD3M11-MAGHA STORE - Message From GSM Modem - PVM|5
+6||Dear AD2M04-NEW MORNING STORE - Message From GSM Modem - PVM|5
+6||Dear AD3S15-SOFT NET - Message From GSM Modem - PVM|5
+6||Dear AD3R09-RAJNI STORE - Message From GSM Modem - PVM|5
+6||Dear AD3J02-JAGDISH PARSHAD STORE - Message From GSM Modem - PVM|5
+6||Dear AD3P01-PITAMBARI STORE - Message From GSM Modem - PVM|5
+6||Dear AD3B05-BALAJI PROVISION - Message From GSM Modem - PVM|5
+6||Dear AD3G01-GURU STORE - Message From GSM Modem - PVM|5
+6||Dear COL - SHANU - REL - Message From GSM Modem - PVM|5
+6||Dear AD2D03-DMS 1109 - Message From GSM Modem - PVM|5
+6||Dear AD4M02-MODI STORE - Message From GSM Modem - PVM|5
+6||Dear AD4A02-AJAY STORE - Message From GSM Modem - PVM|5
+6||Dear AD4C03-COOL POINT - Message From GSM Modem - PVM|5
+6||Dear AD1S07-SULTANI MUSIC CENTRE - Message From GSM Modem - PVM|5
+6||Dear AD1M17-MAMI  STORE - Message From GSM Modem - PVM|5
+6||Dear AD4A01-AJAY PAKORA - Message From GSM Modem - PVM|5
+6||Dear AD4J02-JANTA BAKERY - Message From GSM Modem - PVM|5
+6||Dear AD4K01-KADIMI SWEETS - Message From GSM Modem - PVM|5
+6||Dear AD4T01-TARA CHAND - Message From GSM Modem - PVM|5
+6||Dear AD4P02-PANDIT DI HATTI - Message From GSM Modem - PVM|5
+6||Dear AD3B02-BALAJI GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD3B04-BANSAL STORE - Message From GSM Modem - PVM|5
+6||Dear AD3D03-DASHRAT STORE - Message From GSM Modem - PVM|5
+6||Dear AD3G03-GUPTA STORE - Message From GSM Modem - PVM|5
+6||Dear AD3G04-GURUNANAK STORE - Message From GSM Modem - PVM|5
+6||Dear AD3J01-JAGDISH STORE - Message From GSM Modem - PVM|5
+6||Dear AD3K01-KAKU COLD DRINKS - Message From GSM Modem - PVM|5
+6||Dear AD3K07-KAPOOR TEA STALL - Message From GSM Modem - PVM|5
+6||Dear AD3R02-RAMA STORE - Message From GSM Modem - PVM|5
+6||Dear AD3S05-SONI STORE - Message From GSM Modem - PVM|5
+6||Dear AD3S12-SHAKUNTLA STORE - Message From GSM Modem - PVM|5
+6||Dear AD3T01-T.R. STORE - Message From GSM Modem - PVM|5
+6||Dear AD4N02-NARENDER STORE - Message From GSM Modem - PVM|5
+6||Dear AD4S07-SALUJA STORE - Message From GSM Modem - PVM|5
+6||Dear AD3Y07-YAD RAM DHARAM PAL - Message From GSM Modem - PVM|5
+6||Dear AD4004-CASH - Message From GSM Modem - PVM|5
+6||Dear AD3A01-ASHRAFI STORE - Message From GSM Modem - PVM|5
+6||Dear AD3A03-ASHRAFI STORE - Message From GSM Modem - PVM|5
+6||Dear AD4C02-CITY STORE - Message From GSM Modem - PVM|5
+6||Dear AD2S08-SUMRITH STORE - Message From GSM Modem - PVM|5
+6||Dear AD6R01-R. K. STORE - Message From GSM Modem - PVM|5
+6||Dear AD2G04-GUPTA TEA STALL - Message From GSM Modem - PVM|5
+6||Dear AD2S05-SIRKO STORE - Message From GSM Modem - PVM|5
+6||Dear AD1A10-AZAD STORES - Message From GSM Modem - PVM|5
+6||Dear AD1U01-UMMAR GEN. STORES - Message From GSM Modem - PVM|5
+6||Dear AD8A02-ANIL GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD8L01-LUCKY GLOBAL - Message From GSM Modem - PVM|5
+6||Dear AD8P04-PRAKASH GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD8R02-ROHINI GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD8S02-SANJAY STORE - Message From GSM Modem - PVM|5
+6||Dear AD8S04-SRI GANESH STORE - Message From GSM Modem - PVM|5
+6||Dear AD8V01-VEENUKA RESTAUTRANT - Message From GSM Modem - PVM|5
+6||Dear AD8A03-ARORA STORE - Message From GSM Modem - PVM|5
+6||Dear AD8A05-ANEJA RESPURENT - Message From GSM Modem - PVM|5
+6||Dear AD8J03-JANAK RAJ CANTEEN - Message From GSM Modem - PVM|5
+6||Dear AD1A03-ADNAN STORE - Message From GSM Modem - PVM|5
+6||Dear AD2H01-HAPPY STORE - Message From GSM Modem - PVM|5
+6||Dear AD7B01-BANSAL PAN - Message From GSM Modem - PVM|5
+6||Dear AD7G01-GAGAN DAIRY - Message From GSM Modem - PVM|5
+6||Dear AD7K01-KHANNA STORE - Message From GSM Modem - PVM|5
+6||Dear AD7L01-L.K. PAN SHOP - Message From GSM Modem - PVM|5
+6||Dear AD7M05-MANOJ JANTA STORE - Message From GSM Modem - PVM|5
+6||Dear AD7M07-MUM SWEET HOUSE - Message From GSM Modem - PVM|5
+6||Dear AD7N01-N.K. STORE - Message From GSM Modem - PVM|5
+6||Dear AD7R01-RAJU STORE - Message From GSM Modem - PVM|5
+6||Dear AD7R03-RAJEEV STORE - Message From GSM Modem - PVM|5
+6||Dear AD7S01-SAINI PROV. STORE - Message From GSM Modem - PVM|5
+6||Dear AD7S02-SHALIMAR GANDHI STORE - Message From GSM Modem - PVM|5
+6||Dear AD7S10-SUNIL PAN BANDAR - Message From GSM Modem - PVM|5
+6||Dear AD7007-CASH - Message From GSM Modem - PVM|5
+6||Dear AD7H02 HIMANSHI STORE - Message From GSM Modem - PVM|5
+6||Dear AD7G06 GUPTA STORE - Message From GSM Modem - PVM|5
+6||Dear AD7V03-VIJAY STORE - Message From GSM Modem - PVM|5
+6||Dear AD2C03-CREAM  SHAKE - Message From GSM Modem - PVM|5
+6||Dear AD2S15-SAM COMMUNICATION - Message From GSM Modem - PVM|5
+6||Dear VAN DL-1L D 1182 - Message From GSM Modem - PVM|5
+6||Dear COL - SUNIL - Message From GSM Modem - PVM|5
+6||Dear AD7J05-JAI MATA STORE - Message From GSM Modem - PVM|5
+6||Dear AD7P05-PARKASH STORE - Message From GSM Modem - PVM|5
+6||Dear AD8C01-CHANDRU - Message From GSM Modem - PVM|5
+6||Dear AD8K01-KAMLESH GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD8K04-KARAN STORE - Message From GSM Modem - PVM|5
+6||Dear AD8K06-KRISHNA GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD8N01-NARANG STORE - Message From GSM Modem - PVM|5
+6||Dear AD8P01-PANKAJ STORE - Message From GSM Modem - PVM|5
+6||Dear AD8S01-S.P. GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD8S06-SUBHAM STORE - Message From GSM Modem - PVM|5
+6||Dear AD8U01-UMESH STORE - Message From GSM Modem - PVM|5
+6||Dear AD8V02-VIKAS GEN STORE - Message From GSM Modem - PVM|5
+6||Dear VAN DL-1L F 0678 - Message From GSM Modem - PVM|5
+6||Dear AD8A04-ASHOK STORE - Message From GSM Modem - PVM|5
+6||Dear COL - MOHAMMED ALI - Message From GSM Modem - PVM|5
+6||Dear AD8G01-GURU NANAK STORE - Message From GSM Modem - PVM|5
+6||Dear AD8B05-BONI STORE - Message From GSM Modem - PVM|5
+6||Dear AD8R03-RAJDOOT HOTEL - Message From GSM Modem - PVM|5
+6||Dear AD2A04-ASHOK STORE - Message From GSM Modem - PVM|5
+6||Dear AD2B02-BHATIA STORE - Message From GSM Modem - PVM|5
+6||Dear AD2B03-BHATIA  BAKERY SHOP - Message From GSM Modem - PVM|5
+6||Dear AD2C02-CHABBRA TEA STALL - Message From GSM Modem - PVM|5
+6||Dear AD2D01-DARSHAN REF. CENTRE - Message From GSM Modem - PVM|5
+6||Dear AD2D02-DUTTA ELECTRICAL - Message From GSM Modem - PVM|5
+6||Dear AD2G05-GURU TEG BHADUR STORE - Message From GSM Modem - PVM|5
+6||Dear AD2J01-JEET STORES - Message From GSM Modem - PVM|5
+6||Dear AD2M02-MANJEET VIDEO - Message From GSM Modem - PVM|5
+6||Dear AD2M03-MORNING STORE - Message From GSM Modem - PVM|5
+6||Dear AD2N02-THE NEED STORE - Message From GSM Modem - PVM|5
+6||Dear AD2N03-NEW DELHI PAN CENTRE - Message From GSM Modem - PVM|5
+6||Dear AD2O01-OM HOTEL - Message From GSM Modem - PVM|5
+6||Dear AD2P01-PAL REFRESHMENT - Message From GSM Modem - PVM|5
+6||Dear AD2P02-PUNJAB SWEETS - Message From GSM Modem - PVM|5
+6||Dear AD2R04-RAHIM STORE - Message From GSM Modem - PVM|5
+6||Dear AD2S02-SACHDEVA JUICE CORNER - Message From GSM Modem - PVM|5
+6||Dear AD2S03-SACHKHAND STORE - Message From GSM Modem - PVM|5
+6||Dear AD2S07-SUBHASH GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD2S14-SANJAY GEN.  STORE - Message From GSM Modem - PVM|5
+6||Dear AD2V01-VASUDEV STORE - Message From GSM Modem - PVM|5
+6||Dear AD2Y01-YOKOHOHAMA - Message From GSM Modem - PVM|5
+6||Dear AD2L01 LAKKY JUSS - Message From GSM Modem - PVM|5
+6||Dear AD4D01-DHEERU STORE - Message From GSM Modem - PVM|5
+6||Dear AD4G01-GINNI STORES - Message From GSM Modem - PVM|5
+6||Dear AD4H02-HUNNY STORE - Message From GSM Modem - PVM|5
+6||Dear AD4M01-MODI PASTRY CORNER - Message From GSM Modem - PVM|5
+6||Dear AD4S05-SHARMA STORES - Message From GSM Modem - PVM|5
+6||Dear AD2M07-M.S.STORE - Message From GSM Modem - PVM|5
+6||Dear AD2B05-BAKSHI GENERAL STORE - Message From GSM Modem - PVM|5
+6||Dear AD7H01-HAPPY STORE - Message From GSM Modem - PVM|5
+6||Dear AD2D04-DMS - Message From GSM Modem - PVM|5
+6||Dear AD2C04-CHINIESE  POINT - Message From GSM Modem - PVM|5
+6||Dear AD5B02-BHAWANI SHANKAR - Message From GSM Modem - PVM|5
+6||Dear AD5D01-DAVINDER STORE - Message From GSM Modem - PVM|5
+6||Dear AD5D02-D.M.S. DEPOT - Message From GSM Modem - PVM|5
+6||Dear AD5G04-GOYAL MEDICOS - Message From GSM Modem - PVM|5
+6||Dear AD5J02-JEEWAN NURSING HOME - Message From GSM Modem - PVM|5
+6||Dear AD5J03-JITIN GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD5M01-MAHESH FAST FOOD - Message From GSM Modem - PVM|5
+6||Dear AD5N03-NEERAJ SUPER STORE - Message From GSM Modem - PVM|5
+6||Dear AD5R02-RUPESH STORE - Message From GSM Modem - PVM|5
+6||Dear AD5S01-SAI JUICE POINT - Message From GSM Modem - PVM|5
+6||Dear AD5S09-SURAJ GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD5S11-SAINI STORE - Message From GSM Modem - PVM|5
+6||Dear AD5V02-VAISHNOW DHABA - Message From GSM Modem - PVM|5
+6||Dear AD5H02-HAMU STORE - Message From GSM Modem - PVM|5
+6||Dear COL - BRAHMADUTT - Message From GSM Modem - PVM|5
+6||Dear AD6A09-ALLMADAD STORE - Message From GSM Modem - PVM|5
+6||Dear AD5M06-MANISH STORE - Message From GSM Modem - PVM|5
+6||Dear AD6A03-AMIT GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD6A06-ARORA MUSIC CENTRE - Message From GSM Modem - PVM|5
+6||Dear AD6B03-BALAJI SNACKS - Message From GSM Modem - PVM|5
+6||Dear AD6B06-BHAGWATI STORE - Message From GSM Modem - PVM|5
+6||Dear AD6B07-BHARDWAJ STORE - Message From GSM Modem - PVM|5
+6||Dear AD6C03-CHINTU STORE - Message From GSM Modem - PVM|5
+6||Dear AD6C04-CHOUDHARY DHABA - Message From GSM Modem - PVM|5
+6||Dear AD6G02-GUPTA STORE - Message From GSM Modem - PVM|5
+6||Dear AD6J01-JAGDAMBA STORE - Message From GSM Modem - PVM|5
+6||Dear AD6K02-KAUSHIK GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD6N02-NAVEEN TEA STALL - Message From GSM Modem - PVM|5
+6||Dear AD6P03-PREM STORE - Message From GSM Modem - PVM|5
+6||Dear AD6R03-RAM KISHAN ANIL KR. GEN. STORE - Message From GSM Modem - PVM|5
+6||Dear AD6S01-S. S BROTHERS - Message From GSM Modem - PVM|5
+6||Dear AD6S03-SAINI PROV STOE - Message From GSM Modem - PVM|5
+6||Dear AD6S06-SHARMA GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD6S07-SHIV SHAKTI  STORE - Message From GSM Modem - PVM|5
+6||Dear AD6S08-SRI DURGA GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD5T01-TASTY POINT - Message From GSM Modem - PVM|5
+6||Dear AD5V01-V.K. TRADERS - Message From GSM Modem - PVM|5
+6||Dear VAN DL-1L E 3208 - Message From GSM Modem - PVM|5
+6||Dear AD6M02-MORNING STORE - Message From GSM Modem - PVM|5
+6||Dear AD1A08-ARAB SARAI GEN. STORE - Message From GSM Modem - PVM|5
+6||Dear AD6B01-B.R. STORE - Message From GSM Modem - PVM|5
+6||Dear AD6P01-PANNA LAL STORE - Message From GSM Modem - PVM|5
+6||Dear AD2A01-AJANTA PASTRY SHOP - Message From GSM Modem - PVM|5
+6||Dear AD2K01-KABLI HOTAL - Message From GSM Modem - PVM|5
+6||Dear AD2K02-KRISHNA GEN. STORE - Message From GSM Modem - PVM|5
+6||Dear AD2R03-RAJDHANI STORE - Message From GSM Modem - PVM|5
+6||Dear AD2S06-SHREE SAGAR SUPER  MARKET - Message From GSM Modem - PVM|5
+6||Dear AD2M03-MORNING STORE - Message From GSM Modem - PVM|5
+6||Dear AD2A05-AGGARWAL SWEET CORNER - Message From GSM Modem - PVM|5
+6||Dear AD10C01-CHARAN STORE - Message From GSM Modem - PVM|5
+6||Dear AD10S01-SANTOSH COMUNICATION CENTER - Message From GSM Modem - PVM|5
+6||Dear AD10G01-GYAN SWEETS - Message From GSM Modem - PVM|5
+6||Dear AD10G02-GOPAL JI TELECOM - Message From GSM Modem - PVM|5
+6||Dear AD10J01-JAGDAMBA STORE - Message From GSM Modem - PVM|5
+6||Dear AD10K03-KESHWANI STORE - Message From GSM Modem - PVM|5
+6||Dear AD10R01-RAJENDRA STORE - Message From GSM Modem - PVM|5
+6||Dear AD10010-CASH - Message From GSM Modem - PVM|5
+6||Dear AD10S02-SUMIT STORE - Message From GSM Modem - PVM|5
+6|9885002290|Dear AD10A01-AGGRAWAL SWEETS - Message From GSM Modem - PVM|5
+6||Dear AD10A02-ARORA CONFF. - Message From GSM Modem - PVM|5
+6||Dear AD10K01-KALRA STORE - Message From GSM Modem - PVM|5
+6||Dear AD10R03-RASHI STORE - Message From GSM Modem - PVM|5
+6||Dear AD10K02-KAPIL STORE - Message From GSM Modem - PVM|5
+6||Dear AD10A03-ARORA STORE - Message From GSM Modem - PVM|5
+6||Dear AD10S03-SHIV STORE - Message From GSM Modem - PVM|5
+6||Dear AD10J02-JAI MATA STORE - Message From GSM Modem - PVM|5
+6||Dear AD10R02-RAJ KUMAR STORE - Message From GSM Modem - PVM|5
+6||Dear AD10L01-LOKESH STORE - Message From GSM Modem - PVM|5
+6||Dear AD10D01-DAYAL GEN. STORE - Message From GSM Modem - PVM|5
+6||Dear AD10J03-JOGINDER STORE - Message From GSM Modem - PVM|5
+6||Dear AD10C02-CHANDER STORE - Message From GSM Modem - PVM|5
+6||Dear AD10N01-NEHA STORE - Message From GSM Modem - PVM|5
+6||Dear AD10O01-OXFORD SCHOOL - Message From GSM Modem - PVM|5
+6||Dear AD10V01-VINOD STORE - Message From GSM Modem - PVM|5
+6||Dear AD10S04-SURAJ STORE - Message From GSM Modem - PVM|5
+6||Dear AD10L02-LAXMAN STORE - Message From GSM Modem - PVM|5
+6||Dear AD10S05-SHARMA STORE - Message From GSM Modem - PVM|5
+6||Dear AD10K04-KANHIYA STORE - Message From GSM Modem - PVM|5
+6||Dear AD10Y01-YOGESH STORE - Message From GSM Modem - PVM|5
+6||Dear AD10D02-DEV SAMAJ MODEL SCHOOL - Message From GSM Modem - PVM|5
+6||Dear VAN NO.DL-1LF-2268 - Message From GSM Modem - PVM|5
+6||Dear AD10P01-PAWAN TELECOM - Message From GSM Modem - PVM|5
+6||Dear AD10S12-SAGAR NAMKEEN - Message From GSM Modem - PVM|5
+6||Dear AD10R06-RAJU STORE - Message From GSM Modem - PVM|5
+6||Dear AD10R07-RAJESH STORE - Message From GSM Modem - PVM|5
+6||Dear VAN DL-1L E 3206 - Message From GSM Modem - PVM|5
+6||Dear VAN DL-1L F 0677 - Message From GSM Modem - PVM|5
+6||Dear AD8M01-MORNING STORE - Message From GSM Modem - PVM|5
+6||Dear COL - BARKAT - REL - Message From GSM Modem - PVM|5
+6||Dear COL - ASHIF - REL - Message From GSM Modem - PVM|5
+6||Dear AD1H02-HASSAN TEA CORNER - Message From GSM Modem - PVM|5
+6||Dear AD1A06-ANAS STORE - Message From GSM Modem - PVM|5
+6||Dear AD1A07-ANWAR TEA STALL - Message From GSM Modem - PVM|5
+6||Dear AD1A09-ASLAM GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD1A12-ABDUL RASID GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD1A14-AL SAMAD - Message From GSM Modem - PVM|5
+6||Dear AD1B01-BISMILA HOTEL - Message From GSM Modem - PVM|5
+6||Dear AD1B02-BISMIL STORE - Message From GSM Modem - PVM|5
+6||Dear AD1G01-GALIB KABAB - Message From GSM Modem - PVM|5
+6||Dear AD1H03-HZT. NIZAMUDDIN TELECOM CENTRE - Message From GSM Modem - PVM|5
+6||Dear AD1I01-IRSHAD STORE - Message From GSM Modem - PVM|5
+6||Dear AD1J01-JAMAL STORE - Message From GSM Modem - PVM|5
+6||Dear AD1K01-KASHMIRI HOTEL - Message From GSM Modem - PVM|5
+6||Dear AD1K03-KARIM HOTEL - Message From GSM Modem - PVM|5
+6||Dear AD1K04-KASHISH STORE - Message From GSM Modem - PVM|5
+6||Dear AD1K05-KIT CARE - Message From GSM Modem - PVM|5
+6||Dear AD1K06-KHAN STORE - Message From GSM Modem - PVM|5
+6||Dear AD1M02-MEHMOOD GEN. STORE - Message From GSM Modem - PVM|5
+6||Dear AD1M03-MOHD. FAHIM STORE - Message From GSM Modem - PVM|5
+6||Dear AD1M05-MUQTAR ALI STORE - Message From GSM Modem - PVM|5
+6||Dear AD1M07-MUSTAFA PAN SHOP - Message From GSM Modem - PVM|5
+6||Dear AD1M11-M.KHAN STORE - Message From GSM Modem - PVM|5
+6||Dear AD1N01-N.A. STORE - Message From GSM Modem - PVM|5
+6||Dear AD1N02-NADEEM STORE - Message From GSM Modem - PVM|5
+6||Dear AD1N03-NAIZ STORE - Message From GSM Modem - PVM|5
+6||Dear AD1N05-NAZIRAN GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD1N07-NAVED PAN - Message From GSM Modem - PVM|5
+6||Dear AD1N09-NIZZAMI HOTEL - Message From GSM Modem - PVM|5
+6||Dear AD1Q01-QURESHI HOTEL - Message From GSM Modem - PVM|5
+6||Dear AD1Q02-QUARASHI STORE - Message From GSM Modem - PVM|5
+6||Dear AD1R01-RAM LAL GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD1R02-RASHID STORE - Message From GSM Modem - PVM|5
+6||Dear AD1R03-RAM NARAYAN STORE - Message From GSM Modem - PVM|5
+6||Dear AD1S01-SALIM PAN CORNER - Message From GSM Modem - PVM|5
+6||Dear AD1S02-SHAHID QUERESHI GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD1S04-SHAHIR STORE - Message From GSM Modem - PVM|5
+6||Dear AD1S05-SUDESH STORE - Message From GSM Modem - PVM|5
+6||Dear AD1S08-SUPER GUEST HOUSE - Message From GSM Modem - PVM|5
+6||Dear AD1S10-SANA STORE - Message From GSM Modem - PVM|5
+6||Dear AD1U02-UMMAR PAN SHOP - Message From GSM Modem - PVM|5
+6||Dear AD1W01-WASIM COFFEE SHOP - Message From GSM Modem - PVM|5
+6||Dear AD1Z01-ZAKI HOTEL  - I - Message From GSM Modem - PVM|5
+6||Dear AD1Z02-ZAKI  HOTEL - II - Message From GSM Modem - PVM|5
+6||Dear AD1Z03-ZAKIR STORES - Message From GSM Modem - PVM|5
+6||Dear AD1001-CASH - Message From GSM Modem - PVM|5
+6||Dear AD8R01-RAJ KUMAR STORE - Message From GSM Modem - PVM|5
+6||Dear AD9009-CASH - Message From GSM Modem - PVM|5
+6||Dear COL - AJAY - Message From GSM Modem - PVM|5
+6||Dear AD1M16-MOHINISH KADA HOTEL - Message From GSM Modem - PVM|5
+6||Dear AD1U03-UMAR DAIRY - Message From GSM Modem - PVM|5
+6||Dear COL -  ASHRAF - Message From GSM Modem - PVM|5
+6||Dear AD1S11-SAMIR STORE - Message From GSM Modem - PVM|5
+6||Dear AD1S09-SUPER INDIA STORES - Message From GSM Modem - PVM|5
+6||Dear AD3B08-BHASHI FISH - Message From GSM Modem - PVM|5
+6||Dear AD2N01-NARENDER TEA STALL - Message From GSM Modem - PVM|5
+6||Dear AD2T01-TIWARI TEA STALL - Message From GSM Modem - PVM|5
+6||Dear AD2W01-SHUKLA PAN BHANDAR - Message From GSM Modem - PVM|5
+6||Dear AD1M04-MUJIB AHEMAD STD. - Message From GSM Modem - PVM|5
+6||Dear AD2B04-BANSI STORE - Message From GSM Modem - PVM|5
+6||Dear AD2J02-JITENDER  GEN  STORE - Message From GSM Modem - PVM|5
+6||Dear AD2K05-KHALSA STORE - Message From GSM Modem - PVM|5
+6||Dear AD2P03-POOJA GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD2S11-SUSHIL GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD2S12-SURI STORE - Message From GSM Modem - PVM|5
+6||Dear AD1M08-MOHAN TEA STALL - Message From GSM Modem - PVM|5
+6||Dear AD1W02-WASIM STORE - Message From GSM Modem - PVM|5
+6||Dear AD7R02-RAJESH SAINI STORE - Message From GSM Modem - PVM|5
+6||Dear AD7V04-VIJAY GEN. STORE - Message From GSM Modem - PVM|5
+6||Dear AD7G07-GUPTA SWEET - Message From GSM Modem - PVM|5
+6||Dear AD7S04-SAINI PAN - Message From GSM Modem - PVM|5
+6||Dear AD7M11-MAAN STORE - Message From GSM Modem - PVM|5
+6||Dear AD7S06-SONU STORE - Message From GSM Modem - PVM|5
+6||Dear AD7S11-SHRI BALAJI STORE - Message From GSM Modem - PVM|5
+6||Dear AD3B03-BALKISHAN STORE - Message From GSM Modem - PVM|5
+6||Dear AD3B11-BALAJI STORE - Message From GSM Modem - PVM|5
+6||Dear AD3C01-CHITRA STORE - Message From GSM Modem - PVM|5
+6||Dear AD3D02-DEEPAK STORE - Message From GSM Modem - PVM|5
+6||Dear AD3S02-SEVA GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD3S07-STANDARD THE KWALITY SHOP - Message From GSM Modem - PVM|5
+6||Dear AD3V01-VIKASH STORE - Message From GSM Modem - PVM|5
+6||Dear AD9S14-SANJAY AGENCY - Message From GSM Modem - PVM|5
+6||Dear AD10S06 SACHDEWA STORE - Message From GSM Modem - PVM|5
+6||Dear AD10S07-STALL NO.4 S.K.K - Message From GSM Modem - PVM|5
+6||Dear AD10S08-STALL NO.6 S.K.K - Message From GSM Modem - PVM|5
+6||Dear AD10S09 SAGAR JUIES - Message From GSM Modem - PVM|5
+6||Dear AD10J04-JUICE STALL SKK - Message From GSM Modem - PVM|5
+6||Dear AD10S10-STALL NO.1 S.K.K - Message From GSM Modem - PVM|5
+6||Dear AD10Y02-YADAV TEA STALL - Message From GSM Modem - PVM|5
+6||Dear AD10R04-RAJA PAN BHANDAR - Message From GSM Modem - PVM|5
+6||Dear AD10S11-SHARIF KHAN STORE - Message From GSM Modem - PVM|5
+6||Dear AD10V02-VIKAS STD - Message From GSM Modem - PVM|5
+6||Dear AD10R05-RANJEET STORE - Message From GSM Modem - PVM|5
+6||Dear AD10G03-GUPTA STORE - Message From GSM Modem - PVM|5
+6||Dear AD10M01-MUNESH STD - Message From GSM Modem - PVM|5
+6||Dear AD10B01-BOBBY STORE - Message From GSM Modem - PVM|5
+6||Dear AD10L03-LALIT TEA STALL - Message From GSM Modem - PVM|5
+6||Dear AD10M02-MITHILA PAN - Message From GSM Modem - PVM|5
+6||Dear AD10A04-AMIT STORE - Message From GSM Modem - PVM|5
+6||Dear AD10V03-VIMAL STD - Message From GSM Modem - PVM|5
+6||Dear AD10B02-BALAJI HOTEL - Message From GSM Modem - PVM|5
+6||Dear AD10K05-KUMAR JUICE CO. - Message From GSM Modem - PVM|5
+6||Dear AD3B01-BABE TEA STALL - Message From GSM Modem - PVM|5
+6||Dear AD3D01-DEEPAK DHABA - Message From GSM Modem - PVM|5
+6||Dear AD3M02-MANOJ TEA STALL - Message From GSM Modem - PVM|5
+6||Dear AD3N03-NANAK CATERERS - Message From GSM Modem - PVM|5
+6||Dear AD3K08 - KRISHNA SWEETS - Message From GSM Modem - PVM|5
+6||Dear AD2K03-KUMAR STORE - Message From GSM Modem - PVM|5
+6||Dear AD4J01-JANKI DAS - Message From GSM Modem - PVM|5
+6||Dear AD4M04-MOOLCHAND RAJKUMAR - Message From GSM Modem - PVM|5
+6||Dear AD6K04-KRISHANA ELECTRICALS - Message From GSM Modem - PVM|5
+6||Dear AD6L01-LAHORIAN DI HATTI - Message From GSM Modem - PVM|5
+6||Dear AD6S02-SAHELI GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD8B01-BANSAL GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD8B02-BABAN STD - Message From GSM Modem - PVM|5
+6||Dear AD8D01-DINE FINE RESTAURANT - Message From GSM Modem - PVM|5
+6||Dear AD8J01-JWALA STORE - Message From GSM Modem - PVM|5
+6||Dear AD8K02-KAILASH STORE - Message From GSM Modem - PVM|5
+6||Dear AD8P03-PAWAN STORE - Message From GSM Modem - PVM|5
+6||Dear AD8P05-PREET GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD8P06-PREET PALACE - Message From GSM Modem - PVM|5
+6||Dear AD8P08-PARKASH - Message From GSM Modem - PVM|5
+6||Dear AD8008-CASH - Message From GSM Modem - PVM|5
+6||Dear AD5G07-GUJALA STORE - Message From GSM Modem - PVM|5
+6||Dear AD5J05-JEETEY DEPT. STORE - Message From GSM Modem - PVM|5
+6||Dear AD5M05-M.S. GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD5R01-RAJESH STORE - Message From GSM Modem - PVM|5
+6||Dear AD5R06-RAHUL TEA STALL - Message From GSM Modem - PVM|5
+6||Dear AD5R08-RAJA STORE - Message From GSM Modem - PVM|5
+6||Dear AD5S13-SAINI G STORE - Message From GSM Modem - PVM|5
+6||Dear AD5S14-S.R. ELECTRIC WORKS - Message From GSM Modem - PVM|5
+6||Dear AD5V06-VIJAY KUMAR - Message From GSM Modem - PVM|5
+6||Dear AD6A05-ANIL DAIRY - Message From GSM Modem - PVM|5
+6||Dear AD6A07-AHUJA GEN, STORE - Message From GSM Modem - PVM|5
+6||Dear AD6B02-BALA PREETAM STORE - Message From GSM Modem - PVM|5
+6||Dear AD6G01-GUPTA GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD6G04-GURU KRIPA - Message From GSM Modem - PVM|5
+6||Dear AD6K01-KAMLA GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD6K05-KRISHNA MED.  DEPMENTAL STORE - Message From GSM Modem - PVM|5
+6||Dear AD6L02-LAXMI STORE - Message From GSM Modem - PVM|5
+6||Dear AD6M01-MOHAMMAD PAN - Message From GSM Modem - PVM|5
+6||Dear AD6O01-OM PRAKASH STORE - Message From GSM Modem - PVM|5
+6||Dear AD6P04-PRINCE GEN. STORE - Message From GSM Modem - PVM|5
+6||Dear AD6P05-PAVAN STORE - Message From GSM Modem - PVM|5
+6||Dear AD6S04-SANGEETA COSMATICS - Message From GSM Modem - PVM|5
+6||Dear AD6S05-SETHIA STORE - Message From GSM Modem - PVM|5
+6||Dear AD6S09-SUNIL GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD7A05-ARORA STORE - Message From GSM Modem - PVM|5
+6||Dear AD7A11-ANAPURNA STORE - Message From GSM Modem - PVM|5
+6||Dear AD7B04-BOBGY PAN CORNER - Message From GSM Modem - PVM|5
+6||Dear AD7J01-J.M. ELECTRICALS - Message From GSM Modem - PVM|5
+6||Dear AD7K02-KANDHARI STORE - Message From GSM Modem - PVM|5
+6||Dear AD7S13-SANSHTI TELECOM - Message From GSM Modem - PVM|5
+6||Dear AD7B05-BALAJI STORE - Message From GSM Modem - PVM|5
+6||Dear AD5S12-SONU STORE - Message From GSM Modem - PVM|5
+6||Dear AD8D02-DEEPAK STORE - Message From GSM Modem - PVM|5
+6||Dear AD8P09-PARVATI STORE - Message From GSM Modem - PVM|5
+6||Dear AD8S08-SUNIL PROV. STORE - Message From GSM Modem - PVM|5
+6||Dear COL - DASHRATH - Message From GSM Modem - PVM|5
+6||Dear AD8J02-JAIN GENERAL STORE - Message From GSM Modem - PVM|5
+6||Dear AD7A03-AJAY STORE - Message From GSM Modem - PVM|5
+6||Dear AD8M02 MUKASH STORE - Message From GSM Modem - PVM|5
+6||Dear AD8M03-MARWAH PASTREY - Message From GSM Modem - PVM|5
+6||Dear AD5D03-DEEPAK STORE - Message From GSM Modem - PVM|5
+6||Dear AD6R02-RAJA STORE - Message From GSM Modem - PVM|5
+6||Dear AD5E01-EVERGREEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD3A02-ANKIT STORE - Message From GSM Modem - PVM|5
+6||Dear AD3K03-KESHAV STORE - Message From GSM Modem - PVM|5
+6||Dear AD3M04-MISHRI TEA STALL - Message From GSM Modem - PVM|5
+6||Dear AD3N02-NAVEEN DHABA - Message From GSM Modem - PVM|5
+6||Dear AD3R07-R K STORE - Message From GSM Modem - PVM|5
+6||Dear AD3N06-NIRMAL DRYCLEAN - Message From GSM Modem - PVM|5
+6||Dear AD3R08-RISHI STORE - Message From GSM Modem - PVM|5
+6||Dear AD4G02-GOEL SWEETS CORNER - Message From GSM Modem - PVM|5
+6||Dear AD4K02-KHUSHAL  STORE - Message From GSM Modem - PVM|5
+6||Dear AD4P01-PREM GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD4R01-RAM PRAKASH STORE - Message From GSM Modem - PVM|5
+6||Dear AD4V01-V. P CORNER - Message From GSM Modem - PVM|5
+6||Dear AD8G02-GULZAR JUICE CORNER - Message From GSM Modem - PVM|5
+6||Dear AD10I01 ISMEET   TROLLY - Message From GSM Modem - PVM|5
+6||Dear AD4M05-MAHA LAXMI CONFF. - Message From GSM Modem - PVM|5
+6||Dear AD6 I01-ISMIT TROLLY - Message From GSM Modem - PVM|5
+6||Dear ISMIT TROLLY AD6I01 - Message From GSM Modem - PVM|5
+6||Dear AD6I01-ISMIT TROLLY - Message From GSM Modem - PVM|5
+6||Dear AD8R04-RAJINDER STORE - Message From GSM Modem - PVM|5
+6||Dear AD8F01 FULL CIRCLE - Message From GSM Modem - PVM|5
+6||Dear AD1S13-SALIM STORE - Message From GSM Modem - PVM|5
+6||Dear AD6S11-SACHIN GEN. STORE - Message From GSM Modem - PVM|5
+6||Dear AD5J06-JAGDAMBA GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD5G05-GAYTRI TELECOM - Message From GSM Modem - PVM|5
+6||Dear AD5D05-DURGA SWEETS - Message From GSM Modem - PVM|5
+6||Dear AD5S15-SACHDEVA ENTERPRISES - Message From GSM Modem - PVM|5
+6||Dear AD1H04-HAZI TEA STALL - Message From GSM Modem - PVM|5
+6||Dear AD1M18-MUZAHID STORE - Message From GSM Modem - PVM|5
+6||Dear AD1S14-SHAZID TEA STALL - Message From GSM Modem - PVM|5
+6||Dear AD1C02-CHAND FOOD  JUICE CORNER - Message From GSM Modem - PVM|5
+6||Dear AD1A15-ALI STORE - Message From GSM Modem - PVM|5
+6||Dear AD1I03-ISLAM STORE - Message From GSM Modem - PVM|5
+6||Dear AD1A16-ARUN GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD10R08-RAM STORE - Message From GSM Modem - PVM|5
+6||Dear AD10R09-RAJKUMAR STORE - Message From GSM Modem - PVM|5
+6||Dear AD10S13-SUNIL STORE - Message From GSM Modem - PVM|5
+6||Dear AD7B06-BALAJI  TRADERS - Message From GSM Modem - PVM|5
+6||Dear AD7S19-SAINI STORE - Message From GSM Modem - PVM|5
+6||Dear AD7A09-AHUJA STORE - Message From GSM Modem - PVM|5
+6||Dear AD7V06-VIJAY STORE - Message From GSM Modem - PVM|5
+6||Dear AD7P04-PANKAJ STORE - Message From GSM Modem - PVM|5
+6||Dear AD7C01-CHIP CHOP RESTURENT - Message From GSM Modem - PVM|5
+6||Dear AD2P06-PALAVI GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD2A06-ANAND MORNING STORE - Message From GSM Modem - PVM|5
+6||Dear AD2K06-KAY JEE STORE - Message From GSM Modem - PVM|5
+6||Dear AD2S17-SIMRAN ENTERPRISES - Message From GSM Modem - PVM|5
+6||Dear AD1K02-KABEELAH RESTAURANT - Message From GSM Modem - PVM|5
+6||Dear AD10R10-R.K SWEETS - Message From GSM Modem - PVM|5
+6||Dear AD10R00-RAM STORE - Message From GSM Modem - PVM|5
+6||Dear AD3S09-SONU STORE - Message From GSM Modem - PVM|5
+6||Dear AD3O01-OZONE CYBER CAFÉ - Message From GSM Modem - PVM|5
+6||Dear AD3V02-VASHIST GEN.STORE - Message From GSM Modem - PVM|5
+6||Dear AD3S03-SANDEEP STORE - Message From GSM Modem - PVM|5
+6||Dear AD3S06-SAHIB FISH AQUARIUM - Message From GSM Modem - PVM|5
+6||Dear AD3S01-SRI RAM STORE - Message From GSM Modem - PVM|5
+6||Dear AD3G05-GAURAV STORE - Message From GSM Modem - PVM|5
+6||Dear AD3C02-CHAUHAN TELECOME - Message From GSM Modem - PVM|5
+6||Dear AD2C01-CHAINA HUT - Message From GSM Modem - PVM|5
+6||Dear AD5M02-MOTI RAM  SONS - Message From GSM Modem - PVM|5
+6||Dear AD7J02-JEETESH STORE - Message From GSM Modem - PVM|5
+6||Dear AD7M01-MEEENAKSHI STORE - Message From GSM Modem - PVM|5
+6||Dear AD7S03-SHIV SHAKTI PAN - Message From GSM Modem - PVM|5
+6||Dear AD7F02-FATEH TEA STALL - Message From GSM Modem - PVM|5
+6||Dear AD3S10-SATISH TEA STALL - Message From GSM Modem - PVM|5
+6||Dear AD8A06-ABDOL SAHFUZ - Message From GSM Modem - PVM|5
+6||Dear AD8D04-DEEP SNACKS - Message From GSM Modem - PVM|5
+6||Dear AD8I01-ISMEET TROLLEY - Message From GSM Modem - PVM|5
+6||Dear AD6S13-SHARMA STORE - Message From GSM Modem - PVM|5
+6||Dear AD6M03-MUDGAL STORE - Message From GSM Modem - PVM|5
+6||Dear AD6S12-SAJID STORE - Message From GSM Modem - PVM|5
+6||Dear AD2P05-PINKA RASOI - Message From GSM Modem - PVM|5
+6||Dear AD2A07-ANITA SALES - Message From GSM Modem - PVM|5
+6||Dear AD2J03-JAIN GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD5J07-JAGDAMBA STORE - Message From GSM Modem - PVM|5
+6||Dear AD8H01 H K STORE - Message From GSM Modem - PVM|5
+6||Dear AD8A07 ARUN STORE - Message From GSM Modem - PVM|5
+6||Dear AD8B03 BASU STORE - Message From GSM Modem - PVM|5
+6||Dear AD8A01ASHOKA STORE - Message From GSM Modem - PVM|5
+6||Dear AD3H01 HARI OM STORE - Message From GSM Modem - PVM|5
+6||Dear AD10A05ANILSTORE - Message From GSM Modem - PVM|5
+6||Dear AD8M04MATASUSHILAPUBLIPSCHOOL - Message From GSM Modem - PVM|5
+6||Dear AD5J08JEEVANCANTEEN2 - Message From GSM Modem - PVM|5
+6||Dear AD3B09BIRBALDHABA - Message From GSM Modem - PVM|5
+6||Dear AD3B10 BRAJ MOHAN STORS - Message From GSM Modem - PVM|5
+6||Dear AD5A03ARUSHI TELECOM - Message From GSM Modem - PVM|5
+6||Dear AD8M05 MOHIT STORE - Message From GSM Modem - PVM|5
+6||Dear AD5 N05 NEERAJ STORE - Message From GSM Modem - PVM|5
+6||Dear AD5N05NEERAJSTORE - Message From GSM Modem - PVM|5
+6||Dear AD5N06NARAYANARESTURENT - Message From GSM Modem - PVM|5
+6||Dear AD8V04VIJYSTORE - Message From GSM Modem - PVM|5
+6||Dear AD5H01HAPPYSTORE - Message From GSM Modem - PVM|5
+6||Dear AD6B08BHOLATEASTALL - Message From GSM Modem - PVM|5
+6||Dear AD3R01RAMESHSTORE - Message From GSM Modem - PVM|5
+6||Dear AD3B12-BLUE BANANA - Message From GSM Modem - PVM|5
+6||Dear AD2K04KUKUSTORE - Message From GSM Modem - PVM|5
+6||Dear AD5B03 - BABA STORE - Message From GSM Modem - PVM|5
+6||Dear AD2B01 - B S STORE - Message From GSM Modem - PVM|5
+6||Dear AD3B14BALAJI PAN - Message From GSM Modem - PVM|5
+6||Dear AD1G02GOYALSTORE - Message From GSM Modem - PVM|5
+6||Dear AD3P02 PREMSTORE - Message From GSM Modem - PVM|5
+6||Dear AD8K03 - KAKA STORE - Message From GSM Modem - PVM|5
+6||Dear AD9G01- GUPTA AGENCY - Message From GSM Modem - PVM|5
+6||Dear AD9K01- KATYAL AGENCY - Message From GSM Modem - PVM|5
+6||Dear AD4I01 INDIAN STORE - Message From GSM Modem - PVM|5
+6||Dear AD7B02- BHATIYA STORE - Message From GSM Modem - PVM|5
+6||Dear AD5A04 ASHISH GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD6N01 NASIR STORE - Message From GSM Modem - PVM|5
+6||Dear AD7R04 - RADHY RADHY STORE - Message From GSM Modem - PVM|5
+6||Dear AD6A02 AMBA GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD6M04 MANU GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD2V02 VAREITY STORE - Message From GSM Modem - PVM|5
+6||Dear AD4S02 SONU FRUTE MART - Message From GSM Modem - PVM|5
+6||Dear AD6R04 RAHUL GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD2A02- A S G\STORE - Message From GSM Modem - PVM|5
+6||Dear AD6 J02-  JALALU DDIN STORE - Message From GSM Modem - PVM|5
+6||Dear AD6 A01 - ANITA STORE - Message From GSM Modem - PVM|5
+6||Dear AD6 R05 -RAVINDER STORE - Message From GSM Modem - PVM|5
+6||Dear AD6J02 -JALUA DDIN STORE - Message From GSM Modem - PVM|5
+6||Dear AD6A01-ANITA STORE - Message From GSM Modem - PVM|5
+6||Dear AD6R05 -RAVINDAR STORE - Message From GSM Modem - PVM|5
+6||Dear AD5D06 -DEEPAK GIFT STORE - Message From GSM Modem - PVM|5
+6||Dear AD5P03 PRIY STORE - Message From GSM Modem - PVM|5
+6||Dear AD7G02 GUPTA DHABA - Message From GSM Modem - PVM|5
+6||Dear AD6G03 GOEL GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD3A04 AGGARWAL GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD6N03 NAAVEEN TELCOME - Message From GSM Modem - PVM|5
+6||Dear AD10A06 AASHIS SA - Message From GSM Modem - PVM|5
+6||Dear AD7P01 PAWAN STORE - Message From GSM Modem - PVM|5
+6||Dear AD7N05 NEERAJ DAIRY - Message From GSM Modem - PVM|5
+6||Dear AD3P03 PAWAN STORE - Message From GSM Modem - PVM|5
+6||Dear AD7K03 KYISHNA DARIY - Message From GSM Modem - PVM|5
+6||Dear AD6R06 RAJA TEA SHOP - Message From GSM Modem - PVM|5
+6||Dear AD6C02 CHOUDHARY STORE - Message From GSM Modem - PVM|5
+6||Dear AD7N06 NAFED BAZAAR - Message From GSM Modem - PVM|5
+6||Dear AD2S01 SAI STORE - Message From GSM Modem - PVM|5
+6||Dear COL - DHARMVEER - Message From GSM Modem - PVM|5
+6||Dear COL - SUNNY - REL - Message From GSM Modem - PVM|5
+6||Dear AD6S15 SHRI BALA JI STORE - Message From GSM Modem - PVM|5
+6||Dear AD4H01 HOT & SPICE - Message From GSM Modem - PVM|5
+6||Dear AD1101-DEEPAK SNACKS - Message From GSM Modem - PVM|5
+6||Dear AD1102-ASHOK TEA STALL - Message From GSM Modem - PVM|5
+6||Dear AD1103-ASHWANI PAAN - Message From GSM Modem - PVM|5
+6||Dear AD1104-BHASIN STORE - Message From GSM Modem - PVM|5
+6||Dear AD1105-BATRA TEA STALL - Message From GSM Modem - PVM|5
+6||Dear AD1106-DEWAN CHAND - Message From GSM Modem - PVM|5
+6||Dear AD1107-EVERY DAY STORE - Message From GSM Modem - PVM|5
+6||Dear AD1108-JEET DI HATI - Message From GSM Modem - PVM|5
+6||Dear AD1109- KWLITY SANKS - Message From GSM Modem - PVM|5
+6||Dear AD1110-PUNJAB FRUT CORNER - Message From GSM Modem - PVM|5
+6||Dear AD1111-ROSY RESTAURENT - Message From GSM Modem - PVM|5
+6||Dear AD1112-RAJU TEA STALL - Message From GSM Modem - PVM|5
+6||Dear AD1113-RAVI STORE - Message From GSM Modem - PVM|5
+6||Dear AD1114-SHAHZAD S.T.D - Message From GSM Modem - PVM|5
+6||Dear AD1115-JACK  JILL - Message From GSM Modem - PVM|5
+6||Dear AD1116 ANAND BHATORA - Message From GSM Modem - PVM|5
+6||Dear AD1117-TEJ BHAN STORE - Message From GSM Modem - PVM|5
+6||Dear AD1118-ANGELS BASKET - Message From GSM Modem - PVM|5
+6||Dear AD1119-D.M.S STALL - Message From GSM Modem - PVM|5
+6||Dear AD1120-DALY NEED - Message From GSM Modem - PVM|5
+6||Dear AD1121-AMUL STORE - Message From GSM Modem - PVM|5
+6||Dear AD1122-MEDICARE - Message From GSM Modem - PVM|5
+6||Dear AD1123-MULTANI DHABA - Message From GSM Modem - PVM|5
+6||Dear AD1124-ARIHANT DEPARTMENT STOR - Message From GSM Modem - PVM|5
+6||Dear AD1125-DABAR GENERAL STORE - Message From GSM Modem - PVM|5
+6||Dear AD1126-FRONTIER BAKER - Message From GSM Modem - PVM|5
+6||Dear AD1127-GURMEET PCO - Message From GSM Modem - PVM|5
+6||Dear AD1128-VISHNU DARIY - Message From GSM Modem - PVM|5
+6||Dear AD1129-MANOJ TEA - Message From GSM Modem - PVM|5
+6||Dear AD1130-BHAGAT RAM - Message From GSM Modem - PVM|5
+6||Dear AD1131-SACHDEVA TRADERS - Message From GSM Modem - PVM|5
+6||Dear AD1132-VARIETY STORE - Message From GSM Modem - PVM|5
+6||Dear AD1133-BHAGWAN SWEETS - Message From GSM Modem - PVM|5
+6||Dear AD1134-YASH STORE - Message From GSM Modem - PVM|5
+6||Dear AD1135-HARI OM STORE - Message From GSM Modem - PVM|5
+6||Dear AD1136-SATYA STORE - Message From GSM Modem - PVM|5
+6||Dear AD1137-SAI STORE - Message From GSM Modem - PVM|5
+6||Dear AD1138-CH. MOHAN LAL  SONS - Message From GSM Modem - PVM|5
+6||Dear AD1139-JANTA SUPER STORE - Message From GSM Modem - PVM|5
+6||Dear AD1140-AGYA RAM STORE - Message From GSM Modem - PVM|5
+6||Dear AD1141-KASHAV STORE - Message From GSM Modem - PVM|5
+6||Dear AD1142-AVANTIKA FOOD CENTRE - Message From GSM Modem - PVM|5
+6||Dear AD1143-CHANDER NAMKEEN BHANDAR - Message From GSM Modem - PVM|5
+6||Dear AD1144-NEW CHANDER NAMKEEN - Message From GSM Modem - PVM|5
+6||Dear AD1145-R K STORE - Message From GSM Modem - PVM|5
+6||Dear AD1146-GUPTA STORE - Message From GSM Modem - PVM|5
+6||Dear AD1147-PUNJABI JAIKA - Message From GSM Modem - PVM|5
+6||Dear AD1148-JAI DURGA NAMKEEN - Message From GSM Modem - PVM|5
+6||Dear AD1149-PRINKS RESTAURANT - Message From GSM Modem - PVM|5
+6||Dear AD1150-KEVENTER ICE CREAME - Message From GSM Modem - PVM|5
+6||Dear AD1151-YOGESH MEDICOS - Message From GSM Modem - PVM|5
+6||Dear AD1152-ANAND PROVISION STORE - Message From GSM Modem - PVM|5
+6||Dear AD1153-AMUL SHOP - Message From GSM Modem - PVM|5
+6||Dear AD1154-CHAWLA STORE - Message From GSM Modem - PVM|5
+6||Dear AD1155-R K DEPTT. STORE - Message From GSM Modem - PVM|5
+6||Dear AD1156-JAGDISH STORE - Message From GSM Modem - PVM|5
+6||Dear AD1201-GOPAL JUICE - Message From GSM Modem - PVM|5
+6||Dear AD1202-KOMAL STORE - Message From GSM Modem - PVM|5
+6||Dear AD1203-ROSHAN STORE - Message From GSM Modem - PVM|5
+6||Dear AD1204-GULATI JAN STORE - Message From GSM Modem - PVM|5
+6||Dear AD1205-UNCLE SHOP - Message From GSM Modem - PVM|5
+6||Dear AD1206-MANGAT RAM  SONS - Message From GSM Modem - PVM|5
+6||Dear AD1207-NAVIN STD - Message From GSM Modem - PVM|5
+6||Dear AD1208-DASHMESH STORE - Message From GSM Modem - PVM|5
+6||Dear AD1209 PARKASH STORE - Message From GSM Modem - PVM|5
+6||Dear AD1210-TOMAR PAN - Message From GSM Modem - PVM|5
+6||Dear AD1211-AMIT STORE - Message From GSM Modem - PVM|5
+6||Dear AD1212-ASHOKA SWEETS - Message From GSM Modem - PVM|5
+6||Dear AD1213-BALRAM PAN - Message From GSM Modem - PVM|5
+6||Dear AD1214-BUNTY STORE - Message From GSM Modem - PVM|5
+6||Dear AD1215-DHAN LAXMI STORE - Message From GSM Modem - PVM|5
+6||Dear AD1216-DHINGRA STORE - Message From GSM Modem - PVM|5
+6||Dear AD1217-DMS BOOTH - Message From GSM Modem - PVM|5
+6||Dear AD1218-GURMIT TEA STALL - Message From GSM Modem - PVM|5
+6||Dear AD1219-JANSEWAK STORE - Message From GSM Modem - PVM|5
+6||Dear AD1220-KIRPAL STORE - Message From GSM Modem - PVM|5
+6||Dear AD1221-KISHORE PAN - Message From GSM Modem - PVM|5
+6||Dear AD1222-KRISHNA STORE - Message From GSM Modem - PVM|5
+6||Dear AD1223-KUKREJA STORE - Message From GSM Modem - PVM|5
+6||Dear AD1224-M.B STORE - Message From GSM Modem - PVM|5
+6||Dear AD1225-M.C.D SCHOOL - Message From GSM Modem - PVM|5
+6||Dear AD1226-NARAIN STORE - Message From GSM Modem - PVM|5
+6||Dear AD1227-SAHNI STORE - Message From GSM Modem - PVM|5
+6||Dear AD1228-SHRI HARI RESTAURANT - Message From GSM Modem - PVM|5
+6||Dear AD1229-SINDHI RESTAURANT - Message From GSM Modem - PVM|5
+6||Dear AD1230-TULSI TEA STALL - Message From GSM Modem - PVM|5
+6||Dear AD1231-UNIQUE PASTRY SHOP - Message From GSM Modem - PVM|5
+6||Dear AD1232-VIJAY EGG STORE - Message From GSM Modem - PVM|5
+6||Dear AD1233-VIJAY STORE - Message From GSM Modem - PVM|5
+6||Dear AD1234-YADAV TEA STALL - Message From GSM Modem - PVM|5
+6||Dear AD1235-SUMIT STORE - Message From GSM Modem - PVM|5
+6||Dear AD1236-MADHAN STORE - Message From GSM Modem - PVM|5
+6||Dear AD1237-RINKU STORE - Message From GSM Modem - PVM|5
+6||Dear AD1238-BHATIA STORE - Message From GSM Modem - PVM|5
+6||Dear AD1239-BHIM STORE - Message From GSM Modem - PVM|5
+6||Dear AD1240-TIWARI SWEETS - Message From GSM Modem - PVM|5
+6||Dear AD1241-PASRICHA STORE - Message From GSM Modem - PVM|5
+6||Dear AD1242-BHARTI STORE - Message From GSM Modem - PVM|5
+6||Dear AD1243-GOLDY STORE - Message From GSM Modem - PVM|5
+6||Dear AD1244-MADAN STORE - Message From GSM Modem - PVM|5
+6||Dear AD1245-MODEL EYE HOSPITAL CENTR - Message From GSM Modem - PVM|5
+6||Dear AD1246-GULSHAN STORE - Message From GSM Modem - PVM|5
+6||Dear AD1247-KARAN STORE - Message From GSM Modem - PVM|5
+6||Dear AD1248-MANOHAR GENERAL STORE - Message From GSM Modem - PVM|5
+6||Dear AD1249-GUPTA SWEETS - Message From GSM Modem - PVM|5
+6||Dear AD1250-RAJEEV STORE - Message From GSM Modem - PVM|5
+6||Dear AD1251-ASHWANI PAN - Message From GSM Modem - PVM|5
+6||Dear AD1252-VICKY STORE - Message From GSM Modem - PVM|5
+6||Dear AD1253-DINESH STORE - Message From GSM Modem - PVM|5
+6||Dear AD1254-RADHA KRISHNA STORE - Message From GSM Modem - PVM|5
+6||Dear AD1255 CHOUDARY STORE - Message From GSM Modem - PVM|5
+6||Dear AD1256-SRI RAM STORE - Message From GSM Modem - PVM|5
+6||Dear AD1257-AMIT GENERAL STORE - Message From GSM Modem - PVM|5
+6||Dear AD1258-RAJU STORE - Message From GSM Modem - PVM|5
+6||Dear AD1259 GANPATI STORE - Message From GSM Modem - PVM|5
+6||Dear AD1260-NITY OM PARKASH STORE - Message From GSM Modem - PVM|5
+6||Dear AD1157 PUNJABI TADKA - Message From GSM Modem - PVM|5
+6||Dear AD1261 GOPAL STORE - Message From GSM Modem - PVM|5
+6||Dear AD1262 D K SONS - Message From GSM Modem - PVM|5
+6||Dear AD8R05 RAVI STORE - Message From GSM Modem - PVM|5
+6||Dear AD1263 SARAMA STORE - Message From GSM Modem - PVM|5
+6||Dear AD1158 M S STORE - Message From GSM Modem - PVM|5
+6||Dear AD1159  JAGCHSY STORE - Message From GSM Modem - PVM|5
+6||Dear AD1160  N K GARNL STORE - Message From GSM Modem - PVM|5
+6||Dear AD1264 JADISH STORE - Message From GSM Modem - PVM|5
+6||Dear AD8C02 CHAWLA CONF - Message From GSM Modem - PVM|5
+6||Dear AD8P02 PAPU MORNING - Message From GSM Modem - PVM|5
+6||Dear AD1265 ANAND STORE - Message From GSM Modem - PVM|5
+6||Dear AD1161 NEW VIJAY STORE - Message From GSM Modem - PVM|5
+6||Dear AD3M03 MAHANDAR STORE - Message From GSM Modem - PVM|5
+6||Dear AD1266 SHUKHDEV STORE - Message From GSM Modem - PVM|5
+6||Dear AD1267 RAJU TAE STORE - Message From GSM Modem - PVM|5
+6||Dear AD1268 AMBA STORE - Message From GSM Modem - PVM|5
+6||Dear AD1269 MOHINDER STORE - Message From GSM Modem - PVM|5
+6||Dear AD1162 MALHOTRA CON - Message From GSM Modem - PVM|5
+6||Dear AD1270 CHADDA BOUTQUE - Message From GSM Modem - PVM|5
+6||Dear AD1163 DASHAMAS STORE - Message From GSM Modem - PVM|5
+6||Dear AD1164 MANGATA RAM - Message From GSM Modem - PVM|5
+6||Dear AD1165 GHLATE STORE - Message From GSM Modem - PVM|5
+6||Dear AD1166 HOOME SAZZ - Message From GSM Modem - PVM|5
+6||Dear AD3N01 NARANG STORE - Message From GSM Modem - PVM|5
+6||Dear AD4C01 CHACHA TEA STALL - Message From GSM Modem - PVM|5
+6||Dear AD6K03 KARISHNA RAST - Message From GSM Modem - PVM|5
+6||Dear AD1001-CASH - Message From GSM Modem - PVM|5
+6||Dear AD3B15 BAHGAT TAE - Message From GSM Modem - PVM|5
+6||Dear AD1167 D M S STAAL - Message From GSM Modem - PVM|5
+6||Dear AD1168 ARMAN STORE - Message From GSM Modem - PVM|5
+6||Dear AD1169 SATYA STORE - Message From GSM Modem - PVM|5
+6||Dear AD1170 POJA GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD1171 NAVEEN  STD - Message From GSM Modem - PVM|5
+6||Dear AD1271 MCD CANTEN - Message From GSM Modem - PVM|5
+6||Dear AD1272 GIRI MOHAN STORE - Message From GSM Modem - PVM|5
+6||Dear AD6V01 VIJY STORE - Message From GSM Modem - PVM|5
+6||Dear AD8R06 RAJANDAR STORE - Message From GSM Modem - PVM|5
+6||Dear AD1172 ASHT BHUJU DHARI - Message From GSM Modem - PVM|5
+6||Dear AD1274 SPACIES PANEAR - Message From GSM Modem - PVM|5
+6||Dear AD1275 RIDKU STORE - Message From GSM Modem - PVM|5
+6||Dear AD1173 DMS BOOTH - Message From GSM Modem - PVM|5
+6||Dear AD6S16 SHARDA STORE - Message From GSM Modem - PVM|5
+6||Dear AD10S14 SHANKAR DAIRY - Message From GSM Modem - PVM|5
+6||Dear AD1174 KAPOUOR STORE - Message From GSM Modem - PVM|5
+6||Dear AD6G05 GURDAR HOSPITAEL - Message From GSM Modem - PVM|5
+6||Dear AD8B04 BANSAL MEDICOSE - Message From GSM Modem - PVM|5
+6||Dear AD10N02 NAGAR DAIRY - Message From GSM Modem - PVM|5
+6||Dear AD6B04 BALAJI STORE - Message From GSM Modem - PVM|5
+6||Dear AD6M05 MUKESH STORE - Message From GSM Modem - PVM|5
+6||Dear AD1175 JKM ENTRPRISC - Message From GSM Modem - PVM|5
+6||Dear AD1176 OM GEN STORE - Message From GSM Modem - PVM|5
+6||Dear AD1177 GUPTA CORNER - Message From GSM Modem - PVM|5
+6||Dear AD5P04 PRINCE HOTEL - Message From GSM Modem - PVM|5
+6||Dear AD1273 BATEHA STORE - Message From GSM Modem - PVM|5
+6||Dear AD1178 KAVERI JURARES - Message From GSM Modem - PVM|5
+6||Dear AD7B03 BHARAGDWAJ DAIRY - Message From GSM Modem - PVM|5
+6||Dear AD10V02 VIJAY STORE - Message From GSM Modem - PVM|5
+6||Dear AD1179 DHEWAN MAADI CUS - Message From GSM Modem - PVM|5
+6||Dear AD1180 BAGGA STORE - Message From GSM Modem - PVM|5
+6||Dear AD2O02 OM SAI STORE - Message From GSM Modem - PVM|5
+6||Dear AD6A08 AGGRAWAL SWEETS - Message From GSM Modem - PVM|5
+6||Dear AD8H02 HARI OM STD - Message From GSM Modem - PVM|5
+6||Dear AD7R05 R K GUPTA STORE - Message From GSM Modem - PVM|5
+6||Dear AD5C01 CHIRAG COMMUNITION - Message From GSM Modem - PVM|5
+6||Dear AD1276 MOHAN MILK - Message From GSM Modem - PVM|5
+6||Dear AD2G01 G T B STORE - Message From GSM Modem - PVM|5
+6||Dear AD7 G03    GANDHI STORE - Message From GSM Modem - PVM|5
+6||Dear AD7G03 GANDHI STORE - Message From GSM Modem - PVM|5
+6||Dear AD6V02 VARUAN STORE - Message From GSM Modem - PVM|5
+6||Dear AD10 H01HORI OM DIREY - Message From GSM Modem - PVM|5
+6||Dear AD4A03 AJAY ENTERPRISES - Message From GSM Modem - PVM|5
+6||Dear AD4L02 LOHORION DI HATTI - Message From GSM Modem - PVM|5
+6||Dear AD4S01SAPANA STORE - Message From GSM Modem - PVM|5
+6||Dear AD5Y02YAS PAL TAE - Message From GSM Modem - PVM|5
+6||Dear AD1Z04 ZENAB STORE - Message From GSM Modem - PVM|5
+6||Dear AD1N06NEW MEHMOOD STORE - Message From GSM Modem - PVM|5
+6||Dear AD1F01FIROZ STORE - Message From GSM Modem - PVM|5
+6||Dear AD1A01ALAM STORE - Message From GSM Modem - PVM|5
+6||Dear AD1O01OMPRAKASH STORE - Message From GSM Modem - PVM|5
+6||Dear AD7C02 CYBER WORLD - Message From GSM Modem - PVM|5
+6||Dear AD7C02 CYBER WORLD - Message From GSM Modem - PVM|5
+6||Dear AD1T01TAHIR ALI STORE - Message From GSM Modem - PVM|5
+6||Dear AD1H01HUSAIN AHMED - Message From GSM Modem - PVM|5
+6||Dear AD1D01 DARBAR TRAVEL - Message From GSM Modem - PVM|5
+6||Dear AD1I02 ISLAM 2 STORE - Message From GSM Modem - PVM|5
+6||Dear AD1P01PASTYSHOP - Message From GSM Modem - PVM|5
+6||Dear AD1N08NIZAMI STORE - Message From GSM Modem - PVM|5
+6||Dear AD7J03 JAI BALAJEE STORE - Message From GSM Modem - PVM|5
+6||Dear AD2M01MAN MEET STORE - Message From GSM Modem - PVM|5
+6||Dear AD8P07PARKASH MEDICOS - Message From GSM Modem - PVM|5
+6||Dear AD8P08PANDIT JI STORE - Message From GSM Modem - PVM|5
+6||Dear AD1H05HAZI GAN STORE - Message From GSM Modem - PVM|5
+6||Dear AD1N10NAZIBUDDIN STORE - Message From GSM Modem - PVM|5

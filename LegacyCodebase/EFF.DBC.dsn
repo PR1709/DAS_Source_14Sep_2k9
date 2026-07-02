@@ -1,0 +1,10 @@
+[ODBC]
+DRIVER=Driver para o Microsoft Visual FoxPro
+UID=
+Deleted=Yes
+Null=Yes
+Collate=Machine
+BackgroundFetch=Yes
+Exclusive=No
+SourceType=DBC
+SourceDB=C:\DAS_Addons\EFF.DBC

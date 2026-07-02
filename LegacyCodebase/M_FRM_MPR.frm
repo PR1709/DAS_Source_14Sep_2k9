@@ -1,0 +1,3883 @@
+VERSION 5.00
+Object = "{5E9E78A0-531B-11CF-91F6-C2863C385E30}#1.0#0"; "MSFLXGRD.OCX"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
+Object = "{C932BA88-4374-101B-A56C-00AA003668DC}#1.1#0"; "MSMASK32.OCX"
+Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.OCX"
+Begin VB.Form M_FRM_MPR 
+   BackColor       =   &H8000000A&
+   BorderStyle     =   1  'Fixed Single
+   Caption         =   "Supplier Serial Number"
+   ClientHeight    =   5625
+   ClientLeft      =   1425
+   ClientTop       =   1845
+   ClientWidth     =   8820
+   ForeColor       =   &H00FFFFFF&
+   Icon            =   "M_FRM_MPR.frx":0000
+   KeyPreview      =   -1  'True
+   LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MinButton       =   0   'False
+   Moveable        =   0   'False
+   ScaleHeight     =   5625
+   ScaleWidth      =   8820
+   StartUpPosition =   2  'CenterScreen
+   Begin MSComctlLib.Toolbar Toolbar1 
+      Align           =   1  'Align Top
+      Height          =   420
+      Left            =   0
+      TabIndex        =   37
+      Top             =   0
+      Width           =   8820
+      _ExtentX        =   15558
+      _ExtentY        =   741
+      ButtonWidth     =   609
+      ButtonHeight    =   582
+      AllowCustomize  =   0   'False
+      Appearance      =   1
+      ImageList       =   "ImageList1"
+      _Version        =   393216
+      BeginProperty Buttons {66833FE8-8583-11D1-B16A-00C0F0283628} 
+         NumButtons      =   16
+         BeginProperty Button1 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Key             =   "n"
+            Object.ToolTipText     =   "New (Ctrl+N)"
+            ImageIndex      =   2
+         EndProperty
+         BeginProperty Button2 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Key             =   "s"
+            Object.ToolTipText     =   "Save (Ctrl+S)"
+            ImageIndex      =   5
+         EndProperty
+         BeginProperty Button3 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Key             =   "c"
+            Object.ToolTipText     =   "Cancel (Ctrl+Q)"
+            ImageIndex      =   3
+         EndProperty
+         BeginProperty Button4 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Style           =   3
+         EndProperty
+         BeginProperty Button5 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Key             =   "p"
+            Object.ToolTipText     =   "Print (Ctrl+P)"
+            ImageIndex      =   1
+         EndProperty
+         BeginProperty Button6 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Enabled         =   0   'False
+            Key             =   "pr"
+            Object.ToolTipText     =   "Print Preview (Ctrl+R)"
+            ImageIndex      =   8
+         EndProperty
+         BeginProperty Button7 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Key             =   "s2"
+            Style           =   3
+         EndProperty
+         BeginProperty Button8 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Key             =   "h"
+            Object.ToolTipText     =   "Help (F1)"
+            ImageIndex      =   6
+         EndProperty
+         BeginProperty Button9 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Key             =   "ed"
+            Object.ToolTipText     =   "View (Ctrl+E)"
+            ImageIndex      =   7
+         EndProperty
+         BeginProperty Button10 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Key             =   "s3"
+            Style           =   3
+         EndProperty
+         BeginProperty Button11 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Enabled         =   0   'False
+            Key             =   "pre"
+            Object.ToolTipText     =   "Prefix Salesmen ID "
+            ImageIndex      =   10
+         EndProperty
+         BeginProperty Button12 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Enabled         =   0   'False
+            Key             =   "crt"
+            Object.ToolTipText     =   "Create by (Ctrl+C)"
+            ImageIndex      =   12
+         EndProperty
+         BeginProperty Button13 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Enabled         =   0   'False
+            Key             =   "brw"
+            Object.ToolTipText     =   "Browse (Ctrl+B)"
+            ImageIndex      =   11
+         EndProperty
+         BeginProperty Button14 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Style           =   3
+         EndProperty
+         BeginProperty Button15 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Key             =   "d"
+            Object.ToolTipText     =   "Delete (Ctrl+D)"
+            ImageIndex      =   9
+         EndProperty
+         BeginProperty Button16 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Key             =   "e"
+            Object.ToolTipText     =   "Exit (Ctrl+X)"
+            ImageIndex      =   4
+         EndProperty
+      EndProperty
+   End
+   Begin TabDlg.SSTab SSTab1 
+      Height          =   5130
+      Left            =   0
+      TabIndex        =   1
+      TabStop         =   0   'False
+      Top             =   480
+      Width           =   8820
+      _ExtentX        =   15558
+      _ExtentY        =   9049
+      _Version        =   393216
+      Style           =   1
+      Tabs            =   5
+      Tab             =   2
+      TabsPerRow      =   5
+      TabHeight       =   520
+      ShowFocusRect   =   0   'False
+      BackColor       =   -2147483637
+      ForeColor       =   8388608
+      TabCaption(0)   =   "&Invoice Details"
+      TabPicture(0)   =   "M_FRM_MPR.frx":0442
+      Tab(0).ControlEnabled=   0   'False
+      Tab(0).Control(0)=   "M_PUR_IDY"
+      Tab(0).Control(0).Enabled=   0   'False
+      Tab(0).Control(1)=   "ImageList1"
+      Tab(0).Control(2)=   "M_SUP_IDY"
+      Tab(0).Control(2).Enabled=   0   'False
+      Tab(0).Control(3)=   "M_SMN_IDY"
+      Tab(0).Control(3).Enabled=   0   'False
+      Tab(0).Control(4)=   "M_ACT_IDY"
+      Tab(0).Control(4).Enabled=   0   'False
+      Tab(0).Control(5)=   "M_DCH_IDY"
+      Tab(0).Control(5).Enabled=   0   'False
+      Tab(0).Control(6)=   "M_DCH_DAT"
+      Tab(0).Control(7)=   "M_INV_IDY"
+      Tab(0).Control(7).Enabled=   0   'False
+      Tab(0).Control(8)=   "M_INV_DAT"
+      Tab(0).Control(9)=   "Label12"
+      Tab(0).Control(10)=   "Shape2"
+      Tab(0).Control(11)=   "Shape1"
+      Tab(0).Control(12)=   "Line2(0)"
+      Tab(0).Control(13)=   "Line1(0)"
+      Tab(0).Control(14)=   "M_ACT_NME"
+      Tab(0).Control(15)=   "M_FFR_NME"
+      Tab(0).Control(16)=   "M_SUP_AD4"
+      Tab(0).Control(17)=   "M_SUP_AD3"
+      Tab(0).Control(18)=   "M_SUP_AD2"
+      Tab(0).Control(19)=   "M_SUP_AD1"
+      Tab(0).Control(20)=   "M_SUP_NME"
+      Tab(0).Control(21)=   "Label23"
+      Tab(0).Control(22)=   "Label16"
+      Tab(0).Control(23)=   "Label21"
+      Tab(0).Control(24)=   "Label1"
+      Tab(0).Control(25)=   "Label2"
+      Tab(0).Control(26)=   "Label3"
+      Tab(0).Control(27)=   "Label4"
+      Tab(0).Control(28)=   "Label6"
+      Tab(0).ControlCount=   29
+      TabCaption(1)   =   "&Products"
+      TabPicture(1)   =   "M_FRM_MPR.frx":045E
+      Tab(1).ControlEnabled=   0   'False
+      Tab(1).Control(0)=   "M_PRD_TOT"
+      Tab(1).Control(1)=   "units"
+      Tab(1).Control(2)=   "tax"
+      Tab(1).Control(3)=   "MS"
+      Tab(1).Control(4)=   "M_FLX_AMT"
+      Tab(1).Control(5)=   "Text3"
+      Tab(1).Control(5).Enabled=   0   'False
+      Tab(1).Control(6)=   "List6"
+      Tab(1).Control(6).Enabled=   0   'False
+      Tab(1).ControlCount=   7
+      TabCaption(2)   =   "&Taxes and  Levies"
+      TabPicture(2)   =   "M_FRM_MPR.frx":047A
+      Tab(2).ControlEnabled=   -1  'True
+      Tab(2).Control(0)=   "Label25"
+      Tab(2).Control(0).Enabled=   0   'False
+      Tab(2).Control(1)=   "M_DUE_DAT"
+      Tab(2).Control(1).Enabled=   0   'False
+      Tab(2).Control(2)=   "Label22"
+      Tab(2).Control(2).Enabled=   0   'False
+      Tab(2).Control(3)=   "M_GRS_AMT"
+      Tab(2).Control(3).Enabled=   0   'False
+      Tab(2).Control(4)=   "Label24"
+      Tab(2).Control(4).Enabled=   0   'False
+      Tab(2).Control(5)=   "Label44"
+      Tab(2).Control(5).Enabled=   0   'False
+      Tab(2).Control(6)=   "M_NET_AMT"
+      Tab(2).Control(6).Enabled=   0   'False
+      Tab(2).Control(7)=   "Label42"
+      Tab(2).Control(7).Enabled=   0   'False
+      Tab(2).Control(8)=   "Label27"
+      Tab(2).Control(8).Enabled=   0   'False
+      Tab(2).Control(9)=   "Label28"
+      Tab(2).Control(9).Enabled=   0   'False
+      Tab(2).Control(10)=   "Label29"
+      Tab(2).Control(10).Enabled=   0   'False
+      Tab(2).Control(11)=   "Label30"
+      Tab(2).Control(11).Enabled=   0   'False
+      Tab(2).Control(12)=   "Label32"
+      Tab(2).Control(12).Enabled=   0   'False
+      Tab(2).Control(13)=   "Label33"
+      Tab(2).Control(13).Enabled=   0   'False
+      Tab(2).Control(14)=   "Label34"
+      Tab(2).Control(14).Enabled=   0   'False
+      Tab(2).Control(15)=   "Label36"
+      Tab(2).Control(15).Enabled=   0   'False
+      Tab(2).Control(16)=   "Label37"
+      Tab(2).Control(16).Enabled=   0   'False
+      Tab(2).Control(17)=   "Label38"
+      Tab(2).Control(17).Enabled=   0   'False
+      Tab(2).Control(18)=   "Label31"
+      Tab(2).Control(18).Enabled=   0   'False
+      Tab(2).Control(19)=   "Label35"
+      Tab(2).Control(19).Enabled=   0   'False
+      Tab(2).Control(20)=   "Label46"
+      Tab(2).Control(20).Enabled=   0   'False
+      Tab(2).Control(21)=   "Label47"
+      Tab(2).Control(21).Enabled=   0   'False
+      Tab(2).Control(22)=   "Label48"
+      Tab(2).Control(22).Enabled=   0   'False
+      Tab(2).Control(23)=   "Label50"
+      Tab(2).Control(23).Enabled=   0   'False
+      Tab(2).Control(24)=   "Label61"
+      Tab(2).Control(24).Enabled=   0   'False
+      Tab(2).Control(25)=   "M_BEF_ROF"
+      Tab(2).Control(25).Enabled=   0   'False
+      Tab(2).Control(26)=   "M_CRT_DAY"
+      Tab(2).Control(26).Enabled=   0   'False
+      Tab(2).Control(27)=   "M_CSD_PCG"
+      Tab(2).Control(27).Enabled=   0   'False
+      Tab(2).Control(28)=   "M_SPD_PCG"
+      Tab(2).Control(28).Enabled=   0   'False
+      Tab(2).Control(29)=   "M_TAX_PCG"
+      Tab(2).Control(29).Enabled=   0   'False
+      Tab(2).Control(30)=   "M_EXD_AMT"
+      Tab(2).Control(30).Enabled=   0   'False
+      Tab(2).Control(31)=   "M_ROU_IDY"
+      Tab(2).Control(31).Enabled=   0   'False
+      Tab(2).Control(32)=   "M_TAX_AMT"
+      Tab(2).Control(32).Enabled=   0   'False
+      Tab(2).Control(33)=   "M_SPD_AMT"
+      Tab(2).Control(33).Enabled=   0   'False
+      Tab(2).Control(34)=   "M_CSD_AMT"
+      Tab(2).Control(34).Enabled=   0   'False
+      Tab(2).Control(35)=   "M_ROU_OFF"
+      Tab(2).Control(35).Enabled=   0   'False
+      Tab(2).Control(36)=   "M_CSD_DED"
+      Tab(2).Control(36).Enabled=   0   'False
+      Tab(2).Control(37)=   "M_SPD_DED"
+      Tab(2).Control(37).Enabled=   0   'False
+      Tab(2).Control(38)=   "M_TAX_DED"
+      Tab(2).Control(38).Enabled=   0   'False
+      Tab(2).Control(39)=   "M_FRT_TYP"
+      Tab(2).Control(39).Enabled=   0   'False
+      Tab(2).Control(40)=   "M_FRT_AMT"
+      Tab(2).Control(40).Enabled=   0   'False
+      Tab(2).Control(41)=   "M_PKG_CST"
+      Tab(2).Control(41).Enabled=   0   'False
+      Tab(2).ControlCount=   42
+      TabCaption(3)   =   "&Shipment Details"
+      TabPicture(3)   =   "M_FRM_MPR.frx":0496
+      Tab(3).ControlEnabled=   0   'False
+      Tab(3).Control(0)=   "Label51"
+      Tab(3).Control(1)=   "Label53"
+      Tab(3).Control(2)=   "Label54"
+      Tab(3).Control(3)=   "Label55"
+      Tab(3).Control(4)=   "Label56"
+      Tab(3).Control(5)=   "Label57"
+      Tab(3).Control(6)=   "Label58"
+      Tab(3).Control(7)=   "Label59"
+      Tab(3).Control(8)=   "M_LRN_DAT"
+      Tab(3).Control(9)=   "M_WBL_DAT"
+      Tab(3).Control(10)=   "M_LRN_IDY"
+      Tab(3).Control(10).Enabled=   0   'False
+      Tab(3).Control(11)=   "M_TTL_CAS"
+      Tab(3).Control(11).Enabled=   0   'False
+      Tab(3).Control(12)=   "M_TXN_RMK"
+      Tab(3).Control(12).Enabled=   0   'False
+      Tab(3).Control(13)=   "M_WBL_IDY"
+      Tab(3).Control(13).Enabled=   0   'False
+      Tab(3).Control(14)=   "M_TXN_TPT"
+      Tab(3).Control(14).Enabled=   0   'False
+      Tab(3).Control(15)=   "M_LRN_AMT"
+      Tab(3).Control(15).Enabled=   0   'False
+      Tab(3).ControlCount=   16
+      TabCaption(4)   =   "View"
+      TabPicture(4)   =   "M_FRM_MPR.frx":04B2
+      Tab(4).ControlEnabled=   0   'False
+      Tab(4).Control(0)=   "Label49"
+      Tab(4).Control(1)=   "list3"
+      Tab(4).Control(2)=   "list1"
+      Tab(4).Control(3)=   "list2"
+      Tab(4).Control(4)=   "list5"
+      Tab(4).Control(5)=   "list4"
+      Tab(4).Control(6)=   "Frame1"
+      Tab(4).ControlCount=   7
+      Begin VB.TextBox M_PUR_IDY 
+         Appearance      =   0  'Flat
+         CausesValidation=   0   'False
+         Height          =   330
+         Left            =   -70080
+         MaxLength       =   10
+         TabIndex        =   98
+         TabStop         =   0   'False
+         Top             =   600
+         Width           =   1095
+      End
+      Begin VB.TextBox M_LRN_AMT 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         Height          =   330
+         Left            =   -72600
+         MaxLength       =   10
+         TabIndex        =   94
+         TabStop         =   0   'False
+         Top             =   1125
+         Width           =   1095
+      End
+      Begin VB.TextBox M_TXN_TPT 
+         Appearance      =   0  'Flat
+         Height          =   330
+         Left            =   -72600
+         MaxLength       =   30
+         TabIndex        =   88
+         TabStop         =   0   'False
+         Top             =   2520
+         Width           =   1935
+      End
+      Begin VB.TextBox M_WBL_IDY 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         Height          =   330
+         Left            =   -72600
+         MaxLength       =   10
+         TabIndex        =   86
+         TabStop         =   0   'False
+         Top             =   1560
+         Width           =   1095
+      End
+      Begin VB.TextBox M_TXN_RMK 
+         Appearance      =   0  'Flat
+         Height          =   330
+         Left            =   -72600
+         MaxLength       =   40
+         TabIndex        =   84
+         TabStop         =   0   'False
+         Top             =   3000
+         Width           =   3615
+      End
+      Begin VB.TextBox M_TTL_CAS 
+         Appearance      =   0  'Flat
+         Height          =   330
+         Left            =   -72600
+         MaxLength       =   5
+         TabIndex        =   82
+         TabStop         =   0   'False
+         Top             =   2040
+         Width           =   1095
+      End
+      Begin VB.TextBox M_LRN_IDY 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         Height          =   330
+         Left            =   -72600
+         MaxLength       =   10
+         TabIndex        =   80
+         TabStop         =   0   'False
+         Top             =   720
+         Width           =   1095
+      End
+      Begin VB.TextBox M_PKG_CST 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         Height          =   330
+         Left            =   2880
+         MaxLength       =   9
+         TabIndex        =   77
+         TabStop         =   0   'False
+         Top             =   3480
+         Width           =   855
+      End
+      Begin VB.TextBox M_FRT_AMT 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         Height          =   330
+         Left            =   4920
+         MaxLength       =   9
+         TabIndex        =   75
+         TabStop         =   0   'False
+         Top             =   3000
+         Width           =   855
+      End
+      Begin VB.ListBox M_FRT_TYP 
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   270
+         ItemData        =   "M_FRM_MPR.frx":04CE
+         Left            =   3240
+         List            =   "M_FRM_MPR.frx":04D8
+         TabIndex        =   73
+         Top             =   3000
+         Width           =   495
+      End
+      Begin VB.TextBox M_TAX_DED 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         Height          =   330
+         Left            =   6360
+         Locked          =   -1  'True
+         TabIndex        =   72
+         TabStop         =   0   'False
+         Top             =   2160
+         Width           =   1335
+      End
+      Begin VB.TextBox M_SPD_DED 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         Height          =   330
+         Left            =   6360
+         Locked          =   -1  'True
+         TabIndex        =   71
+         TabStop         =   0   'False
+         Top             =   1680
+         Width           =   1335
+      End
+      Begin VB.TextBox M_CSD_DED 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         BeginProperty DataFormat 
+            Type            =   1
+            Format          =   "0.00"
+            HaveTrueFalseNull=   0
+            FirstDayOfWeek  =   0
+            FirstWeekOfYear =   0
+            LCID            =   1033
+            SubFormatType   =   1
+         EndProperty
+         Height          =   330
+         Left            =   6360
+         TabIndex        =   70
+         TabStop         =   0   'False
+         Top             =   1200
+         Width           =   1335
+      End
+      Begin VB.Frame Frame1 
+         Appearance      =   0  'Flat
+         BackColor       =   &H8000000A&
+         BorderStyle     =   0  'None
+         ForeColor       =   &H80000008&
+         Height          =   495
+         Left            =   -74760
+         TabIndex        =   61
+         Top             =   4560
+         Width           =   8295
+         Begin VB.CheckBox Check1 
+            Appearance      =   0  'Flat
+            BackColor       =   &H8000000A&
+            Caption         =   "Name"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   9.75
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H80000008&
+            Height          =   240
+            Left            =   480
+            TabIndex        =   63
+            TabStop         =   0   'False
+            Top             =   240
+            Value           =   1  'Checked
+            Width           =   855
+         End
+         Begin VB.CheckBox Check2 
+            Appearance      =   0  'Flat
+            BackColor       =   &H8000000A&
+            Caption         =   "Place"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   9.75
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H80000008&
+            Height          =   240
+            Left            =   3480
+            TabIndex        =   62
+            TabStop         =   0   'False
+            Top             =   240
+            Width           =   2415
+         End
+      End
+      Begin VB.TextBox M_ROU_OFF 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         Height          =   330
+         Left            =   4920
+         MaxLength       =   5
+         TabIndex        =   60
+         TabStop         =   0   'False
+         Top             =   4320
+         Width           =   615
+      End
+      Begin VB.ListBox List6 
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   270
+         ItemData        =   "M_FRM_MPR.frx":04E2
+         Left            =   -72960
+         List            =   "M_FRM_MPR.frx":04EF
+         TabIndex        =   59
+         TabStop         =   0   'False
+         Top             =   720
+         Visible         =   0   'False
+         Width           =   735
+      End
+      Begin VB.TextBox M_CSD_AMT 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         BeginProperty DataFormat 
+            Type            =   1
+            Format          =   "0.00;(0.00)"
+            HaveTrueFalseNull=   0
+            FirstDayOfWeek  =   0
+            FirstWeekOfYear =   0
+            LCID            =   1033
+            SubFormatType   =   1
+         EndProperty
+         Height          =   330
+         Left            =   4920
+         Locked          =   -1  'True
+         MaxLength       =   9
+         TabIndex        =   58
+         TabStop         =   0   'False
+         Top             =   1200
+         Width           =   855
+      End
+      Begin VB.TextBox M_SPD_AMT 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         BeginProperty DataFormat 
+            Type            =   1
+            Format          =   "0.00"
+            HaveTrueFalseNull=   0
+            FirstDayOfWeek  =   0
+            FirstWeekOfYear =   0
+            LCID            =   1033
+            SubFormatType   =   1
+         EndProperty
+         Height          =   330
+         Left            =   4920
+         MaxLength       =   9
+         TabIndex        =   57
+         TabStop         =   0   'False
+         Top             =   1680
+         Width           =   855
+      End
+      Begin VB.TextBox M_TAX_AMT 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         Height          =   330
+         Left            =   4920
+         MaxLength       =   9
+         TabIndex        =   56
+         TabStop         =   0   'False
+         Top             =   2160
+         Width           =   855
+      End
+      Begin VB.ListBox M_ROU_IDY 
+         Appearance      =   0  'Flat
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   270
+         ItemData        =   "M_FRM_MPR.frx":04FC
+         Left            =   4920
+         List            =   "M_FRM_MPR.frx":056C
+         TabIndex        =   55
+         TabStop         =   0   'False
+         Top             =   2640
+         Width           =   495
+      End
+      Begin VB.TextBox M_EXD_AMT 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         Height          =   330
+         Left            =   2880
+         MaxLength       =   9
+         TabIndex        =   42
+         TabStop         =   0   'False
+         Top             =   2610
+         Width           =   855
+      End
+      Begin VB.TextBox M_TAX_PCG 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         Height          =   330
+         Left            =   3120
+         MaxLength       =   5
+         TabIndex        =   41
+         TabStop         =   0   'False
+         Top             =   2160
+         Width           =   615
+      End
+      Begin VB.TextBox M_SPD_PCG 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         Height          =   330
+         Left            =   3120
+         MaxLength       =   5
+         TabIndex        =   40
+         TabStop         =   0   'False
+         Top             =   1680
+         Width           =   615
+      End
+      Begin VB.TextBox M_CSD_PCG 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         Height          =   330
+         Left            =   3120
+         MaxLength       =   5
+         TabIndex        =   39
+         TabStop         =   0   'False
+         Top             =   1200
+         Width           =   615
+      End
+      Begin VB.TextBox M_CRT_DAY 
+         Alignment       =   1  'Right Justify
+         Appearance      =   0  'Flat
+         Height          =   330
+         Left            =   3240
+         MaxLength       =   10
+         TabIndex        =   38
+         TabStop         =   0   'False
+         Top             =   480
+         Width           =   495
+      End
+      Begin MSComctlLib.ImageList ImageList1 
+         Left            =   -75000
+         Top             =   120
+         _ExtentX        =   1005
+         _ExtentY        =   1005
+         BackColor       =   -2147483643
+         ImageWidth      =   16
+         ImageHeight     =   16
+         MaskColor       =   12632256
+         _Version        =   393216
+         BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
+            NumListImages   =   13
+            BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+               Picture         =   "M_FRM_MPR.frx":05DC
+               Key             =   "p"
+            EndProperty
+            BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+               Picture         =   "M_FRM_MPR.frx":0B20
+               Key             =   ""
+            EndProperty
+            BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+               Picture         =   "M_FRM_MPR.frx":0EE8
+               Key             =   "c"
+            EndProperty
+            BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+               Picture         =   "M_FRM_MPR.frx":123C
+               Key             =   "e"
+            EndProperty
+            BeginProperty ListImage5 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+               Picture         =   "M_FRM_MPR.frx":1874
+               Key             =   "s"
+            EndProperty
+            BeginProperty ListImage6 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+               Picture         =   "M_FRM_MPR.frx":1BC8
+               Key             =   "h"
+            EndProperty
+            BeginProperty ListImage7 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+               Picture         =   "M_FRM_MPR.frx":2028
+               Key             =   ""
+            EndProperty
+            BeginProperty ListImage8 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+               Picture         =   "M_FRM_MPR.frx":231C
+               Key             =   "pr"
+            EndProperty
+            BeginProperty ListImage9 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+               Picture         =   "M_FRM_MPR.frx":2728
+               Key             =   "d"
+            EndProperty
+            BeginProperty ListImage10 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+               Picture         =   "M_FRM_MPR.frx":2834
+               Key             =   "pre"
+            EndProperty
+            BeginProperty ListImage11 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+               Picture         =   "M_FRM_MPR.frx":2B88
+               Key             =   "brw"
+            EndProperty
+            BeginProperty ListImage12 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+               Picture         =   "M_FRM_MPR.frx":2F9C
+               Key             =   "cpy"
+            EndProperty
+            BeginProperty ListImage13 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+               Picture         =   "M_FRM_MPR.frx":34E8
+               Key             =   ""
+            EndProperty
+         EndProperty
+      End
+      Begin VB.TextBox Text3 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00E0E0E0&
+         Height          =   405
+         Left            =   -73680
+         MaxLength       =   10
+         TabIndex        =   24
+         TabStop         =   0   'False
+         Top             =   1080
+         Visible         =   0   'False
+         Width           =   1815
+      End
+      Begin VB.TextBox M_SUP_IDY 
+         Appearance      =   0  'Flat
+         Height          =   330
+         Left            =   -72360
+         MaxLength       =   10
+         TabIndex        =   3
+         TabStop         =   0   'False
+         Top             =   1920
+         Width           =   1095
+      End
+      Begin VB.TextBox M_SMN_IDY 
+         Appearance      =   0  'Flat
+         Height          =   330
+         Left            =   -72360
+         Locked          =   -1  'True
+         MaxLength       =   20
+         TabIndex        =   12
+         TabStop         =   0   'False
+         Top             =   4012
+         Width           =   1095
+      End
+      Begin VB.TextBox M_ACT_IDY 
+         Appearance      =   0  'Flat
+         Height          =   330
+         Left            =   -72360
+         MaxLength       =   10
+         TabIndex        =   11
+         TabStop         =   0   'False
+         Top             =   4402
+         Width           =   1095
+      End
+      Begin VB.TextBox M_DCH_IDY 
+         Appearance      =   0  'Flat
+         Height          =   330
+         Left            =   -72360
+         MaxLength       =   10
+         TabIndex        =   2
+         TabStop         =   0   'False
+         Top             =   1440
+         Width           =   1095
+      End
+      Begin MSComCtl2.DTPicker M_DCH_DAT 
+         Height          =   330
+         Left            =   -70080
+         TabIndex        =   4
+         TabStop         =   0   'False
+         Top             =   1440
+         Width           =   1215
+         _ExtentX        =   2143
+         _ExtentY        =   582
+         _Version        =   393216
+         CustomFormat    =   "dd/MM/yyyy"
+         Format          =   24641539
+         CurrentDate     =   37097
+      End
+      Begin VB.TextBox M_INV_IDY 
+         Appearance      =   0  'Flat
+         CausesValidation=   0   'False
+         Height          =   330
+         Left            =   -72360
+         MaxLength       =   10
+         TabIndex        =   0
+         TabStop         =   0   'False
+         Top             =   600
+         Width           =   1095
+      End
+      Begin MSComCtl2.DTPicker M_INV_DAT 
+         Height          =   330
+         Left            =   -68040
+         TabIndex        =   5
+         TabStop         =   0   'False
+         Top             =   600
+         Width           =   1215
+         _ExtentX        =   2143
+         _ExtentY        =   582
+         _Version        =   393216
+         CustomFormat    =   "dd/MM/yyyy"
+         Format          =   24641539
+         CurrentDate     =   37099
+      End
+      Begin MSMask.MaskEdBox M_FLX_AMT 
+         Height          =   375
+         Left            =   -69240
+         TabIndex        =   25
+         TabStop         =   0   'False
+         Top             =   480
+         Visible         =   0   'False
+         Width           =   2535
+         _ExtentX        =   4471
+         _ExtentY        =   661
+         _Version        =   393216
+         Appearance      =   0
+         BackColor       =   14737632
+         PromptInclude   =   0   'False
+         MaxLength       =   9
+         PromptChar      =   "_"
+      End
+      Begin MSFlexGridLib.MSFlexGrid MS 
+         Height          =   4395
+         Left            =   -74920
+         TabIndex        =   26
+         TabStop         =   0   'False
+         Top             =   360
+         Width           =   8700
+         _ExtentX        =   15346
+         _ExtentY        =   7752
+         _Version        =   393216
+         Cols            =   13
+         FixedCols       =   0
+         RowHeightMin    =   330
+         BackColorSel    =   14737632
+         ForeColorSel    =   8388608
+         GridColor       =   8421504
+         GridColorFixed  =   4210752
+         FocusRect       =   0
+         HighLight       =   0
+         GridLinesFixed  =   1
+         Appearance      =   0
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+      End
+      Begin MSComctlLib.ListView list4 
+         Height          =   3615
+         Left            =   -74640
+         TabIndex        =   64
+         Top             =   840
+         Visible         =   0   'False
+         Width           =   8295
+         _ExtentX        =   14631
+         _ExtentY        =   6376
+         View            =   3
+         LabelEdit       =   1
+         Sorted          =   -1  'True
+         LabelWrap       =   -1  'True
+         HideSelection   =   0   'False
+         AllowReorder    =   -1  'True
+         FullRowSelect   =   -1  'True
+         GridLines       =   -1  'True
+         HotTracking     =   -1  'True
+         _Version        =   393217
+         ForeColor       =   -2147483640
+         BackColor       =   -2147483643
+         BorderStyle     =   1
+         Appearance      =   0
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         NumItems        =   5
+         BeginProperty ColumnHeader(1) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+            Text            =   "ProductName"
+            Object.Width           =   5645
+         EndProperty
+         BeginProperty ColumnHeader(2) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+            Alignment       =   2
+            SubItemIndex    =   1
+            Text            =   "Product ID"
+            Object.Width           =   2646
+         EndProperty
+         BeginProperty ColumnHeader(3) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+            SubItemIndex    =   2
+            Text            =   "Part Number"
+            Object.Width           =   3881
+         EndProperty
+         BeginProperty ColumnHeader(4) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+            SubItemIndex    =   3
+            Text            =   "Quantity"
+            Object.Width           =   2117
+         EndProperty
+         BeginProperty ColumnHeader(5) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+            SubItemIndex    =   4
+            Text            =   "Sub Units"
+            Object.Width           =   2540
+         EndProperty
+      End
+      Begin MSComctlLib.ListView list5 
+         Height          =   3615
+         Left            =   -74640
+         TabIndex        =   66
+         Top             =   840
+         Visible         =   0   'False
+         Width           =   8295
+         _ExtentX        =   14631
+         _ExtentY        =   6376
+         View            =   3
+         LabelEdit       =   1
+         Sorted          =   -1  'True
+         LabelWrap       =   -1  'True
+         HideSelection   =   -1  'True
+         AllowReorder    =   -1  'True
+         FullRowSelect   =   -1  'True
+         GridLines       =   -1  'True
+         HotTracking     =   -1  'True
+         _Version        =   393217
+         ForeColor       =   -2147483640
+         BackColor       =   -2147483643
+         BorderStyle     =   1
+         Appearance      =   0
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         NumItems        =   4
+         BeginProperty ColumnHeader(1) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+            Text            =   "Invoice ID"
+            Object.Width           =   2540
+         EndProperty
+         BeginProperty ColumnHeader(2) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+            Alignment       =   2
+            SubItemIndex    =   1
+            Text            =   "Invoice Date"
+            Object.Width           =   3528
+         EndProperty
+         BeginProperty ColumnHeader(3) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+            SubItemIndex    =   2
+            Text            =   "Dealer Name"
+            Object.Width           =   2540
+         EndProperty
+         BeginProperty ColumnHeader(4) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+            SubItemIndex    =   3
+            Text            =   "Place"
+            Object.Width           =   2540
+         EndProperty
+      End
+      Begin MSComctlLib.ListView list2 
+         Height          =   3615
+         Left            =   -74640
+         TabIndex        =   67
+         Top             =   840
+         Visible         =   0   'False
+         Width           =   8295
+         _ExtentX        =   14631
+         _ExtentY        =   6376
+         View            =   3
+         LabelEdit       =   1
+         Sorted          =   -1  'True
+         LabelWrap       =   -1  'True
+         HideSelection   =   -1  'True
+         AllowReorder    =   -1  'True
+         FullRowSelect   =   -1  'True
+         GridLines       =   -1  'True
+         HotTracking     =   -1  'True
+         _Version        =   393217
+         ForeColor       =   -2147483640
+         BackColor       =   -2147483643
+         BorderStyle     =   1
+         Appearance      =   0
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         NumItems        =   3
+         BeginProperty ColumnHeader(1) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+            Text            =   "Account Name"
+            Object.Width           =   2540
+         EndProperty
+         BeginProperty ColumnHeader(2) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+            Alignment       =   2
+            SubItemIndex    =   1
+            Text            =   "Account ID"
+            Object.Width           =   3528
+         EndProperty
+         BeginProperty ColumnHeader(3) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+            SubItemIndex    =   2
+            Text            =   "Place"
+            Object.Width           =   2540
+         EndProperty
+      End
+      Begin MSComctlLib.ListView list1 
+         Height          =   3615
+         Left            =   -74640
+         TabIndex        =   68
+         Top             =   840
+         Visible         =   0   'False
+         Width           =   8295
+         _ExtentX        =   14631
+         _ExtentY        =   6376
+         View            =   3
+         LabelEdit       =   1
+         Sorted          =   -1  'True
+         LabelWrap       =   -1  'True
+         HideSelection   =   0   'False
+         AllowReorder    =   -1  'True
+         FullRowSelect   =   -1  'True
+         GridLines       =   -1  'True
+         HotTracking     =   -1  'True
+         _Version        =   393217
+         ForeColor       =   -2147483640
+         BackColor       =   -2147483643
+         BorderStyle     =   1
+         Appearance      =   0
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         NumItems        =   3
+         BeginProperty ColumnHeader(1) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+            Text            =   "Salesman Name"
+            Object.Width           =   6174
+         EndProperty
+         BeginProperty ColumnHeader(2) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+            Alignment       =   2
+            SubItemIndex    =   1
+            Text            =   "Salesman  ID"
+            Object.Width           =   3175
+         EndProperty
+         BeginProperty ColumnHeader(3) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+            SubItemIndex    =   2
+            Text            =   "Place"
+            Object.Width           =   2540
+         EndProperty
+      End
+      Begin MSComctlLib.ListView list3 
+         Height          =   3615
+         Left            =   -74640
+         TabIndex        =   69
+         Top             =   840
+         Visible         =   0   'False
+         Width           =   8295
+         _ExtentX        =   14631
+         _ExtentY        =   6376
+         View            =   3
+         LabelEdit       =   1
+         Sorted          =   -1  'True
+         LabelWrap       =   -1  'True
+         HideSelection   =   -1  'True
+         AllowReorder    =   -1  'True
+         FullRowSelect   =   -1  'True
+         GridLines       =   -1  'True
+         HotTracking     =   -1  'True
+         _Version        =   393217
+         ForeColor       =   -2147483640
+         BackColor       =   -2147483643
+         BorderStyle     =   1
+         Appearance      =   0
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         NumItems        =   6
+         BeginProperty ColumnHeader(1) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+            Text            =   "Dealer Name"
+            Object.Width           =   2540
+         EndProperty
+         BeginProperty ColumnHeader(2) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+            Alignment       =   2
+            SubItemIndex    =   1
+            Text            =   "Dealer ID"
+            Object.Width           =   3528
+         EndProperty
+         BeginProperty ColumnHeader(3) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+            SubItemIndex    =   2
+            Text            =   "Place"
+            Object.Width           =   2540
+         EndProperty
+         BeginProperty ColumnHeader(4) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+            SubItemIndex    =   3
+            Text            =   "Market Name"
+            Object.Width           =   2540
+         EndProperty
+         BeginProperty ColumnHeader(5) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+            SubItemIndex    =   4
+            Text            =   "Route"
+            Object.Width           =   2540
+         EndProperty
+         BeginProperty ColumnHeader(6) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+            SubItemIndex    =   5
+            Text            =   "Salesman Name"
+            Object.Width           =   2540
+         EndProperty
+      End
+      Begin MSComCtl2.DTPicker M_WBL_DAT 
+         Height          =   330
+         Left            =   -69480
+         TabIndex        =   90
+         TabStop         =   0   'False
+         Top             =   1560
+         Width           =   1215
+         _ExtentX        =   2143
+         _ExtentY        =   582
+         _Version        =   393216
+         CustomFormat    =   "dd/MM/yyyy"
+         Format          =   24641539
+         CurrentDate     =   37097
+      End
+      Begin MSComCtl2.DTPicker M_LRN_DAT 
+         Height          =   330
+         Left            =   -69480
+         TabIndex        =   92
+         TabStop         =   0   'False
+         Top             =   720
+         Width           =   1215
+         _ExtentX        =   2143
+         _ExtentY        =   582
+         _Version        =   393216
+         CustomFormat    =   "dd/MM/yyyy"
+         Format          =   24641539
+         CurrentDate     =   37097
+      End
+      Begin VB.Label Label12 
+         Alignment       =   1  'Right Justify
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Pur No."
+         ForeColor       =   &H00404040&
+         Height          =   195
+         Left            =   -70875
+         TabIndex        =   99
+         Top             =   675
+         Width           =   540
+      End
+      Begin VB.Label M_BEF_ROF 
+         Alignment       =   1  'Right Justify
+         AutoSize        =   -1  'True
+         BackColor       =   &H00E0E0E0&
+         BackStyle       =   0  'Transparent
+         Height          =   195
+         Left            =   3690
+         TabIndex        =   97
+         Top             =   4395
+         Width           =   45
+      End
+      Begin VB.Label Label61 
+         Alignment       =   1  'Right Justify
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Gross"
+         BeginProperty DataFormat 
+            Type            =   1
+            Format          =   "0"
+            HaveTrueFalseNull=   0
+            FirstDayOfWeek  =   0
+            FirstWeekOfYear =   0
+            LCID            =   1033
+            SubFormatType   =   1
+         EndProperty
+         ForeColor       =   &H80000007&
+         Height          =   195
+         Left            =   5370
+         TabIndex        =   96
+         Top             =   840
+         Width           =   405
+      End
+      Begin VB.Label Label59 
+         Alignment       =   1  'Right Justify
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "LR Amount"
+         ForeColor       =   &H00404040&
+         Height          =   195
+         Left            =   -73665
+         TabIndex        =   95
+         Top             =   1200
+         Width           =   795
+      End
+      Begin VB.Label Label58 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "LR Date"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   -70260
+         TabIndex        =   93
+         Top             =   788
+         Width           =   600
+      End
+      Begin VB.Label Label57 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "WB Date"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   -70320
+         TabIndex        =   91
+         Top             =   1628
+         Width           =   660
+      End
+      Begin VB.Label Label56 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Transport"
+         ForeColor       =   &H00404040&
+         Height          =   195
+         Left            =   -73545
+         TabIndex        =   89
+         Top             =   2588
+         Width           =   675
+      End
+      Begin VB.Label Label55 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "WB Number"
+         ForeColor       =   &H00404040&
+         Height          =   195
+         Left            =   -73740
+         TabIndex        =   87
+         Top             =   1628
+         Width           =   870
+      End
+      Begin VB.Label Label54 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Remarks"
+         ForeColor       =   &H00404040&
+         Height          =   195
+         Left            =   -73500
+         TabIndex        =   85
+         Top             =   3068
+         Width           =   630
+      End
+      Begin VB.Label Label53 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Cases"
+         ForeColor       =   &H00404040&
+         Height          =   195
+         Left            =   -73305
+         TabIndex        =   83
+         Top             =   2108
+         Width           =   435
+      End
+      Begin VB.Label Label51 
+         Alignment       =   1  'Right Justify
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "LR Number"
+         ForeColor       =   &H00404040&
+         Height          =   195
+         Left            =   -73680
+         TabIndex        =   81
+         Top             =   788
+         Width           =   810
+      End
+      Begin VB.Label Label50 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Packing  Amount"
+         Height          =   195
+         Left            =   1005
+         TabIndex        =   79
+         Top             =   3548
+         Width           =   1215
+      End
+      Begin VB.Label Label48 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Rs."
+         Height          =   255
+         Left            =   2520
+         TabIndex        =   78
+         Top             =   3555
+         Width           =   255
+      End
+      Begin VB.Label Label47 
+         Alignment       =   1  'Right Justify
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Amount"
+         Height          =   195
+         Left            =   4155
+         TabIndex        =   76
+         Top             =   3068
+         Width           =   540
+      End
+      Begin VB.Label Label46 
+         AutoSize        =   -1  'True
+         Caption         =   "Freight"
+         Height          =   195
+         Left            =   1740
+         TabIndex        =   74
+         Top             =   3038
+         Width           =   480
+      End
+      Begin VB.Label Label49 
+         Alignment       =   2  'Center
+         Appearance      =   0  'Flat
+         BackColor       =   &H00FF0000&
+         BorderStyle     =   1  'Fixed Single
+         BeginProperty Font 
+            Name            =   "Times New Roman"
+            Size            =   12
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H80000005&
+         Height          =   375
+         Left            =   -74640
+         TabIndex        =   65
+         Top             =   480
+         Width           =   8295
+      End
+      Begin VB.Label Label35 
+         Alignment       =   1  'Right Justify
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Route"
+         Height          =   195
+         Left            =   4260
+         TabIndex        =   54
+         Top             =   2678
+         Width           =   435
+      End
+      Begin VB.Label Label31 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Rs."
+         Height          =   255
+         Left            =   2520
+         TabIndex        =   53
+         Top             =   2685
+         Width           =   255
+      End
+      Begin VB.Label Label38 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Damages Amount"
+         Height          =   195
+         Left            =   960
+         TabIndex        =   52
+         Top             =   2678
+         Width           =   1260
+      End
+      Begin VB.Label Label37 
+         Alignment       =   1  'Right Justify
+         AutoSize        =   -1  'True
+         Caption         =   "Tax"
+         Height          =   195
+         Left            =   1950
+         TabIndex        =   51
+         Top             =   2228
+         Width           =   270
+      End
+      Begin VB.Label Label36 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Additonal Discount"
+         Height          =   195
+         Left            =   885
+         TabIndex        =   50
+         Top             =   1748
+         Width           =   1335
+      End
+      Begin VB.Label Label34 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Rs."
+         Height          =   255
+         Left            =   4440
+         TabIndex        =   49
+         Top             =   2235
+         Width           =   255
+      End
+      Begin VB.Label Label33 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Rs."
+         Height          =   255
+         Left            =   4440
+         TabIndex        =   48
+         Top             =   1755
+         Width           =   255
+      End
+      Begin VB.Label Label32 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Rs."
+         Height          =   255
+         Left            =   4440
+         TabIndex        =   47
+         Top             =   1275
+         Width           =   255
+      End
+      Begin VB.Label Label30 
+         BackStyle       =   0  'Transparent
+         Caption         =   "%"
+         Height          =   255
+         Left            =   2520
+         TabIndex        =   46
+         Top             =   2205
+         Width           =   255
+      End
+      Begin VB.Label Label29 
+         BackStyle       =   0  'Transparent
+         Caption         =   "%"
+         Height          =   255
+         Left            =   2520
+         TabIndex        =   45
+         Top             =   1725
+         Width           =   255
+      End
+      Begin VB.Label Label28 
+         BackStyle       =   0  'Transparent
+         Caption         =   "%"
+         Height          =   255
+         Left            =   2520
+         TabIndex        =   44
+         Top             =   1245
+         Width           =   255
+      End
+      Begin VB.Label Label27 
+         AutoSize        =   -1  'True
+         Caption         =   "Bill Discount"
+         Height          =   195
+         Left            =   1350
+         TabIndex        =   43
+         Top             =   1268
+         Width           =   870
+      End
+      Begin VB.Label tax 
+         Alignment       =   1  'Right Justify
+         AutoSize        =   -1  'True
+         BeginProperty Font 
+            Name            =   "Times New Roman"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   -71550
+         TabIndex        =   36
+         Top             =   4380
+         Visible         =   0   'False
+         Width           =   45
+      End
+      Begin VB.Label units 
+         Alignment       =   1  'Right Justify
+         AutoSize        =   -1  'True
+         BeginProperty Font 
+            Name            =   "Times New Roman"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   -73515
+         TabIndex        =   35
+         Top             =   4485
+         Visible         =   0   'False
+         Width           =   45
+      End
+      Begin VB.Shape Shape2 
+         BorderColor     =   &H00FFFFFF&
+         Height          =   1935
+         Left            =   -70065
+         Top             =   1935
+         Width           =   3615
+      End
+      Begin VB.Shape Shape1 
+         Height          =   1935
+         Left            =   -70080
+         Top             =   1920
+         Width           =   3615
+      End
+      Begin VB.Line Line2 
+         BorderColor     =   &H00FFFFFF&
+         Index           =   0
+         X1              =   -70080
+         X2              =   -66480
+         Y1              =   2280
+         Y2              =   2280
+      End
+      Begin VB.Line Line1 
+         BorderColor     =   &H00808080&
+         Index           =   0
+         X1              =   -70080
+         X2              =   -66480
+         Y1              =   2295
+         Y2              =   2295
+      End
+      Begin VB.Label M_ACT_NME 
+         AutoSize        =   -1  'True
+         BackColor       =   &H00E0E0E0&
+         BackStyle       =   0  'Transparent
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00FFFFFF&
+         Height          =   240
+         Left            =   -69960
+         TabIndex        =   34
+         Top             =   4350
+         Width           =   45
+      End
+      Begin VB.Label M_FFR_NME 
+         AutoSize        =   -1  'True
+         BackColor       =   &H00E0E0E0&
+         BackStyle       =   0  'Transparent
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00FFFFFF&
+         Height          =   240
+         Left            =   -69960
+         TabIndex        =   33
+         Top             =   3960
+         Width           =   45
+      End
+      Begin VB.Label M_SUP_AD4 
+         BackColor       =   &H00800000&
+         BackStyle       =   0  'Transparent
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00FFFFFF&
+         Height          =   330
+         Left            =   -69960
+         TabIndex        =   32
+         Top             =   3480
+         Width           =   3375
+      End
+      Begin VB.Label M_SUP_AD3 
+         BackColor       =   &H00800000&
+         BackStyle       =   0  'Transparent
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00FFFFFF&
+         Height          =   330
+         Left            =   -69960
+         TabIndex        =   31
+         Top             =   3120
+         Width           =   3375
+      End
+      Begin VB.Label M_SUP_AD2 
+         BackColor       =   &H00800000&
+         BackStyle       =   0  'Transparent
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00FFFFFF&
+         Height          =   330
+         Left            =   -69960
+         TabIndex        =   30
+         Top             =   2760
+         Width           =   3375
+      End
+      Begin VB.Label M_SUP_AD1 
+         BackColor       =   &H00800000&
+         BackStyle       =   0  'Transparent
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00FFFFFF&
+         Height          =   330
+         Left            =   -69960
+         TabIndex        =   29
+         Top             =   2400
+         Width           =   3375
+      End
+      Begin VB.Label M_SUP_NME 
+         BackColor       =   &H00E0E0E0&
+         BackStyle       =   0  'Transparent
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00FFFFFF&
+         Height          =   330
+         Left            =   -69960
+         TabIndex        =   28
+         Top             =   1950
+         Width           =   3375
+      End
+      Begin VB.Label M_PRD_TOT 
+         Alignment       =   1  'Right Justify
+         AutoSize        =   -1  'True
+         BeginProperty Font 
+            Name            =   "Times New Roman"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   195
+         Left            =   -66525
+         TabIndex        =   27
+         Top             =   4785
+         Visible         =   0   'False
+         Width           =   45
+      End
+      Begin VB.Label Label42 
+         Alignment       =   1  'Right Justify
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "R/Off"
+         ForeColor       =   &H80000007&
+         Height          =   195
+         Left            =   4290
+         TabIndex        =   23
+         Top             =   4388
+         Width           =   405
+      End
+      Begin VB.Label M_NET_AMT 
+         AutoSize        =   -1  'True
+         BackColor       =   &H00E0E0E0&
+         BackStyle       =   0  'Transparent
+         Height          =   195
+         Left            =   7620
+         TabIndex        =   22
+         Top             =   4395
+         Width           =   45
+      End
+      Begin VB.Label Label44 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Net Amount"
+         ForeColor       =   &H80000007&
+         Height          =   195
+         Left            =   6165
+         TabIndex        =   21
+         Top             =   4388
+         Width           =   840
+      End
+      Begin VB.Label Label24 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Cr Days"
+         ForeColor       =   &H80000007&
+         Height          =   195
+         Left            =   1665
+         TabIndex        =   20
+         Top             =   548
+         Width           =   555
+      End
+      Begin VB.Label M_GRS_AMT 
+         Alignment       =   1  'Right Justify
+         AutoSize        =   -1  'True
+         BackColor       =   &H00E0E0E0&
+         BackStyle       =   0  'Transparent
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   195
+         Left            =   7560
+         TabIndex        =   19
+         Top             =   840
+         Width           =   75
+      End
+      Begin VB.Label Label22 
+         Alignment       =   1  'Right Justify
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Before R/Off"
+         ForeColor       =   &H80000007&
+         Height          =   195
+         Left            =   1305
+         TabIndex        =   18
+         Top             =   4388
+         Width           =   915
+      End
+      Begin VB.Label M_DUE_DAT 
+         AutoSize        =   -1  'True
+         BackColor       =   &H00E0E0E0&
+         BackStyle       =   0  'Transparent
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H8000000E&
+         Height          =   240
+         Left            =   6360
+         TabIndex        =   17
+         Top             =   480
+         Width           =   45
+      End
+      Begin VB.Label Label25 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Due On"
+         ForeColor       =   &H80000007&
+         Height          =   195
+         Left            =   5220
+         TabIndex        =   16
+         Top             =   480
+         Width           =   555
+      End
+      Begin VB.Label Label23 
+         Alignment       =   1  'Right Justify
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         ForeColor       =   &H8000000E&
+         Height          =   195
+         Left            =   -72630
+         TabIndex        =   15
+         Top             =   960
+         Width           =   45
+      End
+      Begin VB.Label Label16 
+         Alignment       =   1  'Right Justify
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "FFR ID"
+         ForeColor       =   &H00404040&
+         Height          =   195
+         Left            =   -73050
+         TabIndex        =   14
+         Top             =   4080
+         Width           =   510
+      End
+      Begin VB.Label Label21 
+         Alignment       =   1  'Right Justify
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Debit (Purchases)"
+         ForeColor       =   &H00404040&
+         Height          =   195
+         Left            =   -73800
+         TabIndex        =   13
+         Top             =   4470
+         Width           =   1260
+      End
+      Begin VB.Label Label1 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Invoice Number"
+         ForeColor       =   &H00404040&
+         Height          =   195
+         Left            =   -73665
+         TabIndex        =   10
+         Top             =   668
+         Width           =   1125
+      End
+      Begin VB.Label Label2 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "DC Number"
+         ForeColor       =   &H00404040&
+         Height          =   195
+         Left            =   -73365
+         TabIndex        =   9
+         Top             =   1508
+         Width           =   825
+      End
+      Begin VB.Label Label3 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Date"
+         ForeColor       =   &H00404040&
+         Height          =   195
+         Left            =   -68640
+         TabIndex        =   8
+         Top             =   675
+         Width           =   345
+      End
+      Begin VB.Label Label4 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Date"
+         ForeColor       =   &H00000000&
+         Height          =   195
+         Left            =   -70680
+         TabIndex        =   7
+         Top             =   1508
+         Width           =   345
+      End
+      Begin VB.Label Label6 
+         Alignment       =   1  'Right Justify
+         AutoSize        =   -1  'True
+         BackStyle       =   0  'Transparent
+         Caption         =   "Supplier ID"
+         ForeColor       =   &H00404040&
+         Height          =   195
+         Left            =   -73320
+         TabIndex        =   6
+         Top             =   1995
+         Width           =   780
+      End
+   End
+End
+Attribute VB_Name = "M_FRM_MPR"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Dim MOD_REC As Boolean, idnew As Boolean, ls As ListItem, bslab, MSROW, INVIDY, INC, dlr_idy
+
+Private Sub CREATE()
+MOD_REC = False
+M_INV_IDY = ""
+saverecord
+End Sub
+
+Public Sub GRS_CAL()
+M_GRS_AMT = convert(amt(Val(M_PRD_TOT)))
+M_CSD_AMT = convert(amt(Round(M_PRD_TOT * Val(M_CSD_PCG) / 100, 2)))
+M_CSD_DED = convert(amt(Round((M_GRS_AMT - M_CSD_AMT), 2)))
+M_SPD_AMT = convert(amt(Round(M_CSD_DED * Val(M_SPD_PCG) / 100, 2)))
+M_SPD_DED = convert(amt(Round(Val(M_CSD_DED) - Val(M_SPD_AMT), 2)))
+M_TAX_PCG = discount(M_TAX_PCG)
+M_TAX_AMT = convert(amt(Round((Val(M_SPD_DED) * Val(M_TAX_PCG)) / 100, 2)))
+M_TAX_DED = convert(amt(Val(M_SPD_DED) + Val(M_TAX_AMT)))
+M_NET_AMT = convert(amt(Round(Val(M_TAX_DED) - Val(M_EXD_AMT), 2)))
+If M_FRT_TYP = "P" Then M_NET_AMT = Val(M_NET_AMT) + Val(M_FRT_AMT)
+M_NET_AMT = convert(amt(Val(M_NET_AMT) + Val(M_PKG_CST)))
+M_BEF_ROF = convert(amt(Val(M_NET_AMT) & ""))
+ROU_OFF
+End Sub
+
+Private Sub saverecord()
+Dim REC_SET As New ADODB.Recordset
+Dim REC_SET1 As New ADODB.Recordset
+If MsgBox("Confirm Transaction Save ? ", vbYesNo + vbExclamation, "Effmcg") = vbNo Then
+    Cancelrecord
+    Exit Sub
+End If
+
+If check("ACT", "(ACT_TYP LIKE 'BOT' OR ACT_TYP LIKE 'PUR') AND ACT_idy", Trim(M_SUP_IDY)) = False Then
+    MsgBox "Supplier Not Found ,Define Suppliers !", vbExclamation, "Effmcg"
+    SSTab1.Tab = 0
+    M_SUP_IDY.SetFocus
+    Exit Sub
+End If
+
+If check("act", "(grp_clf like 'Purchases' and ACT_TYP LIKE '') AND act_idy", Trim(M_ACT_IDY)) = False Then
+    MsgBox "Purchase Account Not Found, Define Purchase Account...!", vbExclamation, "Effmcg"
+    M_ACT_IDY.SetFocus
+    SSTab1.Tab = 0
+    Exit Sub
+End If
+If Val(M_NET_AMT) < 0 Then
+    MsgBox "Can't Save this bill, NetAmount is Invalid...!", vbExclamation, "Effmcg"
+    SSTab1.Tab = 2
+    M_EXD_AMT.SetFocus
+    Exit Sub
+End If
+GRS_CAL
+If MOD_REC = True Then
+    If REC_SET.State = 1 Then REC_SET.Close
+    REC_SET.Open "select * from inv where inv_idy like '" & Trim(M_INV_IDY) & "' and txn_typ like 'PUR'", con, adOpenKeyset
+    For a = 1 To REC_SET.RecordCount
+        con.Execute "update prd where prd_idy like '" & REC_SET("prd_idy") & "' set cur_lev = " & CONQTY(Val(REC_SET("prd_qty")), REC_SET("prd_idy"))
+        REC_SET.MoveNext
+    Next
+    con.Execute "delete from inv where inv_idy like '" & Trim(M_INV_IDY) & "' and txn_typ like 'PUR'"
+    If REC_SET.State = 1 Then REC_SET.Close
+    REC_SET.Open "select * from inl where inv_idy like '" & Trim(M_INV_IDY) & "' and txn_typ like 'PUR'", con, adOpenKeyset, adLockOptimistic
+    INC = Trim(M_INV_IDY)
+Else
+    REC_SET.Open "select * from inl", con, adOpenKeyset, adLockOptimistic
+    REC_SET.AddNew
+    REC_SET("inv_idy") = Trim(M_INV_IDY)
+    INC = REC_SET("inv_idy")
+    INVIDY = INC
+End If
+REC_SET("inv_dat") = M_INV_DAT
+REC_SET("ord_idy") = Trim(M_PUR_IDY & "")
+REC_SET("cst_idy") = Trim(M_SUP_IDY & "")
+REC_SET("act_idy") = Trim(M_ACT_IDY & "")
+REC_SET("smn_idy") = Trim(M_SMN_IDY & "")
+REC_SET("dch_idy") = M_DCH_IDY & ""
+REC_SET("dch_dat") = M_DCH_DAT
+REC_SET("csd_pcg") = discount(M_CSD_PCG)
+REC_SET("csd_amt") = convert(amt(M_CSD_AMT))
+REC_SET("spd_pcg") = discount(M_SPD_PCG)
+REC_SET("spd_amt") = convert(amt(M_SPD_AMT))
+REC_SET("tax_pcg") = discount(M_TAX_PCG)
+REC_SET("tax_amt") = convert(amt(M_TAX_AMT))
+REC_SET("pkg_cst") = convert(amt(M_PKG_CST))
+REC_SET("FRT_TYP") = M_FRT_TYP
+REC_SET("FRT_AMT") = Val(M_FRT_AMT & "")
+REC_SET("LRN_IDY") = Trim(M_LRN_IDY)
+REC_SET("LRN_AMT") = Val(M_LRN_AMT & "")
+REC_SET("LRN_DAT") = M_LRN_DAT
+REC_SET("WBL_IDY") = Trim(M_WBL_IDY & "")
+REC_SET("WBL_DAT") = M_WBL_DAT
+REC_SET("TXN_RMK") = Trim(M_TXN_RMK)
+REC_SET("TTL_CAS") = Val(M_TTL_CAS)
+REC_SET("EXD_AMT") = Val(M_EXD_AMT)
+REC_SET("txn_typ") = "PUR"
+REC_SET("grs_amt") = convert(amt(Val(M_GRS_AMT)))
+REC_SET("net_amt") = Val(M_NET_AMT)
+REC_SET("crt_day") = Val(M_CRT_DAY)
+REC_SET("due_dat") = Date
+REC_SET("rou_off") = Val(M_ROU_OFF)
+REC_SET("ROU_IDY") = Trim(M_ROU_IDY)
+REC_SET("TXN_TPT") = Trim(M_TXN_TPT)
+REC_SET.Update
+If REC_SET.State = 1 Then REC_SET.Close
+REC_SET.Open "select * from inv", con, adOpenKeyset, adLockOptimistic
+For a = 1 To MS.Rows - 1
+    If Trim(MS.TextMatrix(a, 0)) <> "" Then
+        REC_SET.AddNew
+        REC_SET("inv_idy") = Trim(INC)
+        REC_SET("inv_dat") = Trim(M_INV_DAT)
+        REC_SET("prd_idy") = MS.TextMatrix(a, 0)
+        REC_SET("lst_rat") = convert(amt(Val(MS.TextMatrix(a, 1))))
+        REC_SET("lst_dis") = discount(MS.TextMatrix(a, 2))
+        REC_SET("prd_qty") = QTY(Val(MS.TextMatrix(a, 3)))
+        REC_SET("prd_rat") = convert(amt(Val(MS.TextMatrix(a, 4))))
+        If Len(Trim(MS.TextMatrix(a, 0))) <> 0 Then
+            REC_SET("rat_app") = MS.TextMatrix(a, 6) & ""
+        Else
+            REC_SET("rat_app") = "A"
+        End If
+        REC_SET("add_dis") = discount(MS.TextMatrix(a, 7))
+        REC_SET("trd_dis") = discount(MS.TextMatrix(a, 8))
+        REC_SET("trd_tax") = discount(MS.TextMatrix(a, 9))
+        PRDNET = convert(amt(Val(MS.TextMatrix(a, 3)) * Val(MS.TextMatrix(a, 4))))
+        REC_SET("ADD_AMT") = (PRDNET * Val(MS.TextMatrix(a, 7)) / 100)
+        REC_SET("DIS_AMT") = ((PRDNET - REC_SET("ADD_AMT")) * Val(MS.TextMatrix(a, 8)) / 100)
+        TRDTAX = (PRDNET - (REC_SET("ADD_AMT") + REC_SET("DIS_AMT"))) * Val(MS.TextMatrix(a, 9)) / 100
+        REC_SET("txn_typ") = "PUR"
+        REC_SET("COL_AMT") = convert(amt(MS.TextMatrix(a, 10)))
+        REC_SET.Update
+        con.Execute "update prd where prd_idy like '" & Trim(MS.TextMatrix(a, 0)) & "' set cur_lev = " & ADDQTY(Trim(MS.TextMatrix(a, 3)), Trim(MS.TextMatrix(a, 0)))
+    End If
+Next
+If check("PRT", "PRT_NME", "m_frm_mpr") = True Then
+    con.Execute "update dir where dir_idy like 'INV' AND DIR_IDX LIKE 'NUM' set dir_als = '" & INC & "'"
+    con.Execute "update dir where dir_idy like 'DOC' AND DIR_IDX LIKE 'TYP' set dir_als = 'PUR'"
+    Openreport App.Path & "\VOUCH.RP1", "PUR Note", 2, "inv->inv_idy='" & Trim(INC) & "'.and.inv->txn_typ ='PUR'", 2
+    Cancelrecord
+End If
+Cancelrecord
+End Sub
+
+Private Sub Cancelrecord()
+clrctr M_FRM_MPR
+setval
+Form_Load
+MS.Rows = 1
+MS.AddItem ""
+SSTab1.Tab = 0
+M_INV_IDY.Enabled = True
+M_INV_IDY.SetFocus
+MOD_REC = False
+End Sub
+
+Private Sub newrecord()
+Cancelrecord
+M_INV_IDY.Enabled = False
+M_PUR_IDY.SetFocus
+SSTab1.Tab = 0
+End Sub
+
+Private Sub V_SUP_LST()
+Dim REC_SET As New ADODB.Recordset
+If REC_SET.State = 1 Then REC_SET.Close
+If Check1.Value = 1 Then
+    REC_SET.Open "select * from act where (ACT_TYP LIKE 'BOT' OR ACT_TYP LIKE 'PUR') and act_nme like '" & Trim(M_SUP_IDY) & "%'", con, adOpenKeyset, adLockOptimistic
+ElseIf Check2.Value = 1 Then
+    REC_SET.Open "select * from act where (ACT_TYP LIKE 'BOT' OR ACT_TYP LIKE 'PUR') and act_ad4 like '" & Trim(M_SUP_IDY) & "%'", con, adOpenKeyset, adLockOptimistic
+End If
+LIST3.ListItems.Clear
+If REC_SET.RecordCount > 0 Then
+    For a = 1 To REC_SET.RecordCount
+        Set ls = LIST3.ListItems.Add(, , Trim(REC_SET("ACT_nme")))
+        ls.ListSubItems.Add , , Trim(REC_SET("ACT_idy"))
+        ls.ListSubItems.Add , , Trim(REC_SET("ACT_ad4") & "")
+        REC_SET.MoveNext
+    Next
+    SSTab1.Tab = 4
+    Label49 = "Select Supplier"
+    LIST3.Visible = True
+    LIST3.SetFocus
+Else
+    If SSTab1.Tab = 0 Then
+        MsgBox "Supplier Not Found, Define Supplier !", vbExclamation, "Effmcg"
+        SSTab1.Tab = 0
+        M_SUP_IDY.SetFocus
+    End If
+End If
+End Sub
+Private Sub V_SMN_LST()
+Dim REC_SET As New ADODB.Recordset
+Label49 = "Select Salesman"
+If REC_SET.State = 1 Then REC_SET.Close
+If Check1.Value = 1 Then
+    REC_SET.Open "select * from SMN WHERE SMN_nme like '" & Trim(M_SMN_IDY) & "%'", con, adOpenKeyset, adLockOptimistic
+ElseIf Check2.Value = 1 Then
+    REC_SET.Open "select * from SMN WHERE SMN_AD4 like '" & Trim(M_SMN_IDY) & "%'", con, adOpenKeyset, adLockOptimistic
+End If
+list1.ListItems.Clear
+If REC_SET.RecordCount > 0 Then
+    For a = 1 To REC_SET.RecordCount
+        Set ls = list1.ListItems.Add(, , Trim(REC_SET("smn_nme")))
+        ls.ListSubItems.Add , , Trim(REC_SET("smn_idy"))
+        ls.ListSubItems.Add , , Trim(REC_SET("smn_ad4") & "")
+        REC_SET.MoveNext
+    Next
+    SSTab1.Tab = 4
+    list1.Visible = True
+    list1.SetFocus
+    
+Else
+    If SSTab1.Tab = 0 Then
+    MsgBox "Salesmen Not Found, Define Salesmen !", vbExclamation, "Effmcg"
+    SSTab1.Tab = 0
+    M_SMN_IDY.SetFocus
+    End If
+End If
+End Sub
+
+Private Sub V_ACT_LST()
+Dim REC_SET As New ADODB.Recordset
+If REC_SET.State = 1 Then REC_SET.Close
+If Check1.Value = 1 Then
+    REC_SET.Open "select * from act where grp_clf like 'Purchases' and ACT_NME LIKE '" & Trim(M_ACT_IDY) & "%' and ACT_TYP LIKE '' ", con, adOpenKeyset, adLockOptimistic
+Else
+    REC_SET.Open "select * from act where grp_clf like 'Purchases' and ACT_AD4 LIKE '" & Trim(M_ACT_IDY) & "%' and ACT_TYP LIKE '' ", con, adOpenKeyset, adLockOptimistic
+End If
+List2.ListItems.Clear
+If REC_SET.RecordCount > 0 Then
+    For a = 1 To REC_SET.RecordCount
+        Set ls = List2.ListItems.Add(, , Trim(REC_SET("act_nme")))
+        ls.ListSubItems.Add , , Trim(REC_SET("act_idy"))
+        ls.ListSubItems.Add , , Trim(REC_SET("act_ad4") & "")
+        REC_SET.MoveNext
+    Next
+    SSTab1.Tab = 4
+    Label49 = "Select Account"
+    List2.Visible = True
+    List2.SetFocus
+Else
+If SSTab1.Tab = 0 Then
+    MsgBox "Purchase Account Not Found, Define Purchase Account...!", vbExclamation, "Effmcg"
+    SSTab1.Tab = 0
+    M_ACT_IDY.SetFocus
+End If
+End If
+End Sub
+
+Private Sub EXT_REC()
+Unload Me
+End Sub
+
+
+Private Sub M_FRT_TYP_GotFocus()
+M_MDI.STS_BAR.Panels(1).Text = "Enter Freight Type(T->To Pay,P->Paid"
+End Sub
+
+Private Sub M_LRN_DAT_GotFocus()
+M_MDI.STS_BAR.Panels(1).Text = "Enter Lorry Receipt Date or Press F4 to get View"
+End Sub
+
+Private Sub M_PUR_IDY_KeYDOWN(K As Integer, S As Integer)
+If K = 13 Then
+    M_INV_DAT.SetFocus
+End If
+End Sub
+
+Private Sub M_ROU_IDY_GotFocus()
+M_MDI.STS_BAR.Panels(1).Text = "Enter Route ID or Select using Arrow Keys"
+End Sub
+
+Private Sub M_SPD_AMT_Change()
+If Len(Trim(M_SPD_AMT)) = 9 Then SendKeys "{home}+{end}"
+End Sub
+
+Private Sub M_SPD_AMT_GotFocus()
+SendKeys "{home}+{end}"
+M_MDI.STS_BAR.Panels(1).Text = "Enter Additional Discount Amount"
+End Sub
+
+Private Sub M_SPD_PCG_Change()
+If Len(Trim(M_SPD_PCG)) = 5 Then SendKeys "{home}+{end}"
+End Sub
+
+Private Sub M_SPD_PCG_GotFocus()
+SendKeys "{home}+{end}"
+M_MDI.STS_BAR.Panels(1).Text = "Enter Additional Discount Percentage"
+End Sub
+
+Private Sub M_CSD_AMT_Change()
+If Len(Trim(M_CSD_AMT)) = 9 Then SendKeys "{home}+{end}"
+End Sub
+
+Private Sub M_CSD_AMT_GotFocus()
+SendKeys "{home}+{end}"
+M_MDI.STS_BAR.Panels(1).Text = "Enter Bill Discount Amount"
+End Sub
+
+Private Sub M_CSD_PCG_Change()
+If Len(Trim(M_CSD_PCG)) = 5 Then SendKeys "{home}+{end}"
+End Sub
+
+Private Sub M_CSD_PCG_GotFocus()
+SendKeys "{home}+{end}"
+M_MDI.STS_BAR.Panels(1).Text = "Enter Bill Discount Percentage"
+End Sub
+
+Private Sub M_CSD_PCG_keypress(K As Integer)
+If K > 47 And K < 58 Or K = 8 Or K = 46 Then
+Else
+K = 0
+End If
+End Sub
+
+Private Sub M_CSD_PCG_keydown(K As Integer, S As Integer)
+If K = 13 Or K = 40 Or K = 38 Then
+    M_CSD_PCG = discount(M_CSD_PCG)
+    GRS_CAL
+    If K = 38 Then
+        M_CRT_DAY.SetFocus
+    Else
+        M_CSD_AMT.SetFocus
+    End If
+End If
+End Sub
+
+Private Sub M_CSD_AMT_keypress(K As Integer)
+If K > 47 And K < 58 Or K = 8 Or K = 46 Then
+Else
+K = 0
+End If
+End Sub
+
+Private Sub M_CSD_AMT_keydown(K As Integer, S As Integer)
+If K = 13 Or K = 40 Then
+    M_CSD_AMT = convert(amt(M_CSD_AMT))
+    GRS_CAL
+    M_SPD_PCG.SetFocus
+ElseIf K = 38 Then
+    M_CSD_AMT = convert(amt(M_CSD_AMT))
+    GRS_CAL
+    M_CSD_PCG.SetFocus
+End If
+End Sub
+Private Sub M_SPD_PCG_keypress(K As Integer)
+If K > 47 And K < 58 Or K = 8 Or K = 46 Then
+Else
+K = 0
+End If
+End Sub
+Private Sub M_SPD_PCG_keydown(K As Integer, S As Integer)
+If K = 13 Or K = 40 Or K = 38 Then
+    M_SPD_PCG = discount(M_SPD_PCG)
+    GRS_CAL
+    If K = 13 Or K = 40 Then
+        M_SPD_AMT.SetFocus
+    Else
+        M_CSD_AMT.SetFocus
+    End If
+End If
+End Sub
+Private Sub M_SPD_AMT_keypress(K As Integer)
+If K > 47 And K < 58 Or K = 8 Or K = 46 Then
+Else
+K = 0
+End If
+End Sub
+Private Sub M_SPD_AMT_keydown(K As Integer, S As Integer)
+If K = 13 Or K = 40 Then
+    M_SPD_AMT = convert(amt(M_SPD_AMT))
+    GRS_CAL
+    M_TAX_PCG.SetFocus
+ElseIf K = 38 Then
+    M_SPD_AMT = convert(amt(M_SPD_AMT))
+    GRS_CAL
+    M_SPD_PCG.SetFocus
+End If
+End Sub
+
+Private Sub M_TTL_CAS_GotFocus()
+M_MDI.STS_BAR.Panels(1).Text = "Enter Cases"
+SendKeys "{HOME}+{END}"
+End Sub
+
+Private Sub M_TTL_CAS_KeyDown(K As Integer, Shift As Integer)
+If K = 13 Or K = 40 Then
+    M_TXN_TPT.SetFocus
+ElseIf K = 38 Then
+    M_WBL_DAT.SetFocus
+End If
+End Sub
+
+Private Sub M_TTL_CAS_KeYPRESS(K As Integer)
+If K > 47 And K < 58 Or K = 8 Or K = 46 Then
+Else
+K = 0
+End If
+End Sub
+
+Private Sub M_EXD_AMT_Change()
+If Len(Trim(M_EXD_AMT)) = 9 Then SendKeys "{home}+{end}"
+End Sub
+
+Private Sub M_EXD_AMT_GotFocus()
+SendKeys "{home}+{end}"
+M_MDI.STS_BAR.Panels(1).Text = "Enter Damage Amount"
+End Sub
+
+Private Sub M_EXD_AMT_keypress(K As Integer)
+If K > 47 And K < 58 Or K = 8 Or K = 46 Then
+Else
+K = 0
+End If
+End Sub
+Private Sub M_EXD_AMT_keydown(K As Integer, S As Integer)
+If K = 13 Or K = 40 Or K = 38 Then
+    M_EXD_AMT = convert(amt(M_EXD_AMT))
+    GRS_CAL
+    If K = 38 Then
+        M_TAX_AMT.SetFocus
+    Else
+        M_ROU_IDY.SetFocus
+    End If
+End If
+End Sub
+
+Private Sub M_FRT_AMT_GotFocus()
+M_MDI.STS_BAR.Panels(1).Text = "Enter Frieght Amount"
+SendKeys "{HOME}+{END}"
+End Sub
+
+Private Sub M_FRT_AMT_keydown(K As Integer, S As Integer)
+If K = 13 Or K = 40 Then
+    M_FRT_AMT = convert(amt(M_FRT_AMT))
+    GRS_CAL
+    M_PKG_CST.SetFocus
+ElseIf K = 38 Then
+    M_FRT_AMT = convert(amt(M_FRT_AMT))
+    GRS_CAL
+    M_FRT_TYP.SetFocus
+End If
+End Sub
+
+Private Sub M_FRT_AMT_KeyPress(K As Integer)
+If K > 47 And K < 58 Or K = 8 Or K = 46 Then
+Else
+K = 0
+End If
+End Sub
+
+Private Sub M_FRT_TYP_keydown(K As Integer, S As Integer)
+If K = 13 Then
+    M_FRT_AMT.SetFocus
+ElseIf K = 38 And S = 1 Then
+    M_ROU_IDY.SetFocus
+End If
+End Sub
+
+Private Sub M_ROU_OFF_GotFocus()
+M_MDI.STS_BAR.Panels(1).Text = "Enter 0 to Retain Paise Values"
+SendKeys "{HOME}+{END}"
+End Sub
+
+Private Sub M_ROU_OFF_KeyDown(K As Integer, Shift As Integer)
+If K = 13 Or K = 40 Then
+If Val(M_ROU_OFF) = 0 Then
+    M_NET_AMT = M_BEF_ROF
+    M_ROU_OFF = "0.00"
+Else
+    GRS_CAL
+End If
+    SSTab1.Tab = 3
+    M_LRN_IDY.SetFocus
+ElseIf K = 38 Then
+    M_PKG_CST.SetFocus
+End If
+End Sub
+
+Private Sub M_ROU_OFF_KeyPress(K As Integer)
+If K > 47 And K < 58 Or K = 46 Or K = 8 Then
+Else
+K = 0
+End If
+End Sub
+
+Private Sub List6_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    Dim REC_SET As New ADODB.Recordset
+    List6.Visible = False
+    MS.Text = List6
+    List6.Visible = False
+    If REC_SET.State = 1 Then REC_SET.Close
+    REC_SET.Open "select * from prd where prd_idy like '" & MS.TextMatrix(MS.Row, 0) & "'", con, adOpenKeyset, adLockOptimistic
+    If REC_SET.RecordCount > 0 Then
+        If List6 = "A" Then
+            MS.TextMatrix(MS.Row, 4) = amt(REC_SET("pur_rat") & "")
+        ElseIf List6 = "B" Then
+            MS.TextMatrix(MS.Row, 4) = amt(REC_SET("sal_rat") & "")
+        ElseIf List6 = "C" Then
+            MS.TextMatrix(MS.Row, 4) = amt(REC_SET("mrp_rat") & "")
+        End If
+    End If
+    P_DIS_CAL
+    MS.Col = 10
+    MS.SetFocus
+End If
+End Sub
+
+Private Sub M_ROU_IDY_KeyDown(KeyCode As Integer, Shift As Integer)
+If KeyCode = 13 Then
+    GRS_CAL
+    M_FRT_TYP.SetFocus
+ElseIf KeyCode = 38 And Shift = 1 Then
+    M_EXD_AMT.SetFocus
+End If
+End Sub
+
+Private Sub M_LRN_AMT_GotFocus()
+SendKeys "{HOME}+{END}"
+M_MDI.STS_BAR.Panels(1).Text = "Enter Lorry Receipt Amount"
+End Sub
+
+Private Sub M_LRN_AMT_keypress(K As Integer)
+If K > 47 And K < 58 Or K = 46 Or K = 8 Then
+Else
+K = 0
+End If
+End Sub
+Private Sub M_LRN_AMT_Keydown(K As Integer, S As Integer)
+If K = 38 And S = 2 Then
+M_LRN_DAT.SetFocus
+ElseIf K = 13 Then
+M_WBL_IDY.SetFocus
+End If
+End Sub
+
+Private Sub M_LRN_DAT_Keydown(K As Integer, S As Integer)
+If K = 38 And S = 1 Then
+M_LRN_IDY.SetFocus
+ElseIf K = 13 Then
+M_LRN_AMT.SetFocus
+End If
+End Sub
+
+Private Sub M_LRN_IDY_GotFocus()
+M_MDI.STS_BAR.Panels(1).Text = "Enter Lorry Receipt Number"
+SendKeys "{home}+{End}"
+End Sub
+
+Private Sub M_LRN_IDY_Keydown(KeyCode As Integer, Shift As Integer)
+If KeyCode = 13 Or KeyCode = 40 Then
+M_LRN_DAT.SetFocus
+ElseIf KeyCode = 38 Then
+SSTab1.Tab = 2
+M_ROU_OFF.SetFocus
+End If
+End Sub
+
+Private Sub M_LRN_IDY_KeyPress(K As Integer)
+If K > 96 And K < 123 Then K = K - 32
+End Sub
+
+Private Sub M_PKG_CST_GotFocus()
+M_MDI.STS_BAR.Panels(1).Text = "Enter Packing or Delivery Charges"
+SendKeys "{HOME}+{END}"
+End Sub
+
+Private Sub M_PKG_CST_KeyDown(K As Integer, Shift As Integer)
+If K = 13 Or K = 40 Then
+    M_PKG_CST = convert(amt(M_PKG_CST))
+    GRS_CAL
+    M_ROU_OFF.SetFocus
+ElseIf K = 38 Then
+    M_PKG_CST = convert(amt(M_PKG_CST))
+    GRS_CAL
+    M_FRT_AMT.SetFocus
+End If
+End Sub
+
+Private Sub M_PKG_CST_keypress(K As Integer)
+If K > 47 And K < 58 Or K = 8 Or K = 46 Then
+Else
+K = 0
+End If
+End Sub
+
+Private Sub M_TXN_RMK_GotFocus()
+M_MDI.STS_BAR.Panels(1).Text = "Enter Remarks"
+SendKeys "{HOME}+{END}"
+End Sub
+
+Private Sub M_TAX_AMT_Change()
+If Len(Trim(M_TAX_AMT)) = 9 Then SendKeys "{home}+{end}"
+End Sub
+
+Private Sub M_TAX_AMT_GotFocus()
+SendKeys "{home}+{end}"
+M_MDI.STS_BAR.Panels(1).Text = "Enter Tax Amount"
+End Sub
+
+Private Sub M_TAX_PCG_Change()
+If Len(Trim(M_TAX_PCG)) = 5 Then SendKeys "{home}+{end}"
+End Sub
+
+Private Sub M_TAX_PCG_GotFocus()
+SendKeys "{home}+{end}"
+M_MDI.STS_BAR.Panels(1).Text = "Enter Tax Percentage"
+End Sub
+
+Private Sub M_TAX_PCG_keypress(K As Integer)
+If K > 47 And K < 58 Or K = 8 Or K = 46 Then
+Else
+K = 0
+End If
+End Sub
+Private Sub M_TAX_AMT_keydown(K As Integer, S As Integer)
+If K = 13 Or K = 40 Then
+    M_TAX_AMT = convert(amt(M_TAX_AMT))
+    GRS_CAL
+    M_EXD_AMT.SetFocus
+ElseIf K = 38 Then
+    M_TAX_AMT = convert(amt(M_TAX_AMT))
+    GRS_CAL
+    M_TAX_PCG.SetFocus
+End If
+End Sub
+Private Sub M_TAX_AMT_keypress(K As Integer)
+If K > 47 And K < 58 Or K = 8 Or K = 46 Then
+Else
+K = 0
+End If
+End Sub
+Private Sub M_TAX_PCG_keydown(K As Integer, S As Integer)
+If K = 13 Or K = 40 Or K = 38 Then
+    M_TAX_PCG = discount(M_TAX_PCG)
+    GRS_CAL
+    
+    If K = 38 Then
+        M_SPD_AMT.SetFocus
+    Else
+        M_TAX_AMT.SetFocus
+    End If
+End If
+End Sub
+
+Private Sub M_CRT_DAY_Change()
+If Len(M_CRT_DAY) = 3 Then SendKeys "{home}+{end}"
+End Sub
+
+Private Sub M_CRT_DAY_GotFocus()
+SendKeys "{home}+{end}"
+M_MDI.STS_BAR.Panels(1).Text = "Enter Credit Days"
+End Sub
+
+Private Sub M_CRT_DAY_KeyDown(KeyCode As Integer, Shift As Integer)
+If KeyCode = 13 Or KeyCode = 40 Then
+    If Val(M_CRT_DAY) > 365 Then
+        MsgBox "Credit Days Of Bill Can't Go Beyond 365 Days !", vbExclamation, "Effmcg"
+        M_CRT_DAY.SetFocus
+    Else
+        M_CSD_PCG.SetFocus
+        M_DUE_DAT = Format(DateAdd("d", Val(Trim(M_CRT_DAY)), M_INV_DAT.Value), "DD/MM/YYYY")
+    End If
+ElseIf KeyCode = 38 Then
+    If Val(M_CRT_DAY) >= 365 Then
+        MsgBox "Credit Days Of Bill Can't Go Beyond 365 Days !", vbExclamation, "Effmcg"
+        M_CRT_DAY.SetFocus
+    Else
+        SSTab1.Tab = 0
+        M_DUE_DAT = Format(DateAdd("d", Val(Trim(M_CRT_DAY)), M_INV_DAT.Value), "DD/MM/YYYY")
+        M_ACT_IDY.SetFocus
+    End If
+End If
+End Sub
+
+Private Sub M_CRT_DAY_Keypress(K As Integer)
+If K > 47 And K < 58 Or K = 8 Then
+Else
+K = 0
+End If
+End Sub
+
+Private Sub M_ACT_IDY_GotFocus()
+M_MDI.STS_BAR.Panels(1).Text = "Enter Or Select Account"
+End Sub
+
+Private Sub M_ACT_IDY_KeyPress(K As Integer)
+If K = 39 Or K = 41 Then K = 0
+If K > 96 And K < 123 Then K = K - 32
+End Sub
+
+Private Sub M_INV_DAT_CloseUp()
+M_INV_DAT.SetFocus
+End Sub
+
+Private Sub M_INV_DAT_GotFocus()
+M_MDI.STS_BAR.Panels(1).Text = "Select Date Using Arrow Keys Or Press F4"
+End Sub
+
+Private Sub M_INV_DAT_KeyDown(KeyCode As Integer, S As Integer)
+If KeyCode = 13 Then
+M_DCH_IDY.SetFocus
+ElseIf KeyCode = 38 And S = 1 Then
+M_PUR_IDY.SetFocus
+End If
+End Sub
+
+Private Sub M_DCH_DAT_CloseUp()
+M_DCH_DAT.SetFocus
+End Sub
+
+Private Sub M_DCH_DAT_GotFocus()
+M_MDI.STS_BAR.Panels(1).Text = "Select Dc Date Using Arrow Keys Or Press F4, To Move To Previous Fields Use Shift+UpArrow"
+End Sub
+
+Private Sub M_DCH_DAT_Keydown(KeyCode As Integer, Shift As Integer)
+If KeyCode = 13 Then
+M_SUP_IDY.SetFocus
+ElseIf KeyCode = 38 And Shift = 1 Then
+M_DCH_IDY.SetFocus
+End If
+End Sub
+
+Private Sub M_DCH_IDY_GotFocus()
+M_MDI.STS_BAR.Panels(1).Text = "Enter Delivery Challan Number"
+SendKeys "{home}+{End}"
+End Sub
+
+Private Sub M_DCH_IDY_Keydown(KeyCode As Integer, Shift As Integer)
+If KeyCode = 13 Or KeyCode = 40 Then
+M_DCH_DAT.SetFocus
+ElseIf KeyCode = 38 Then
+M_INV_DAT.SetFocus
+End If
+End Sub
+
+Private Sub M_DCH_IDY_KeyPress(K As Integer)
+If K > 96 And K < 123 Then K = K - 32
+End Sub
+
+Private Sub M_SUP_IDY_GotFocus()
+M_MDI.STS_BAR.Panels(1).Text = "Enter Or Select Supplier"
+End Sub
+
+Private Sub M_SUP_IDY_keydown(K As Integer, S As Integer)
+Dim REC_SET As New ADODB.Recordset, REC_SET1 As New ADODB.Recordset, REC_SET2 As New ADODB.Recordset
+If K = 13 Or K = 40 Or K = 38 Then
+    If REC_SET.State = 1 Then REC_SET.Close
+    REC_SET.Open "select * from act where act_idy like '" & Sincrement(Trim(M_SUP_IDY)) & "' AND (ACT_TYP LIKE 'BOT' OR ACT_TYP LIKE 'PUR')", con, adOpenKeyset, adLockOptimistic
+    If REC_SET.RecordCount > 0 Then
+        If MOD_REC = True And Trim(dlr_idy) = Trim(M_SUP_IDY) Then
+        ElseIf MOD_REC = False Then
+        Else
+            MsgBox "Cannot Change Party...!", vbExclamation, "Effmcg"
+            SSTab1.Tab = 0
+            M_SUP_IDY.SetFocus
+            M_SUP_IDY = Trim(dlr_idy)
+            Exit Sub
+        End If
+        M_SUP_IDY = Sincrement(M_SUP_IDY)
+        If Len(Trim(M_SUP_IDY)) = 0 Then Exit Sub
+        M_SUP_NME = Trim(REC_SET("act_nme") & "")
+        M_SUP_AD1 = Trim(REC_SET("act_ad1") & "")
+        M_SUP_AD2 = Trim(REC_SET("act_ad2") & "")
+        M_SUP_AD3 = Trim(REC_SET("act_ad3") & "")
+        M_SUP_AD4 = Trim(REC_SET("act_ad4") & "")
+        If Len(Trim(REC_SET("ROU_IDY"))) <> 0 Then M_ROU_IDY = Trim(REC_SET("ROU_IDY") & "")
+        If MOD_REC = False Then M_CSD_PCG = Val(Trim(REC_SET("dbt_dis")))
+        If REC_SET1.State = 1 Then REC_SET1.Close
+        REC_SET1.Open "select * from smn where smn_idy like '" & Trim(REC_SET("smn_idy")) & "'", con, adOpenKeyset, adLockOptimistic
+        If REC_SET1.RecordCount > 0 Then M_FFR_NME = Trim(REC_SET1("smn_nme"))
+        bslab = Trim(REC_SET("dbt_rap"))
+        SSTab1.Tab = 0
+        If K = 38 Then
+            M_DCH_DAT.SetFocus
+        Else
+            M_SMN_IDY.SetFocus
+        End If
+    Else
+        V_SUP_LST
+    End If
+End If
+End Sub
+
+Private Sub M_SUP_IDY_KeyPress(K As Integer)
+If K = 39 Or K = 41 Then K = 0
+If K > 96 And K < 123 Then K = K - 32
+End Sub
+Private Sub Form_Activate()
+checkdongle
+M_FRT_TYP.Selected(0) = True
+SSTab1.Tab = 0
+If M_INV_IDY.Enabled = True Then
+    M_INV_IDY.SetFocus
+Else
+    M_PUR_IDY.SetFocus
+End If
+
+SSTab1.TabEnabled(4) = False
+setval
+SETYEAR M_FRM_MPR
+End Sub
+
+Private Sub V_INV_LST()
+Dim REC_SET As New ADODB.Recordset
+If REC_SET.State = 1 Then REC_SET.Close
+If Check1.Value = 1 Then
+REC_SET.Open "select inl.inv_idy,inl.inv_dat,act.act_nme,act.act_ad4 from act,inl where act_nme like '" & Trim(M_INV_IDY) & "%' and inl.cst_idy=act.act_idy and inl.txn_typ ='PUR'", con, adOpenKeyset, adLockOptimistic
+Else
+REC_SET.Open "select inl.inv_idy,inl.inv_dat,act.act_nme,act.act_ad4 from act,inl where act_ad4 like '" & Trim(M_INV_IDY) & "%' and inl.cst_idy=act.act_idy and inl.txn_typ ='PUR'", con, adOpenKeyset, adLockOptimistic
+End If
+list5.ListItems.Clear
+If REC_SET.RecordCount > 0 Then
+    For a = 1 To REC_SET.RecordCount
+        Set ls = list5.ListItems.Add(, , Trim(REC_SET(0)))
+        ls.ListSubItems.Add , , Format(REC_SET(1), "dd/MM/yyyy")
+        ls.ListSubItems.Add , , Trim(REC_SET("ACT_NME") & "")
+        ls.ListSubItems.Add , , Trim(REC_SET("ACT_AD4") & "")
+        REC_SET.MoveNext
+    Next
+    SSTab1.Tab = 4
+    Label49 = "Select Invoice"
+    list5.Visible = True
+    list5.SetFocus
+Else
+    If SSTab1.Tab = 0 Then
+        MsgBox "Invoice Number Not Found...!", vbExclamation, "Effmcg"
+        SSTab1.Tab = 0
+        M_INV_IDY.Enabled = True
+        SendKeys "{HOME}+{END}"
+        M_INV_IDY.SetFocus
+    End If
+End If
+End Sub
+
+Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
+If KeyCode = 120 Then Shell "c:\windows\calc.exe"
+If list1.Visible = False And List2.Visible = False And LIST3.Visible = False And list4.Visible = False And list5.Visible = False Then
+    If KeyCode = 78 And Shift = 2 Then newrecord
+    If KeyCode = 80 And Shift = 2 Then PRINTRECORD
+    If KeyCode = 83 And Shift = 2 Then saverecord
+    If KeyCode = 88 And Shift = 2 Then EXT_REC
+    If KeyCode = 81 And Shift = 2 Then Cancelrecord
+    If KeyCode = 112 Then M_HELP
+    If KeyCode = 69 And Shift = 2 Then
+    
+    
+        If M_FRM_MPR.ActiveControl.name = "M_INV_IDY" Then
+            V_INV_LST
+        ElseIf M_FRM_MPR.ActiveControl.name = "M_SUP_IDY" Then
+            V_SUP_LST
+        ElseIf M_FRM_MPR.ActiveControl.name = "M_SMN_IDY" Then
+            V_SMN_LST
+        ElseIf M_FRM_MPR.ActiveControl.name = "M_ACT_IDY" Then
+            V_ACT_LST
+        ElseIf M_FRM_MPR.ActiveControl.name = "Text3" Then
+            V_PRD_LST
+        End If
+    End If
+End If
+If KeyCode > 111 And KeyCode < 120 Then If TypeOf M_FRM_MPR.ActiveControl Is TextBox Then M_FRM_MPR.ActiveControl.Text = FUNKEY(KeyCode)
+End Sub
+
+Private Sub List5_ColumnClick(ByVal ColumnHeader As MSComctlLib.ColumnHeader)
+If list5.SortOrder = lvwAscending Then
+list5.SortOrder = lvwDescending
+ElseIf list5.SortOrder = lvwDescending Then
+list5.SortOrder = lvwAscending
+End If
+list5.SortKey = ColumnHeader.Index - 1
+End Sub
+
+Private Sub list5_DblClick()
+If list5.ListItems.Count > 0 Then
+    list5.Visible = False
+    
+    M_INV_IDY = list5.SelectedItem
+    dispdetails
+End If
+End Sub
+
+Private Sub Form_KeyPress(KeyAscii As Integer)
+If KeyAscii = 27 Then
+    If list1.Visible = True Then
+        list1.Visible = False
+        Check2.Caption = "Place"
+        SSTab1.Tab = 0
+        M_SMN_IDY.SetFocus
+    ElseIf List2.Visible = True Then
+        List2.Visible = False
+        Check2.Caption = "Place"
+        SSTab1.Tab = 0
+        M_ACT_IDY.SetFocus
+    ElseIf LIST3.Visible = True Then
+        LIST3.Visible = False
+        Check2.Caption = "Place"
+        SSTab1.Tab = 0
+        M_SUP_IDY.SetFocus
+    ElseIf list5.Visible = True Then
+        list5.Visible = False
+        SSTab1.Tab = 0
+        If M_INV_IDY.Enabled = True Then
+            M_INV_IDY.SetFocus
+        Else
+            M_PUR_IDY.SetFocus
+        End If
+    ElseIf list4.Visible = True Then
+        list4.Visible = False
+        If Text3.Visible = True Then
+            Text3.SetFocus
+        Else
+            Check2.Caption = "Place"
+            SSTab1.Tab = 1
+            MS.Row = MS.Rows - 1
+            MS.SetFocus
+        End If
+    ElseIf SSTab1.Tab = 1 Then
+        SSTab1.Tab = 2
+        Text3.Visible = False
+        M_FLX_AMT.Visible = False
+        GRS_CAL
+        P_DIS_CAL
+        M_CRT_DAY.SetFocus
+    Else
+        If M_FRM_MPR.ActiveControl.name = "M_INV_IDY" Then
+            Unload Me
+        Else
+            saverecord
+        End If
+    End If
+End If
+End Sub
+
+Private Sub Form_Load()
+checkdongle
+MOD_REC = False
+MS.ColWidth(0) = 980
+MS.ColWidth(1) = 0
+MS.ColWidth(2) = 0
+MS.ColWidth(3) = 1050
+MS.ColWidth(4) = 1000
+MS.ColWidth(5) = 900
+MS.ColWidth(6) = 0
+MS.ColWidth(7) = 700
+MS.ColWidth(8) = 700
+MS.ColWidth(9) = 700
+MS.ColWidth(10) = 1200
+MS.ColWidth(11) = 3000
+MS.ColWidth(12) = 1600
+MS.TextMatrix(0, 0) = "Product ID"
+MS.TextMatrix(0, 1) = "        L Price"
+MS.TextMatrix(0, 2) = "  LD%"
+MS.TextMatrix(0, 3) = "            Units"
+MS.TextMatrix(0, 4) = "            Rate"
+MS.TextMatrix(0, 5) = "         UOM"
+MS.TextMatrix(0, 6) = "Rate ID"
+MS.TextMatrix(0, 7) = "  AD%"
+MS.TextMatrix(0, 8) = "  CD%"
+MS.TextMatrix(0, 9) = " Tax%"
+MS.TextMatrix(0, 10) = "          Amount"
+MS.TextMatrix(0, 11) = "Product Name"
+MS.TextMatrix(0, 12) = "Short Name  "
+
+MS.Col = 0
+MS.Col = 3
+units.Left = (MS.CellWidth + MS.CellLeft) - units.Width
+units.Top = 4850
+MS.Col = 5
+tax.Left = (MS.CellWidth + MS.CellLeft) - tax.Width
+tax.Top = 4850
+MS.Col = 10
+M_PRD_TOT.Left = (MS.CellWidth + MS.CellLeft) - tax.Width
+M_PRD_TOT.Top = 4850
+tax.Width = 0
+MS.Col = 0
+M_INV_DAT = Date
+M_LRN_DAT = Date
+M_DCH_DAT = Date
+waydate = Date
+
+list5.ColumnHeaders(1).Width = List2.Width / 4
+list5.ColumnHeaders(2).Width = List2.Width / 4
+list5.ColumnHeaders(3).Width = List2.Width / 4
+list5.ColumnHeaders(4).Width = List2.Width / 4
+
+Label17 = "0.00"
+Label18 = "0"
+Label19 = "0.00"
+Label20 = "0.00"
+list1.ColumnHeaders(1).Width = 3800
+List2.ColumnHeaders(1).Width = 3800
+LIST3.ColumnHeaders(1).Width = 3800
+M_LRN_AMT = "0.00"
+deliverycharges = "0.00"
+M_LRN_IDY = 0
+M_FRT_TYPamt = "0.00"
+waybill = 0
+M_NET_AMT = "0.00"
+M_GRS_AMT = "0.00"
+M_CRT_DAY = 0
+waybill = 0
+M_SPD_DED = "0.00"
+cd = "0.00"
+units = "0"
+M_PRD_TOT = "0.00"
+tax = "0.00"
+End Sub
+
+Private Sub Form_Unload(cancel As Integer)
+M_MDI.STS_BAR.Panels(1).Text = ""
+End Sub
+
+Private Sub M_INV_IDY_GotFocus()
+M_MDI.STS_BAR.Panels(1).Text = "Enter Invoice Number"
+End Sub
+
+Private Sub M_INV_IDY_KeyPress(K As Integer)
+If K = 39 Or K = 41 Then K = 0
+If K > 96 And K < 123 Then K = K - 32
+If M_INV_IDY = "" And K = 27 Then Unload Me
+End Sub
+
+Private Sub List1_ColumnClick(ByVal ColumnHeader As MSComctlLib.ColumnHeader)
+If list1.SortOrder = lvwAscending Then
+list1.SortOrder = lvwDescending
+ElseIf list1.SortOrder = lvwDescending Then
+list1.SortOrder = lvwAscending
+End If
+list1.SortKey = ColumnHeader.Index - 1
+End Sub
+Private Sub LIST1_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    If list1.ListItems.Count > 0 Then
+        M_SMN_IDY = list1.SelectedItem.ListSubItems.Item(1)
+        M_FFR_NME = list1.SelectedItem
+        SSTab1.Tab = 0
+        M_ACT_IDY.SetFocus
+        list1.Visible = False
+    End If
+End If
+End Sub
+
+Private Sub List1_DblClick()
+LIST1_KeyPress 13
+End Sub
+
+Private Sub list1_Validate(cancel As Boolean)
+'Cancel = True
+End Sub
+
+Private Sub list2_ColumnClick(ByVal ColumnHeader As MSComctlLib.ColumnHeader)
+If List2.SortOrder = lvwAscending Then
+List2.SortOrder = lvwDescending
+ElseIf List2.SortOrder = lvwDescending Then
+List2.SortOrder = lvwAscending
+End If
+List2.SortKey = ColumnHeader.Index - 1
+End Sub
+
+Private Sub list3_ColumnClick(ByVal ColumnHeader As MSComctlLib.ColumnHeader)
+If LIST3.SortOrder = lvwAscending Then
+LIST3.SortOrder = lvwDescending
+ElseIf LIST3.SortOrder = lvwDescending Then
+LIST3.SortOrder = lvwAscending
+End If
+LIST3.SortKey = ColumnHeader.Index - 1
+End Sub
+
+Private Sub List4_ColumnClick(ByVal ColumnHeader As MSComctlLib.ColumnHeader)
+If list4.SortOrder = lvwAscending Then
+list4.SortOrder = lvwDescending
+ElseIf list4.SortOrder = lvwDescending Then
+list4.SortOrder = lvwAscending
+End If
+list4.SortKey = ColumnHeader.Index - 1
+End Sub
+Private Sub list4_DblClick()
+list4_KeyPress 13
+End Sub
+
+Private Sub list2_DblClick()
+List2_KeyPress 13
+End Sub
+
+Private Sub list3_DblClick()
+List3_KeyPress 13
+End Sub
+
+Private Sub LIST5_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+If list5.ListItems.Count > 0 Then
+    M_INV_IDY = list5.SelectedItem
+    list5.Visible = False
+    M_INV_IDY_KeyDown 13, 0
+End If
+End If
+End Sub
+
+
+Private Sub Check1_Click()
+If Check1.Value = 1 Then
+    Check2.Value = 0
+ElseIf Check1.Value = 0 Then
+    Check2.Value = 1
+End If
+If Label49.Caption = "Select Salesman" Then
+    V_SMN_LST
+ElseIf Label49.Caption = "Select Supplier" Then
+    V_SUP_LST
+ElseIf Label49.Caption = "Select Invoice" Then
+    V_INV_LST
+ElseIf Label49.Caption = "Select Account" Then
+    V_ACT_LST
+ElseIf Label49.Caption = "Select Product" Then
+    V_PRD_LST
+End If
+End Sub
+
+Private Sub Check2_Click()
+If Check2.Value = 1 Then
+    Check1.Value = 0
+ElseIf Check2.Value = 0 Then
+    Check1.Value = 1
+End If
+If Label49.Caption = "Select Salesman" Then
+    V_SMN_LST
+ElseIf Label49.Caption = "Select Supplier" Then
+    V_SUP_LST
+ElseIf Label49.Caption = "Select Invoice" Then
+    V_INV_LST
+ElseIf Label49.Caption = "Select Account" Then
+    V_ACT_LST
+ElseIf Label49.Caption = "Select Product" Then
+    If Check2.Value = 1 Then
+    con.Execute "insert into prt values('p_prdnum')"
+    Else
+    con.Execute "delete from prt where prt_nme like 'p_prdnum'"
+    End If
+    V_PRD_LST
+End If
+'End If
+End Sub
+
+Private Sub M_WBL_DAT_GotFocus()
+M_MDI.STS_BAR.Panels(1).Text = "Enter Way Bill Date or Press F4 to get View"
+End Sub
+
+Private Sub MS_EnterCell()
+If MS.Col = 0 Then
+    M_MDI.STS_BAR.Panels(1).Text = "Press <Enter> for Product ID View, Space Bar to Correct"
+ElseIf MS.Col = 3 Then
+    M_MDI.STS_BAR.Panels(1).Text = "Enter Product Units"
+ElseIf MS.Col = 4 Then
+    M_MDI.STS_BAR.Panels(1).Text = "Product Rate"
+ElseIf MS.Col = 5 Then
+    M_MDI.STS_BAR.Panels(1).Text = "Weight or Volume based on Conversion Factor"
+ElseIf MS.Col = 9 Then
+    M_MDI.STS_BAR.Panels(1).Text = "Enter Tax Percent"
+ElseIf MS.Col = 7 Then
+    M_MDI.STS_BAR.Panels(1).Text = "Enter Additional Discount Percent"
+ElseIf MS.Col = 8 Then
+    M_MDI.STS_BAR.Panels(1).Text = "Enter Cash Discount Percent"
+ElseIf MS.Col = 6 Then
+    M_MDI.STS_BAR.Panels(1).Text = "Enter Rate Slab (A-> Institutional Rate,B->Billing Rate,C-> M.R.P Rate)"
+ElseIf MS.Col = 10 Then
+    M_MDI.STS_BAR.Panels(1).Text = "M_PRD_TOT Amount"
+ElseIf MS.Col = 11 Then
+    M_MDI.STS_BAR.Panels(1).Text = "Product Name"
+ElseIf MS.Col = 12 Then
+    M_MDI.STS_BAR.Panels(1).Text = "Short Name"
+End If
+End Sub
+
+
+Private Sub Toolbar1_ButtonClick(ByVal Button As MSComctlLib.Button)
+If Button.KEY = "n" Then
+newrecord
+ElseIf Button.KEY = "s" Then
+saverecord
+ElseIf Button.KEY = "e" Then
+EXT_REC
+ElseIf Button.KEY = "p" Then
+PRINTRECORD
+ElseIf Button.KEY = "c" Then
+Cancelrecord
+ElseIf Button.KEY = "pre" Then
+M_FRM_PRE.Caption = "Prefix Purchase"
+M_FRM_PRE.Show 1
+ElseIf Button.KEY = "crt" Then
+CREATE
+ElseIf Button.KEY = "ed" Then
+    If M_FRM_MPR.ActiveControl.name = "M_INV_IDY" Then
+        Label49 = "Select Invoice"
+        V_INV_LST
+    ElseIf M_FRM_MPR.ActiveControl.name = "M_SUP_IDY" Then
+        Label49 = "Select Supplier"
+        
+        V_SUP_LST
+    ElseIf M_FRM_MPR.ActiveControl.name = "M_SMN_IDY" Then
+        Label49 = "Select Salesman"
+        V_SMN_LST
+    ElseIf M_FRM_MPR.ActiveControl.name = "M_ACT_IDY" Then
+        Label49 = "Select Account"
+        V_ACT_LST
+    ElseIf M_FRM_MPR.ActiveControl.name = "Text3" Or (MS.Col = 0 And SSTab1.Tab = 1) Then
+        V_PRD_LST
+    End If
+ElseIf Button.KEY = "DAY" Then
+    If Button.Value = tbrPressed Then
+        Text1.Visible = True
+        Text1 = Format(Date, "dd/mm/yyyy") & " " & Format(Date, "dddd")
+        Text1.BackColor = vbBlue
+        Text1.ForeColor = vbWhite
+    Else
+        Text1.Visible = False
+    End If
+ElseIf Button.KEY = "h" Then
+
+M_HELP
+ElseIf Button.KEY = "pre" Then
+Picture1.Visible = True
+If check("prt", "prt_nme", "m_frm_MPR") = False Then
+CHECK3.Value = 0
+Else
+CHECK3.Value = 1
+End If
+CHECK3.SetFocus
+Toolbar1.Enabled = False
+SSTab1.Enabled = False
+End If
+End Sub
+
+Private Sub M_INV_IDY_KeyDown(K As Integer, S As Integer)
+If K = 13 Or K = 40 Then
+If Len(Trim(M_INV_IDY)) = 0 Then
+    V_INV_LST
+Else
+    inv = M_INV_IDY
+    clrctr M_FRM_MPR
+    M_SUP_NME = ""
+    M_SUP_AD1 = ""
+    M_SUP_AD2 = ""
+    M_SUP_AD3 = ""
+    M_SUP_AD4 = ""
+    Label17 = "0.00"
+    Label18 = "0"
+    Label19 = "0.00"
+    Label20 = "0.00"
+    M_GRS_AMT = "0.00"
+    M_NET_AMT = "0.00"
+    M_FFR_NME = ""
+    M_ACT_NME = ""
+    M_INV_IDY = inv
+    dispdetails
+End If
+End If
+End Sub
+
+Public Sub dispdetails()
+Dim REC_SET As New ADODB.Recordset, REC_SET1 As New ADODB.Recordset, REC_SET2 As New ADODB.Recordset, REC_SET3 As New ADODB.Recordset
+If REC_SET.State = 1 Then REC_SET.Close
+REC_SET.Open "select * from inl where inv_idy like '" & Trim(M_INV_IDY) & "' and txn_typ like 'PUR'", con, adOpenKeyset
+If REC_SET.RecordCount > 0 Then
+    M_INV_IDY.Enabled = False
+    MOD_REC = True
+    M_INV_DAT = REC_SET("inv_dat")
+    M_SUP_IDY = Trim(REC_SET("cst_idy") & "")
+    dlr_idy = M_SUP_IDY
+    If Len(Trim(M_SUP_IDY)) = 0 Then Exit Sub
+    M_PUR_IDY = Trim(REC_SET("ORD_IDY") & "")
+    M_ACT_IDY = Trim(REC_SET("act_idy") & "")
+    M_SMN_IDY = Trim(REC_SET("smn_idy") & "")
+    M_DCH_IDY = Trim(REC_SET("dch_idy") & "")
+    M_DCH_DAT = REC_SET("dch_dat")
+    M_EXD_AMT = convert(amt(REC_SET("EXD_AMT")) & "")
+    M_CRT_DAY = Val(REC_SET("crt_day"))
+    M_ROU_OFF = Val(REC_SET("rou_off") & "")
+    If Val(REC_SET("rou_off") & "") = 0 Then M_ROU_OFF = "0.00"
+    M_SPD_PCG = discount(Val(REC_SET("spd_pcg") & ""))
+    M_SPD_AMT = convert(amt(Val(REC_SET("spd_amt") & "")))
+    M_CSD_PCG = discount(Val(REC_SET("csd_pcg") & ""))
+    M_CSD_AMT = convert(amt(Val(REC_SET("csd_amt") & "")))
+    M_TAX_PCG = discount(Val(REC_SET("tax_pcg") & ""))
+    M_TAX_AMT = convert(amt(Val(REC_SET("tax_amt") & "")))
+    M_WBL_IDY = Trim(REC_SET("WBL_IDY") & "")
+    M_FRT_TYP = Trim(REC_SET("FRT_typ") & "")
+    M_FRT_AMT = convert(amt(Val(REC_SET("frt_amt") & "")))
+    M_WBL_IDY = Trim(REC_SET("wbl_idy") & "")
+    M_WBL_DAT = REC_SET("wbl_dat")
+    M_PKG_CST = convert(amt(REC_SET("PKG_CSt") & ""))
+    M_TTL_CAS = Trim(REC_SET("ttl_cas") & "")
+    M_TXN_RMK = Trim(REC_SET("txn_rmk") & "")
+    M_TXN_TPT = Trim(REC_SET("txn_tpt") & "")
+    M_LRN_IDY = Trim(REC_SET("lrn_idy") & "")
+    M_LRN_AMT = convert(amt(REC_SET("lrn_amt") & ""))
+    M_LRN_DAT = Trim(REC_SET("lrn_dat") & "")
+    M_ROU_IDY = Trim(REC_SET("rou_idy") & "")
+    If REC_SET.State = 1 Then REC_SET.Close
+    REC_SET.Open "select * from smn where smn_idy like '" & Trim(M_SMN_IDY) & "'", con, adOpenKeyset
+    If REC_SET.RecordCount > 0 Then M_FFR_NME = REC_SET("smn_nme")
+    If REC_SET.State = 1 Then REC_SET.Close
+    REC_SET.Open "select * from act where act_idy like '" & Trim(M_ACT_IDY) & "'", con, adOpenKeyset
+    If REC_SET.RecordCount > 0 Then M_ACT_NME = REC_SET("act_nme")
+    If REC_SET.State = 1 Then REC_SET.Close
+    REC_SET.Open "select * from ACT where ACT_idy like '" & Trim(M_SUP_IDY) & "'", con, adOpenKeyset
+    If REC_SET.RecordCount > 0 Then
+        M_SUP_NME = Trim(REC_SET("ACT_nme") & "")
+        M_SUP_AD1 = Trim(REC_SET("ACT_ad1") & "")
+        M_SUP_AD2 = Trim(REC_SET("ACT_ad2") & "")
+        M_SUP_AD3 = Trim(REC_SET("ACT_ad3") & "")
+        M_SUP_AD4 = Trim(REC_SET("ACT_ad4") & "")
+        Label17 = amt(Trim(REC_SET("dbt_mcl")) & "")
+        Label18 = Trim(REC_SET("dbt_mcp") & "")
+    End If
+    If REC_SET.State = 1 Then REC_SET.Close
+    REC_SET.Open "select * from inv where inv_idy like '" & Trim(M_INV_IDY) & "' and txn_typ = 'PUR'", con, adOpenKeyset, adLockOptimistic
+    MS.Rows = REC_SET.RecordCount + 1
+    For a = 1 To MS.Rows - 1
+        MS.TextMatrix(a, 0) = Trim(REC_SET("prd_idy"))
+        MS.TextMatrix(a, 3) = QTY(Val(REC_SET("prd_qty")))
+        MS.TextMatrix(a, 4) = convert(amt(REC_SET("prd_rat") & ""))
+        MS.TextMatrix(a, 6) = Trim(REC_SET("rat_app") & "")
+        MS.TextMatrix(a, 7) = discount(REC_SET("add_dis") & "")
+        MS.TextMatrix(a, 8) = discount(REC_SET("trd_dis") & "")
+        MS.TextMatrix(a, 9) = discount(REC_SET("trd_tax") & "")
+        If REC_SET2.State = 1 Then REC_SET2.Close
+        REC_SET2.Open "SELECT PRD_PRN,prd_nme,CON_FAC FROM PRD WHERE PRD_IDY LIKE '" & REC_SET("PRD_IDY") & "'", con, adOpenStatic
+        If REC_SET2.RecordCount > 0 Then
+            MS.TextMatrix(a, 11) = Trim(REC_SET2(1))
+            MS.TextMatrix(a, 12) = Trim(REC_SET2(0))
+            MS.TextMatrix(a, 2) = Val(REC_SET2("CON_FAC") & "")
+        End If
+        REC_SET.MoveNext
+    Next
+    P_DIS_CAL
+    GRS_CAL
+    M_GRS_AMT = M_PRD_TOT
+    SSTab1.Tab = 0
+    M_PUR_IDY.SetFocus
+Else
+    If MsgBox("Invoice Not found, Creating New Invoice", vbExclamation + vbYesNo) = vbYes Then
+        M_INV_IDY.Enabled = False
+        M_PUR_IDY.SetFocus
+    End If
+End If
+    If MS.Rows = 1 Then MS.Rows = 2
+End Sub
+
+Private Sub List2_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    If List2.ListItems.Count > 0 Then
+        M_ACT_IDY = List2.SelectedItem.ListSubItems.Item(1)
+        M_ACT_NME = List2.SelectedItem
+        SSTab1.Tab = 1
+        MS.SetFocus
+        List2.Visible = False
+    End If
+End If
+End Sub
+
+Private Sub List3_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    If LIST3.ListItems.Count > 0 Then
+        M_SUP_IDY = LIST3.SelectedItem.ListSubItems(1)
+        M_SUP_IDY_keydown 13, 0
+        SSTab1.Tab = 0
+        LIST3.Visible = False
+        M_SMN_IDY.SetFocus
+    End If
+End If
+End Sub
+
+Private Sub list4_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    If list4.ListItems.Count > 0 Then
+        list4.Visible = False
+        If list4.ListItems.Count = 0 Then
+            Option3.Visible = False
+            Exit Sub
+        End If
+        P_DIS_PRD list4.SelectedItem.ListSubItems.Item(1)
+    End If
+End If
+End Sub
+
+Private Sub M_SMN_IDY_GotFocus()
+M_MDI.STS_BAR.Panels(1).Text = "Enter Or Select Salesmen"
+End Sub
+
+Private Sub M_SMN_IDY_KeyPress(K As Integer)
+If K = 39 Or K = 41 Then K = 0
+If K > 96 And K < 123 Then K = K - 32
+End Sub
+
+Private Sub SSTab1_Click(PreviousTab As Integer)
+If SSTab1.Tab = 0 Then
+    M_PRD_TOT.Visible = True
+    If M_INV_IDY.Enabled = True Then
+        M_INV_IDY.SetFocus
+    Else
+        M_INV_DAT.SetFocus
+    End If
+ElseIf SSTab1.Tab = 1 Then
+    MS.Col = 0
+    MS.Row = 1
+    M_PRD_TOT.Visible = True
+    MS.SetFocus
+ElseIf SSTab1.Tab = 2 Then
+    M_PRD_TOT.Visible = True
+    M_CRT_DAY.SetFocus
+End If
+If list1.Visible = True Then list1.Visible = False
+If List2.Visible = True Then List2.Visible = False
+If LIST3.Visible = True Then LIST3.Visible = False
+If list4.Visible = True Then list4.Visible = False
+If list5.Visible = True Then list5.Visible = False
+
+If SSTab1.Tab <> 1 Then
+    tax.Visible = False
+    units.Visible = False
+    M_PRD_TOT.Visible = False
+Else
+    tax.Visible = True
+    units.Visible = True
+    M_PRD_TOT.Visible = True
+End If
+Text3.Visible = False
+M_FLX_AMT.Visible = False
+If SSTab1.Tab = 3 Then
+    M_LRN_IDY.SetFocus
+End If
+If SSTab1.Tab = 4 Then
+Toolbar1.Enabled = False
+Else
+Toolbar1.Enabled = True
+End If
+End Sub
+
+Private Sub SSTab1_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    If SSTab1.Tab = 1 Then MS.SetFocus
+    If SSTab1.Tab = 2 Then M_CRT_DAY.SetFocus
+    If SSTab1.Tab = 0 Then M_INV_DAT.SetFocus
+End If
+End Sub
+
+Private Sub Text3_KeyPress(K As Integer)
+If K = 39 Or K = 41 Then K = 0
+If K > 96 And K < 123 Then K = K - 32
+End Sub
+
+Private Sub M_SMN_IDY_keydown(K As Integer, S As Integer)
+Dim REC_SET As New ADODB.Recordset
+If K = 13 Or K = 40 Then
+    If REC_SET.State = 1 Then rs.Close
+    REC_SET.Open "select * from DIR where DIR_idy like 'FFR'", con, adOpenKeyset
+    If REC_SET.RecordCount > 0 Then
+        M_SMN_IDY = Mid(Trim(REC_SET("DIR_ALS")), 7, 6)
+        M_FFR_NME = Trim(REC_SET("DIR_MSG"))
+        M_ACT_IDY.SetFocus
+    End If
+ElseIf K = 38 Then
+    REC_SET.Open "select * from DIR where DIR_idy like 'FFR'", con, adOpenKeyset
+    If REC_SET.RecordCount > 0 Then
+        M_SMN_IDY = Mid(Trim(REC_SET("DIR_ALS")), 7, 6)
+        M_FFR_NME = Trim(REC_SET("DIR_MSG"))
+        M_SUP_IDY.SetFocus
+    End If
+End If
+End Sub
+Private Sub M_ACT_IDY_keydown(K As Integer, S As Integer)
+Dim REC_SET As New ADODB.Recordset
+If K = 13 Or K = 40 Or K = 38 Then
+    If REC_SET.State = 1 Then REC_SET.Close
+    REC_SET.Open "select * from act where act_idy like '" & Sincrement(Trim(M_ACT_IDY)) & "' AND GRP_CLF LIKE 'Purchases' AND ACT_TYP LIKE ''", con, adOpenKeyset
+    If REC_SET.RecordCount > 0 Then
+        M_ACT_IDY = Sincrement(M_ACT_IDY)
+        If K = 38 Then
+            M_SMN_IDY.SetFocus
+        Else
+        M_ACT_NME = Trim(REC_SET("act_nme"))
+        SSTab1.Tab = 1
+        MS.SetFocus
+        End If
+    Else
+        V_ACT_LST
+    End If
+End If
+End Sub
+
+Private Sub MS_GotFocus()
+MS.HighLight = flexHighlightAlways
+End Sub
+
+Private Sub MS_LeaveCell()
+If Text3.Visible = True Then Text3.Visible = False
+If M_FLX_AMT.Visible = True Then M_FLX_AMT.Visible = False
+If List6.Visible = True Then List6.Visible = False
+End Sub
+
+Private Sub MS_KeyPress(K As Integer)
+Dim REC_SET As New ADODB.Recordset, REC_SET2 As New ADODB.Recordset
+If K > 96 And K < 123 Then
+K = K - 32
+ElseIf K > 47 And K < 58 Or K = 46 Then
+
+End If
+If K = 39 Or K = 41 Then K = 0
+If MS.Row <> 0 Then
+    If MS.Col = 0 Then
+        If K = 13 Then
+            If Trim(MS.TextMatrix(MS.Row, 0)) <> "" Then
+                MS.Col = 3
+                MS.SetFocus
+            Else
+                If REC_SET.State = 1 Then REC_SET.Close
+                REC_SET.Open "SELECT * FROM prd", con, adOpenKeyset
+                If REC_SET.RecordCount > 0 Then
+                    list4.ListItems.Clear
+                    For a = 1 To REC_SET.RecordCount
+                        Set ls = list4.ListItems.Add(, , Trim(REC_SET("prd_nme")))
+                        ls.ListSubItems.Add , , Trim(REC_SET("prd_idy") & "")
+                        ls.ListSubItems.Add , , Trim(REC_SET("prd_prn") & "")
+                        If Val(REC_SET("cur_lev")) <> 0 Then
+                            ls.ListSubItems.Add , , Trim(QTY(REC_SET("cur_lev") & ""))
+                        Else
+                            ls.ListSubItems.Add , , "0.000"
+                        End If
+                        ls.ListSubItems.Add , , Val(REC_SET("sub_unt") & "")
+                        REC_SET.MoveNext
+                    Next
+                    SSTab1.Tab = 4
+                    If check("prt", "prt_nme", "p_prdnum") = True Then Check2.Value = 1
+                    Label49 = "Select Product"
+                    Check2.Caption = "Short Name"
+                    list4.Visible = True
+                    list4.SetFocus
+                End If
+            End If
+        ElseIf K <> 27 Then
+            Text3.Visible = True
+            Text3.Top = MS.Top + MS.CellTop
+            Text3.Left = MS.CellLeft + MS.Left
+            Text3.Width = MS.CellWidth
+            Text3.Height = MS.CellHeight
+            Text3.SetFocus
+            If K <> 13 Then Text3 = Chr(K)
+            Text3.SelStart = Len(Text3)
+        End If
+    ElseIf MS.Col = 3 Then
+        If MS.TextMatrix(MS.Row, 0) <> "" Then
+           If K > 47 And K < 58 Or K = 46 Then
+                M_FLX_AMT = ""
+                M_FLX_AMT.MaxLength = 7
+                M_FLX_AMT.Visible = True
+                M_FLX_AMT.Top = MS.Top + MS.CellTop
+                M_FLX_AMT.Left = MS.CellLeft + MS.Left
+                M_FLX_AMT.Width = MS.CellWidth
+                M_FLX_AMT.Height = MS.CellHeight
+                M_FLX_AMT.SetFocus
+                M_FLX_AMT = Chr(K)
+                M_FLX_AMT.SelStart = Len(M_FLX_AMT)
+            ElseIf K = 13 Then
+                If MS.TextMatrix(MS.Rows - 1, 0) <> "" Then
+                    MS.AddItem ""
+                    MS.Col = 0
+                    MS.Row = MS.Rows - 1
+                End If
+            Else
+                K = 0
+            End If
+        End If
+    ElseIf MS.Col = 5 Then
+        If K = 13 Then MS.Col = 6
+    ElseIf MS.Col = 6 Then
+        If MS.TextMatrix(MS.Row, 0) <> "" Then
+            If K = 13 Then
+                MS.Col = 9
+            ElseIf K <> 27 Then
+                List6.Visible = True
+                List6.Top = MS.Top + MS.CellTop
+                List6.Left = MS.CellLeft + MS.Left
+                List6.Width = MS.CellWidth
+                List6.Height = MS.RowHeight(MS.Row)
+                List6.Selected(0) = True
+                List6 = Chr(K)
+                List6.SetFocus
+            End If
+        End If
+    ElseIf MS.Col = 4 Then
+         If K > 47 And K < 58 Or K = 46 Then
+                M_FLX_AMT = ""
+                M_FLX_AMT.MaxLength = 7
+                M_FLX_AMT.Visible = True
+                M_FLX_AMT.Top = MS.Top + MS.CellTop
+                M_FLX_AMT.Left = MS.CellLeft + MS.Left
+                M_FLX_AMT.Width = MS.CellWidth
+                M_FLX_AMT.Height = MS.CellHeight
+                M_FLX_AMT.SetFocus
+                M_FLX_AMT = Chr(K)
+                M_FLX_AMT.SelStart = Len(M_FLX_AMT)
+            End If
+    ElseIf MS.Col = 7 Or MS.Col = 8 Or MS.Col = 9 Then
+         If K > 47 And K < 58 Or K = 46 Then
+                M_FLX_AMT = ""
+                M_FLX_AMT.MaxLength = 7
+                M_FLX_AMT.Visible = True
+                M_FLX_AMT.Top = MS.Top + MS.CellTop
+                M_FLX_AMT.Left = MS.CellLeft + MS.Left
+                M_FLX_AMT.Width = MS.CellWidth
+                M_FLX_AMT.Height = MS.CellHeight
+                M_FLX_AMT.SetFocus
+                M_FLX_AMT = Chr(K)
+                M_FLX_AMT.SelStart = Len(M_FLX_AMT)
+            End If
+            
+    ElseIf MS.Col = 10 Or MS.Col = 11 Then
+        If MS.TextMatrix(MS.Rows - 1, 0) <> "" Then
+            MS.AddItem ""
+            MS.Col = 0
+            MS.Row = MS.Rows - 1
+        End If
+    End If
+End If
+End Sub
+
+Private Sub Text3_KeyDown(K As Integer, S As Integer)
+Dim REC_SET As New ADODB.Recordset
+If K = 39 Or K = 41 Then K = 0
+If K = 13 Then
+    If MS.Col = 0 Then
+        If REC_SET.State = 1 Then REC_SET.Close
+        REC_SET.Open "SELECT * FROM prd WHERE prd_IDY LIKE '" & Sincrement(Text3) & "'", con, adOpenKeyset
+        If REC_SET.RecordCount > 0 Then
+            P_DIS_PRD Sincrement(Text3)
+        Else
+            V_PRD_LST
+       End If
+       End If
+End If
+End Sub
+
+Private Sub M_FLX_AMT_KeyPress(K As Integer)
+Dim REC_SET As New ADODB.Recordset, REC_SET2 As New ADODB.Recordset, REC_SET1 As New ADODB.Recordset, REC_SET3 As New ADODB.Recordset
+If K > 47 And K < 58 Or K = 46 Or K = 45 Or K = 8 Then
+
+ElseIf K = 13 Then
+    If MS.Col = 3 Then
+            M_FLX_AMT = QTY(M_FLX_AMT)
+            If REC_SET.State = 1 Then REC_SET.Close
+            If REC_SET1.State = 1 Then REC_SET1.Close
+            If REC_SET2.State = 1 Then REC_SET2.Close
+            If REC_SET3.State = 1 Then REC_SET3.Close
+            REC_SET.Open "select * from PRD where PRD_IDY like '" & Trim(MS.TextMatrix(MS.Row, 0)) & "'", con, adOpenKeyset, adLockOptimistic
+            If Trim(M_INV_IDY) <> "" Then
+                REC_SET2.Open "select prd_qty from inv where prd_idy like '" & Trim(MS.TextMatrix(MS.Row, 0)) & "' and inv_idy like '" & Trim(M_INV_IDY) & "' and txn_typ like 'PUR'", con, adOpenKeyset, adLockOptimistic
+                If REC_SET2.RecordCount > 0 Then invtot = QTY(REC_SET2(0))
+            End If
+            B = InStr(M_FLX_AMT, ".")
+            If B <> 0 Then M = Mid(M_FLX_AMT, B + 1, Len(M_FLX_AMT) - B + 1)
+            If Len(M) = 1 Then
+                M_FLX_AMT = M_FLX_AMT & "00"
+            ElseIf Len(M) = 2 Then
+                M_FLX_AMT = M_FLX_AMT & "0"
+            ElseIf Len(M) = 0 Then
+                M_FLX_AMT = M_FLX_AMT & ".000"
+            End If
+'            b = InStr(M_FLX_AMT, ".")
+            If B > 0 And Val(REC_SET("sub_unt")) > 0 Then
+                If InStr(B + 1, M_FLX_AMT, ".") > 0 Then
+                    MS.TextMatrix(MS.Row, 3) = "0.000"
+                    Exit Sub
+                End If
+                M = Mid(M_FLX_AMT, B + 1, 3)
+                If M >= Val(REC_SET("sub_unt")) Then
+                    MsgBox "Product Sub Units Are " & REC_SET("sub_unt"), vbExclamation, "Effmcg"
+                    M_FLX_AMT.SetFocus
+                    SendKeys "{home}+{end}"
+                    Exit Sub
+                Else
+                    M_QTY = M_FLX_AMT
+                End If
+            Else
+                M_QTY = M_FLX_AMT
+            End If
+            If REC_SET.RecordCount > 0 Then
+                REMIND = ADDQTY(invtot, MS.TextMatrix(MS.Row, 0))
+                MS.Text = M_QTY
+                M_FLX_AMT.Visible = False
+                If MS.TextMatrix(MS.Rows - 1, 0) <> "" Then
+                    MS.AddItem ""
+                    MS.Col = 0
+                    MS.Row = MS.Rows - 1
+                End If
+            End If
+            MS.SetFocus
+            P_DIS_CAL
+ElseIf MS.Col = 4 Then
+        MS.TextMatrix(MS.Row, 4) = convert(amt(Val(M_FLX_AMT)))
+        P_DIS_CAL
+        M_FLX_AMT.Visible = False
+        MS.SetFocus
+        MS.Col = 5
+ElseIf MS.Col = 7 Or MS.Col = 8 Or MS.Col = 9 Then
+        M_FLX_AMT.Visible = False
+        MS.Text = discount(M_FLX_AMT)
+        MS.Col = MS.Col + 1
+        P_DIS_CAL
+        MS.SetFocus
+Else
+    K = 0
+End If
+Else
+K = 0
+End If
+End Sub
+
+Public Sub P_DIS_PRD(prdid As String)
+MSROW = MS.Row
+Dim REC_SET As New ADODB.Recordset
+For a = 1 To MS.Rows - 1
+    If Trim(prdid) = MS.TextMatrix(a, 0) Then
+        SSTab1.Tab = 1
+        list4.Visible = False
+        MsgBox "Product Already Exists In Invoice !", vbExclamation, "Effmcg"
+        Text3.Visible = False
+        MS.SetFocus
+        MS.Col = 0
+        MS.Row = a
+        Exit Sub
+    End If
+Next
+REC_SET.Open "select * from PRD where prd_idy like '" & Trim(prdid) & "'", con, adOpenKeyset
+If REC_SET.RecordCount > 0 Then
+    list4.Visible = False
+    MS.TextMatrix(MS.Row, 0) = REC_SET("PRD_IDY")
+    MS.TextMatrix(MS.Row, 2) = QTY(Val(REC_SET("CON_FAC") & ""))
+    MS.TextMatrix(MS.Row, 3) = "0.000"
+    MS.TextMatrix(MS.Row, 4) = convert(amt(REC_SET("bas_rat") & ""))
+    MS.TextMatrix(MS.Row, 7) = discount(REC_SET("add_dis") & "")
+    MS.TextMatrix(MS.Row, 8) = discount(REC_SET("cas_dis") & "")
+    MS.TextMatrix(MS.Row, 9) = discount(REC_SET("EXC_ADD") & "")
+    MS.TextMatrix(MS.Row, 12) = Trim(REC_SET("prd_prn"))
+    MS.TextMatrix(MS.Row, 11) = Trim(REC_SET("prd_nme"))
+    Text3.Visible = False
+    SSTab1.Tab = 1
+    MS.Row = MSROW
+    MS.Col = 3
+    MS.SetFocus
+End If
+End Sub
+
+Public Sub P_DIS_CAL()
+units = 0
+tax = 0
+M_PRD_TOT = 0
+For a = 1 To MS.Rows - 1
+    'Customer Discount calculating on units and rate
+    Dim REC_SET As New ADODB.Recordset
+    If REC_SET.State = 1 Then REC_SET.Close
+    If Trim(MS.TextMatrix(a, 0)) <> "" Then
+    REC_SET.Open "select sub_unt from prd where prd_idy like '" & Trim(MS.TextMatrix(a, 0)) & "'", con, adOpenKeyset, adLockOptimistic
+    If REC_SET.RecordCount > 0 Then
+        If Val(REC_SET(0)) > 0 Then
+            MS.TextMatrix(a, 10) = RATCAL(Val(MS.TextMatrix(a, 3) & ""), Val(MS.TextMatrix(a, 4) & ""), REC_SET(0))
+        Else
+            MS.TextMatrix(a, 10) = convert(amt(Round(Val(MS.TextMatrix(a, 3) & "") * Val(MS.TextMatrix(a, 4) & ""), 2)))
+        End If
+    End If
+    MS.TextMatrix(a, 10) = Val(MS.TextMatrix(a, 10)) - Round(Val(Val(MS.TextMatrix(a, 10)) * Val(MS.TextMatrix(a, 7)) / 100), 2)
+    MS.TextMatrix(a, 10) = Val(MS.TextMatrix(a, 10)) - Round(Val(Val(MS.TextMatrix(a, 10)) * Val(MS.TextMatrix(a, 8)) / 100), 2)
+    MS.TextMatrix(a, 10) = convert(amt(Val(MS.TextMatrix(a, 10)) + Round(Val(Val(MS.TextMatrix(a, 10)) * Val(MS.TextMatrix(a, 9)) / 100), 2)))
+    MS.TextMatrix(a, 5) = QTY(WGTCAL(MS.TextMatrix(a, 3), MS.TextMatrix(a, 2), REC_SET(0)))
+    tax = QTY(Val(tax) + Val(MS.TextMatrix(a, 5)))
+    units = QTY(Val(units) + Val(MS.TextMatrix(a, 3)))
+    M_PRD_TOT = convert(amt(Val(M_PRD_TOT) + MS.TextMatrix(a, 10)))
+    End If
+Next
+M_GRS_AMT = convert(amt(M_PRD_TOT))
+M_PRD_TOT = convert(amt(M_PRD_TOT))
+M_NET_AMT = convert(amt(Val(M_GRS_AMT)))
+GRS_CAL
+End Sub
+
+Public Sub V_PRD_LST()
+If check("prt", "prt_nme", "p_prdnum") = True Then Check2.Value = 1
+Dim REC_SET As New ADODB.Recordset
+If REC_SET.State = 1 Then REC_SET.Close
+If Check1.Value = 1 Then
+REC_SET.Open "SELECT * FROM prd WHERE PRD_NME LIKE '" & Trim(Text3) & "%'", con, adOpenKeyset
+Else
+REC_SET.Open "SELECT * FROM prd WHERE PRD_PRN LIKE '" & Trim(Text3) & "%'", con, adOpenKeyset
+End If
+list4.ListItems.Clear
+If REC_SET.RecordCount > 0 Then
+    For a = 1 To REC_SET.RecordCount
+        Set ls = list4.ListItems.Add(, , Trim(REC_SET("prd_nme")))
+        ls.ListSubItems.Add , , Trim(REC_SET("prd_idy") & "")
+        ls.ListSubItems.Add , , Trim(REC_SET("prd_prn") & "")
+        If Val(REC_SET("cur_lev")) <> 0 Then
+            ls.ListSubItems.Add , , Trim(QTY(REC_SET("cur_lev") & ""))
+        Else
+            ls.ListSubItems.Add , , "0.000"
+        End If
+        ls.ListSubItems.Add , , Val(REC_SET("sub_unt") & "")
+        REC_SET.MoveNext
+    Next
+    Label49 = "Select Product"
+    SSTab1.Tab = 4
+    Check2.Caption = "Short Name"
+    list4.Visible = True
+    list4.SetFocus
+Else
+    If SSTab1.Tab = 1 Then
+    MsgBox "Product Not Found, Define Product !", vbExclamation, "Effmcg"
+    SSTab1.Tab = 1
+    If Text3.Visible = True Then
+        Text3.SetFocus
+    Else
+        Check2.Caption = "Place"
+        MS.SetFocus
+    End If
+    End If
+End If
+End Sub
+
+Public Sub PRINTRECORD()
+If check("PRT", "PRT_NME", "m_frm_mpr") = True Then
+M_FRM_PRV.CHECK3.Value = 1
+Else
+M_FRM_PRV.CHECK3.Value = 0
+End If
+M_FRM_PRV.Tag = "MPR"
+M_FRM_PRV.Show 1
+End Sub
+
+Public Sub setval()
+clrctr M_FRM_MPR
+M_ROU_IDY.Selected(0) = True
+M_SUP_NME = ""
+M_SUP_AD1 = ""
+M_SUP_AD2 = ""
+M_SUP_AD3 = ""
+M_SUP_AD4 = ""
+Label17 = "0.00"
+Label18 = "0"
+Label19 = "0.00"
+Label20 = "0.00"
+M_GRS_AMT = "0.00"
+M_NET_AMT = "0.00"
+M_ROU_OFF = "0.00"
+M_FFR_NME = ""
+M_ACT_NME = ""
+M_SPD_DED = "0.00"
+cd = "0.00"
+units = "0.00"
+tax = "0.00"
+M_PRD_TOT = "0.00"
+M_INV_DAT = Date
+M_DCH_DAT = Date
+M_CSD_PCG = "0.00"
+M_CSD_AMT = "0.00"
+M_SPD_PCG = "0.00"
+M_SPD_AMT = "0.00"
+M_TAX_PCG = "0.00"
+M_TAX_AMT = "0.00"
+M_EXD_AMT = "0.00"
+M_FRT_AMT = "0.00"
+M_PKG_CST = "0.00"
+M_CRT_DAY = "0"
+End Sub
+
+Public Sub ROU_OFF()
+Dim REC_SET As New ADODB.Recordset
+If REC_SET.State = 1 Then REC_SET.Close
+REC_SET.Open "select rou_off from inl where inv_idy like '" & Trim(M_INV_IDY) & "' AND TXN_TYP LIKE 'PUR'", con, adOpenKeyset, adLockOptimistic
+If REC_SET.RecordCount > 0 Then If (Val(REC_SET(0) & "") = 0 Or Val(M_ROU_OFF) = 0) And MOD_REC = True Then Exit Sub
+dot = 0
+rof = 0
+dot = InStr(Val(M_NET_AMT), ".")
+If dot > 0 Then
+    rof = Mid(Val(M_NET_AMT), dot + 1, 2)
+    If Len(rof) = 1 Then rof = rof & "0"
+    If rof > 0 And rof < 50 Then
+'        If Len(rof) = 1 Then
+'            M_ROU_OFF = "-0." & rof & "0"
+'        ElseIf Len(rof) = 2 Then
+            M_ROU_OFF = "-0." & rof
+'        End If
+        M_NET_AMT = Mid(Val(M_NET_AMT), 1, dot) & "00"
+    ElseIf rof > 0 And rof >= 50 Then
+        rof = 100 - rof
+        If Len(rof) = 1 Then
+            M_ROU_OFF = "+0.0" & rof
+        ElseIf Len(rof) = 2 Then
+            M_ROU_OFF = "+0." & rof
+        End If
+        M_NET_AMT = Mid(Val(M_NET_AMT), 1, dot - 1)
+        M_NET_AMT = Val(M_NET_AMT) + 1 & ".00"
+    End If
+Else
+    M_ROU_OFF = "0.00"
+    M_NET_AMT = convert(amt(Val(M_NET_AMT)))
+End If
+End Sub
+
+Private Sub M_TXN_TPT_GotFocus()
+M_MDI.STS_BAR.Panels(1).Text = "Transport"
+SendKeys "{HOME}+{END}"
+End Sub
+
+Private Sub M_TXN_TPT_Keydown(KeyCode As Integer, Shift As Integer)
+If KeyCode = 13 Or KeyCode = 40 Then
+M_TXN_RMK.SetFocus
+ElseIf KeyCode = 38 Then
+M_TTL_CAS.SetFocus
+End If
+End Sub
+
+Private Sub M_TXN_TPT_KeyPress(K As Integer)
+If K > 96 And K < 123 Then K = K - 32
+End Sub
+Private Sub M_TXN_RMK_Keydown(KeyCode As Integer, Shift As Integer)
+If KeyCode = 13 Or KeyCode = 40 Then
+saverecord
+ElseIf KeyCode = 38 Then
+M_TXN_TPT.SetFocus
+End If
+End Sub
+
+Private Sub M_TXN_RMK_KeyPress(K As Integer)
+If K > 96 And K < 123 Then K = K - 32
+End Sub
+Private Sub M_WBL_DAT_KeyDown(K As Integer, S As Integer)
+If K = 38 And S = 1 Then
+    M_WBL_IDY.SetFocus
+ElseIf K = 13 Then
+    M_TTL_CAS.SetFocus
+End If
+End Sub
+
+Private Sub M_WBL_IDY_GotFocus()
+M_MDI.STS_BAR.Panels(1).Text = "Enter Way Bill Number"
+SendKeys "{home}+{End}"
+End Sub
+
+Private Sub M_WBL_IDY_Keydown(KeyCode As Integer, Shift As Integer)
+If KeyCode = 13 Or KeyCode = 40 Then
+M_WBL_DAT.SetFocus
+ElseIf KeyCode = 38 Then
+M_LRN_AMT.SetFocus
+End If
+End Sub

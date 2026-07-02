@@ -1,0 +1,355 @@
+Attribute VB_Name = "modInnComm"
+
+
+'Public CommPort As Integer
+
+Public BaudRate As Long
+Public Parity As String
+Public DataBit As Integer
+Public StopBit As Integer
+'Public ErrorLog() As String
+
+Private SMSMessage() As String
+Private st As Byte
+
+
+Public Function WriteLogFile(strText As String, MessageType As Integer, ByRef strFile As String) As Long
+    On err GoTo ErrHandler
+    Dim fso As New FileSystemObject
+    Dim f As File
+    Dim fileName As String
+    Dim ts As TextStream
+    If MessageType = 0 Then
+        fileName = App.Path & "\SMSSendLog.txt"
+    ElseIf MessageType = 1 Then
+        fileName = App.Path & "\SMSReceiveLog.txt"
+    ElseIf MessageType = 2 Then
+        fileName = App.Path & "\SMSDeleteLog.txt"
+    End If
+    If fso.FileExists(fileName) Then
+        Set f = fso.GetFile(fileName)
+        Set ts = f.OpenAsTextStream(ForAppending)
+    Else
+        Set ts = fso.CreateTextFile(fileName, True, False)
+    End If
+    ts.Write strText
+    ts.Close
+    strFile = fileName
+    WriteLogFile = 0
+    Exit Function
+ErrHandler:
+    WriteLogFile = err.Number
+End Function
+
+Public Function ReadLogFile(MessageType As String, ByRef strText As String) As Long
+On err GoTo ErrHandler
+    Dim fso As New FileSystemObject
+    Dim f As File
+    Dim fileName As String
+    Dim ts As TextStream
+    If MessageType = 0 Then
+        fileName = App.Path & "\SMSSendLog.txt"
+    ElseIf MessageType = 1 Then
+        fileName = App.Path & "\SMSReceiveLog.txt"
+    ElseIf MessageType = 2 Then
+        fileName = App.Path & "\SMSDeleteLog.txt"
+    End If
+    If fso.FileExists(fileName) Then
+        Set ts = fso.OpenTextFile(fileName, ForReading)
+        strText = ts.ReadAll
+    Else
+        strText = ""
+    End If
+    ts.Close
+    ReadLogFile = 0
+    Exit Function
+ErrHandler:
+    ReadLogFile = err.Number
+End Function
+
+Public Function SendMessage(CommPort As Integer, innComm As MSComm, PhoneNo As String, Message As String, SetTimeOut As Integer, rtb As RichTextBox) As String
+    If CommPort <= 0 Then
+        SendMessage = "Comm Port Not Specified"
+        Exit Function
+    End If
+'    If st = 0 Then
+'        ReDim Preserve ErrorLog(1)
+'        st = 1
+'    Else
+'        ReDim Preserve ErrorLog(UBound(ErrorLog) + 1)
+'    End If
+On Error GoTo ErrHandler
+    Dim ATCommand As String
+    Dim strResult As String
+    Dim keyArray
+    'Dim phoneNo As String
+    Dim msg As String
+    Dim str As String
+    
+    BreakMessage Message
+    innComm.CommPort = CommPort
+    innComm.settings = settings()
+    innComm.InputLen = 0
+    innComm.Handshaking = comRTS
+    innComm.PortOpen = True
+    For i = 0 To UBound(SMSMessage) - 1
+        ATCommand = ""
+        ATCommand = "AT+CMGS=" & """" & PhoneNo & """" & Chr$(13)
+        innComm.Output = ATCommand
+        status = True
+        Wait SetTimeOut
+    '    For j = 1 To Wait * 2
+    '    Next
+        ATCommand = ""
+        ATCommand = SMSMessage(i) & Chr$(26)
+        innComm.Output = ATCommand
+        Wait SetTimeOut
+    '    For j = 1 To Wait * 20
+    '    Next
+        str = innComm.Input
+        
+        str = Replace(str, "AT+CMGS=", "")
+        str = Replace(str, Chr(13), "")
+        str = Replace(str, Chr(13) & Chr(10), "")
+        str = Replace(str, Chr(10), "")
+        str = Replace(str, Chr(13) & Chr(10), "")
+        str = Replace(str, Chr(12), "")
+        str = Replace(str, Chr(26), "")
+        str = Replace(str, "+CMGS: ", "-")
+        str = Replace(str, "OK", "-OK")
+        str = Replace(str, "> ", "-")
+        str = Replace(str, """", "")
+        str = str & vbCrLf
+        rtb.Text = rtb.Text & str
+        DoEvents
+        'ErrorLog(UBound(ErrorLog) - 1) = ErrorLog(UBound(ErrorLog) - 1) & innComm.Input
+        innComm.PortOpen = False
+    Next
+'    For j = 1 To Wait * 5
+'    Next
+    SendMessage = 0
+    Exit Function
+ErrHandler:
+    SendMessage = GetErrorMessage(err)
+    If innComm.PortOpen = True Then innComm.PortOpen = False
+End Function
+
+Public Function ReceiveMessage(CommPort As Integer, innComm As MSComm, SMSListType As Integer, SetTimeOut As Integer, rtb As RichTextBox) As String
+    If CommPort <= 0 Then
+        'ReceiveMessage = "Comm Port Not Specified"
+        Exit Function
+    End If
+'    If st = 0 Then
+'        ReDim Preserve ErrorLog(1)
+'        st = 1
+'    Else
+'        ReDim Preserve ErrorLog(UBound(ErrorLog) + 1)
+'    End If
+    On Error GoTo ErrHandler
+    Dim ATCommand As String
+    Dim str As String
+    
+    
+    Dim PhoneNo As String
+    Dim msg As String
+    
+    innComm.CommPort = CommPort
+    innComm.settings = settings()
+    innComm.InputLen = 0
+    innComm.Handshaking = comRTS
+'    innComm.CTSHolding = True
+'    innComm.DSRHolding = True
+'    innComm.DTREnable = True
+    'innComm.InputMode = comInputModeText
+    
+    innComm.PortOpen = True
+    
+    Select Case SMSListType
+    Case 0
+        ATCommand = "AT+CMGL=" & """" & "REC UNREAD" & """" & Chr$(13)
+    Case 1
+        ATCommand = "AT+CMGL=" & """" & "REC READ" & """" & Chr$(13)
+    Case 2
+        ATCommand = "AT+CMGL=" & """" & "STO UNSENT" & """" & Chr$(13)
+    Case 3
+        ATCommand = "AT+CMGL=" & """" & "STO SENT" & """" & Chr$(13)
+    Case 4
+        ATCommand = "AT+CMGL=" & """" & "ALL" & """" & Chr$(13)
+    End Select
+    innComm.Output = ATCommand
+    Wait SetTimeOut
+    str = innComm.Input
+    str = Replace(str, "AT+CMGL=" & """" & "ALL" & """", "")
+    str = Replace(str, Chr(13) & Chr(10), ",")
+    str = Replace(str, Chr(10), ",")
+    str = Replace(str, Chr(12), ",")
+    str = Replace(str, Chr(26), ",")
+    str = Replace(str, Chr(4), "")
+    str = Replace(str, Chr(1), "")
+'    str = Replace(str, "+CMGS: ","-")
+'    str = Replace(str, "OK", "-OK")
+'    str = Replace(str, "> ", "-")
+'    str = Replace(str, """"", "")
+    str = Replace(str, "+CMGL: ", vbCrLf)
+    rtb.Text = rtb.Text & str
+
+    ReceiveMessage = str
+    innComm.PortOpen = False
+    Exit Function
+ErrHandler:
+   ' ReceiveMessage = GetErrorMessage(err.Number)
+    innComm.PortOpen = False
+End Function
+
+Public Function DeleteMessage(CommPort As Integer, innComm As MSComm, SMSListType As Integer)
+    If CommPort <= 0 Then
+        DeleteMessage = "Comm Port Not Specified"
+        Exit Function
+    End If
+On Error GoTo ErrHandler
+    Dim ATCommand As String
+    Dim strResult As String
+'    Dim SMSMessageArray() As PhoneAndMessage
+'    ReDim Preserve SMSMessageArray(1)
+    
+    
+    Dim PhoneNo As String
+    Dim msg As String
+    
+'    ReDim Preserve ErrorLog(1)
+    
+    innComm.CommPort = CommPort
+    innComm.settings = settings()
+    innComm.InputLen = 0
+    innComm.PortOpen = True
+    
+    
+    Select Case SMSListType
+    Case 0
+        ATCommand = "AT+CMGD=0"
+    Case 1
+        ATCommand = "AT+CMGD=1"
+    Case 2
+        ATCommand = "AT+CMGD=2"
+    Case 3
+        ATCommand = "AT+CMGD=3"
+    Case 4
+        ATCommand = "AT+CMGD=4"
+    End Select
+    
+    innComm.Output = ATCommand
+    strResult = innComm.Input
+    'ReceiveMessage = strResult
+    innComm.PortOpen = False
+    Exit Function
+ErrHandler:
+    'ReceiveMessage = GetErrorMessage(err.Number)
+    innComm.PortOpen = False
+End Function
+
+Public Function CommSettings() As String()
+On err GoTo ErrHandler
+    Dim fso As New FileSystemObject
+    Dim f As File
+    Dim fileName As String
+    Dim ts As TextStream
+    Dim strText() As String
+    fileName = App.Path & "\ComSettings.txt"
+    If fso.FileExists(fileName) Then
+        Set ts = fso.OpenTextFile(fileName, ForReading)
+        strText = Split(ts.ReadAll, ",")
+    End If
+    BaudRate = strText(0)
+    Parity = strText(1)
+    DataBit = strText(2)
+    StopBit = strText(3)
+    ts.Close
+    CommSettings = strText
+    Exit Function
+ErrHandler:
+    ReDim strText(1)
+    CommSettings = strText
+End Function
+
+
+Public Function SaveCommSettings(BaudRate As Long, Parity As String, DataBit As Integer, StopBit As Integer, CommPortNo As Integer, Wait As Integer) As Long
+On err GoTo ErrHandler
+    Dim fso As New FileSystemObject
+    Dim f As File
+    Dim fileName As String
+    Dim ts As TextStream
+    fileName = App.Path & "\ComSettings.txt"
+    If fso.FileExists(fileName) Then
+        Set ts = fso.OpenTextFile(fileName, ForWriting)
+        ts.Write BaudRate & "," & Parity & "," & DataBit & "," & StopBit & "," & Wait & "," & CommPortNo & ","
+    End If
+    ts.Close
+    SaveCommSettings = 0
+    Exit Function
+ErrHandler:
+    SaveCommSettings = err.Number
+End Function
+
+Private Function settings() As String
+    Parity = UCase(Trim(Parity))
+    If BaudRate = 0 Then BaudRate = 9600
+    If Parity = "" Then Parity = "N"
+    If DataBit <= 0 Then DataBit = 8
+    If StopBit <= 0 Then StopBit = 1
+    
+    settings = BaudRate & "," & Parity & "," & DataBit & "," & StopBit
+
+End Function
+
+Private Sub BreakMessage(stringMessage As String)
+    Dim temp As String
+    Dim bool As Boolean
+    ReDim Preserve SMSMessage(1)
+    bool = True
+    While bool
+            temp = Mid(stringMessage, 1, 160)
+            SMSMessage(UBound(SMSMessage) - 1) = temp
+            stringMessage = Mid(stringMessage, 161)
+            If Len(stringMessage) <= 0 Then
+            bool = False
+        Else
+            ReDim Preserve SMSMessage(UBound(SMSMessage) + 1)
+            SMSMessage(UBound(SMSMessage) - 1) = stringMessage
+        End If
+    Wend
+End Sub
+
+Private Function GetErrorMessage(err As ErrObject) As String
+    Select Case err.Number
+        Case comEventBreak
+            GetErrorMessage = "A Break was received."
+        Case comEventFrame
+            GetErrorMessage = "Framing Error."
+        Case comEventOverrun
+            GetErrorMessage = "Data Lost."
+        Case comEventRxOver
+            GetErrorMessage = "Receive buffer overflow."
+        Case comEventRxParity
+            GetErrorMessage = "Parity Error."
+        Case comEventTxFull
+            GetErrorMessage = "Transmit buffer full."
+        Case comEventDCB
+            GetErrorMessage = "Unexpected error retrieving DCB]"
+        Case Default
+            GetErrorMessage = err.Description
+    End Select
+End Function
+
+Private Sub Wait(SetTimeOut As Integer)
+    DoEvents
+    Dim sec1
+    Dim status As Boolean
+    status = False
+    sec1 = Time$
+    While Not status
+        If Abs(Second(Time$) - Second(sec1)) >= SetTimeOut Then
+        status = True
+        End If
+    Wend
+End Sub
+

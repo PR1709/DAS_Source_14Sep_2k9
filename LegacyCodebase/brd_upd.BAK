@@ -1,0 +1,45 @@
+* DAS BRD Table Additional Fields Update
+close all
+select 0
+use PRD index PRD alias PRD
+set order to 1
+select 0
+use BRD alias BRD
+select BRD
+go top
+do while .not. eof()
+   select PRD
+   seek BRD->PRD_IDY
+   if found()
+   
+   		replace BRD->B_CRT_RAT with PRD->LST_RAT, BRD->B_CRT_DIS with PRD->LST_DIS,;
+   				BRD->B_PUR_TAX with PRD->PUR_TAX, BRD->B_SAL_TAX with PRD->SAL_TAX,;
+   				BRD->SKU_SBU with PRD->SUB_UNT
+   
+   		replace BRD->P_PUR_VAT with (((BRD->PRD_PDR - BRD->P_INC_DIS) * PRD->PUR_TAX)/100)
+   		replace BRD->P_CRT_RNT with PRD->LST_RAT
+   		replace BRD->P_CRT_VAT with ((PRD->LST_RAT * PRD->LST_DIS)/100)
+   		replace BRD->P_TOT_VAT with (((BRD->PRD_PDR - BRD->P_INC_DIS) * PRD->PUR_TAX)/100) + ((PRD->LST_RAT * PRD->LST_DIS)/100)
+   
+   		replace BRD->PUR_LPP with ROUND((BRD->PRD_PDR + (((BRD->PRD_PDR - BRD->P_INC_DIS) * PRD->PUR_TAX)/100) + PRD->LST_RAT + ((PRD->LST_RAT * PRD->LST_DIS)/100)),1)
+   		replace BRD->U_PUR_LPP with ((BRD->PRD_PDR + (((BRD->PRD_PDR - BRD->P_INC_DIS) * PRD->PUR_TAX)/100) + PRD->LST_RAT + ((PRD->LST_RAT * PRD->LST_DIS)/100)) / PRD->SUB_UNT)
+   		
+   		replace BRD->S_SAL_VAT with (((BRD->PRD_SDR - BRD->S_INC_DIS) * PRD->SAL_TAX)/100)
+   		replace BRD->S_CRT_RNT with PRD->LST_RAT
+   		replace BRD->S_CRT_VAT with ((PRD->LST_RAT * PRD->LST_DIS)/100)
+   		replace BRD->S_TOT_VAT with (((BRD->PRD_SDR - BRD->S_INC_DIS) * PRD->SAL_TAX)/100) + ((PRD->LST_RAT * PRD->LST_DIS)/100)
+   
+   		replace BRD->SAL_LPP with ROUND((BRD->PRD_SDR + (((BRD->PRD_SDR - BRD->S_INC_DIS) * PRD->SAL_TAX)/100) + PRD->LST_RAT + ((PRD->LST_RAT * PRD->LST_DIS)/100)),1)
+   		replace BRD->U_SAL_LPP with ((BRD->PRD_SDR + (((BRD->PRD_SDR - BRD->S_INC_DIS) * PRD->SAL_TAX)/100) + PRD->LST_RAT + ((PRD->LST_RAT * PRD->LST_DIS)/100)) / PRD->SUB_UNT)   		
+   		select BRD
+   		skip 1
+   	endif
+enddo
+select BRD
+go top
+do while .not. eof()
+	skip 1
+enddo
+close all
+
+
