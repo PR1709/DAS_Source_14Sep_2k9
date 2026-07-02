@@ -1,0 +1,2876 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {
+    "hyperedges": [
+      {
+        "id": "data_extraction_flow",
+        "label": "DAS Data Extraction and Transfer Flow",
+        "nodes": [
+          "legacycodebase_crsextract_mmextract_mm_ex_file",
+          "legacycodebase_dbf_act",
+          "legacycodebase_dbf_inv",
+          "legacycodebase_dbf_inl",
+          "legacycodebase_dbf_prd",
+          "legacycodebase_dbf_brd"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 0.9,
+        "source_file": "LegacyCodebase/CRSEXTRACT/MMExtract.txt"
+      },
+      {
+        "id": "visual_foxpro_database_core",
+        "label": "Visual FoxPro Database Core",
+        "nodes": [
+          "eff_dbc",
+          "eff_dct",
+          "eff_dcx"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "LegacyCodebase/CRSEXTRACT/VER_APP.TXT"
+      },
+      {
+        "id": "das_extraction_utility",
+        "label": "DAS Extraction Utility Project",
+        "nodes": [
+          "index_vbp",
+          "indexdata_exe",
+          "fbkp_bas",
+          "cmp_sel_frm",
+          "m_frm_str_frm"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "LegacyCodebase/DASXtract/VER_APP.TXT"
+      },
+      {
+        "id": "hht_data_exchange_set",
+        "label": "HHT Data Exchange Set",
+        "nodes": [
+          "hht_party_txt",
+          "hht_location_txt",
+          "hht_market_txt",
+          "hht_salesman_txt",
+          "legacycodebase_hht_inv_str_txt",
+          "legacycodebase_hht_inl_str_txt"
+        ],
+        "relation": "form",
+        "confidence": "INFERRED",
+        "confidence_score": 0.9,
+        "source_file": "LegacyCodebase/HHT/LOG.TXT"
+      },
+      {
+        "id": "hht_data_structure",
+        "label": "Hand Held Terminal Data Files",
+        "nodes": [
+          "legacycodebase_hht_party",
+          "legacycodebase_hht_salesman",
+          "legacycodebase_hht_version"
+        ],
+        "relation": "form",
+        "confidence": "EXTRACTED",
+        "confidence_score": 0.9,
+        "source_file": "LegacyCodebase/HHT/PARTY.TXT"
+      },
+      {
+        "id": "das_extract_flow",
+        "label": "DAS Data Extraction and Export Flow",
+        "nodes": [
+          "legacycodebase_mmextract_mmextract_mm_ex_file",
+          "legacycodebase_mmextract_dir_inf",
+          "concept_das_data_transfer"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 0.95,
+        "source_file": "LegacyCodebase/MMEXTRACT/MMExtract.txt"
+      },
+      {
+        "id": "effmcg_application_suite",
+        "label": "EFFMCG Application Suite",
+        "nodes": [
+          "effmcg_exe",
+          "eff_dbc",
+          "mmextract_exe",
+          "m_frm_trs_frm",
+          "m_frm_pcs_pcs_frm"
+        ],
+        "relation": "participate_in",
+        "confidence": "INFERRED",
+        "confidence_score": 0.85,
+        "source_file": "LegacyCodebase/MMEXTRACT/VER_APP.TXT"
+      },
+      {
+        "id": "sms_subsystem",
+        "label": "SMS Notification Subsystem",
+        "nodes": [
+          "legacycodebase_smsmessagetemplate_txt",
+          "legacycodebase_comsettings_txt",
+          "claudeguidance_effmcg_vbp"
+        ],
+        "relation": "form",
+        "confidence": "INFERRED",
+        "confidence_score": 0.85,
+        "source_file": "LegacyCodebase/SMSMessageTemplate.txt"
+      },
+      {
+        "id": "data_migration_flow",
+        "label": "Legacy Data Extraction Flow",
+        "nodes": [
+          "mmextract_exe",
+          "eff_dbc",
+          "foxpro_driver",
+          "etlinterfaceform_frm"
+        ],
+        "relation": "form",
+        "confidence": "INFERRED",
+        "confidence_score": 0.8,
+        "source_file": "MigrateDest_v1/initdb.md"
+      },
+      {
+        "id": "accounting_schema_core",
+        "label": "Accounting Schema Core",
+        "nodes": [
+          "migratedest_v1_initdb_grp",
+          "migratedest_v1_initdb_led",
+          "migratedest_v1_initdb_idy"
+        ],
+        "relation": "participate_in",
+        "confidence": "INFERRED",
+        "confidence_score": 0.9,
+        "source_file": "MigrateDest_v1/initdb.md"
+      },
+      {
+        "id": "inventory_transaction_flow",
+        "label": "Inventory Transaction Flow",
+        "nodes": [
+          "migratedest_v1_initdb_ine",
+          "migratedest_v1_initdb_lnv",
+          "migratedest_v1_initdb_loc"
+        ],
+        "relation": "participate_in",
+        "confidence": "INFERRED",
+        "confidence_score": 0.85,
+        "source_file": "MigrateDest_v1/initdb.md"
+      },
+      {
+        "id": "das_core_modules",
+        "label": "DAS Core ERP Modules",
+        "nodes": [
+          "claudeguidance_m_frm_sal",
+          "claudeguidance_modtallyinterface",
+          "claudeguidance_dsync_prg",
+          "claudeguidance_eff_dbc"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "claudeguidance.md"
+      },
+      {
+        "id": "consoft_branding",
+        "label": "Consoft Systems Branding Assets",
+        "nodes": [
+          "legacycodebase_cspl_png",
+          "legacycodebase_csplnew_gif",
+          "legacycodebase_csplnew_jpg",
+          "legacycodebase_csplnew_png",
+          "legacycodebase_cspl_tiny_gif",
+          "legacycodebase_logo_gif",
+          "legacycodebase_logo1_gif",
+          "legacycodebase_logo2_gif"
+        ],
+        "relation": "form",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "LegacyCodebase/"
+      },
+      {
+        "id": "core_vb6_forms",
+        "label": "Core Business Forms",
+        "nodes": [
+          "legacycodebase_m_frm_sal_frm"
+        ],
+        "relation": "implement",
+        "confidence": "EXTRACTED",
+        "confidence_score": 0.9,
+        "source_file": "LegacyCodebase/Effmcg.vbp"
+      },
+      {
+        "id": "stock_update_logic_group",
+        "label": "Stock Update Logic",
+        "nodes": [
+          "ai_migration_analysis_05_business_logic_extraction_n_upd_stk",
+          "ai_migration_analysis_05_business_logic_extraction_stl_led",
+          "ai_migration_analysis_05_business_logic_extraction_eff_lib"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 0.9,
+        "source_file": "ai_migration_analysis/05_business_logic_extraction.md"
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "label": "Billsave.cls",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/Billsave.cls",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 27,
+      "norm_label": "billsave.cls",
+      "id": "legacycodebase_billsave",
+      "community_name": "Billsave.cls"
+    },
+    {
+      "label": "Class1.cls",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/CRSEXTRACT/Class1.cls",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 11,
+      "norm_label": "class1.cls",
+      "id": "legacycodebase_crsextract_class1",
+      "community_name": "Class1.cls"
+    },
+    {
+      "label": "delete",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/CRSEXTRACT/Class1.cls",
+      "source_location": "L703",
+      "_origin": "ast",
+      "community": 11,
+      "norm_label": "delete",
+      "id": "legacycodebase_crsextract_class1_cls_dml_delete",
+      "community_name": "Class1.cls"
+    },
+    {
+      "label": "update",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/CRSEXTRACT/Class1.cls",
+      "source_location": "L709",
+      "_origin": "ast",
+      "community": 11,
+      "norm_label": "update",
+      "id": "legacycodebase_crsextract_class1_cls_dml_update",
+      "community_name": "Class1.cls"
+    },
+    {
+      "label": "Class1.cls",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/Class1.cls",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 18,
+      "norm_label": "class1.cls",
+      "id": "legacycodebase_class1",
+      "community_name": "Class1.cls"
+    },
+    {
+      "label": "delete",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/Class1.cls",
+      "source_location": "L33",
+      "_origin": "ast",
+      "community": 18,
+      "norm_label": "delete",
+      "id": "legacycodebase_class1_cls_dml_delete",
+      "community_name": "Class1.cls"
+    },
+    {
+      "label": "Class1.cls",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/MMEXTRACT/Class1.cls",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 12,
+      "norm_label": "class1.cls",
+      "id": "legacycodebase_mmextract_class1",
+      "community_name": "Class1.cls"
+    },
+    {
+      "label": "delete",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/MMEXTRACT/Class1.cls",
+      "source_location": "L703",
+      "_origin": "ast",
+      "community": 12,
+      "norm_label": "delete",
+      "id": "legacycodebase_mmextract_class1_cls_dml_delete",
+      "community_name": "Class1.cls"
+    },
+    {
+      "label": "update",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/MMEXTRACT/Class1.cls",
+      "source_location": "L709",
+      "_origin": "ast",
+      "community": 12,
+      "norm_label": "update",
+      "id": "legacycodebase_mmextract_class1_cls_dml_update",
+      "community_name": "Class1.cls"
+    },
+    {
+      "label": "dec.cls",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/dec.cls",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 37,
+      "norm_label": "dec.cls",
+      "id": "legacycodebase_dec",
+      "community_name": "dec.cls"
+    },
+    {
+      "label": "encPassword.cls",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/encPassword.cls",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 38,
+      "norm_label": "encpassword.cls",
+      "id": "legacycodebase_encpassword",
+      "community_name": "encPassword.cls"
+    },
+    {
+      "label": "migrate_db.py",
+      "file_type": "code",
+      "source_file": "migrate_db.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "migrate_db.py",
+      "id": "migrate_db",
+      "community_name": "DBFReader"
+    },
+    {
+      "label": "clean_name()",
+      "file_type": "code",
+      "source_file": "migrate_db.py",
+      "source_location": "L7",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "clean_name()",
+      "id": "migrate_db_clean_name",
+      "community_name": "DBFReader"
+    },
+    {
+      "label": "DBFReader",
+      "file_type": "code",
+      "source_file": "migrate_db.py",
+      "source_location": "L21",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "dbfreader",
+      "id": "migrate_db_dbfreader",
+      "community_name": "DBFReader"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "migrate_db.py",
+      "source_location": "L23",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": ".__init__()",
+      "id": "migrate_db_dbfreader_init",
+      "community_name": "DBFReader"
+    },
+    {
+      "label": "._read_memo_header()",
+      "file_type": "code",
+      "source_file": "migrate_db.py",
+      "source_location": "L35",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "._read_memo_header()",
+      "id": "migrate_db_dbfreader_read_memo_header",
+      "community_name": "DBFReader"
+    },
+    {
+      "label": "._read_memo_val()",
+      "file_type": "code",
+      "source_file": "migrate_db.py",
+      "source_location": "L48",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "._read_memo_val()",
+      "id": "migrate_db_dbfreader_read_memo_val",
+      "community_name": "DBFReader"
+    },
+    {
+      "label": "._read_dbf()",
+      "file_type": "code",
+      "source_file": "migrate_db.py",
+      "source_location": "L70",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "._read_dbf()",
+      "id": "migrate_db_dbfreader_read_dbf",
+      "community_name": "DBFReader"
+    },
+    {
+      "label": "map_type_to_postgres()",
+      "file_type": "code",
+      "source_file": "migrate_db.py",
+      "source_location": "L186",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "map_type_to_postgres()",
+      "id": "migrate_db_map_type_to_postgres",
+      "community_name": "DBFReader"
+    },
+    {
+      "label": "parse_source_files()",
+      "file_type": "code",
+      "source_file": "migrate_db.py",
+      "source_location": "L217",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "parse_source_files()",
+      "id": "migrate_db_parse_source_files",
+      "community_name": "DBFReader"
+    },
+    {
+      "label": "generate_postgres_dump()",
+      "file_type": "code",
+      "source_file": "migrate_db.py",
+      "source_location": "L273",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "generate_postgres_dump()",
+      "id": "migrate_db_generate_postgres_dump",
+      "community_name": "DBFReader"
+    },
+    {
+      "label": "Clean table or column names to be PostgreSQL compatible.",
+      "file_type": "rationale",
+      "source_file": "migrate_db.py",
+      "source_location": "L8",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "clean table or column names to be postgresql compatible.",
+      "id": "migrate_db_rationale_8",
+      "community_name": "DBFReader"
+    },
+    {
+      "label": "A simple, dependency-free reader for dBase / Visual FoxPro .dbf and .fpt files.",
+      "file_type": "rationale",
+      "source_file": "migrate_db.py",
+      "source_location": "L22",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "a simple, dependency-free reader for dbase / visual foxpro .dbf and .fpt files.",
+      "id": "migrate_db_rationale_22",
+      "community_name": "DBFReader"
+    },
+    {
+      "label": "Scan source files (.frm, .bas, .cls, .prg) for SQL queries, table references, an",
+      "file_type": "rationale",
+      "source_file": "migrate_db.py",
+      "source_location": "L218",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "scan source files (.frm, .bas, .cls, .prg) for sql queries, table references, an",
+      "id": "migrate_db_rationale_218",
+      "community_name": "DBFReader"
+    },
+    {
+      "label": "Effmcg4 Path Configuration",
+      "file_type": "document",
+      "source_file": "LegacyCodebase/CRSEXTRACT/EFFMCG4.txt",
+      "source_location": null,
+      "community": 29,
+      "norm_label": "effmcg4 path configuration",
+      "id": "legacycodebase_crsextract_effmcg4_config",
+      "community_name": "Effmcg4 Path Configuration"
+    },
+    {
+      "label": "MM_EX_FILE",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/CRSEXTRACT/MMExtract.txt",
+      "source_location": null,
+      "community": 0,
+      "norm_label": "mm_ex_file",
+      "id": "legacycodebase_crsextract_mmextract_mm_ex_file",
+      "community_name": "MM_EX_FILE"
+    },
+    {
+      "label": "STKTXTDEX",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/CRSEXTRACT/MMExtract.txt",
+      "source_location": null,
+      "community": 0,
+      "norm_label": "stktxtdex",
+      "id": "legacycodebase_crsextract_mmextract_stktxtdex",
+      "community_name": "MM_EX_FILE"
+    },
+    {
+      "label": "MailSend",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/CRSEXTRACT/MMExtract.txt",
+      "source_location": null,
+      "community": 0,
+      "norm_label": "mailsend",
+      "id": "legacycodebase_crsextract_mmextract_mailsend",
+      "community_name": "MM_EX_FILE"
+    },
+    {
+      "label": "GetValue",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/CRSEXTRACT/MMExtract.txt",
+      "source_location": null,
+      "community": 0,
+      "norm_label": "getvalue",
+      "id": "legacycodebase_crsextract_mmextract_getvalue",
+      "community_name": "MM_EX_FILE"
+    },
+    {
+      "label": "EFFMCG.exe",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/CRSEXTRACT/VER_APP.TXT",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "effmcg.exe",
+      "id": "effmcg_exe",
+      "community_name": "EFF.DBC"
+    },
+    {
+      "label": "EFF.DBC",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/CRSEXTRACT/VER_APP.TXT",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "eff.dbc",
+      "id": "eff_dbc",
+      "community_name": "EFF.DBC"
+    },
+    {
+      "label": "EFF.DCT",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/CRSEXTRACT/VER_APP.TXT",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "eff.dct",
+      "id": "eff_dct",
+      "community_name": "EFF.DBC"
+    },
+    {
+      "label": "EFF.DCX",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/CRSEXTRACT/VER_APP.TXT",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "eff.dcx",
+      "id": "eff_dcx",
+      "community_name": "EFF.DBC"
+    },
+    {
+      "label": "DASXtract.exe",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/CRSEXTRACT/VER_APP.TXT",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "dasxtract.exe",
+      "id": "dasxtract_exe",
+      "community_name": "EFF.DBC"
+    },
+    {
+      "label": "FastBkp.exe",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/CRSEXTRACT/VER_APP.TXT",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "fastbkp.exe",
+      "id": "fastbkp_exe",
+      "community_name": "EFF.DBC"
+    },
+    {
+      "label": "FOXUSER.DBF",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/CRSEXTRACT/VER_APP.TXT",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 17,
+      "norm_label": "foxuser.dbf",
+      "id": "foxuser_dbf",
+      "community_name": "FOXUSER.DBF"
+    },
+    {
+      "label": "FOXUSER.FPT",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/CRSEXTRACT/VER_APP.TXT",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 17,
+      "norm_label": "foxuser.fpt",
+      "id": "foxuser_fpt",
+      "community_name": "FOXUSER.DBF"
+    },
+    {
+      "label": "COM Port Settings",
+      "file_type": "document",
+      "source_file": "LegacyCodebase/ComSettings.txt",
+      "community": 28,
+      "norm_label": "com port settings",
+      "id": "legacycodebase_comsettings_txt",
+      "community_name": "COM Port Settings"
+    },
+    {
+      "label": "IndexData.exe",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/DASXtract/VER_APP.TXT",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 6,
+      "norm_label": "indexdata.exe",
+      "id": "indexdata_exe",
+      "community_name": "Index.vbp"
+    },
+    {
+      "label": "Index.vbp",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/DASXtract/VER_APP.TXT",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 6,
+      "norm_label": "index.vbp",
+      "id": "index_vbp",
+      "community_name": "Index.vbp"
+    },
+    {
+      "label": "fbkp.bas",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/DASXtract/VER_APP.TXT",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 6,
+      "norm_label": "fbkp.bas",
+      "id": "fbkp_bas",
+      "community_name": "Index.vbp"
+    },
+    {
+      "label": "CMP_SEL.frm",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/DASXtract/VER_APP.TXT",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 6,
+      "norm_label": "cmp_sel.frm",
+      "id": "cmp_sel_frm",
+      "community_name": "Index.vbp"
+    },
+    {
+      "label": "M_FRM_STR.frm",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/DASXtract/VER_APP.TXT",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 6,
+      "norm_label": "m_frm_str.frm",
+      "id": "m_frm_str_frm",
+      "community_name": "Index.vbp"
+    },
+    {
+      "label": "DAS_DBU.TXT (VFP Runtime/Utility)",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/DAS_DBU.TXT",
+      "community": 36,
+      "norm_label": "das_dbu.txt (vfp runtime/utility)",
+      "id": "legacycodebase_das_dbu_txt",
+      "community_name": "DAS_DBU.TXT (VFP Runtime/Utility)"
+    },
+    {
+      "label": "INL_STR.TXT",
+      "file_type": "document",
+      "source_file": "LegacyCodebase/HHT/INL_STR.TXT",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 40,
+      "norm_label": "inl_str.txt",
+      "id": "legacycodebase_hht_inl_str_txt",
+      "community_name": "INL_STR.TXT"
+    },
+    {
+      "label": "INV_STR.TXT",
+      "file_type": "document",
+      "source_file": "LegacyCodebase/HHT/INV_STR.TXT",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 41,
+      "norm_label": "inv_str.txt",
+      "id": "legacycodebase_hht_inv_str_txt",
+      "community_name": "INV_STR.TXT"
+    },
+    {
+      "label": "LOG.TXT",
+      "file_type": "document",
+      "source_file": "LegacyCodebase/HHT/LOG.TXT",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 7,
+      "norm_label": "log.txt",
+      "id": "legacycodebase_hht_log_txt",
+      "community_name": "LOG.TXT"
+    },
+    {
+      "label": "PARTY.TXT",
+      "file_type": "document",
+      "source_file": "LegacyCodebase/HHT/LOG.TXT",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 7,
+      "norm_label": "party.txt",
+      "id": "hht_party_txt",
+      "community_name": "LOG.TXT"
+    },
+    {
+      "label": "LOCATION.TXT",
+      "file_type": "document",
+      "source_file": "LegacyCodebase/HHT/LOG.TXT",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 7,
+      "norm_label": "location.txt",
+      "id": "hht_location_txt",
+      "community_name": "LOG.TXT"
+    },
+    {
+      "label": "MARKET.TXT",
+      "file_type": "document",
+      "source_file": "LegacyCodebase/HHT/LOG.TXT",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 7,
+      "norm_label": "market.txt",
+      "id": "hht_market_txt",
+      "community_name": "LOG.TXT"
+    },
+    {
+      "label": "SALESMAN.TXT",
+      "file_type": "document",
+      "source_file": "LegacyCodebase/HHT/LOG.TXT",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 7,
+      "norm_label": "salesman.txt",
+      "id": "hht_salesman_txt",
+      "community_name": "LOG.TXT"
+    },
+    {
+      "label": "PARTY.TXT",
+      "file_type": "document",
+      "source_file": "LegacyCodebase/HHT/PARTY.TXT",
+      "community": 19,
+      "norm_label": "party.txt",
+      "id": "legacycodebase_hht_party",
+      "community_name": "PARTY.TXT"
+    },
+    {
+      "label": "SALESMAN.TXT",
+      "file_type": "document",
+      "source_file": "LegacyCodebase/HHT/SALESMAN.TXT",
+      "community": 19,
+      "norm_label": "salesman.txt",
+      "id": "legacycodebase_hht_salesman",
+      "community_name": "PARTY.TXT"
+    },
+    {
+      "label": "VERSION.TXT",
+      "file_type": "document",
+      "source_file": "LegacyCodebase/HHT/VERSION.TXT",
+      "community": 42,
+      "norm_label": "version.txt",
+      "id": "legacycodebase_hht_version",
+      "community_name": "VERSION.TXT"
+    },
+    {
+      "label": "Help Desk Contacts",
+      "file_type": "document",
+      "source_file": "LegacyCodebase/HelpDesk.txt",
+      "community": 39,
+      "norm_label": "help desk contacts",
+      "id": "legacycodebase_helpdesk_txt",
+      "community_name": "Help Desk Contacts"
+    },
+    {
+      "label": "PrimaryGroups.txt",
+      "file_type": "document",
+      "source_file": "LegacyCodebase/INDEXFILES/Setup/PrimaryGroups.txt",
+      "community": 26,
+      "norm_label": "primarygroups.txt",
+      "id": "indexfiles_setup_primarygroups",
+      "community_name": "PrimaryGroups.txt"
+    },
+    {
+      "label": "SMSMessageTemplate.txt",
+      "file_type": "document",
+      "source_file": "LegacyCodebase/INDEXFILES/Setup/SMSMessageTemplate.txt",
+      "community": 5,
+      "norm_label": "smsmessagetemplate.txt",
+      "id": "indexfiles_setup_smsmessagetemplate",
+      "community_name": "MM_EX_FILE"
+    },
+    {
+      "label": "INL.DBF Structure",
+      "file_type": "document",
+      "source_file": "LegacyCodebase/INLSTRU.TXT",
+      "community": 4,
+      "norm_label": "inl.dbf structure",
+      "id": "legacycodebase_inlstru_txt",
+      "community_name": "EFF.DBC (FoxPro Database Container)"
+    },
+    {
+      "label": "DIR_INF.TXT",
+      "file_type": "document",
+      "source_file": "LegacyCodebase/MMEXTRACT/DIR_INF.TXT",
+      "community": 46,
+      "norm_label": "dir_inf.txt",
+      "id": "legacycodebase_mmextract_dir_inf",
+      "community_name": "DIR_INF.TXT"
+    },
+    {
+      "label": "MM_EX_FILE",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/MMEXTRACT/MMExtract.txt",
+      "community": 5,
+      "norm_label": "mm_ex_file",
+      "id": "legacycodebase_mmextract_mmextract_mm_ex_file",
+      "community_name": "MM_EX_FILE"
+    },
+    {
+      "label": "STKTXTDEX",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/MMEXTRACT/MMExtract.txt",
+      "community": 5,
+      "norm_label": "stktxtdex",
+      "id": "legacycodebase_mmextract_mmextract_stktxtdex",
+      "community_name": "MM_EX_FILE"
+    },
+    {
+      "label": "MailSend",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/MMEXTRACT/MMExtract.txt",
+      "community": 5,
+      "norm_label": "mailsend",
+      "id": "legacycodebase_mmextract_mmextract_mailsend",
+      "community_name": "MM_EX_FILE"
+    },
+    {
+      "label": "ColaZip.GSColaZip32",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/MMEXTRACT/MMExtract.txt",
+      "community": 5,
+      "norm_label": "colazip.gscolazip32",
+      "id": "colazip_gscolazip32",
+      "community_name": "MM_EX_FILE"
+    },
+    {
+      "label": "DAS Data Transfer Protocol",
+      "file_type": "concept",
+      "source_file": "LegacyCodebase/MMEXTRACT/MMExtract.txt",
+      "community": 5,
+      "norm_label": "das data transfer protocol",
+      "id": "concept_das_data_transfer",
+      "community_name": "MM_EX_FILE"
+    },
+    {
+      "label": "MMExtract.EXE",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/MMEXTRACT/VER_APP.TXT",
+      "source_location": "06/18/2009 09:38 AM",
+      "community": 57,
+      "norm_label": "mmextract.exe",
+      "id": "mmextract_exe",
+      "community_name": "MMExtract.EXE"
+    },
+    {
+      "label": "SNV.DBF",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/MMEXTRACT/VER_APP.TXT",
+      "source_location": "03/04/2009 11:28 AM",
+      "community": 21,
+      "norm_label": "snv.dbf",
+      "id": "snv_dbf",
+      "community_name": "M_FRM_TRS.frm"
+    },
+    {
+      "label": "INV.DBF",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/MMEXTRACT/VER_APP.TXT",
+      "source_location": "03/04/2009 11:28 AM",
+      "community": 8,
+      "norm_label": "inv.dbf",
+      "id": "inv_dbf",
+      "community_name": "ACT.DBF"
+    },
+    {
+      "label": "ACT.DBF",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/MMEXTRACT/VER_APP.TXT",
+      "source_location": "03/04/2009 11:28 AM",
+      "community": 8,
+      "norm_label": "act.dbf",
+      "id": "act_dbf",
+      "community_name": "ACT.DBF"
+    },
+    {
+      "label": "PRD.DBF",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/MMEXTRACT/VER_APP.TXT",
+      "source_location": "08/20/2008 03:43 PM",
+      "community": 20,
+      "norm_label": "prd.dbf",
+      "id": "prd_dbf",
+      "community_name": "M_FRM_MIBS.frm"
+    },
+    {
+      "label": "Prince Chopra Volume",
+      "file_type": "concept",
+      "source_file": "LegacyCodebase/MMEXTRACT/VER_APP.TXT",
+      "source_location": "Volume in drive C",
+      "community": 3,
+      "norm_label": "prince chopra volume",
+      "id": "prince_chopra_volume",
+      "community_name": "EFF.DBC"
+    },
+    {
+      "label": "Accounting Primary Groups",
+      "file_type": "document",
+      "source_file": "LegacyCodebase/PrimaryGroups.txt",
+      "community": 47,
+      "norm_label": "accounting primary groups",
+      "id": "legacycodebase_primarygroups_txt",
+      "community_name": "Accounting Primary Groups"
+    },
+    {
+      "label": "SMS Message Templates",
+      "file_type": "document",
+      "source_file": "LegacyCodebase/SMSMessageTemplate.txt",
+      "community": 4,
+      "norm_label": "sms message templates",
+      "id": "legacycodebase_smsmessagetemplate_txt",
+      "community_name": "EFF.DBC (FoxPro Database Container)"
+    },
+    {
+      "label": "File Inventory (VER_APP.TXT)",
+      "file_type": "document",
+      "source_file": "LegacyCodebase/VER_APP.TXT",
+      "community": 4,
+      "norm_label": "file inventory (ver_app.txt)",
+      "id": "legacycodebase_ver_app_txt",
+      "community_name": "EFF.DBC (FoxPro Database Container)"
+    },
+    {
+      "label": "DAS Mobile GSM Interface",
+      "file_type": "concept",
+      "source_file": "LegacyCodebase/Welcome Message.txt",
+      "source_location": null,
+      "community": 0,
+      "norm_label": "das mobile gsm interface",
+      "id": "das_mobile_gsm_interface",
+      "community_name": "MM_EX_FILE"
+    },
+    {
+      "label": "ACT.DBF",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/dbf.txt",
+      "source_location": null,
+      "community": 0,
+      "norm_label": "act.dbf",
+      "id": "legacycodebase_dbf_act",
+      "community_name": "MM_EX_FILE"
+    },
+    {
+      "label": "CAT.DBF",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/dbf.txt",
+      "source_location": null,
+      "community": 0,
+      "norm_label": "cat.dbf",
+      "id": "legacycodebase_dbf_cat",
+      "community_name": "MM_EX_FILE"
+    },
+    {
+      "label": "LOC.DBF",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/dbf.txt",
+      "source_location": null,
+      "community": 0,
+      "norm_label": "loc.dbf",
+      "id": "legacycodebase_dbf_loc",
+      "community_name": "MM_EX_FILE"
+    },
+    {
+      "label": "MAR.DBF",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/dbf.txt",
+      "source_location": null,
+      "community": 0,
+      "norm_label": "mar.dbf",
+      "id": "legacycodebase_dbf_mar",
+      "community_name": "MM_EX_FILE"
+    },
+    {
+      "label": "INL.DBF",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/dbf.txt",
+      "source_location": null,
+      "community": 0,
+      "norm_label": "inl.dbf",
+      "id": "legacycodebase_dbf_inl",
+      "community_name": "MM_EX_FILE"
+    },
+    {
+      "label": "INV.DBF",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/dbf.txt",
+      "source_location": null,
+      "community": 0,
+      "norm_label": "inv.dbf",
+      "id": "legacycodebase_dbf_inv",
+      "community_name": "MM_EX_FILE"
+    },
+    {
+      "label": "PRD.DBF",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/dbf.txt",
+      "source_location": null,
+      "community": 0,
+      "norm_label": "prd.dbf",
+      "id": "legacycodebase_dbf_prd",
+      "community_name": "MM_EX_FILE"
+    },
+    {
+      "label": "BRD.DBF",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/dbf.txt",
+      "source_location": null,
+      "community": 0,
+      "norm_label": "brd.dbf",
+      "id": "legacycodebase_dbf_brd",
+      "community_name": "MM_EX_FILE"
+    },
+    {
+      "label": "SCH.DBF",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/dbf.txt",
+      "source_location": null,
+      "community": 0,
+      "norm_label": "sch.dbf",
+      "id": "legacycodebase_dbf_sch",
+      "community_name": "MM_EX_FILE"
+    },
+    {
+      "label": "DIR.DBF",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/dbf.txt",
+      "source_location": null,
+      "community": 0,
+      "norm_label": "dir.dbf",
+      "id": "legacycodebase_dbf_dir",
+      "community_name": "MM_EX_FILE"
+    },
+    {
+      "label": "CLD.DBF",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/dbf.txt",
+      "source_location": null,
+      "community": 0,
+      "norm_label": "cld.dbf",
+      "id": "legacycodebase_dbf_cld",
+      "community_name": "MM_EX_FILE"
+    },
+    {
+      "label": "SMN.DBF",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/dbf.txt",
+      "source_location": null,
+      "community": 0,
+      "norm_label": "smn.dbf",
+      "id": "legacycodebase_dbf_smn",
+      "community_name": "MM_EX_FILE"
+    },
+    {
+      "label": "M_FRM_TRS.frm",
+      "file_type": "code",
+      "source_file": "MigrateDest_v1/initdb.md",
+      "source_location": "EXTRACTED LEGACY APPLICATION METADATA",
+      "community": 21,
+      "norm_label": "m_frm_trs.frm",
+      "id": "m_frm_trs_frm",
+      "community_name": "M_FRM_TRS.frm"
+    },
+    {
+      "label": "M_FRM_PCS_PCS.frm",
+      "file_type": "code",
+      "source_file": "MigrateDest_v1/initdb.md",
+      "source_location": "EXTRACTED LEGACY APPLICATION METADATA",
+      "community": 8,
+      "norm_label": "m_frm_pcs_pcs.frm",
+      "id": "m_frm_pcs_pcs_frm",
+      "community_name": "ACT.DBF"
+    },
+    {
+      "label": "M_FRM_ORD.frm",
+      "file_type": "code",
+      "source_file": "MigrateDest_v1/initdb.md",
+      "source_location": "EXTRACTED LEGACY APPLICATION METADATA",
+      "community": 8,
+      "norm_label": "m_frm_ord.frm",
+      "id": "m_frm_ord_frm",
+      "community_name": "ACT.DBF"
+    },
+    {
+      "label": "M_FRM_MIBS.frm",
+      "file_type": "code",
+      "source_file": "MigrateDest_v1/initdb.md",
+      "source_location": "EXTRACTED LEGACY APPLICATION METADATA",
+      "community": 20,
+      "norm_label": "m_frm_mibs.frm",
+      "id": "m_frm_mibs_frm",
+      "community_name": "M_FRM_MIBS.frm"
+    },
+    {
+      "label": "M_FRM_SCH.frm",
+      "file_type": "code",
+      "source_file": "MigrateDest_v1/initdb.md",
+      "source_location": "EXTRACTED LEGACY APPLICATION METADATA",
+      "community": 48,
+      "norm_label": "m_frm_sch.frm",
+      "id": "m_frm_sch_frm",
+      "community_name": "M_FRM_SCH.frm"
+    },
+    {
+      "label": "ETLInterfaceForm.frm",
+      "file_type": "code",
+      "source_file": "MigrateDest_v1/initdb.md",
+      "source_location": "EXTRACTED LEGACY APPLICATION METADATA",
+      "community": 16,
+      "norm_label": "etlinterfaceform.frm",
+      "id": "etlinterfaceform_frm",
+      "community_name": "ETLInterfaceForm.frm"
+    },
+    {
+      "label": "Microsoft Visual FoxPro Driver",
+      "file_type": "concept",
+      "source_file": "MigrateDest_v1/initdb.md",
+      "source_location": "Connection Strings",
+      "community": 16,
+      "norm_label": "microsoft visual foxpro driver",
+      "id": "foxpro_driver",
+      "community_name": "ETLInterfaceForm.frm"
+    },
+    {
+      "label": "initdb.md",
+      "file_type": "document",
+      "source_file": "MigrateDest_v1/initdb.md",
+      "community": 49,
+      "norm_label": "initdb.md",
+      "id": "migratedest_v1_initdb",
+      "community_name": "initdb.md"
+    },
+    {
+      "label": "Table: fun",
+      "file_type": "code",
+      "source_file": "MigrateDest_v1/initdb.md",
+      "community": 50,
+      "norm_label": "table: fun",
+      "id": "migratedest_v1_initdb_fun",
+      "community_name": "Table: fun"
+    },
+    {
+      "label": "Table: gcc",
+      "file_type": "code",
+      "source_file": "MigrateDest_v1/initdb.md",
+      "community": 51,
+      "norm_label": "table: gcc",
+      "id": "migratedest_v1_initdb_gcc",
+      "community_name": "Table: gcc"
+    },
+    {
+      "label": "Table: grp",
+      "file_type": "code",
+      "source_file": "MigrateDest_v1/initdb.md",
+      "community": 52,
+      "norm_label": "table: grp",
+      "id": "migratedest_v1_initdb_grp",
+      "community_name": "Table: grp"
+    },
+    {
+      "label": "Table: hht",
+      "file_type": "code",
+      "source_file": "MigrateDest_v1/initdb.md",
+      "community": 53,
+      "norm_label": "table: hht",
+      "id": "migratedest_v1_initdb_hht",
+      "community_name": "Table: hht"
+    },
+    {
+      "label": "Table: idy",
+      "file_type": "code",
+      "source_file": "MigrateDest_v1/initdb.md",
+      "community": 10,
+      "norm_label": "table: idy",
+      "id": "migratedest_v1_initdb_idy",
+      "community_name": "Table: idy"
+    },
+    {
+      "label": "Table: inc",
+      "file_type": "code",
+      "source_file": "MigrateDest_v1/initdb.md",
+      "community": 54,
+      "norm_label": "table: inc",
+      "id": "migratedest_v1_initdb_inc",
+      "community_name": "Table: inc"
+    },
+    {
+      "label": "Table: ine",
+      "file_type": "code",
+      "source_file": "MigrateDest_v1/initdb.md",
+      "community": 10,
+      "norm_label": "table: ine",
+      "id": "migratedest_v1_initdb_ine",
+      "community_name": "Table: idy"
+    },
+    {
+      "label": "Table: irt",
+      "file_type": "code",
+      "source_file": "MigrateDest_v1/initdb.md",
+      "community": 10,
+      "norm_label": "table: irt",
+      "id": "migratedest_v1_initdb_irt",
+      "community_name": "Table: idy"
+    },
+    {
+      "label": "Table: lds",
+      "file_type": "code",
+      "source_file": "MigrateDest_v1/initdb.md",
+      "community": 55,
+      "norm_label": "table: lds",
+      "id": "migratedest_v1_initdb_lds",
+      "community_name": "Table: lds"
+    },
+    {
+      "label": "Table: led",
+      "file_type": "code",
+      "source_file": "MigrateDest_v1/initdb.md",
+      "community": 10,
+      "norm_label": "table: led",
+      "id": "migratedest_v1_initdb_led",
+      "community_name": "Table: idy"
+    },
+    {
+      "label": "Table: lev",
+      "file_type": "code",
+      "source_file": "MigrateDest_v1/initdb.md",
+      "community": 23,
+      "norm_label": "table: lev",
+      "id": "migratedest_v1_initdb_lev",
+      "community_name": "Table: lev"
+    },
+    {
+      "label": "Table: lnv",
+      "file_type": "code",
+      "source_file": "MigrateDest_v1/initdb.md",
+      "community": 23,
+      "norm_label": "table: lnv",
+      "id": "migratedest_v1_initdb_lnv",
+      "community_name": "Table: lev"
+    },
+    {
+      "label": "Table: loc",
+      "file_type": "code",
+      "source_file": "MigrateDest_v1/initdb.md",
+      "community": 56,
+      "norm_label": "table: loc",
+      "id": "migratedest_v1_initdb_loc",
+      "community_name": "Table: loc"
+    },
+    {
+      "label": "Table: log",
+      "file_type": "code",
+      "source_file": "MigrateDest_v1/initdb.md",
+      "community": 22,
+      "norm_label": "table: log",
+      "id": "migratedest_v1_initdb_log",
+      "community_name": "foxuser (Metadata)"
+    },
+    {
+      "label": "foxuser (Metadata)",
+      "file_type": "code",
+      "source_file": "MigrateDest_v1/initdb.md",
+      "community": 22,
+      "norm_label": "foxuser (metadata)",
+      "id": "migratedest_v1_initdb_foxuser",
+      "community_name": "foxuser (Metadata)"
+    },
+    {
+      "label": "Direct Store Distribution (DSD) ERP",
+      "file_type": "concept",
+      "source_file": "claudeguidance.md",
+      "community": 25,
+      "norm_label": "direct store distribution (dsd) erp",
+      "id": "claudeguidance_das",
+      "community_name": "Direct Store Distribution (DSD) ERP"
+    },
+    {
+      "label": "EFF.DBC (FoxPro Database Container)",
+      "file_type": "code",
+      "source_file": "claudeguidance.md",
+      "community": 4,
+      "norm_label": "eff.dbc (foxpro database container)",
+      "id": "claudeguidance_eff_dbc",
+      "community_name": "EFF.DBC (FoxPro Database Container)"
+    },
+    {
+      "label": "Effmcg.vbp (VB6 Project)",
+      "file_type": "code",
+      "source_file": "claudeguidance.md",
+      "community": 4,
+      "norm_label": "effmcg.vbp (vb6 project)",
+      "id": "claudeguidance_effmcg_vbp",
+      "community_name": "EFF.DBC (FoxPro Database Container)"
+    },
+    {
+      "label": "M_FRM_SAL.frm (Sales Invoice Form)",
+      "file_type": "code",
+      "source_file": "claudeguidance.md",
+      "community": 4,
+      "norm_label": "m_frm_sal.frm (sales invoice form)",
+      "id": "claudeguidance_m_frm_sal",
+      "community_name": "EFF.DBC (FoxPro Database Container)"
+    },
+    {
+      "label": "ModTallyInterface.bas",
+      "file_type": "code",
+      "source_file": "claudeguidance.md",
+      "community": 15,
+      "norm_label": "modtallyinterface.bas",
+      "id": "claudeguidance_modtallyinterface",
+      "community_name": "ModTallyInterface.bas"
+    },
+    {
+      "label": "dsync.PRG",
+      "file_type": "code",
+      "source_file": "claudeguidance.md",
+      "community": 14,
+      "norm_label": "dsync.prg",
+      "id": "claudeguidance_dsync_prg",
+      "community_name": "dsync.PRG"
+    },
+    {
+      "label": "Handheld Terminal (HHT) Sync Layer",
+      "file_type": "concept",
+      "source_file": "claudeguidance.md",
+      "community": 14,
+      "norm_label": "handheld terminal (hht) sync layer",
+      "id": "claudeguidance_hht_sync",
+      "community_name": "dsync.PRG"
+    },
+    {
+      "label": "Tally ERP Integration",
+      "file_type": "concept",
+      "source_file": "claudeguidance.md",
+      "community": 15,
+      "norm_label": "tally erp integration",
+      "id": "claudeguidance_tally_integration",
+      "community_name": "ModTallyInterface.bas"
+    },
+    {
+      "label": "Cola Connect Smarter Decisions Logo",
+      "file_type": "image",
+      "source_file": "LegacyCodebase/NCC.JPG",
+      "source_location": null,
+      "community": 0,
+      "norm_label": "cola connect smarter decisions logo",
+      "id": "legacycodebase_ncc_jpg",
+      "community_name": "MM_EX_FILE"
+    },
+    {
+      "label": "CSPL Logo",
+      "file_type": "image",
+      "source_file": "LegacyCodebase/cspl.JPG",
+      "source_location": null,
+      "community": 30,
+      "norm_label": "cspl logo",
+      "id": "legacycodebase_cspl_logo",
+      "community_name": "CSPL Logo"
+    },
+    {
+      "label": "Effmcg.vbp",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/Effmcg.vbp",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 2,
+      "norm_label": "effmcg.vbp",
+      "id": "legacycodebase_effmcg_vbp",
+      "community_name": "M_FRM_SAL.frm"
+    },
+    {
+      "label": "M_FRM_SAL.frm",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/M_FRM_SAL.frm",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 2,
+      "norm_label": "m_frm_sal.frm",
+      "id": "legacycodebase_m_frm_sal_frm",
+      "community_name": "M_FRM_SAL.frm"
+    },
+    {
+      "label": "EFF_LIB.bas",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/EFF_LIB.bas",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 2,
+      "norm_label": "eff_lib.bas",
+      "id": "legacycodebase_eff_lib_bas",
+      "community_name": "M_FRM_SAL.frm"
+    },
+    {
+      "label": "modGeneral.bas",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/modGeneral.bas",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 2,
+      "norm_label": "modgeneral.bas",
+      "id": "legacycodebase_modgeneral_bas",
+      "community_name": "M_FRM_SAL.frm"
+    },
+    {
+      "label": "ModTallyInterface.bas",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/ModTallyInterface.bas",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 2,
+      "norm_label": "modtallyinterface.bas",
+      "id": "legacycodebase_modtallyinterface_bas",
+      "community_name": "M_FRM_SAL.frm"
+    },
+    {
+      "label": "modInnComm.bas",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/modInnComm.bas",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 2,
+      "norm_label": "modinncomm.bas",
+      "id": "legacycodebase_modinncomm_bas",
+      "community_name": "M_FRM_SAL.frm"
+    },
+    {
+      "label": "ACT.DBF",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/ACT.DBF",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 2,
+      "norm_label": "act.dbf",
+      "id": "legacycodebase_act_dbf",
+      "community_name": "M_FRM_SAL.frm"
+    },
+    {
+      "label": "PRD.DBF",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/PRD.DBF",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 2,
+      "norm_label": "prd.dbf",
+      "id": "legacycodebase_prd_dbf",
+      "community_name": "M_FRM_SAL.frm"
+    },
+    {
+      "label": "INV.DBF",
+      "file_type": "code",
+      "source_file": "LegacyCodebase/INV.DBF",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 2,
+      "norm_label": "inv.dbf",
+      "id": "legacycodebase_inv_dbf",
+      "community_name": "M_FRM_SAL.frm"
+    },
+    {
+      "label": "Consoft Logo",
+      "file_type": "image",
+      "source_file": "LegacyCodebase/cspl.PNG",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 31,
+      "norm_label": "consoft logo",
+      "id": "legacycodebase_cspl_png",
+      "community_name": "Consoft Logo"
+    },
+    {
+      "label": "Consoft Logo",
+      "file_type": "image",
+      "source_file": "LegacyCodebase/csplNEW.GIF",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 33,
+      "norm_label": "consoft logo",
+      "id": "legacycodebase_csplnew_gif",
+      "community_name": "Consoft Logo"
+    },
+    {
+      "label": "Consoft Logo",
+      "file_type": "image",
+      "source_file": "LegacyCodebase/csplNEW.JPG",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 34,
+      "norm_label": "consoft logo",
+      "id": "legacycodebase_csplnew_jpg",
+      "community_name": "Consoft Logo"
+    },
+    {
+      "label": "Consoft Logo",
+      "file_type": "image",
+      "source_file": "LegacyCodebase/csplNEW.PNG",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 35,
+      "norm_label": "consoft logo",
+      "id": "legacycodebase_csplnew_png",
+      "community_name": "Consoft Logo"
+    },
+    {
+      "label": "Consoft Logo",
+      "file_type": "image",
+      "source_file": "LegacyCodebase/cspl_tiny.gif",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 32,
+      "norm_label": "consoft logo",
+      "id": "legacycodebase_cspl_tiny_gif",
+      "community_name": "Consoft Logo"
+    },
+    {
+      "label": "Consoft Logo",
+      "file_type": "image",
+      "source_file": "LegacyCodebase/logo.gif",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 45,
+      "norm_label": "consoft logo",
+      "id": "legacycodebase_logo_gif",
+      "community_name": "Consoft Logo"
+    },
+    {
+      "label": "Consoft Logo",
+      "file_type": "image",
+      "source_file": "LegacyCodebase/logo1.gif",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 43,
+      "norm_label": "consoft logo",
+      "id": "legacycodebase_logo1_gif",
+      "community_name": "Consoft Logo"
+    },
+    {
+      "label": "Consoft Logo",
+      "file_type": "image",
+      "source_file": "LegacyCodebase/logo2.gif",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 44,
+      "norm_label": "consoft logo",
+      "id": "legacycodebase_logo2_gif",
+      "community_name": "Consoft Logo"
+    },
+    {
+      "label": "EFF_LIB.bas",
+      "file_type": "code",
+      "source_file": "ai_migration_analysis/05_business_logic_extraction.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 9,
+      "norm_label": "eff_lib.bas",
+      "id": "ai_migration_analysis_05_business_logic_extraction_eff_lib",
+      "community_name": "EFF_LIB.bas"
+    },
+    {
+      "label": "MTS",
+      "file_type": "code",
+      "source_file": "ai_migration_analysis/05_business_logic_extraction.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 9,
+      "norm_label": "mts",
+      "id": "ai_migration_analysis_05_business_logic_extraction_mts",
+      "community_name": "EFF_LIB.bas"
+    },
+    {
+      "label": "STM",
+      "file_type": "code",
+      "source_file": "ai_migration_analysis/05_business_logic_extraction.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 24,
+      "norm_label": "stm",
+      "id": "ai_migration_analysis_05_business_logic_extraction_stm",
+      "community_name": "STM"
+    },
+    {
+      "label": "N_UPD_STK",
+      "file_type": "code",
+      "source_file": "ai_migration_analysis/05_business_logic_extraction.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 9,
+      "norm_label": "n_upd_stk",
+      "id": "ai_migration_analysis_05_business_logic_extraction_n_upd_stk",
+      "community_name": "EFF_LIB.bas"
+    },
+    {
+      "label": "STL_LED",
+      "file_type": "code",
+      "source_file": "ai_migration_analysis/05_business_logic_extraction.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 9,
+      "norm_label": "stl_led",
+      "id": "ai_migration_analysis_05_business_logic_extraction_stl_led",
+      "community_name": "EFF_LIB.bas"
+    },
+    {
+      "label": "ModTallyInterface.bas",
+      "file_type": "code",
+      "source_file": "ai_migration_analysis/06_integrations_and_devices.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 13,
+      "norm_label": "modtallyinterface.bas",
+      "id": "ai_migration_analysis_06_integrations_and_devices_modtallyinterface",
+      "community_name": "ModTallyInterface.bas"
+    },
+    {
+      "label": "SendData",
+      "file_type": "code",
+      "source_file": "ai_migration_analysis/06_integrations_and_devices.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 13,
+      "norm_label": "senddata",
+      "id": "ai_migration_analysis_06_integrations_and_devices_senddata",
+      "community_name": "ModTallyInterface.bas"
+    }
+  ],
+  "links": [
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "LegacyCodebase/CRSEXTRACT/Class1.cls",
+      "source_location": "L703",
+      "weight": 1.0,
+      "confidence_score": 0.5,
+      "source": "legacycodebase_crsextract_class1",
+      "target": "legacycodebase_crsextract_class1_cls_dml_delete"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "LegacyCodebase/CRSEXTRACT/Class1.cls",
+      "source_location": "L972",
+      "weight": 1.0,
+      "confidence_score": 0.5,
+      "source": "legacycodebase_crsextract_class1",
+      "target": "legacycodebase_crsextract_class1_cls_dml_update"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "LegacyCodebase/Class1.cls",
+      "source_location": "L247",
+      "weight": 1.0,
+      "confidence_score": 0.5,
+      "source": "legacycodebase_class1",
+      "target": "legacycodebase_class1_cls_dml_delete"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "LegacyCodebase/MMEXTRACT/Class1.cls",
+      "source_location": "L703",
+      "weight": 1.0,
+      "confidence_score": 0.5,
+      "source": "legacycodebase_mmextract_class1",
+      "target": "legacycodebase_mmextract_class1_cls_dml_delete"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "LegacyCodebase/MMEXTRACT/Class1.cls",
+      "source_location": "L972",
+      "weight": 1.0,
+      "confidence_score": 0.5,
+      "source": "legacycodebase_mmextract_class1",
+      "target": "legacycodebase_mmextract_class1_cls_dml_update"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "migrate_db.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "migrate_db",
+      "target": "migrate_db_clean_name"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "migrate_db.py",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "migrate_db",
+      "target": "migrate_db_dbfreader"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "migrate_db.py",
+      "source_location": "L273",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "migrate_db",
+      "target": "migrate_db_generate_postgres_dump"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "migrate_db.py",
+      "source_location": "L186",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "migrate_db",
+      "target": "migrate_db_map_type_to_postgres"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "migrate_db.py",
+      "source_location": "L217",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "migrate_db",
+      "target": "migrate_db_parse_source_files"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "migrate_db.py",
+      "source_location": "L308",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "migrate_db_generate_postgres_dump",
+      "target": "migrate_db_clean_name"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "migrate_db.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "migrate_db_rationale_8",
+      "target": "migrate_db_clean_name"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "migrate_db.py",
+      "source_location": "L23",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "migrate_db_dbfreader",
+      "target": "migrate_db_dbfreader_init"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "migrate_db.py",
+      "source_location": "L70",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "migrate_db_dbfreader",
+      "target": "migrate_db_dbfreader_read_dbf"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "migrate_db.py",
+      "source_location": "L35",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "migrate_db_dbfreader",
+      "target": "migrate_db_dbfreader_read_memo_header"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "migrate_db.py",
+      "source_location": "L48",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "migrate_db_dbfreader",
+      "target": "migrate_db_dbfreader_read_memo_val"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "migrate_db.py",
+      "source_location": "L312",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "migrate_db_generate_postgres_dump",
+      "target": "migrate_db_dbfreader"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "migrate_db.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "migrate_db_rationale_22",
+      "target": "migrate_db_dbfreader"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "migrate_db.py",
+      "source_location": "L33",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "migrate_db_dbfreader_init",
+      "target": "migrate_db_dbfreader_read_dbf"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "migrate_db.py",
+      "source_location": "L32",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "migrate_db_dbfreader_init",
+      "target": "migrate_db_dbfreader_read_memo_header"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "migrate_db.py",
+      "source_location": "L157",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "migrate_db_dbfreader_read_dbf",
+      "target": "migrate_db_dbfreader_read_memo_val"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "migrate_db.py",
+      "source_location": "L324",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "migrate_db_generate_postgres_dump",
+      "target": "migrate_db_map_type_to_postgres"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "migrate_db.py",
+      "source_location": "L283",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "migrate_db_generate_postgres_dump",
+      "target": "migrate_db_parse_source_files"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "migrate_db.py",
+      "source_location": "L218",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "migrate_db_rationale_218",
+      "target": "migrate_db_parse_source_files"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "LegacyCodebase/CRSEXTRACT/MMExtract.txt",
+      "source": "legacycodebase_crsextract_mmextract_mm_ex_file",
+      "target": "das_mobile_gsm_interface"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LegacyCodebase/CRSEXTRACT/MMExtract.txt",
+      "source": "legacycodebase_crsextract_mmextract_mm_ex_file",
+      "target": "legacycodebase_crsextract_mmextract_getvalue"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LegacyCodebase/CRSEXTRACT/MMExtract.txt",
+      "source": "legacycodebase_crsextract_mmextract_mm_ex_file",
+      "target": "legacycodebase_crsextract_mmextract_mailsend"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LegacyCodebase/CRSEXTRACT/MMExtract.txt",
+      "source": "legacycodebase_crsextract_mmextract_mm_ex_file",
+      "target": "legacycodebase_crsextract_mmextract_stktxtdex"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LegacyCodebase/CRSEXTRACT/MMExtract.txt",
+      "source": "legacycodebase_crsextract_mmextract_mm_ex_file",
+      "target": "legacycodebase_dbf_act"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LegacyCodebase/CRSEXTRACT/MMExtract.txt",
+      "source": "legacycodebase_crsextract_mmextract_mm_ex_file",
+      "target": "legacycodebase_dbf_brd"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LegacyCodebase/CRSEXTRACT/MMExtract.txt",
+      "source": "legacycodebase_crsextract_mmextract_mm_ex_file",
+      "target": "legacycodebase_dbf_cat"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LegacyCodebase/CRSEXTRACT/MMExtract.txt",
+      "source": "legacycodebase_crsextract_mmextract_mm_ex_file",
+      "target": "legacycodebase_dbf_cld"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LegacyCodebase/CRSEXTRACT/MMExtract.txt",
+      "source": "legacycodebase_crsextract_mmextract_mm_ex_file",
+      "target": "legacycodebase_dbf_dir"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LegacyCodebase/CRSEXTRACT/MMExtract.txt",
+      "source": "legacycodebase_crsextract_mmextract_mm_ex_file",
+      "target": "legacycodebase_dbf_inl"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LegacyCodebase/CRSEXTRACT/MMExtract.txt",
+      "source": "legacycodebase_crsextract_mmextract_mm_ex_file",
+      "target": "legacycodebase_dbf_inv"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LegacyCodebase/CRSEXTRACT/MMExtract.txt",
+      "source": "legacycodebase_crsextract_mmextract_mm_ex_file",
+      "target": "legacycodebase_dbf_loc"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LegacyCodebase/CRSEXTRACT/MMExtract.txt",
+      "source": "legacycodebase_crsextract_mmextract_mm_ex_file",
+      "target": "legacycodebase_dbf_mar"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LegacyCodebase/CRSEXTRACT/MMExtract.txt",
+      "source": "legacycodebase_crsextract_mmextract_mm_ex_file",
+      "target": "legacycodebase_dbf_prd"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LegacyCodebase/CRSEXTRACT/MMExtract.txt",
+      "source": "legacycodebase_crsextract_mmextract_mm_ex_file",
+      "target": "legacycodebase_dbf_sch"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LegacyCodebase/CRSEXTRACT/MMExtract.txt",
+      "source": "legacycodebase_crsextract_mmextract_mm_ex_file",
+      "target": "legacycodebase_dbf_smn"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "LegacyCodebase/MMEXTRACT/VER_APP.TXT",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "effmcg_exe",
+      "target": "eff_dbc"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LegacyCodebase/MMEXTRACT/VER_APP.TXT",
+      "source": "effmcg_exe",
+      "target": "prince_chopra_volume"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "LegacyCodebase/CRSEXTRACT/VER_APP.TXT",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "dasxtract_exe",
+      "target": "eff_dbc"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LegacyCodebase/CRSEXTRACT/VER_APP.TXT",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "eff_dbc",
+      "target": "eff_dct"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LegacyCodebase/CRSEXTRACT/VER_APP.TXT",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "eff_dbc",
+      "target": "eff_dcx"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "LegacyCodebase/CRSEXTRACT/VER_APP.TXT",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "fastbkp_exe",
+      "target": "eff_dbc"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LegacyCodebase/CRSEXTRACT/VER_APP.TXT",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "foxuser_dbf",
+      "target": "foxuser_fpt"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LegacyCodebase/DASXtract/VER_APP.TXT",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "index_vbp",
+      "target": "indexdata_exe"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LegacyCodebase/DASXtract/VER_APP.TXT",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "index_vbp",
+      "target": "cmp_sel_frm"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LegacyCodebase/DASXtract/VER_APP.TXT",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "index_vbp",
+      "target": "fbkp_bas"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LegacyCodebase/DASXtract/VER_APP.TXT",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "index_vbp",
+      "target": "m_frm_str_frm"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LegacyCodebase/HHT/LOG.TXT",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "legacycodebase_hht_log_txt",
+      "target": "hht_location_txt"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LegacyCodebase/HHT/LOG.TXT",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "legacycodebase_hht_log_txt",
+      "target": "hht_market_txt"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LegacyCodebase/HHT/LOG.TXT",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "legacycodebase_hht_log_txt",
+      "target": "hht_party_txt"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LegacyCodebase/HHT/LOG.TXT",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "legacycodebase_hht_log_txt",
+      "target": "hht_salesman_txt"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "LegacyCodebase/HHT/PARTY.TXT",
+      "source": "legacycodebase_hht_party",
+      "target": "legacycodebase_hht_salesman"
+    },
+    {
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "LegacyCodebase/INDEXFILES/Setup/SMSMessageTemplate.txt",
+      "source": "indexfiles_setup_smsmessagetemplate",
+      "target": "concept_das_data_transfer"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "LegacyCodebase/INLSTRU.TXT",
+      "source": "legacycodebase_inlstru_txt",
+      "target": "claudeguidance_eff_dbc"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LegacyCodebase/MMEXTRACT/MMExtract.txt",
+      "source": "legacycodebase_mmextract_mmextract_mm_ex_file",
+      "target": "colazip_gscolazip32"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "LegacyCodebase/MMEXTRACT/MMExtract.txt",
+      "source": "legacycodebase_mmextract_mmextract_mm_ex_file",
+      "target": "concept_das_data_transfer"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LegacyCodebase/MMEXTRACT/MMExtract.txt",
+      "source": "legacycodebase_mmextract_mmextract_mm_ex_file",
+      "target": "legacycodebase_mmextract_mmextract_mailsend"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LegacyCodebase/MMEXTRACT/MMExtract.txt",
+      "source": "legacycodebase_mmextract_mmextract_mm_ex_file",
+      "target": "legacycodebase_mmextract_mmextract_stktxtdex"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "MigrateDest_v1/initdb.md",
+      "source": "m_frm_trs_frm",
+      "target": "snv_dbf"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "MigrateDest_v1/initdb.md",
+      "source": "m_frm_pcs_pcs_frm",
+      "target": "inv_dbf"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "MigrateDest_v1/initdb.md",
+      "source": "m_frm_ord_frm",
+      "target": "act_dbf"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "MigrateDest_v1/initdb.md",
+      "source": "m_frm_pcs_pcs_frm",
+      "target": "act_dbf"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "MigrateDest_v1/initdb.md",
+      "source": "m_frm_mibs_frm",
+      "target": "prd_dbf"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LegacyCodebase/SMSMessageTemplate.txt",
+      "source": "legacycodebase_smsmessagetemplate_txt",
+      "target": "claudeguidance_eff_dbc"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LegacyCodebase/VER_APP.TXT",
+      "source": "legacycodebase_ver_app_txt",
+      "target": "claudeguidance_m_frm_sal"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "source_file": "LegacyCodebase/NCC.JPG",
+      "source": "legacycodebase_ncc_jpg",
+      "target": "das_mobile_gsm_interface"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "MigrateDest_v1/initdb.md",
+      "source": "etlinterfaceform_frm",
+      "target": "foxpro_driver"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "MigrateDest_v1/initdb.md",
+      "source": "migratedest_v1_initdb_ine",
+      "target": "migratedest_v1_initdb_idy"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "MigrateDest_v1/initdb.md",
+      "source": "migratedest_v1_initdb_irt",
+      "target": "migratedest_v1_initdb_idy"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "MigrateDest_v1/initdb.md",
+      "source": "migratedest_v1_initdb_led",
+      "target": "migratedest_v1_initdb_idy"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "MigrateDest_v1/initdb.md",
+      "source": "migratedest_v1_initdb_lnv",
+      "target": "migratedest_v1_initdb_lev"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "source_file": "MigrateDest_v1/initdb.md",
+      "source": "migratedest_v1_initdb_log",
+      "target": "migratedest_v1_initdb_foxuser"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "claudeguidance.md",
+      "source": "claudeguidance_effmcg_vbp",
+      "target": "claudeguidance_eff_dbc"
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "claudeguidance.md",
+      "source": "claudeguidance_m_frm_sal",
+      "target": "claudeguidance_eff_dbc"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "claudeguidance.md",
+      "source": "claudeguidance_modtallyinterface",
+      "target": "claudeguidance_tally_integration"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "claudeguidance.md",
+      "source": "claudeguidance_dsync_prg",
+      "target": "claudeguidance_hht_sync"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LegacyCodebase/Effmcg.vbp",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "legacycodebase_effmcg_vbp",
+      "target": "legacycodebase_eff_lib_bas"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LegacyCodebase/Effmcg.vbp",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "legacycodebase_effmcg_vbp",
+      "target": "legacycodebase_m_frm_sal_frm"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "LegacyCodebase/M_FRM_SAL.frm",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "legacycodebase_m_frm_sal_frm",
+      "target": "legacycodebase_act_dbf"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LegacyCodebase/M_FRM_SAL.frm",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "legacycodebase_m_frm_sal_frm",
+      "target": "legacycodebase_eff_lib_bas"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "LegacyCodebase/M_FRM_SAL.frm",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "legacycodebase_m_frm_sal_frm",
+      "target": "legacycodebase_inv_dbf"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LegacyCodebase/M_FRM_SAL.frm",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "legacycodebase_m_frm_sal_frm",
+      "target": "legacycodebase_modgeneral_bas"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "LegacyCodebase/M_FRM_SAL.frm",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "legacycodebase_m_frm_sal_frm",
+      "target": "legacycodebase_prd_dbf"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "LegacyCodebase/modInnComm.bas",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "legacycodebase_modinncomm_bas",
+      "target": "legacycodebase_modgeneral_bas"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "LegacyCodebase/ModTallyInterface.bas",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "legacycodebase_modtallyinterface_bas",
+      "target": "legacycodebase_modgeneral_bas"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "ai_migration_analysis/05_business_logic_extraction.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "ai_migration_analysis_05_business_logic_extraction_n_upd_stk",
+      "target": "ai_migration_analysis_05_business_logic_extraction_eff_lib"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "ai_migration_analysis/05_business_logic_extraction.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "ai_migration_analysis_05_business_logic_extraction_stl_led",
+      "target": "ai_migration_analysis_05_business_logic_extraction_eff_lib"
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "ai_migration_analysis/05_business_logic_extraction.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "ai_migration_analysis_05_business_logic_extraction_n_upd_stk",
+      "target": "ai_migration_analysis_05_business_logic_extraction_mts"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "ai_migration_analysis/06_integrations_and_devices.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "ai_migration_analysis_06_integrations_and_devices_modtallyinterface",
+      "target": "ai_migration_analysis_06_integrations_and_devices_senddata"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "data_extraction_flow",
+      "label": "DAS Data Extraction and Transfer Flow",
+      "nodes": [
+        "legacycodebase_crsextract_mmextract_mm_ex_file",
+        "legacycodebase_dbf_act",
+        "legacycodebase_dbf_inv",
+        "legacycodebase_dbf_inl",
+        "legacycodebase_dbf_prd",
+        "legacycodebase_dbf_brd"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.9,
+      "source_file": "LegacyCodebase/CRSEXTRACT/MMExtract.txt"
+    },
+    {
+      "id": "visual_foxpro_database_core",
+      "label": "Visual FoxPro Database Core",
+      "nodes": [
+        "eff_dbc",
+        "eff_dct",
+        "eff_dcx"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LegacyCodebase/CRSEXTRACT/VER_APP.TXT"
+    },
+    {
+      "id": "das_extraction_utility",
+      "label": "DAS Extraction Utility Project",
+      "nodes": [
+        "index_vbp",
+        "indexdata_exe",
+        "fbkp_bas",
+        "cmp_sel_frm",
+        "m_frm_str_frm"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LegacyCodebase/DASXtract/VER_APP.TXT"
+    },
+    {
+      "id": "hht_data_exchange_set",
+      "label": "HHT Data Exchange Set",
+      "nodes": [
+        "hht_party_txt",
+        "hht_location_txt",
+        "hht_market_txt",
+        "hht_salesman_txt",
+        "legacycodebase_hht_inv_str_txt",
+        "legacycodebase_hht_inl_str_txt"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "LegacyCodebase/HHT/LOG.TXT"
+    },
+    {
+      "id": "hht_data_structure",
+      "label": "Hand Held Terminal Data Files",
+      "nodes": [
+        "legacycodebase_hht_party",
+        "legacycodebase_hht_salesman",
+        "legacycodebase_hht_version"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.9,
+      "source_file": "LegacyCodebase/HHT/PARTY.TXT"
+    },
+    {
+      "id": "das_extract_flow",
+      "label": "DAS Data Extraction and Export Flow",
+      "nodes": [
+        "legacycodebase_mmextract_mmextract_mm_ex_file",
+        "legacycodebase_mmextract_dir_inf",
+        "concept_das_data_transfer"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.95,
+      "source_file": "LegacyCodebase/MMEXTRACT/MMExtract.txt"
+    },
+    {
+      "id": "effmcg_application_suite",
+      "label": "EFFMCG Application Suite",
+      "nodes": [
+        "effmcg_exe",
+        "eff_dbc",
+        "mmextract_exe",
+        "m_frm_trs_frm",
+        "m_frm_pcs_pcs_frm"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "LegacyCodebase/MMEXTRACT/VER_APP.TXT"
+    },
+    {
+      "id": "sms_subsystem",
+      "label": "SMS Notification Subsystem",
+      "nodes": [
+        "legacycodebase_smsmessagetemplate_txt",
+        "legacycodebase_comsettings_txt",
+        "claudeguidance_effmcg_vbp"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "LegacyCodebase/SMSMessageTemplate.txt"
+    },
+    {
+      "id": "data_migration_flow",
+      "label": "Legacy Data Extraction Flow",
+      "nodes": [
+        "mmextract_exe",
+        "eff_dbc",
+        "foxpro_driver",
+        "etlinterfaceform_frm"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "MigrateDest_v1/initdb.md"
+    },
+    {
+      "id": "accounting_schema_core",
+      "label": "Accounting Schema Core",
+      "nodes": [
+        "migratedest_v1_initdb_grp",
+        "migratedest_v1_initdb_led",
+        "migratedest_v1_initdb_idy"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "MigrateDest_v1/initdb.md"
+    },
+    {
+      "id": "inventory_transaction_flow",
+      "label": "Inventory Transaction Flow",
+      "nodes": [
+        "migratedest_v1_initdb_ine",
+        "migratedest_v1_initdb_lnv",
+        "migratedest_v1_initdb_loc"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "MigrateDest_v1/initdb.md"
+    },
+    {
+      "id": "das_core_modules",
+      "label": "DAS Core ERP Modules",
+      "nodes": [
+        "claudeguidance_m_frm_sal",
+        "claudeguidance_modtallyinterface",
+        "claudeguidance_dsync_prg",
+        "claudeguidance_eff_dbc"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "claudeguidance.md"
+    },
+    {
+      "id": "consoft_branding",
+      "label": "Consoft Systems Branding Assets",
+      "nodes": [
+        "legacycodebase_cspl_png",
+        "legacycodebase_csplnew_gif",
+        "legacycodebase_csplnew_jpg",
+        "legacycodebase_csplnew_png",
+        "legacycodebase_cspl_tiny_gif",
+        "legacycodebase_logo_gif",
+        "legacycodebase_logo1_gif",
+        "legacycodebase_logo2_gif"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "LegacyCodebase/"
+    },
+    {
+      "id": "core_vb6_forms",
+      "label": "Core Business Forms",
+      "nodes": [
+        "legacycodebase_m_frm_sal_frm"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.9,
+      "source_file": "LegacyCodebase/Effmcg.vbp"
+    },
+    {
+      "id": "stock_update_logic_group",
+      "label": "Stock Update Logic",
+      "nodes": [
+        "ai_migration_analysis_05_business_logic_extraction_n_upd_stk",
+        "ai_migration_analysis_05_business_logic_extraction_stl_led",
+        "ai_migration_analysis_05_business_logic_extraction_eff_lib"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.9,
+      "source_file": "ai_migration_analysis/05_business_logic_extraction.md"
+    }
+  ],
+  "built_at_commit": "bb8258f14782f41d6cbb88646e3e552c76b714a7"
+}

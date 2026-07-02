@@ -1,0 +1,436 @@
+{
+  "communities": {
+    "0": [
+      "das_mobile_gsm_interface",
+      "legacycodebase_crsextract_mmextract_getvalue",
+      "legacycodebase_crsextract_mmextract_mailsend",
+      "legacycodebase_crsextract_mmextract_mm_ex_file",
+      "legacycodebase_crsextract_mmextract_stktxtdex",
+      "legacycodebase_dbf_act",
+      "legacycodebase_dbf_brd",
+      "legacycodebase_dbf_cat",
+      "legacycodebase_dbf_cld",
+      "legacycodebase_dbf_dir",
+      "legacycodebase_dbf_inl",
+      "legacycodebase_dbf_inv",
+      "legacycodebase_dbf_loc",
+      "legacycodebase_dbf_mar",
+      "legacycodebase_dbf_prd",
+      "legacycodebase_dbf_sch",
+      "legacycodebase_dbf_smn",
+      "legacycodebase_ncc_jpg"
+    ],
+    "1": [
+      "migrate_db",
+      "migrate_db_clean_name",
+      "migrate_db_dbfreader",
+      "migrate_db_dbfreader_init",
+      "migrate_db_dbfreader_read_dbf",
+      "migrate_db_dbfreader_read_memo_header",
+      "migrate_db_dbfreader_read_memo_val",
+      "migrate_db_generate_postgres_dump",
+      "migrate_db_map_type_to_postgres",
+      "migrate_db_parse_source_files",
+      "migrate_db_rationale_218",
+      "migrate_db_rationale_22",
+      "migrate_db_rationale_8"
+    ],
+    "2": [
+      "legacycodebase_act_dbf",
+      "legacycodebase_eff_lib_bas",
+      "legacycodebase_effmcg_vbp",
+      "legacycodebase_inv_dbf",
+      "legacycodebase_m_frm_sal_frm",
+      "legacycodebase_modgeneral_bas",
+      "legacycodebase_modinncomm_bas",
+      "legacycodebase_modtallyinterface_bas",
+      "legacycodebase_prd_dbf"
+    ],
+    "3": [
+      "dasxtract_exe",
+      "eff_dbc",
+      "eff_dct",
+      "eff_dcx",
+      "effmcg_exe",
+      "fastbkp_exe",
+      "prince_chopra_volume"
+    ],
+    "4": [
+      "claudeguidance_eff_dbc",
+      "claudeguidance_effmcg_vbp",
+      "claudeguidance_m_frm_sal",
+      "legacycodebase_inlstru_txt",
+      "legacycodebase_smsmessagetemplate_txt",
+      "legacycodebase_ver_app_txt"
+    ],
+    "5": [
+      "colazip_gscolazip32",
+      "concept_das_data_transfer",
+      "indexfiles_setup_smsmessagetemplate",
+      "legacycodebase_mmextract_mmextract_mailsend",
+      "legacycodebase_mmextract_mmextract_mm_ex_file",
+      "legacycodebase_mmextract_mmextract_stktxtdex"
+    ],
+    "6": [
+      "cmp_sel_frm",
+      "fbkp_bas",
+      "index_vbp",
+      "indexdata_exe",
+      "m_frm_str_frm"
+    ],
+    "7": [
+      "hht_location_txt",
+      "hht_market_txt",
+      "hht_party_txt",
+      "hht_salesman_txt",
+      "legacycodebase_hht_log_txt"
+    ],
+    "8": [
+      "act_dbf",
+      "inv_dbf",
+      "m_frm_ord_frm",
+      "m_frm_pcs_pcs_frm"
+    ],
+    "9": [
+      "ai_migration_analysis_05_business_logic_extraction_eff_lib",
+      "ai_migration_analysis_05_business_logic_extraction_mts",
+      "ai_migration_analysis_05_business_logic_extraction_n_upd_stk",
+      "ai_migration_analysis_05_business_logic_extraction_stl_led"
+    ],
+    "10": [
+      "migratedest_v1_initdb_idy",
+      "migratedest_v1_initdb_ine",
+      "migratedest_v1_initdb_irt",
+      "migratedest_v1_initdb_led"
+    ],
+    "11": [
+      "legacycodebase_crsextract_class1",
+      "legacycodebase_crsextract_class1_cls_dml_delete",
+      "legacycodebase_crsextract_class1_cls_dml_update"
+    ],
+    "12": [
+      "legacycodebase_mmextract_class1",
+      "legacycodebase_mmextract_class1_cls_dml_delete",
+      "legacycodebase_mmextract_class1_cls_dml_update"
+    ],
+    "13": [
+      "ai_migration_analysis_06_integrations_and_devices_modtallyinterface",
+      "ai_migration_analysis_06_integrations_and_devices_senddata"
+    ],
+    "14": [
+      "claudeguidance_dsync_prg",
+      "claudeguidance_hht_sync"
+    ],
+    "15": [
+      "claudeguidance_modtallyinterface",
+      "claudeguidance_tally_integration"
+    ],
+    "16": [
+      "etlinterfaceform_frm",
+      "foxpro_driver"
+    ],
+    "17": [
+      "foxuser_dbf",
+      "foxuser_fpt"
+    ],
+    "18": [
+      "legacycodebase_class1",
+      "legacycodebase_class1_cls_dml_delete"
+    ],
+    "19": [
+      "legacycodebase_hht_party",
+      "legacycodebase_hht_salesman"
+    ],
+    "20": [
+      "m_frm_mibs_frm",
+      "prd_dbf"
+    ],
+    "21": [
+      "m_frm_trs_frm",
+      "snv_dbf"
+    ],
+    "22": [
+      "migratedest_v1_initdb_foxuser",
+      "migratedest_v1_initdb_log"
+    ],
+    "23": [
+      "migratedest_v1_initdb_lev",
+      "migratedest_v1_initdb_lnv"
+    ],
+    "24": [
+      "ai_migration_analysis_05_business_logic_extraction_stm"
+    ],
+    "25": [
+      "claudeguidance_das"
+    ],
+    "26": [
+      "indexfiles_setup_primarygroups"
+    ],
+    "27": [
+      "legacycodebase_billsave"
+    ],
+    "28": [
+      "legacycodebase_comsettings_txt"
+    ],
+    "29": [
+      "legacycodebase_crsextract_effmcg4_config"
+    ],
+    "30": [
+      "legacycodebase_cspl_logo"
+    ],
+    "31": [
+      "legacycodebase_cspl_png"
+    ],
+    "32": [
+      "legacycodebase_cspl_tiny_gif"
+    ],
+    "33": [
+      "legacycodebase_csplnew_gif"
+    ],
+    "34": [
+      "legacycodebase_csplnew_jpg"
+    ],
+    "35": [
+      "legacycodebase_csplnew_png"
+    ],
+    "36": [
+      "legacycodebase_das_dbu_txt"
+    ],
+    "37": [
+      "legacycodebase_dec"
+    ],
+    "38": [
+      "legacycodebase_encpassword"
+    ],
+    "39": [
+      "legacycodebase_helpdesk_txt"
+    ],
+    "40": [
+      "legacycodebase_hht_inl_str_txt"
+    ],
+    "41": [
+      "legacycodebase_hht_inv_str_txt"
+    ],
+    "42": [
+      "legacycodebase_hht_version"
+    ],
+    "43": [
+      "legacycodebase_logo1_gif"
+    ],
+    "44": [
+      "legacycodebase_logo2_gif"
+    ],
+    "45": [
+      "legacycodebase_logo_gif"
+    ],
+    "46": [
+      "legacycodebase_mmextract_dir_inf"
+    ],
+    "47": [
+      "legacycodebase_primarygroups_txt"
+    ],
+    "48": [
+      "m_frm_sch_frm"
+    ],
+    "49": [
+      "migratedest_v1_initdb"
+    ],
+    "50": [
+      "migratedest_v1_initdb_fun"
+    ],
+    "51": [
+      "migratedest_v1_initdb_gcc"
+    ],
+    "52": [
+      "migratedest_v1_initdb_grp"
+    ],
+    "53": [
+      "migratedest_v1_initdb_hht"
+    ],
+    "54": [
+      "migratedest_v1_initdb_inc"
+    ],
+    "55": [
+      "migratedest_v1_initdb_lds"
+    ],
+    "56": [
+      "migratedest_v1_initdb_loc"
+    ],
+    "57": [
+      "mmextract_exe"
+    ]
+  },
+  "cohesion": {
+    "0": 0.1111111111111111,
+    "1": 0.24358974358974358,
+    "2": 0.25,
+    "3": 0.2857142857142857,
+    "4": 0.3333333333333333,
+    "5": 0.3333333333333333,
+    "6": 0.4,
+    "7": 0.4,
+    "8": 0.5,
+    "9": 0.5,
+    "10": 0.5,
+    "11": 0.6666666666666666,
+    "12": 0.6666666666666666,
+    "13": 1.0,
+    "14": 1.0,
+    "15": 1.0,
+    "16": 1.0,
+    "17": 1.0,
+    "18": 1.0,
+    "19": 1.0,
+    "20": 1.0,
+    "21": 1.0,
+    "22": 1.0,
+    "23": 1.0,
+    "24": 1.0,
+    "25": 1.0,
+    "26": 1.0,
+    "27": 1.0,
+    "28": 1.0,
+    "29": 1.0,
+    "30": 1.0,
+    "31": 1.0,
+    "32": 1.0,
+    "33": 1.0,
+    "34": 1.0,
+    "35": 1.0,
+    "36": 1.0,
+    "37": 1.0,
+    "38": 1.0,
+    "39": 1.0,
+    "40": 1.0,
+    "41": 1.0,
+    "42": 1.0,
+    "43": 1.0,
+    "44": 1.0,
+    "45": 1.0,
+    "46": 1.0,
+    "47": 1.0,
+    "48": 1.0,
+    "49": 1.0,
+    "50": 1.0,
+    "51": 1.0,
+    "52": 1.0,
+    "53": 1.0,
+    "54": 1.0,
+    "55": 1.0,
+    "56": 1.0,
+    "57": 1.0
+  },
+  "gods": [
+    {
+      "id": "legacycodebase_crsextract_mmextract_mm_ex_file",
+      "label": "MM_EX_FILE",
+      "degree": 16
+    },
+    {
+      "id": "migrate_db_dbfreader",
+      "label": "DBFReader",
+      "degree": 7
+    },
+    {
+      "id": "migrate_db_generate_postgres_dump",
+      "label": "generate_postgres_dump()",
+      "degree": 5
+    },
+    {
+      "id": "eff_dbc",
+      "label": "EFF.DBC",
+      "degree": 5
+    },
+    {
+      "id": "index_vbp",
+      "label": "Index.vbp",
+      "degree": 4
+    },
+    {
+      "id": "legacycodebase_mmextract_mmextract_mm_ex_file",
+      "label": "MM_EX_FILE",
+      "degree": 4
+    },
+    {
+      "id": "claudeguidance_eff_dbc",
+      "label": "EFF.DBC (FoxPro Database Container)",
+      "degree": 4
+    },
+    {
+      "id": "migrate_db_clean_name",
+      "label": "clean_name()",
+      "degree": 3
+    },
+    {
+      "id": "migrate_db_parse_source_files",
+      "label": "parse_source_files()",
+      "degree": 3
+    },
+    {
+      "id": "migratedest_v1_initdb_idy",
+      "label": "Table: idy",
+      "degree": 3
+    }
+  ],
+  "surprises": [
+    {
+      "source": "INL.DBF Structure",
+      "target": "EFF.DBC (FoxPro Database Container)",
+      "source_files": [
+        "LegacyCodebase/INLSTRU.TXT",
+        "claudeguidance.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "references",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories"
+    },
+    {
+      "source": "Cola Connect Smarter Decisions Logo",
+      "target": "DAS Mobile GSM Interface",
+      "source_files": [
+        "LegacyCodebase/NCC.JPG",
+        "LegacyCodebase/Welcome Message.txt"
+      ],
+      "confidence": "INFERRED",
+      "relation": "conceptually_related_to",
+      "why": "inferred connection - not explicitly stated in source; crosses file types (doc \u2194 image)"
+    },
+    {
+      "source": "MM_EX_FILE",
+      "target": "DAS Mobile GSM Interface",
+      "source_files": [
+        "LegacyCodebase/CRSEXTRACT/MMExtract.txt",
+        "LegacyCodebase/Welcome Message.txt"
+      ],
+      "confidence": "INFERRED",
+      "relation": "conceptually_related_to",
+      "why": "inferred connection - not explicitly stated in source; peripheral node `DAS Mobile GSM Interface` unexpectedly reaches hub `MM_EX_FILE`"
+    },
+    {
+      "source": "M_FRM_TRS.frm",
+      "target": "SNV.DBF",
+      "source_files": [
+        "MigrateDest_v1/initdb.md",
+        "LegacyCodebase/MMEXTRACT/VER_APP.TXT"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories"
+    },
+    {
+      "source": "M_FRM_PCS_PCS.frm",
+      "target": "INV.DBF",
+      "source_files": [
+        "MigrateDest_v1/initdb.md",
+        "LegacyCodebase/MMEXTRACT/VER_APP.TXT"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories"
+    }
+  ],
+  "tokens": {
+    "input": 108178,
+    "output": 4588
+  }
+}

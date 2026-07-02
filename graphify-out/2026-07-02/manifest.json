@@ -1,0 +1,187 @@
+{
+  "LegacyCodebase/Billsave.cls": {
+    "mtime": 1153886034.0,
+    "ast_hash": "7161ca7046b5b45161538a622df04db3",
+    "semantic_hash": "7161ca7046b5b45161538a622df04db3"
+  },
+  "LegacyCodebase/CRSEXTRACT/Class1.cls": {
+    "mtime": 1243239854.0,
+    "ast_hash": "b1f4346af9bb63bc9c40106fe3c13ec8",
+    "semantic_hash": "b1f4346af9bb63bc9c40106fe3c13ec8"
+  },
+  "LegacyCodebase/Class1.cls": {
+    "mtime": 1229160180.0,
+    "ast_hash": "53a8822d207ce39e5de30b76a6162eda",
+    "semantic_hash": "53a8822d207ce39e5de30b76a6162eda"
+  },
+  "LegacyCodebase/MMEXTRACT/Class1.cls": {
+    "mtime": 1243239854.0,
+    "ast_hash": "b1f4346af9bb63bc9c40106fe3c13ec8",
+    "semantic_hash": "b1f4346af9bb63bc9c40106fe3c13ec8"
+  },
+  "LegacyCodebase/dec.cls": {
+    "mtime": 1153886046.0,
+    "ast_hash": "d7b2602d7501e501a66d7e7bf0d630f7",
+    "semantic_hash": "d7b2602d7501e501a66d7e7bf0d630f7"
+  },
+  "LegacyCodebase/encPassword.cls": {
+    "mtime": 1153886056.0,
+    "ast_hash": "5e3e0060d09674e201687154422d6186",
+    "semantic_hash": "5e3e0060d09674e201687154422d6186"
+  },
+  "MigrateDest_v1/init_postgres.sql": {
+    "mtime": 1782801079.3220866,
+    "ast_hash": "d0c31e9dbd89f9574fdcca601fe89866",
+    "semantic_hash": "d0c31e9dbd89f9574fdcca601fe89866"
+  },
+  "migrate_db.py": {
+    "mtime": 1782800836.8274014,
+    "ast_hash": "74861b389eabb142c53dfd60e6a52617",
+    "semantic_hash": "74861b389eabb142c53dfd60e6a52617"
+  },
+  ".gemini/settings.json": {
+    "mtime": 1783007902.526235,
+    "ast_hash": "f080aabf772e803c9e24b9ad0acbf2b6",
+    "semantic_hash": "f080aabf772e803c9e24b9ad0acbf2b6"
+  },
+  "LegacyCodebase/CRSEXTRACT/EFFMCG4.txt": {
+    "mtime": 1242912410.0,
+    "ast_hash": "cbeb32953da2fea998c7884753ed9a30",
+    "semantic_hash": "cbeb32953da2fea998c7884753ed9a30"
+  },
+  "LegacyCodebase/CRSEXTRACT/MMExtract.txt": {
+    "mtime": 1243237090.0,
+    "ast_hash": "83e83f5cd8e244cd8de4ab7143c10eaf",
+    "semantic_hash": "83e83f5cd8e244cd8de4ab7143c10eaf"
+  },
+  "LegacyCodebase/CRSEXTRACT/VER_APP.TXT": {
+    "mtime": 1245405354.0,
+    "ast_hash": "468143b55f885d395ec02c2fd515e582",
+    "semantic_hash": "468143b55f885d395ec02c2fd515e582"
+  },
+  "LegacyCodebase/ComSettings.txt": {
+    "mtime": 1243395668.0,
+    "ast_hash": "5fab6e824b570dc1db78c63eb2181607",
+    "semantic_hash": "5fab6e824b570dc1db78c63eb2181607"
+  },
+  "LegacyCodebase/DASXtract/VER_APP.TXT": {
+    "mtime": 1220498166.0,
+    "ast_hash": "ec580b7b38151dec4b6068b976fd51e9",
+    "semantic_hash": "ec580b7b38151dec4b6068b976fd51e9"
+  },
+  "LegacyCodebase/DAS_DBU.TXT": {
+    "mtime": 1199072720.0,
+    "ast_hash": "2c61203c6a576fc375b05bb2da456e6c",
+    "semantic_hash": "2c61203c6a576fc375b05bb2da456e6c"
+  },
+  "LegacyCodebase/HHT/INL_STR.TXT": {
+    "mtime": 1153886058.0,
+    "ast_hash": "b9f1e733da3bdeefce87d7dd756cba5a",
+    "semantic_hash": "b9f1e733da3bdeefce87d7dd756cba5a"
+  },
+  "LegacyCodebase/HHT/INV_STR.TXT": {
+    "mtime": 1153886058.0,
+    "ast_hash": "293c06a64a99bb2cd3088fe3d33da2e5",
+    "semantic_hash": "293c06a64a99bb2cd3088fe3d33da2e5"
+  },
+  "LegacyCodebase/HHT/LOG.TXT": {
+    "mtime": 1183221294.0,
+    "ast_hash": "287ed8b0458c162626c34e78262d5865",
+    "semantic_hash": "287ed8b0458c162626c34e78262d5865"
+  },
+  "LegacyCodebase/HHT/PARTY.TXT": {
+    "mtime": 1183221292.0,
+    "ast_hash": "6c855eae9e2e30be0787d1201eada0b1",
+    "semantic_hash": "6c855eae9e2e30be0787d1201eada0b1"
+  },
+  "LegacyCodebase/HHT/SALESMAN.TXT": {
+    "mtime": 1183221292.0,
+    "ast_hash": "79ef67a5305a6236ba5ab7e434dc5856",
+    "semantic_hash": "79ef67a5305a6236ba5ab7e434dc5856"
+  },
+  "LegacyCodebase/HHT/VERSION.TXT": {
+    "mtime": 1183221294.0,
+    "ast_hash": "530c92ebaea7c84fa6c7d26f3eaf9a15",
+    "semantic_hash": "530c92ebaea7c84fa6c7d26f3eaf9a15"
+  },
+  "LegacyCodebase/HelpDesk.txt": {
+    "mtime": 1172317714.0,
+    "ast_hash": "4d78c2e65cb6aae5edf65998ba598f28",
+    "semantic_hash": "4d78c2e65cb6aae5edf65998ba598f28"
+  },
+  "LegacyCodebase/INDEXFILES/Setup/PrimaryGroups.txt": {
+    "mtime": 1247736128.0,
+    "ast_hash": "cd8f31435c24b8a31573f4e47795ec9e",
+    "semantic_hash": "cd8f31435c24b8a31573f4e47795ec9e"
+  },
+  "LegacyCodebase/INDEXFILES/Setup/SMSMessageTemplate.txt": {
+    "mtime": 1247736128.0,
+    "ast_hash": "65af6df6aa54191536304f059bc1cefe",
+    "semantic_hash": "65af6df6aa54191536304f059bc1cefe"
+  },
+  "LegacyCodebase/INLSTRU.TXT": {
+    "mtime": 1203154990.0,
+    "ast_hash": "2cd3f1df31d358271f2a06048dd7796d",
+    "semantic_hash": "2cd3f1df31d358271f2a06048dd7796d"
+  },
+  "LegacyCodebase/MMEXTRACT/DIR_INF.TXT": {
+    "mtime": 1244611876.0,
+    "ast_hash": "b7344eabd8c31dfb3b0ca8dceb48fb81",
+    "semantic_hash": "b7344eabd8c31dfb3b0ca8dceb48fb81"
+  },
+  "LegacyCodebase/MMEXTRACT/MMExtract.txt": {
+    "mtime": 1243237090.0,
+    "ast_hash": "83e83f5cd8e244cd8de4ab7143c10eaf",
+    "semantic_hash": "83e83f5cd8e244cd8de4ab7143c10eaf"
+  },
+  "LegacyCodebase/MMEXTRACT/VER_APP.TXT": {
+    "mtime": 1245405354.0,
+    "ast_hash": "468143b55f885d395ec02c2fd515e582",
+    "semantic_hash": "468143b55f885d395ec02c2fd515e582"
+  },
+  "LegacyCodebase/PrimaryGroups.txt": {
+    "mtime": 1239223478.0,
+    "ast_hash": "08803df9d6b90d935b138d709f73a276",
+    "semantic_hash": "08803df9d6b90d935b138d709f73a276"
+  },
+  "LegacyCodebase/SMSMessageTemplate.txt": {
+    "mtime": 1243436614.0,
+    "ast_hash": "5e9c3170075a3913ad47d75f58f55d9c",
+    "semantic_hash": "5e9c3170075a3913ad47d75f58f55d9c"
+  },
+  "LegacyCodebase/VER_APP.TXT": {
+    "mtime": 1220495014.0,
+    "ast_hash": "6853e5599a58f75f321e57c857c55ea4",
+    "semantic_hash": "6853e5599a58f75f321e57c857c55ea4"
+  },
+  "LegacyCodebase/Welcome Message.txt": {
+    "mtime": 1243395740.0,
+    "ast_hash": "69422a958fee00ad086f4985209e722e",
+    "semantic_hash": "69422a958fee00ad086f4985209e722e"
+  },
+  "LegacyCodebase/dbf.txt": {
+    "mtime": 1153886046.0,
+    "ast_hash": "e877f6b2e9ca0849626c04172b75f669",
+    "semantic_hash": "e877f6b2e9ca0849626c04172b75f669"
+  },
+  "MigrateDest_v1/initdb.md": {
+    "mtime": 1782804601.2854617,
+    "ast_hash": "d0c31e9dbd89f9574fdcca601fe89866",
+    "semantic_hash": "d0c31e9dbd89f9574fdcca601fe89866"
+  },
+  "claudeguidance.md": {
+    "mtime": 1783000621.9455023,
+    "ast_hash": "74d6a9d946b565fab2ce0f4ee2b1898f",
+    "semantic_hash": "74d6a9d946b565fab2ce0f4ee2b1898f"
+  },
+  "LegacyCodebase/NCC.JPG": {
+    "mtime": 1152884622.0,
+    "ast_hash": "d55c3e52754a1c552cb14db7d291c6ba",
+    "semantic_hash": "d55c3e52754a1c552cb14db7d291c6ba"
+  },
+  "LegacyCodebase/cspl.JPG": {
+    "mtime": 1157023480.0,
+    "ast_hash": "17965e5d9ec9c2766c85ac964e9e13f3",
+    "semantic_hash": "17965e5d9ec9c2766c85ac964e9e13f3"
+  }
+}
