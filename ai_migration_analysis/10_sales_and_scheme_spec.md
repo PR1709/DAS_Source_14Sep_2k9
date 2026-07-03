@@ -425,8 +425,8 @@ Validations/formulas:
   - `B_CON_APP='ORM'`.
   - same aggregate threshold pattern as OR.
 - UOM product group validators use `CHECKUOM` instead of `CHECKBATCH`, but auto-apply currently comments them out.
-- Group validators inspect `SCH_TYP` for Brand/Pack Size/Pack Type/Segment/Category and compare group values against grid product group/attributes. Full branch-by-branch extraction remains pending.
-- For `SID`-restricted schemes, eligibility is allowed if any matching `SID.SMN_IDY`, `SID.ROU_IDY`, or `SID.CST_IDY` exists for the current salesman, route, or customer.
+- Group validators inspect `SCH_TYP` for Brand/Pack Size/Pack Type/Segment/Category and compare group values against grid product group/attributes. In the inspected validators, `AND` requires every `SCH` base group value to meet its `B_PRD_QTY`; `ORO` requires at least one group value to meet `MAX(B_PRD_QTY)`; `ORM` accumulates group values across rows until the max threshold is met (`../LegacyCodebase/M_FRM_SAL.frm:8872`, `../LegacyCodebase/M_FRM_SAL.frm:8988`, `../LegacyCodebase/M_FRM_SAL.frm:9103`, `../LegacyCodebase/M_FRM_SAL.frm:9218`, `../LegacyCodebase/M_FRM_SAL.frm:9333`).
+- For `SID`-restricted schemes, eligibility is allowed if any matching `SID.SMN_IDY`, `SID.ROU_IDY`, or `SID.CST_IDY` exists for the current salesman, route, or customer. This gate appears in SKU, bill, multiple-SKU, UOM, and group validators in current main `M_FRM_SAL.frm` (`../LegacyCodebase/M_FRM_SAL.frm:8557`-`../LegacyCodebase/M_FRM_SAL.frm:8571`, `../LegacyCodebase/M_FRM_SAL.frm:8606`-`../LegacyCodebase/M_FRM_SAL.frm:8620`, `../LegacyCodebase/M_FRM_SAL.frm:8653`-`../LegacyCodebase/M_FRM_SAL.frm:8670`, `../LegacyCodebase/M_FRM_SAL.frm:8894`-`../LegacyCodebase/M_FRM_SAL.frm:8913`).
 
 Side effects:
 
@@ -439,6 +439,58 @@ Golden-master candidates:
 - SKU-level threshold with piece-mode conversion.
 - Multiple SKU AND all items satisfied vs one missing.
 - OR/ORM aggregate threshold.
+
+## Scheme Quantity And Stock Helpers
+
+Sources:
+
+- `GETSALSTK`: `../LegacyCodebase/M_FRM_SAL.frm:7716`.
+- `CHECKBATCH`: `../LegacyCodebase/M_FRM_SAL.frm:7730`.
+- `GETFRESTK`: `../LegacyCodebase/M_FRM_SAL.frm:7742`.
+- `CHECKBATCHValue`: `../LegacyCodebase/M_FRM_SAL.frm:7756`.
+- `GETSCHVAL`: `../LegacyCodebase/M_FRM_SAL.frm:8428`.
+- `TXT_SCH_Keypress`: `../LegacyCodebase/M_FRM_SAL.frm:8437`.
+- `STOCKCHECK`: `../LegacyCodebase/M_FRM_SAL.frm:8493`.
+- `SCHEMEQTY` / `getSCHEMEQTY`: `../LegacyCodebase/M_FRM_SAL.frm:8515`, `../LegacyCodebase/M_FRM_SAL.frm:8521`.
+
+Trigger/user action:
+
+- Used by scheme validators/applicators, manual applied-scheme grid edits, and save-time stock validation.
+
+Tables read:
+
+- `BRD` for current batch stock in `STOCKCHECK`.
+- `INV` for prior invoice stock when modifying.
+- Otherwise these helpers read `MS`, `MSF`, and `MSS` grids.
+
+Tables written:
+
+- None directly.
+
+Validations/formulas:
+
+- `GETSALSTK(batch)` returns the first matching sale-grid `MS[2]` quantity for `MS[15]=batch`; in pieces mode it converts through `MTS(MS[2], MS[13])`, otherwise returns entered quantity (`../LegacyCodebase/M_FRM_SAL.frm:7716`-`../LegacyCodebase/M_FRM_SAL.frm:7727`).
+- `CHECKBATCH(batch)` is similar but requires positive `MS[2]` and returns `Double`; it is the core quantity source for SKU/multiple-SKU thresholds (`../LegacyCodebase/M_FRM_SAL.frm:7730`-`../LegacyCodebase/M_FRM_SAL.frm:7739`).
+- `GETFRESTK(batch, stock_type)` scans `MSF` for matching `MSF[11]` and `MSF[1]`; in pieces mode it converts `MSF[2]` through `MTS(MSF[2], MSF[9])` (`../LegacyCodebase/M_FRM_SAL.frm:7742`-`../LegacyCodebase/M_FRM_SAL.frm:7753`).
+- `CHECKBATCHValue(batch)` returns sale value for matching `MS[15]`: in pieces mode `MTS(qty, subunit) * Round(rate / subunit, 2)`, otherwise `qty * rate` (`../LegacyCodebase/M_FRM_SAL.frm:7756`-`../LegacyCodebase/M_FRM_SAL.frm:7767`).
+- `GETSCHVAL(batch)` returns displayed sale amount `MS[9]` for matching positive-quantity `MS[15]`; this feeds multiple-SKU amount/percent rules (`../LegacyCodebase/M_FRM_SAL.frm:8428`-`../LegacyCodebase/M_FRM_SAL.frm:8434`).
+- `TXT_SCH_Keypress` limits manual applied-scheme quantity edits. Normal rows cannot exceed original calculated quantity mirror `MSS[15]`; `ORO`/`ORM` combinations compare against remaining scheme quantity through `SCHEMEQTY` and `getSCHEMEQTY`. Amount edits in `MSS[4]` subtract old value from `SCH_AMT`, replace it, then add the new value (`../LegacyCodebase/M_FRM_SAL.frm:8437`-`../LegacyCodebase/M_FRM_SAL.frm:8488`).
+- `STOCKCHECK` walks applied scheme grid `MSS`; for each scheme free batch, it compares `BRD.PRD_QTY` converted through `MTS` plus old invoice stock on modify against free-grid demand, sale-grid demand, and scheme quantity. It returns the failing `MSS` row or `0` (`../LegacyCodebase/M_FRM_SAL.frm:8493`-`../LegacyCodebase/M_FRM_SAL.frm:8513`).
+- `SCHEMEQTY` sums current applied quantity `MSS[2]` for a scheme; `getSCHEMEQTY` returns the positive `MSS[11]` value for a scheme, not a sum (`../LegacyCodebase/M_FRM_SAL.frm:8515`-`../LegacyCodebase/M_FRM_SAL.frm:8525`).
+
+Side effects:
+
+- `TXT_SCH_Keypress` mutates `MSS` and `SCH_AMT`; the rest are read-only helpers.
+
+Assumptions/unresolved:
+
+- `GETSALSTK` and `CHECKBATCH` return only the first matching sale batch row, not an aggregate. If duplicate sale-grid batch rows are possible, scheme thresholds may undercount.
+
+Golden-master candidates:
+
+- Duplicate batch rows in `MS` to verify first-row vs aggregate behavior.
+- Manual edit of `MSS[2]` for normal, `ORO/ORO`, `ORO/ORM`, and `ORO/AND` row combinations.
+- Stock-check fixture with sale, free, and scheme demand all on the same batch, both new and modify modes.
 
 ## Scheme Applicators
 
@@ -503,7 +555,7 @@ Validations/formulas:
   - ORO branch iterates base rows and applies percent to product value or amount per `MAXQTY` multiples.
   - ORM branch uses `CHECKBATCHValue`, `SKU_SBU`, and `PRD_SDR` in an unusual formula: `((Int(b) / Int(PNR_DRT)) * disamt)`.
 - Group bill amount/percent:
-  - `AddBillAmtGroupType` computes group value through `GETSCHGRPVAL`, then applies percent or cash-off; exact group-type branches still need full manual validation.
+  - `AddBillAmtGroupType` computes group value through `GETSCHGRPVAL`, then applies percent or cash-off for inspected `AND` and `ORO` branches. The deeper group applicator section below documents exact branch behavior and remaining `ORM` runtime gap.
 
 Side effects:
 
@@ -514,7 +566,7 @@ Side effects:
 Assumptions/unresolved:
 
 - `ADDSKUQUANTIY` proportional residual formula at lines 7814-7818 is suspicious: `(ACTQTY / base_qty) / free_qty`. Preserve exactly until domain owners validate.
-- `MLTBILPCGAMT` stores `SC.TextMatrix(...,3)=LSCH_AMT` for some branches, not delta from previous scheme amount.
+- Main `MLTBILPCGAMT` stores positive local `LSCH_AMT` into `SC[3]` for most branches, while PSH stores negative running deltas; see the main-vs-PSH delta section below.
 - Some variables are reused globally (`STK`, `SCHQTY`, `PRDVAL`, `LSCH_AMT`) and may retain values if not reset in every branch.
 
 Golden-master candidates:
@@ -527,6 +579,110 @@ Golden-master candidates:
 - Bill cash-off with `PRO_RAT=Y` residual amount.
 - Multiple bill percent and cash-off.
 - Brand/pack/category/segment cash-off vs percent.
+
+### Main Group Scheme Applicators: Brand / Pack Size / Pack Type / Segment / Category
+
+Sources:
+
+- `AddBrand`: `../LegacyCodebase/M_FRM_SAL.frm:9495`.
+- `AddPackSize`: `../LegacyCodebase/M_FRM_SAL.frm:9676`.
+- `AddPackType`: `../LegacyCodebase/M_FRM_SAL.frm:9862`.
+- `AddSegment`: `../LegacyCodebase/M_FRM_SAL.frm:10039`.
+- `AddCategory`: `../LegacyCodebase/M_FRM_SAL.frm:10217`.
+- `ADDSCITEMS`: `../LegacyCodebase/M_FRM_SAL.frm:10404`.
+- `AddBillAmtGroupType`: `../LegacyCodebase/M_FRM_SAL.frm:10476`.
+- `GETGRPVALUE` / `GETSCHGRPVAL`: `../LegacyCodebase/M_FRM_SAL.frm:9448`, `../LegacyCodebase/M_FRM_SAL.frm:10563`.
+
+Trigger/user action:
+
+- Manual scheme application dispatches selected `SCHLST` rows to these handlers for group-type `Free Quantity`, `Cash Off`, or `Discount Percent`.
+- `AutoApplyScheme` reaches the same handlers for Brand, Pack Size, Pack Type, Segment, and Category rows after group validators list them (`../LegacyCodebase/M_FRM_SAL.frm:10620`-`../LegacyCodebase/M_FRM_SAL.frm:10630`).
+
+Tables read:
+
+- `SCH` for base/free scheme rows and group condition fields.
+- `PRD`, `BRD`, and sometimes `PGR` for free-product display fields populated into `MSS`.
+- `PRD` lookups through `GetValue` for brand name, pack size, and pack type comparisons.
+
+Tables written:
+
+- None directly. Free-benefit handlers populate `MSS`; `ADDSCITEMS` and `AddBillAmtGroupType` populate `SC`. Save later persists `MSS` into `INV`/`PNV` and `SC` into `LNV`.
+
+Validations/formulas:
+
+- `GETGRPVALUE` scans current salable grid `MS` and returns quantity for a group value. In piece mode it converts `MS[2]` through `MTS(..., MS[13])`; otherwise it uses entered quantity. Brand, pack size, and pack type compare against `PRD.brd_nme`, `PRD.prd_pck`, and `PRD.prd_pkt`; segment and category compare against `MS[20]` and `MS[19]` (`../LegacyCodebase/M_FRM_SAL.frm:9448`-`../LegacyCodebase/M_FRM_SAL.frm:9493`).
+- For group free-quantity `AND`, the applicator cycles all `BAS` rows until one base group cannot satisfy `CTR * B_PRD_QTY`. Free rows receive `B_PRD_QTY * (CTR - 1)` in `MSS[2]` and original mirror `MSS[15]` (`../LegacyCodebase/M_FRM_SAL.frm:9501`-`../LegacyCodebase/M_FRM_SAL.frm:9527`, `../LegacyCodebase/M_FRM_SAL.frm:9682`-`../LegacyCodebase/M_FRM_SAL.frm:9709`, `../LegacyCodebase/M_FRM_SAL.frm:10239`-`../LegacyCodebase/M_FRM_SAL.frm:10249`).
+- For group free-quantity `ORO`, the applicator uses `MAX(B_PRD_QTY)` as the denominator; each base group whose quantity is at least that max contributes `Int(group_qty / max_qty)` to `CTR`. Free rows receive `B_PRD_QTY * CTR` in `MSS[2]` and `MSS[15]` (`../LegacyCodebase/M_FRM_SAL.frm:9559`-`../LegacyCodebase/M_FRM_SAL.frm:9583`, `../LegacyCodebase/M_FRM_SAL.frm:9741`-`../LegacyCodebase/M_FRM_SAL.frm:9765`, `../LegacyCodebase/M_FRM_SAL.frm:10283`-`../LegacyCodebase/M_FRM_SAL.frm:10307`).
+- For group free-quantity `ORM`, the applicator sums quantities across base group values, computes `CTR = Int(total_qty / MAX(B_PRD_QTY))`, then writes free rows as `B_PRD_QTY * CTR` (`../LegacyCodebase/M_FRM_SAL.frm:9618`-`../LegacyCodebase/M_FRM_SAL.frm:9640`, `../LegacyCodebase/M_FRM_SAL.frm:9800`-`../LegacyCodebase/M_FRM_SAL.frm:9828`, `../LegacyCodebase/M_FRM_SAL.frm:10345`-`../LegacyCodebase/M_FRM_SAL.frm:10367`).
+- `AddPackSize` has a unique zero-denominator guard in the `ORM` branch: if `MAX(B_PRD_QTY)=0`, it forces `CTR=1`; the other group applicators do not show that guard in the inspected lines (`../LegacyCodebase/M_FRM_SAL.frm:9809`-`../LegacyCodebase/M_FRM_SAL.frm:9813`).
+- Free rows written to `MSS` consistently use: product name, MRP, computed free quantity, sale rate, amount `0.00`, product ID, batch name, batch ID, `SCH_IDY` in `MSS[8]`, base quantity in `MSS[10]`, free/base quantity in `MSS[11]`, `SUB_UNT` in `MSS[12]`, product group in `MSS[13]`, and `F_CON_APP` in `MSS[14]` (`../LegacyCodebase/M_FRM_SAL.frm:9520`-`../LegacyCodebase/M_FRM_SAL.frm:9539`, `../LegacyCodebase/M_FRM_SAL.frm:9757`-`../LegacyCodebase/M_FRM_SAL.frm:9777`, `../LegacyCodebase/M_FRM_SAL.frm:10359`-`../LegacyCodebase/M_FRM_SAL.frm:10380`).
+- When a scheme free condition is `ORO`, handlers overwrite `MSS[11]`, and Category also overwrites `MSS[15]`, with the last positive `SCHQTY` value for the scheme (`../LegacyCodebase/M_FRM_SAL.frm:9543`-`../LegacyCodebase/M_FRM_SAL.frm:9549`, `../LegacyCodebase/M_FRM_SAL.frm:10265`-`../LegacyCodebase/M_FRM_SAL.frm:10274`, `../LegacyCodebase/M_FRM_SAL.frm:10384`-`../LegacyCodebase/M_FRM_SAL.frm:10394`).
+- `ADDSCITEMS` writes one `SC` base row per matching salable grid line: `SC[0]=scheme ID`, `SC[1]=MS[15]` base batch ID, `SC[2]=matched quantity`, `SC[4]=BAS`. It does not write `SC[3]` for base rows (`../LegacyCodebase/M_FRM_SAL.frm:10404`-`../LegacyCodebase/M_FRM_SAL.frm:10474`).
+- `GETSCHGRPVAL` sums sale amount `MS[9]` for matching group values and feeds group cash/percent calculation (`../LegacyCodebase/M_FRM_SAL.frm:10563`-`../LegacyCodebase/M_FRM_SAL.frm:10578`).
+- `AddBillAmtGroupType` handles only `AND` and `ORO` group cash/percent branches in the inspected source. It computes the same `CTR` pattern as free quantity, then applies either `PERCENT(sum_group_sale_value, B_DIS_PCG)` or `B_DIS_AMT * (CTR - 1)` for `AND`, and `B_DIS_AMT * CTR` for `ORO`; it writes one benefit row with `SC[0]=scheme ID`, `SC[3]=SCH_AMT - previous_SCH_AMT`, `SC[4]=FRE` (`../LegacyCodebase/M_FRM_SAL.frm:10488`-`../LegacyCodebase/M_FRM_SAL.frm:10523`, `../LegacyCodebase/M_FRM_SAL.frm:10525`-`../LegacyCodebase/M_FRM_SAL.frm:10556`).
+
+Side effects:
+
+- Free-quantity group handlers add `MSS` rows and base audit `SC` rows; they do not directly mutate `SCH_AMT` because free items carry amount `0.00`.
+- Group cash/percent handler mutates cumulative `SCH_AMT` and adds an `SC` benefit row that later becomes `LNV.LNV_AMT`.
+
+Assumptions/unresolved:
+
+- Several SQL strings in group free handlers contain `WHER` instead of `WHERE` in the inspected source. The active runtime behavior must be verified because these paths may be protected by legacy data/provider tolerance or may fail at runtime for some group types (`../LegacyCodebase/M_FRM_SAL.frm:9517`, `../LegacyCodebase/M_FRM_SAL.frm:9884`, `../LegacyCodebase/M_FRM_SAL.frm:10297`).
+- `SCHQTY`, `PRDVAL`, `stkcount`, `CTR`, and `INC` are not locally declared in these routines; preserve observed state-reset behavior until runtime fixtures prove whether stale values can leak between schemes.
+- `AddBillAmtGroupType` has no inspected `ORM` cash/percent branch, even though validators can list group `ORM` schemes.
+
+Golden-master candidates:
+
+- Brand, Pack Size, Pack Type, Segment, and Category free-quantity schemes for `AND`, `ORO`, and `ORM`, including piece mode and non-piece mode.
+- Category `ORO` free scheme to verify the extra `MSS[15]` overwrite compared with Brand/Pack Size.
+- Pack Size `ORM` with `MAX(B_PRD_QTY)=0` to verify forced `CTR=1`.
+- Group cash and group percent for `AND` and `ORO`; capture `SCH_AMT`, `SC`, `LNV`, and invoice net amount.
+- Group `ORM` cash/percent fixture to confirm whether active code silently does nothing or another path applies it.
+
+### Main vs PSH Multiple-SKU Amount/Percent Delta
+
+Sources:
+
+- Main `MLTBILPCGAMT`: `../LegacyCodebase/M_FRM_SAL.frm:8316`.
+- PSH `MLTBILPCGAMT`: `../LegacyCodebase/M_FRM_SAL_PSH.frm:7898`.
+
+Verified differences:
+
+- Main resets `LSCH_AMT = 0` at entry, increments both cumulative `SCH_AMT` and local `LSCH_AMT`, and writes `SC[3]=LSCH_AMT` for `AND` and `ORO`. In `ORM`, it writes `SC[3]=LSCH_AMT` unless `SCAMT >= SCH_AMT`, where it writes `SCAMT - LSCH_AMT`; `SC[4]=FRE` is always set (`../LegacyCodebase/M_FRM_SAL.frm:8322`-`../LegacyCodebase/M_FRM_SAL.frm:8369`, `../LegacyCodebase/M_FRM_SAL.frm:8370`-`../LegacyCodebase/M_FRM_SAL.frm:8393`, `../LegacyCodebase/M_FRM_SAL.frm:8394`-`../LegacyCodebase/M_FRM_SAL.frm:8425`).
+- PSH does not use `LSCH_AMT`. Its `AND` branch stores `SC[3]=previous_SCH_AMT - new_SCH_AMT`, and its `ORO` and `ORM` branches store `SC[3]=SCHAMT - SCH_AMT`. With normal positive discounts and `SCHAMT` not refreshed in the shown routine, these `SC[3]` values are negative while `SCH_AMT` itself increases (`../LegacyCodebase/M_FRM_SAL_PSH.frm:7934`-`../LegacyCodebase/M_FRM_SAL_PSH.frm:7942`, `../LegacyCodebase/M_FRM_SAL_PSH.frm:7944`-`../LegacyCodebase/M_FRM_SAL_PSH.frm:7962`, `../LegacyCodebase/M_FRM_SAL_PSH.frm:7963`-`../LegacyCodebase/M_FRM_SAL_PSH.frm:7981`).
+- Main `ORM` cash calculation converts `MAXQTY` through `STM` but then uses `((Int(value) / Int(PRD_SDR)) * disamt)` for cash, not the commented `Int(value / max_qty) * disamt`; PSH `ORM` cash uses `Int(value / MAXQTY) * disamt` without the sale-rate denominator rewrite (`../LegacyCodebase/M_FRM_SAL.frm:8407`-`../LegacyCodebase/M_FRM_SAL.frm:8413`, `../LegacyCodebase/M_FRM_SAL_PSH.frm:7971`-`../LegacyCodebase/M_FRM_SAL_PSH.frm:7975`).
+- Main `GETSCHVAL` reads main grid batch ID `MS[15]`, quantity `MS[2]`, and line amount `MS[9]`; PSH `GETSCHVAL` reads PSH grid batch ID `MS[20]`, quantity `MS[7]`, and line amount `MS[14]` (`../LegacyCodebase/M_FRM_SAL.frm:8428`-`../LegacyCodebase/M_FRM_SAL.frm:8435`, `../LegacyCodebase/M_FRM_SAL_PSH.frm:7986`-`../LegacyCodebase/M_FRM_SAL_PSH.frm:7993`).
+
+Golden-master candidates:
+
+- Same multiple-SKU cash and percent scheme in main and PSH with `AND`, `ORO`, and `ORM`; capture `SCH_AMT`, every `SC[3]`, saved `LNV.LNV_AMT`, and printed invoice totals.
+- PSH fixture with pre-existing positive `SCH_AMT` before `MLTBILPCGAMT` to confirm the negative delta magnitude.
+- Main `ORM` cash fixture where `CHECKBATCHValue`, `MAXQTY`, `SKU_SBU`, and `PRD_SDR` differ enough to expose the sale-rate-denominator behavior.
+
+### Main vs PSH Eligibility And Stock Delta
+
+Sources:
+
+- Main group/SKU validators: `../LegacyCodebase/M_FRM_SAL.frm:8537`-`../LegacyCodebase/M_FRM_SAL.frm:9446`.
+- PSH scheme trigger and validators: `../LegacyCodebase/M_FRM_SAL_PSH.frm:3926`, `../LegacyCodebase/M_FRM_SAL_PSH.frm:7225`-`../LegacyCodebase/M_FRM_SAL_PSH.frm:7426`.
+- Main `STOCKCHECK`: `../LegacyCodebase/M_FRM_SAL.frm:8493`.
+- PSH `STOCKCHECK`: `../LegacyCodebase/M_FRM_SAL_PSH.frm:8042`.
+
+Verified differences:
+
+- Main auto-apply runs SKU, bill, multiple-SKU, and all five group validators, then applies matching group free/cash/percent schemes. UOM validators exist but are commented out of auto-apply (`../LegacyCodebase/M_FRM_SAL.frm:10579`-`../LegacyCodebase/M_FRM_SAL.frm:10630`).
+- PSH's observed scheme-search button runs only SKU, bill, and multiple-SKU validators; UOM validators are present but commented out, and group validators/applicators were not found by `rg` in PSH (`../LegacyCodebase/M_FRM_SAL_PSH.frm:3926`-`../LegacyCodebase/M_FRM_SAL_PSH.frm:3938`).
+- Main validators gate restricted schemes through `SID`: if any `SID` row exists for the scheme, current salesman, route, or customer must match one of `SID.SMN_IDY`, `SID.ROU_IDY`, or `SID.CST_IDY`. This pattern is visible in group validators and earlier SKU/multiple validators (`../LegacyCodebase/M_FRM_SAL.frm:8899`-`../LegacyCodebase/M_FRM_SAL.frm:8918`, `../LegacyCodebase/M_FRM_SAL.frm:9014`-`../LegacyCodebase/M_FRM_SAL.frm:9033`, `../LegacyCodebase/M_FRM_SAL.frm:9359`-`../LegacyCodebase/M_FRM_SAL.frm:9378`).
+- The inspected PSH validators contain no equivalent `SID` lookups, so a customer/salesman/route-restricted scheme can be eligible in PSH while hidden in main sales. This is a verified source delta, not a migration recommendation.
+- Main `STOCKCHECK` iterates applied scheme rows `MSS` and therefore validates scheme free-batch stock demand in addition to salable/free-grid demand (`../LegacyCodebase/M_FRM_SAL.frm:8493`-`../LegacyCodebase/M_FRM_SAL.frm:8513`).
+- PSH `STOCKCHECK` iterates sale grid `MS`, checks only each selected sale batch against free-grid demand and salable demand, and does not add separate `MSS` scheme-free demand in the inspected function (`../LegacyCodebase/M_FRM_SAL_PSH.frm:8048`-`../LegacyCodebase/M_FRM_SAL_PSH.frm:8062`).
+
+Golden-master candidates:
+
+- SID-restricted SKU, bill, and multiple-SKU schemes in main vs PSH: unmatched customer/salesman/route should be absent in main and present in PSH if thresholds match.
+- UOM product group scheme in main and PSH manual/auto search: verify the commented validators are not invoked by the observed buttons.
+- Scheme free batch with enough salable stock but insufficient scheme-free stock: main should fail through `MSS`-based `STOCKCHECK`; PSH behavior should be captured separately because its function checks sale-grid batches.
 
 ## `AutoApplyScheme`
 
@@ -570,7 +726,10 @@ Dispatch:
   - `SKU Level` + `Discount Percent`: `ADDSKUPCG`
   - `Bill Level` + `Cash Off`: `ADDBILAMT`
   - `Bill Level` + `Discount Percent`: `ADDBILPCG`
-  - Group/multiple cash-off/percent handlers are present elsewhere and must be verified against the full dispatch block in a follow-up.
+  - `Multiple SKU Level` + `Cash Off` or `Discount Percent`: `MLTBILPCGAMT`
+  - group `Free Quantity`: `AddBrand`, `AddPackSize`, `AddPackType`, `AddSegment`, or `AddCategory`
+  - group `Cash Off` or `Discount Percent`: `AddBillAmtGroupType`
+- The multiple-SKU and group dispatch cases are source-backed at `../LegacyCodebase/M_FRM_SAL.frm:10618`-`../LegacyCodebase/M_FRM_SAL.frm:10631`.
 
 Side effects:
 
@@ -1370,7 +1529,11 @@ Source inspected:
   - Writes separate print database copies to `PNL`/`PNV`, including customer/market/location/category names and system print remarks from `DIR`.
   - Sets `INL.SCH_CHK = Y`, `INL.SRN_AMT = G_FRE_AMT`, `PNL.SCH_CHK = Y`, `PNL.SRN_AMT = G_FRE_AMT`.
 - Report/print calls:
-  - No direct report invocation in inspected slice, but this routine prepares `PNL`/`PNV` print database rows.
+  - Save prepares `PNL`/`PNV` print database rows.
+  - If `PRT.PRT_NME = M_FRM_SAL_PSH`, save updates `DIR INV/NUM` to the invoice and `DIR DOC/TYP` to `SAL` (`LegacyCodebase/M_FRM_SAL_PSH.frm:3580`-`LegacyCodebase/M_FRM_SAL_PSH.frm:3582`).
+  - If `DIR SYS/DOS = D`, PSH configures row 7 of `RRI` with invoice low/high scope, `PNV.CDX` as main index, one copy, and shells `pri.exe`; if `pri.exe` is missing, it warns instead of printing (`LegacyCodebase/M_FRM_SAL_PSH.frm:3583`-`LegacyCodebase/M_FRM_SAL_PSH.frm:3604`).
+  - Otherwise PSH opens `DOS_VCH.RP1` with report title `Push Cart Challan (Cases)` when `pcs_chk.Value = 1`, else `Push Cart Challan (Pieces)`; both calls use `Inv.cdx,c,inv_idy` and invoice scope (`LegacyCodebase/M_FRM_SAL_PSH.frm:3606`-`LegacyCodebase/M_FRM_SAL_PSH.frm:3610`).
+  - Ctrl+P dispatches to `Printrecord`; toolbar print dispatch reaches the same print path (`LegacyCodebase/M_FRM_SAL_PSH.frm:4795`, `LegacyCodebase/M_FRM_SAL_PSH.frm:7070`).
 - Assumptions/unresolved:
   - `MS[5]` billed stock and `MS[7]` quantity are both used in financial/stock formulas. Need runtime examples to confirm intended meaning.
   - In non-pieces mode, one BRD update uses `MS.TextMatrix(A,18)` as the `BAT_IDY` predicate while passing `MS.TextMatrix(A,20)` to `CONBRDQTY` at `LegacyCodebase/M_FRM_SAL_PSH.frm:3261`; likely a defect or dead mode.
@@ -1381,6 +1544,7 @@ Source inspected:
   - Modify same invoice and confirm stock is reversed once, backup tables receive old rows, and current rows are rewritten once.
   - Free-only invoice attempt should block.
   - Scheme-applied invoice should create both `INV` free rows and `LNV` rows.
+  - PSH print flag on/off, DOS mode on/off, and pieces/cases switch; capture `DIR`, `RRI`, `pri.exe` shell attempt, and `DOS_VCH.RP1` title/scope.
 
 ### PSH Grid Field Maps
 
@@ -1519,13 +1683,16 @@ Source inspected:
 
 - File/lines:
   - Validators: `VLD_FRE_QTY` at `LegacyCodebase/M_FRM_SAL_PSH.frm:7225`, `VLD_BIL_AMT` at `LegacyCodebase/M_FRM_SAL_PSH.frm:7273`, `VLD_MLT_QTY` at `LegacyCodebase/M_FRM_SAL_PSH.frm:7298`, `VLD_MLT_QTY_OR` at `LegacyCodebase/M_FRM_SAL_PSH.frm:7329`, `VLD_MLT_QTY_OR_MIX` at `LegacyCodebase/M_FRM_SAL_PSH.frm:7362`, `VLD_MLT_UOM` at `LegacyCodebase/M_FRM_SAL_PSH.frm:7395`, `VLD_MLT_UOM_OR` at `LegacyCodebase/M_FRM_SAL_PSH.frm:7426`.
-  - Applicators: `ADDSKUQUANTIY` at `LegacyCodebase/M_FRM_SAL_PSH.frm:7468`, `ADDBILLQUANTIY` at `LegacyCodebase/M_FRM_SAL_PSH.frm:7521`, `ADDMLTQTYAND` at `LegacyCodebase/M_FRM_SAL_PSH.frm:7552`, `ADDSKUMIX` at `LegacyCodebase/M_FRM_SAL_PSH.frm:7715`, `ADDSKUAMOUNT` at `LegacyCodebase/M_FRM_SAL_PSH.frm:7795`, `ADDSKUPCG` at `LegacyCodebase/M_FRM_SAL_PSH.frm:7824`, `ADDBILAMT` at `LegacyCodebase/M_FRM_SAL_PSH.frm:7855`, `ADDBILPCG` at `LegacyCodebase/M_FRM_SAL_PSH.frm:7882`.
+  - Applicators/helpers: `ADDSKUQUANTIY` at `LegacyCodebase/M_FRM_SAL_PSH.frm:7468`, `ADDBILLQUANTIY` at `LegacyCodebase/M_FRM_SAL_PSH.frm:7521`, `ADDMLTQTYAND` at `LegacyCodebase/M_FRM_SAL_PSH.frm:7552`, `ADDSKUMIX` at `LegacyCodebase/M_FRM_SAL_PSH.frm:7715`, `ADDSKUAMOUNT` at `LegacyCodebase/M_FRM_SAL_PSH.frm:7795`, `ADDSKUPCG` at `LegacyCodebase/M_FRM_SAL_PSH.frm:7824`, `ADDBILAMT` at `LegacyCodebase/M_FRM_SAL_PSH.frm:7855`, `ADDBILPCG` at `LegacyCodebase/M_FRM_SAL_PSH.frm:7882`, `MLTBILPCGAMT` at `LegacyCodebase/M_FRM_SAL_PSH.frm:7898`, `GETSCHVAL` at `LegacyCodebase/M_FRM_SAL_PSH.frm:7986`, `TXT_SCH_Keypress` at `LegacyCodebase/M_FRM_SAL_PSH.frm:7995`, `STOCKCHECK` at `LegacyCodebase/M_FRM_SAL_PSH.frm:8042`.
 - Trigger/user action:
-  - Scheme validation appears to be invoked from command buttons around `LegacyCodebase/M_FRM_SAL_PSH.frm:3928`, where `VLD_FRE_QTY`, `VLD_BIL_AMT`, `VLD_MLT_QTY`, `VLD_MLT_QTY_OR`, and `VLD_MLT_QTY_OR_MIX` run; UOM validators are present but commented out in that call sequence.
-  - Scheme application dispatch appears in the scheme list key/action flow around `LegacyCodebase/M_FRM_SAL_PSH.frm:3892`, mapping list subtype text to applicator routines.
+  - `Command6_Click` is the observed "find/validate schemes" trigger: it clears `MSS`, clears `SC`, resets `SCH_AMT`, resets the select-all caption, then runs `VLD_FRE_QTY`, `VLD_BIL_AMT`, `VLD_MLT_QTY`, `VLD_MLT_QTY_OR`, and `VLD_MLT_QTY_OR_MIX`; `VLD_MLT_UOM` and `VLD_MLT_UOM_OR` are present but commented out in this trigger (`LegacyCodebase/M_FRM_SAL_PSH.frm:3926`-`LegacyCodebase/M_FRM_SAL_PSH.frm:3938`).
+  - `Command3_Click` toggles all `SCHLST` checkbox selections and changes caption between `Select A&ll` and `De-Select A&ll` (`LegacyCodebase/M_FRM_SAL_PSH.frm:3866`-`LegacyCodebase/M_FRM_SAL_PSH.frm:3878`).
+  - `Command4_Click` clears prior applied rows, then dispatches checked `SCHLST` entries to applicators based on list subtype/type text (`LegacyCodebase/M_FRM_SAL_PSH.frm:3881`-`LegacyCodebase/M_FRM_SAL_PSH.frm:3912`).
+  - `Command5_Click` finalizes applied schemes: sets `APPSCH=True`; if `SCH_AMT > 0`, marks `M_AMT_LES = "Scheme Amount"` and copies `SCH_AMT` to `M_FRT_AMT`; then calls `GRS_CAL` and returns to totals/route-offset flow (`LegacyCodebase/M_FRM_SAL_PSH.frm:3915`-`LegacyCodebase/M_FRM_SAL_PSH.frm:3924`).
 - Tables read:
   - `SCH` heavily, filtered by active status, invoice date range, scheme type, transaction type, and condition flags.
   - `PRD`, `BRD` for free-product materialization.
+  - No `SID` lookup was observed in the inspected PSH validator bodies, unlike current main `M_FRM_SAL.frm` validators.
 - Tables written:
   - `MSS` grid for materialized free products.
   - `SC` scratch grid for cash/percent discounts.
@@ -1537,6 +1704,9 @@ Source inspected:
   - Multiple SKU `AND` requires every base batch to meet `B_PRD_QTY`.
   - Multiple SKU `ORO`/`ORM` sum available batch quantities and compare to `MAX(B_PRD_QTY)`.
   - UOM validators use `CHECKUOM`, which reads sale grid `MS[8]`; they are defined but not invoked by the observed command-button sequence.
+  - PSH validators add eligible active schemes directly to `SCHLST` once quantity/amount thresholds pass; the inspected validator range contains no salesman/route/customer `SID` restriction gate (`LegacyCodebase/M_FRM_SAL_PSH.frm:7225`-`LegacyCodebase/M_FRM_SAL_PSH.frm:7426`).
+  - Manual edits in `MSS` are constrained by `TXT_SCH_Keypress`: quantity edits in `MSS[2]` cannot exceed the original calculated quantity mirror `MSS[15]` unless the row is an `ORO` free/base combination, where it checks against remaining scheme quantity using `SCHEMEQTY`; amount edits in `MSS[4]` subtract the old amount from `SCH_AMT`, replace it, then add the new amount (`LegacyCodebase/M_FRM_SAL_PSH.frm:7995`-`LegacyCodebase/M_FRM_SAL_PSH.frm:8039`).
+  - `STOCKCHECK` compares each selected sale batch's `BRD.PRD_QTY` plus old invoice stock on modify against current free/sale stock demand from `GETFRESTK` and `GETSALSTK`; it returns the failing grid row number or zero (`LegacyCodebase/M_FRM_SAL_PSH.frm:8042`-`LegacyCodebase/M_FRM_SAL_PSH.frm:8064`).
 - Formulas:
   - `ADDSKUQUANTIY` proportional mode (`PRO_RAT='Y'`) computes whole applications plus extra remainder free quantity:
     - `APPQTY = Int(CHECKBATCH(base) / base_qty)`;
@@ -1553,19 +1723,30 @@ Source inspected:
   - SKU percent uses `PERCENT(CHECKBATCHValue(base), B_DIS_PCG)` directly; old proportional block is commented out.
   - Bill cash amount with `PRO_RAT='Y'` computes whole multiples plus remainder proportion; otherwise whole multiples only.
   - Bill percent uses `PERCENT(T_GRS_AMT, B_DIS_PCG)`.
+  - Multiple-SKU cash/percent (`MLTBILPCGAMT`) first looks for a `CAS` row to get `B_DIS_AMT`, `PRO_RAT`, and max base quantity; if no cash row exists, it looks for a `PCG` row for `B_DIS_PCG` (`LegacyCodebase/M_FRM_SAL_PSH.frm:7904`-`LegacyCodebase/M_FRM_SAL_PSH.frm:7912`).
+  - `MLTBILPCGAMT` `AND` branch computes complete base sets with the same `CTR - 1` pattern as free quantity; percent applies to summed `GETSCHVAL(base)` sale values, while cash applies `disamt * (CTR - 1)` (`LegacyCodebase/M_FRM_SAL_PSH.frm:7914`-`LegacyCodebase/M_FRM_SAL_PSH.frm:7942`).
+  - `MLTBILPCGAMT` `ORO` branch iterates base rows; percent repeatedly applies to the accumulating `PRDVAL`, while cash applies `disamt` or `Int(batch_qty / max_qty) * disamt` for qualifying rows (`LegacyCodebase/M_FRM_SAL_PSH.frm:7943`-`LegacyCodebase/M_FRM_SAL_PSH.frm:7962`).
+  - `MLTBILPCGAMT` `ORM` branch uses `CHECKBATCHValue` instead of `CHECKBATCH` for base amount/value and otherwise mirrors the `ORO` cash/percent loop (`LegacyCodebase/M_FRM_SAL_PSH.frm:7964`-`LegacyCodebase/M_FRM_SAL_PSH.frm:7983`).
+  - `GETSCHVAL` returns `MS[14]` for the matching sale grid batch `MS[20]` when visible quantity `MS[7] > 0`; this value feeds percent/cash multiple-SKU amount rules (`LegacyCodebase/M_FRM_SAL_PSH.frm:7986`-`LegacyCodebase/M_FRM_SAL_PSH.frm:7992`).
 - Side effects:
   - Materialized free rows store `SCH_IDY` in `MSS[8]`, despite the header saying `subunts`.
   - Cash/percent applicators accumulate global `SCH_AMT` and append discount rows to `SC`.
+  - `MLTBILPCGAMT` appends `SC` rows with `SC[0]=scheme ID` and `SC[3]` set from the delta calculation; in the `AND`, `ORO`, and `ORM` branches the stored delta is `SAMT - SCH_AMT` or `SCAMT - SCH_AMT`, which can be negative after `SCH_AMT` increases (`LegacyCodebase/M_FRM_SAL_PSH.frm:7939`-`LegacyCodebase/M_FRM_SAL_PSH.frm:7981`).
 - Report/print calls: none directly.
 - Assumptions/unresolved:
   - UOM validators exist in PSH but are commented out in the observed validation sequence, matching the earlier unresolved behavior in `M_FRM_SAL.frm`.
   - `ADDSKUQUANTIY` uses `rs.filter = "F_PRD_idy = sale batch id and txn_typ like 'FRE'"`, so `SCH.F_PRD_IDY` appears to link a free row back to its base batch.
   - Several `MSS` header labels are stale relative to actual write/save use.
+  - Because PSH does not show `SID` filtering in the inspected validators, customer/salesman/route-restricted schemes may apply differently between `M_FRM_SAL.frm` and `M_FRM_SAL_PSH.frm`; verify with runtime data before unifying eligibility rules.
 - Golden-master candidates:
   - SKU free scheme with `PRO_RAT=Y`, sale quantity just above whole threshold plus remainder.
   - Bill free scheme with invoice gross just below, equal to, and above multiple thresholds.
   - Multiple SKU `AND`, `ORO`, and `ORM` with two base batches and two free rows to capture row distribution behavior.
   - SKU cash/percent and bill cash/percent schemes, verifying `SC` to `LNV` persistence.
+  - PSH multiple-SKU cash and percent with `AND`, `ORO`, and `ORM`; verify whether `SC[3]` negative deltas are persisted exactly to `LNV.LNV_AMT`.
+  - Manual edit of applied scheme quantity and amount in `MSS`; verify `SCH_AMT` recalculation, invalid quantity rejection, and later `INV`/`LNV` save.
+  - PSH stock shortage with modify mode old invoice quantity present; verify `STOCKCHECK` returns the expected grid row and save blocks.
+  - Same `SID`-restricted scheme in main sale and PSH sale; confirm whether main hides it while PSH lists/applies it.
 
 ## Continuation Pass: `M_FRM_SAL_CHG.frm`, `M_FRM_SAL_RAT.frm`, and `M_FRM_SAL(CHG).frm` Targeted Delta
 
@@ -1701,9 +1882,13 @@ Date: 2026-07-03. This update is still partial and source-cited. It deepens the 
 - `Effmcg.vbp` includes `M_FRM_SAL_PSH.frm`, `M_FRM_SCH.frm`, and `M_FRM_SAL.frm`, but not `M_FRM_SCH1.frm`, `M_FRM_SCHE.frm`, `M_FRM_SAL_CHG.frm`, `M_FRM_SAL_RAT.frm`, or `M_FRM_SAL(CHG).frm` (`LegacyCodebase/Effmcg.vbp:117`, `LegacyCodebase/Effmcg.vbp:127`, `LegacyCodebase/Effmcg.vbp:155`).
 - The MDI scheme master menu opens `M_FRM_SCH.Show 1`, with no observed `M_FRM_SCH1` or `M_FRM_SCHE` call (`LegacyCodebase/M_MDI.frm:1409`).
 - The MDI sales menu opens current sale forms `M_FRM_SAL.Show 1` and `M_FRM_SAL_PSH.Show 1`, not CHG/RAT/(CHG) variants (`LegacyCodebase/M_MDI.frm:1217`, `LegacyCodebase/M_MDI.frm:1221`).
+- `M_FRM_ASD.frm` can tag `M_FRM_SAL_PSH` as an invoice flow (`LegacyCodebase/M_FRM_ASD.frm:292`).
+- `SYS_PSW.frm` can show `M_FRM_SAL_CHG` after password logic, so CHG is not compiled in the current `.vbp` but may still have a separately-loaded/admin path in some deployments (`LegacyCodebase/SYS_PSW.frm:98`).
+- `M_FRM_PRV.frm` maintains print-setup `PRT` rows for `M_FRM_SAL_CHG`, `M_FRM_SAL_RAT`, and `M_FRM_SAL_PSH`; this is report configuration evidence, not proof that CHG/RAT forms are in the active executable (`LegacyCodebase/M_FRM_PRV.frm:141`, `LegacyCodebase/M_FRM_PRV.frm:153`, `LegacyCodebase/M_FRM_PRV.frm:441`).
 - `M_FRM_SCHE.frm` contains form/control declarations only and no executable procedures after `Attribute VB_Name = "M_FRM_SCHE"` (`LegacyCodebase/M_FRM_SCHE.frm:1223`). Targeted `rg` found no project/menu references to `M_FRM_SCHE` except the file's own form/resource declarations.
 - Conclusion: `M_FRM_SCH1.frm` and `M_FRM_SCHE.frm` appear to be uncompiled/unreachable from this `Effmcg.vbp` build. `M_FRM_SCHE.frm` is an unused shell in this source tree. `M_FRM_SCH1.frm` has real logic but is not in the project file.
-- UNRESOLVED: there may be another historical `.vbp` or compiled binary that used these forms; no such project reference was verified in the current source of truth.
+- UNRESOLVED: current `Effmcg.vbp` does not compile CHG/RAT/(CHG), but password/report forms reference CHG/RAT names. Treat those variants as legacy or separately-deployed until build artifacts/menu wiring are proven.
+- Golden-master candidates: inspect production shortcut/build metadata for any executable that launches CHG/RAT; if reachable, run one invoice through each and compare `INL.ORD_IDY`, `INV`, stock changes, and report flag behavior.
 
 ### `M_FRM_SAL_CHG.frm` Deep Delta Against Main `M_FRM_SAL.frm`
 
@@ -1788,95 +1973,124 @@ Date: 2026-07-03. This update is still partial and source-cited. It deepens the 
 ### `SAVEGRPTYP` Cash/Percent Ambiguity Status
 
 - Current inspected source: `M_FRM_SCH.frm` remains the active compiled scheme master (`LegacyCodebase/Effmcg.vbp:127`, `LegacyCodebase/M_MDI.frm:1409`).
-- Verified by previous pass: `SAVEGRPTYP` is in `M_FRM_SCH.frm` and writes group-type schemes into `SCH` using active grid/control state. The ambiguity remains unresolved because group cash/percent encoding is row- and control-dependent, and no DBF fixture/runtime row was inspected in this pass.
+- Verified by current pass: `SAVEGRPTYP` is in `M_FRM_SCH.frm` and writes group-type schemes into `SCH` using active `MSPack`, `MSFree`, `Sch_Cmb`, `Sub_Cmb`, `CmbPCon`, and `CmbFree` state (`LegacyCodebase/M_FRM_SCH.frm:3079`).
+- Trigger/user action: `save` dispatches to `SAVEGRPTYP` when `Sch_Cmb.ListIndex > 3`, i.e. the active group-type scheme tabs rather than SKU or bill scheme modes (`LegacyCodebase/M_FRM_SCH.frm:1978`-`LegacyCodebase/M_FRM_SCH.frm:1980`).
+- Tables read/written: opens writable `SCH`; calls `T7increment("idy_sch")`; calls `SID`, which writes the generated scheme ID into `SID`; wraps the group save in an explicit `con.BeginTrans` / `CommitTrans` with rollback on error (`LegacyCodebase/M_FRM_SCH.frm:3082`-`LegacyCodebase/M_FRM_SCH.frm:3144`).
+- Exact base row encoding for group type schemes:
+  - One `SCH` row is written for each nonblank `MSPack` row (`LegacyCodebase/M_FRM_SCH.frm:3087`).
+  - `SCH_IDY`, `SCH_NME`, `SCH_TYP`, `F_SCH_TYP`, `SCH_STS`, `CMP_DST`, `SCH_BDT`, `SCH_EDT`, `MER_NUM`, `MER_QTY`, and `MER_AMT` are copied from the header controls for every row (`LegacyCodebase/M_FRM_SCH.frm:3089`-`LegacyCodebase/M_FRM_SCH.frm:3100`).
+  - `BAT_IDY` is blank; `GRP_TYP = MSPack[A,0]`; `B_PRD_QTY = MSPack[A,1]`; `B_CON_APP` is `AND`, `ORO`, or `ORM` from `CmbPCon.ListIndex` 0, 1, or 2 (`LegacyCodebase/M_FRM_SCH.frm:3105`-`LegacyCodebase/M_FRM_SCH.frm:3115`).
+  - If `Sub_Cmb.ListIndex = 2`, `B_DIS_AMT` is populated from `TxtValue`; if `Sub_Cmb.ListIndex = 3`, `B_DIS_PCG` is populated from `TxtValue` (`LegacyCodebase/M_FRM_SCH.frm:3101`-`LegacyCodebase/M_FRM_SCH.frm:3102`).
+  - The code briefly assigns `TXN_TYP = CAS` or `PCG` for cash/percent, then unconditionally overwrites `TXN_TYP = BAS` before update. Therefore active `SAVEGRPTYP` stores group cash/percent benefit values on the `BAS` rows, not as separate `CAS`/`PCG` rows (`LegacyCodebase/M_FRM_SCH.frm:3103`-`LegacyCodebase/M_FRM_SCH.frm:3117`).
+- Exact free row encoding for group type free schemes:
+  - Only when `Sub_Cmb.ListIndex = 1`, one `SCH` row is written for each nonblank `MSFree` row (`LegacyCodebase/M_FRM_SCH.frm:3121`-`LegacyCodebase/M_FRM_SCH.frm:3140`).
+  - `B_PRD_IDY = MSFree[A,4]`, `BAT_IDY = MSFree[A,3]`, `B_PRD_QTY = MSFree[A,2]`, `F_CON_APP` is `AND` or `ORO` from `CmbFree.ListIndex`, `PRO_RAT = N`, `TXN_TYP = FRE`, plus user/date/time audit fields (`LegacyCodebase/M_FRM_SCH.frm:3133`-`LegacyCodebase/M_FRM_SCH.frm:3140`).
+- Display behavior: `dispschemegrt3` reloads `TXN_TYP='BAS'` rows into `MSPack`, restores `TxtValue` from `B_DIS_AMT` or `B_DIS_PCG` based on `Sub_Cmb`, and reloads `TXN_TYP='FRE'` rows into `MSFree` only for free schemes (`LegacyCodebase/M_FRM_SCH.frm:3150`-`LegacyCodebase/M_FRM_SCH.frm:3199`).
+- Sales application behavior: `AddBillAmtGroupType` reads the group scheme from `SCH`, filters only `TXN_TYP='BAS'` rows for `B_CON_APP='AND'` or `ORO`, uses `SCH_TYP` as the group dimension, and applies `B_DIS_PCG` as a percent of matched group sale value or `B_DIS_AMT` as a repeated cash amount (`LegacyCodebase/M_FRM_SAL.frm:10476`-`LegacyCodebase/M_FRM_SAL.frm:10556`).
+- Group dimension matching:
+  - `Brand`: compares `MS` product's `PRD.BRD_NME` via `GetValue("brd_nme", "prd where prd_idy = ...")` (`LegacyCodebase/M_FRM_SAL.frm:10407`, `LegacyCodebase/M_FRM_SAL.frm:10566`).
+  - `Pack Size`: compares `PRD.PRD_PCK` (`LegacyCodebase/M_FRM_SAL.frm:10421`, `LegacyCodebase/M_FRM_SAL.frm:10568`).
+  - `Pack Type`: compares `PRD.PRD_PKT` (`LegacyCodebase/M_FRM_SAL.frm:10434`, `LegacyCodebase/M_FRM_SAL.frm:10570`).
+  - `Segment`: compares `MS[20]` group class (`LegacyCodebase/M_FRM_SAL.frm:10447`, `LegacyCodebase/M_FRM_SAL.frm:10572`).
+  - `Category`: compares `MS[19]` group category (`LegacyCodebase/M_FRM_SAL.frm:10460`, `LegacyCodebase/M_FRM_SAL.frm:10574`).
+- Side effects: group base matches add `SC` rows with `SC[0]=scheme ID`, `SC[1]=base batch ID`, `SC[2]=matched stock count`, `SC[4]=BAS`; group cash/percent benefit adds an `SC` row with `SC[3]=incremental scheme amount`, `SC[4]=FRE`; sale save later writes these `SC` rows into `LNV` (`LegacyCodebase/M_FRM_SAL.frm:10414`-`LegacyCodebase/M_FRM_SAL.frm:10470`, `LegacyCodebase/M_FRM_SAL.frm:10520`-`LegacyCodebase/M_FRM_SAL.frm:10556`, `LegacyCodebase/M_FRM_SAL.frm:3735`-`LegacyCodebase/M_FRM_SAL.frm:3745`).
 - Additional context: SCH1 has analogous cash/percent encoding for SKU and bill paths, where cash and percent are represented as separate `txn_typ` rows (`CAS`/`PCG`) with `B_DIS_AMT`/`B_DIS_PCG`; this supports, but does not prove, the interpretation that group cash/percent should be golden-mastered by inspecting actual `SCH` rows (`LegacyCodebase/M_FRM_SCH1.frm:1456`, `LegacyCodebase/M_FRM_SCH1.frm:1507`).
-- UNRESOLVED: exact active `M_FRM_SCH.frm SAVEGRPTYP` cash vs percent row shape for all group modes. Do not normalize this rule yet.
-- Golden-master candidates: create active `M_FRM_SCH.frm` Brand/PackSize/PackType/Segment/Category group schemes for free, cash, and percent; capture every `SCH` row plus any `SID` rows.
+- UNRESOLVED: no runtime DBF fixture was inspected to confirm whether legacy data contains older `CAS`/`PCG` group rows created by previous versions. Active source path above is verified, but migration must still accept historical row shapes if present.
+- Golden-master candidates: create active `M_FRM_SCH.frm` Brand/PackSize/PackType/Segment/Category group schemes for free, cash, and percent; capture every `SCH` row plus `SID`; apply each to invoices with `AND`, `ORO`, and `ORM` base conditions and compare `SC`, `LNV`, `MSS`, `SCH_AMT`, and printed totals.
 
 ### Improved Grid Maps
 
 #### Current Main Sales `M_FRM_SAL.frm` `MS`
 
-- Source anchors: save/report mappings at `LegacyCodebase/M_FRM_SAL.frm:10688`; group/add-scheme reads at `LegacyCodebase/M_FRM_SAL.frm:10406`, `LegacyCodebase/M_FRM_SAL.frm:10563`.
-- Verified columns from write/read sites:
-  - `MS[0]`: product ID.
-  - `MS[1]`: nonblank product/name marker used to qualify save.
-  - `MS[2]`: entered quantity.
-  - `MS[3]`: display UOM quantity.
-  - `MS[4]`: rate application.
-  - `MS[5]`: sale rate.
-  - `MS[6]`: add discount amount/percent basis stored to `PNV.ADD_AMT`.
-  - `MS[7]`: trade discount percent.
-  - `MS[8]`: tax percent.
-  - `MS[9]`: displayed collected/line amount.
-  - `MS[10]`: MRP rate.
-  - `MS[11]`: product name.
-  - `MS[13]`: sub-units.
-  - `MS[15]`: batch ID.
-  - `MS[18]`: product group ID.
-  - `MS[19]`: group category.
-  - `MS[20]`: group class.
-  - `MS[21]`: batch name.
-  - `MS[22]`: list rate.
-  - `MS[23]`: list discount/coupon percent.
-  - `MS[24]`: inclusive/value basis used for tax exclusion when `DIR SYS/DPV = T`.
-- UNRESOLVED: exact header labels for all hidden columns should still be lifted from `Form_Load`/grid initialization in `M_FRM_SAL.frm`; this map is write-site verified, not complete UI-header verified.
+- Source anchors: grid declares `Cols = 26` (`LegacyCodebase/M_FRM_SAL.frm:1589`); headers and widths initialized in `Form_Load` (`LegacyCodebase/M_FRM_SAL.frm:5309`-`LegacyCodebase/M_FRM_SAL.frm:5386`); save/report mappings at `LegacyCodebase/M_FRM_SAL.frm:3369` and `LegacyCodebase/M_FRM_SAL.frm:10688`; group/add-scheme reads at `LegacyCodebase/M_FRM_SAL.frm:10406` and `LegacyCodebase/M_FRM_SAL.frm:10563`.
+- Header-backed and write/read-verified columns:
+  - `MS[0]`: `Product ID`; saved to `INV/PNV.PRD_IDY`.
+  - `MS[1]`: `Stock Type`; nonblank save qualifier; saved to `INV.STK_TYP`.
+  - `MS[2]`: `Quantity`; sale quantity.
+  - `MS[3]`: `UOM`; display UOM quantity; saved as `PRD_UOM`.
+  - `MS[4]`: `RateID`; rate application; saved as `RAT_APP`.
+  - `MS[5]`: `Rate`; sale rate.
+  - `MS[6]`: `Dis.Amt`; add/amount discount stored to `ADD_AMT`.
+  - `MS[7]`: `CD%`; trade/cash discount percent stored to `TRD_DIS`.
+  - `MS[8]`: `Tax%`; tax percent stored to `TRD_TAX`.
+  - `MS[9]`: `Amount`; displayed line amount / `COL_AMT` basis.
+  - `MS[10]`: `MRP`; report `MRP_RAT`.
+  - `MS[11]`: `Product Name`; report product name.
+  - `MS[12]`: `Short Name`; header only in inspected code.
+  - `MS[13]`: `UPC`; sub-units (`SUB_UNT`).
+  - `MS[14]`: `uom`; hidden/reserved, not write-site verified.
+  - `MS[15]`: `BATIDY`; batch ID saved to `BAT_IDY`.
+  - `MS[16]`: `Mfg.Date`; display manufacturing date.
+  - `MS[17]`: `BBD-Exp.Date`; display expiry/BBD date.
+  - `MS[18]`: hidden product group ID; saved to `PNV.GRP_IDY`.
+  - `MS[19]`: hidden group category; saved to `PNV.GRP_CAT`; used by group `Category` schemes.
+  - `MS[20]`: hidden group class/segment; saved to `PNV.GRP_CLS`; used by group `Segment` schemes.
+  - `MS[21]`: `Batch`; batch name saved to `BAT_NME`.
+  - `MS[22]`: `List Rate`; list/coupon rate.
+  - `MS[23]`: `List %+`; list discount/coupon percent.
+  - `MS[24]`: `Inc'tve`; inclusive/value basis used for tax exclusion when `DIR SYS/DPV = T`.
+  - `MS[25]`: `Inc'TTL`; header initialized, not write-site verified in this pass.
 
 #### Current Main Sales `M_FRM_SAL.frm` `MSF`
 
-- Source anchor: free-grid report/save mapping at `LegacyCodebase/M_FRM_SAL.frm:10787`.
+- Source anchors: grid declares `Cols = 20` (`LegacyCodebase/M_FRM_SAL.frm:2138`); headers initialized in `Form_Load` (`LegacyCodebase/M_FRM_SAL.frm:5392`-`LegacyCodebase/M_FRM_SAL.frm:5424`); free-grid save/report mappings at `LegacyCodebase/M_FRM_SAL.frm:3471` and `LegacyCodebase/M_FRM_SAL.frm:10787`.
 - Verified columns:
-  - `MSF[0]`: product ID.
-  - `MSF[1]`: stock type (`Free`, `Damage`, `TakeBack`, `Breakage`, `Leakage`, etc.).
-  - `MSF[2]`: quantity.
-  - `MSF[3]`: display UOM quantity.
-  - `MSF[4]`: rate.
-  - `MSF[5]`: collected/line amount.
-  - `MSF[6]`: MRP rate.
-  - `MSF[7]`: product name.
-  - `MSF[9]`: sub-units.
-  - `MSF[11]`: batch ID.
-  - `MSF[12]`: product group ID.
-  - `MSF[13]`: group category.
-  - `MSF[14]`: group class.
-  - `MSF[15]`: batch name.
-  - `MSF[17]`: list rate.
-  - `MSF[18]`: list discount.
-- UNRESOLVED: hidden column labels and any columns not observed in save/report code.
+  - `MSF[0]`: `Product ID`; saved to `PRD_IDY`.
+  - `MSF[1]`: `Stock Type`; observed stock types include `Free`, `Damage`, `TakeBack`, `Breakage`, and `Leakage`.
+  - `MSF[2]`: `Quantity`; free/return quantity.
+  - `MSF[3]`: `UOM`; display UOM quantity.
+  - `MSF[4]`: `Rate`; free/return rate.
+  - `MSF[5]`: `Amount`; collected/line amount.
+  - `MSF[6]`: `MRP`; report MRP.
+  - `MSF[7]`: `Product Name`; report product name.
+  - `MSF[8]`: `Short Name`; header only in inspected code.
+  - `MSF[9]`: `UPC`; sub-units.
+  - `MSF[10]`: `uom`; hidden/reserved, not write-site verified.
+  - `MSF[11]`: `BATIDY`; batch ID.
+  - `MSF[12]`: `GRPIDY`; product group ID.
+  - `MSF[13]`: `GRPCAT`; group category.
+  - `MSF[14]`: `GRPCLS`; group class/segment.
+  - `MSF[15]`: `Batch`; batch name.
+  - `MSF[16]`: `Tax %`; free-grid tax percent.
+  - `MSF[17]`: `List Rate`; list/coupon rate.
+  - `MSF[18]`: `List %+`; list discount/coupon percent.
+  - `MSF[19]`: `Rate`; second rate basis used by free tax amount formula in save.
 
 #### Current Main Sales `M_FRM_SAL.frm` `MSS`
 
-- Source anchors: scheme add rows at `LegacyCodebase/M_FRM_SAL.frm:10360`; save/report mappings at `LegacyCodebase/M_FRM_SAL.frm:10866`.
+- Source anchors: grid declares `Cols = 17` (`LegacyCodebase/M_FRM_SAL.frm:2168`); headers initialized in `Form_Load` (`LegacyCodebase/M_FRM_SAL.frm:5443`-`LegacyCodebase/M_FRM_SAL.frm:5455`); scheme add rows at `LegacyCodebase/M_FRM_SAL.frm:10360`; save/report mappings at `LegacyCodebase/M_FRM_SAL.frm:3565` and `LegacyCodebase/M_FRM_SAL.frm:10866`.
 - Verified columns:
-  - `MSS[0]`: free/scheme product name.
-  - `MSS[1]`: MRP.
-  - `MSS[2]`: free quantity stored to `PNV.PRD_QTY`.
-  - `MSS[3]`: free/scheme rate stored to `PNV.PRD_RAT`.
-  - `MSS[4]`: scheme amount stored to `PNV.COL_AMT`.
-  - `MSS[5]`: product ID.
-  - `MSS[6]`: batch name.
-  - `MSS[7]`: batch ID.
-  - `MSS[8]`: scheme ID.
-  - `MSS[10]`: base quantity in some group/scheme add paths.
-  - `MSS[11]`: free quantity/stock-available value updated by `GETSCHVAL` paths.
-  - `MSS[12]`: sub-units.
-  - `MSS[13]`: product group.
-  - `MSS[14]`: free condition application (`F_CON_APP`) in add paths.
-  - `MSS[15]`: original/calculated scheme quantity mirror.
-  - `MSS[16]`: display UOM quantity saved to `PNV.PRD_UOM`.
+  - `MSS[0]`: `Product Name`; free/scheme product name.
+  - `MSS[1]`: `MRP`.
+  - `MSS[2]`: `Quantity`; free quantity stored to `INV/PNV.PRD_QTY`.
+  - `MSS[3]`: `Rate`; free/scheme rate stored to `INV/PNV.PRD_RAT`.
+  - `MSS[4]`: `Amount`; scheme amount stored to `INV/PNV.COL_AMT`.
+  - `MSS[5]`: `Product ID`.
+  - `MSS[6]`: `Batch`; batch name.
+  - `MSS[7]`: `batidy`; batch ID.
+  - `MSS[8]`: `subunts` header is misleading in active code; write sites use it as `SCH_IDY`.
+  - `MSS[9]`: `grpid` header is misleading/unused in inspected add paths; older comment says possible `TXN_TYP`.
+  - `MSS[10]`: `grpcat` header is misleading; add paths use it as base quantity.
+  - `MSS[11]`: `grpclf` header is misleading; used as free quantity/available value in scheme edit checks.
+  - `MSS[12]`: hidden sub-units used for `STM` and `SUB_UNT`.
+  - `MSS[13]`: hidden product group.
+  - `MSS[14]`: hidden free condition application (`F_CON_APP`) in add paths.
+  - `MSS[15]`: hidden original/calculated scheme quantity mirror.
+  - `MSS[16]`: `PRDUOM`; display UOM quantity saved to `PRD_UOM`.
 - UNRESOLVED: `MSS[9]` is commented as `TXN_TYP` but not populated in the inspected add paths; verify before depending on it.
 
 #### Current Main Sales `M_FRM_SAL.frm` `SC`
 
-- Source anchors: `ADDSKUAMOUNT`/`ADDSKUPCG`/bill amount rows at `LegacyCodebase/M_FRM_SAL.frm:8231`, group/base rows at `LegacyCodebase/M_FRM_SAL.frm:10414`, group free amount rows at `LegacyCodebase/M_FRM_SAL.frm:10520`.
+- Source anchors: scratch grid declares `Rows = 0`, `Cols = 7`, no fixed rows/cols (`LegacyCodebase/M_FRM_SAL.frm:211`-`LegacyCodebase/M_FRM_SAL.frm:214`); `ADDSKUAMOUNT`/`ADDSKUPCG`/bill amount rows at `LegacyCodebase/M_FRM_SAL.frm:8231`; group/base rows at `LegacyCodebase/M_FRM_SAL.frm:10414`; group free amount rows at `LegacyCodebase/M_FRM_SAL.frm:10520`; save writes `SC` into `LNV` at `LegacyCodebase/M_FRM_SAL.frm:3735`.
 - Verified columns:
   - `SC[0]`: scheme ID.
-  - `SC[1]`: base/product row quantity or base amount source.
+  - `SC[1]`: batch/base descriptor, usually base `BAT_IDY` for `BAS` rows; blank for several cash/percent benefit rows.
   - `SC[2]`: scheme base quantity/count converted through stock/UOM logic.
   - `SC[3]`: free/cash/discount scheme amount.
   - `SC[4]`: row role, observed values `BAS` and `FRE`.
 - Role in side effects: `SC` is the scheme audit/ledger staging grid later written into `LNV` by the main sale save/report helpers.
-- UNRESOLVED: no formal grid header found in this pass; columns are inferred from write sites.
+- Tables written: `LNV.INV_IDY = invoice`, `LEV_IDY = SC[0]`, `LEV_DES = SC[1]`, `INV_GRS = SC[2]`, `LNV_AMT = SC[3]`, `TXN_TYP = SC[4]` (`LegacyCodebase/M_FRM_SAL.frm:3739`-`LegacyCodebase/M_FRM_SAL.frm:3744`).
+- UNRESOLVED: `SC[5]` and `SC[6]` are declared but no active write/read site was verified in this pass.
 
 #### Older CHG/RAT/(CHG) `MS`
 
