@@ -2190,3 +2190,48 @@ Date: 2026-07-03. This update is still partial and source-cited. It deepens the 
   - `MS[11]`: Product Name.
   - `MS[12]`: Short Name.
 - Difference from current main `M_FRM_SAL.frm`: no `MSF`, `MSS`, or `SC` scheme/free grids in these older reduced variants.
+w
+## Core Form Lifecycle & State Management
+### `CREATE` (Across variants)
+- **Source**: `M_FRM_SAL.frm:2905`, `M_FRM_SAL_CHG.frm:2099`
+- **User Action**: Triggered implicitly during new record initialization and header creation.
+- **Side Effects**: Sets `MOD_REC = False`, clears `M_INV_IDY`, and immediately dispatches to `saverecord`.
+
+### `CANCELRECORD` (Across variants)
+- **Source**: `M_FRM_SAL.frm:3821`, `M_FRM_SAL_CHG.frm:2254`
+- **User Action**: Click 'Cancel' or triggered during validation failure.
+- **Side Effects**: 
+  - Calls `clrctr M_FRM_SAL` to wipe textboxes.
+  - Resets `MS.Rows = 1`, `MSF.Rows = 1`, `SC.Rows = 0`.
+  - Re-enables disabled fields (`M_VAN_IDY`, `M_CRT_DAY`).
+  - Sets `MOD_REC = False`.
+
+### `newrecord` (Across variants)
+- **Source**: `M_FRM_SAL.frm:3850`, `M_FRM_SAL_CHG.frm:2270`
+- **User Action**: Click 'Add/New'.
+- **Side Effects**: Calls `CANCELRECORD` to wipe state, sets focus to `M_INV_IDY` or `M_INV_DAT` depending on system numbering configuration.
+
+### `EXT_REC`
+- **Source**: `M_FRM_SAL.frm:3998`, `M_FRM_SAL_CHG.frm:2392`
+- **User Action**: Click 'Exit'.
+- **Side Effects**: Executes `Unload Me`.
+
+### `Printrecord`
+- **Source**: `M_FRM_SAL.frm:7294`, `M_FRM_SAL_CHG.frm:7607` (Approximate)
+- **User Action**: Click 'Print' or shortcut KeyCode 80 (Ctrl+P).
+- **Side Effects**: Validates presence of `prt.dbf`, opens `M_FRM_PRV` (print preview) modal passing `M_FRM_PRV.Tag = "SAL"`.
+
+### `save` (M_FRM_SCH.frm)
+- **Source**: `M_FRM_SCH.frm:1941`
+- **User Action**: Click 'Save'.
+- **Logic**: 
+  - Validates `Sch_Nme` is not blank.
+  - **Edit Mode (`Sch_Idy` present)**: Executes direct `UPDATE SCH` queries to modify `sch_edt` (end date), `sch_sts` (active status), `CMP_DST` (company distributor), and `MER_NUM`.
+  - **New Mode (`Sch_Idy` blank)**: Branches to specialized insertion routines based on the selected Scheme Type (`Sch_Cmb`) and Sub-Type (`Sub_Cmb`):
+    - `SAVESKUFREEQUANTITY` (SKU / Free Qty)
+    - `SAVEMULTIPLEFREEQUANTITY` (Multiple / Free Qty)
+    - `SAVEMULTIPLECASHORPCG` (Multiple / Cash/Pct)
+    - `saveskucashordiscount` (SKU / Cash/Pct)
+    - `savebillcashordiscount` (Bill Level / Cash/Pct)
+    - `SAVEGRPTYP` (Group Type)
+  - These specialized routines instantiate new ADODB Recordsets, add rows (`rs.AddNew`), fill out the `SCH` and `SCL` fields (Scheme Lines), and commit (`rs.Update`).
