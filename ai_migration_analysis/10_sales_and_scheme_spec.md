@@ -533,7 +533,9 @@ Validations/formulas:
   - Free quantity is `Int(T_GRS_AMT / B_BIL_AMT) * B_PRD_QTY`.
 - Multiple SKU quantity:
   - AND branch computes `CTR` as number of complete sets across all base rows, then gives each free row `free_qty * (CTR - 1)`.
-  - OR/ORM branches aggregate stock and apply by max base quantity. Full branch validation should be revisited in source because some output was truncated during this pass.
+  - `ORO`/`AND`: each qualifying base batch whose `CHECKBATCH(batch) >= MAX(B_PRD_QTY)` writes one `SC` base row with consumed quantity `Int(batch_qty / max_base_qty) * max_base_qty`; every `F_CON_APP='AND'` free row receives `free_qty * Int(batch_qty / max_base_qty)` in `MSS[2]` and `MSS[15]`.
+  - `ORO`/`ORO`: sums `GETSALSTK` across base rows into `STK`, converts to full sets with `Int(STK / MAX(B_PRD_QTY))`, and puts `MAX(free B_PRD_QTY) * STK` only on the first free row; later free rows receive zero.
+  - `ORM` handling is delegated to `ADDSKUMIX` after `ADDMLTQTYAND` closes its recordset.
 - SKU cash-off:
   - Base quantity from `CHECKBATCH`.
   - If `PRO_RAT='Y'`, amount is `(B_DIS_AMT / B_PRD_QTY) * sale_qty` when threshold met.
@@ -574,11 +576,79 @@ Golden-master candidates:
 - SKU free quantity with and without `PRO_RAT`.
 - Bill free quantity.
 - Multiple SKU AND with two required bases.
-- Multiple SKU ORO/ORM.
+- Multiple SKU `AND/AND`, `AND/ORO`, `ORO/AND`, `ORO/ORO`, `ORM/AND`, and `ORM/ORO`.
 - SKU cash-off and SKU percent discount.
 - Bill cash-off with `PRO_RAT=Y` residual amount.
 - Multiple bill percent and cash-off.
 - Brand/pack/category/segment cash-off vs percent.
+
+### Main Multiple-SKU Free Applicator Detail
+
+Sources:
+
+- `ADDMLTQTYAND`: `../LegacyCodebase/M_FRM_SAL.frm:7892`.
+- `ADDSKUMIX`: `../LegacyCodebase/M_FRM_SAL.frm:8098`.
+- Manual apply dispatch: `../LegacyCodebase/M_FRM_SAL.frm:4049`.
+- PSH comparator: `../LegacyCodebase/M_FRM_SAL_PSH.frm:7552`.
+
+Trigger/user action:
+
+- Manual apply button `Command4_Click` dispatches checked `SCHLST` rows where `f_sch_typ='Free Quantity'` and `SCH_TYP='Multiple SKU Level'` to `ADDMLTQTYAND` (`../LegacyCodebase/M_FRM_SAL.frm:4056`-`../LegacyCodebase/M_FRM_SAL.frm:4064`).
+- `AutoApplyScheme` dispatches the same scheme type to `ADDMLTQTYAND` (`../LegacyCodebase/M_FRM_SAL.frm:10603`-`../LegacyCodebase/M_FRM_SAL.frm:10609`).
+
+Tables read:
+
+- `SCH`, `BRD`, and `PRD` in one joined recordset for base/free rows, product names, batch names, MRP, sale rate, product group, `SUB_UNT`, and `PRD.CON_FAC` (`../LegacyCodebase/M_FRM_SAL.frm:7898`-`../LegacyCodebase/M_FRM_SAL.frm:7900`).
+- Helper functions read `MS` for sale quantities/amounts.
+
+Tables written:
+
+- None directly. Writes `MSS` free rows and `SC` base rows.
+
+Validations/formulas:
+
+- `AND` base plus `AND` free:
+  - Base rows are filtered with `B_CON_APP='AND'`; free rows use `F_CON_APP='AND'`.
+  - `CTR` starts at `1`, loops repeatedly across all base rows, and increments after each complete pass. The first failing base threshold exits the loop.
+  - Free quantity is `free B_PRD_QTY * (CTR - 1)` in `MSS[2]`; the same value is mirrored to `MSS[15]`; UOM display `MSS[16] = MSS[2] * PRD.CON_FAC / SUB_UNT`.
+  - Each base row writes one `SC` row: `SC[0]=scheme`, `SC[1]=base BAT_IDY`, `SC[2]=base B_PRD_QTY * (CTR - 1)`, `SC[4]=BAS` (`../LegacyCodebase/M_FRM_SAL.frm:7902`-`../LegacyCodebase/M_FRM_SAL.frm:7952`).
+- `AND` base plus `ORO` free:
+  - After the `AND` base pass, the routine reopens all rows and adds every `F_CON_APP='ORO'` free row.
+  - Unlike PSH, main currently gives every `ORO` free row `free B_PRD_QTY * (CTR - 1)` and sets `MSS[9]='AND'`, `MSS[14]='ORO'`; the older first-row-only logic is commented out (`../LegacyCodebase/M_FRM_SAL.frm:7954`-`../LegacyCodebase/M_FRM_SAL.frm:7993`).
+- `ORO` base plus `AND` free:
+  - If no `AND` base branch applies, `B_CON_APP='ORO'` rows are checked one by one against `MAX(B_PRD_QTY)`.
+  - For each qualifying base batch, one `SC` row records consumed base quantity `Int(CHECKBATCH(batch) / max_base_qty) * max_base_qty`.
+  - Each `F_CON_APP='AND'` free row receives `free B_PRD_QTY * Int(CHECKBATCH(base_batch) / max_base_qty)` in both `MSS[2]` and `MSS[15]`; `MSS[11]` is populated from the current base row's `B_PRD_QTY`, not the free row's quantity (`../LegacyCodebase/M_FRM_SAL.frm:7995`-`../LegacyCodebase/M_FRM_SAL.frm:8037`).
+- `ORO` base plus `ORO` free:
+  - The routine sums `GETSALSTK` across base rows into `STK`, then converts to full sets with `Int(STK / MAX(base B_PRD_QTY))`.
+  - It writes `SC` base rows with actual `GETSALSTK(batch)` for each base row while accumulating.
+  - Only the first free row gets `MAX(free B_PRD_QTY) * STK` in `MSS[2]` and `MSS[15]`; subsequent free rows get zero. `MSS[9]='ORO'`, `MSS[14]='ORO'`, and `MSS[11]` stores the total allocated free quantity (`../LegacyCodebase/M_FRM_SAL.frm:8039`-`../LegacyCodebase/M_FRM_SAL.frm:8093`).
+- `ORM` base plus `AND` free:
+  - `ADDMLTQTYAND` always calls `ADDSKUMIX` after completing the earlier branches.
+  - `ADDSKUMIX` filters `B_CON_APP='ORM'`, sums `CHECKBATCH` over all base rows, and if `Int(STK / MAX(B_PRD_QTY)) > 0`, writes one `SC` base row per base batch with `Int(CHECKBATCH(batch))`.
+  - Every `F_CON_APP='AND'` free row receives `free B_PRD_QTY * Int(STK / MAX(B_PRD_QTY))`; `MSS[9]='NotAPPLICABLE'` (`../LegacyCodebase/M_FRM_SAL.frm:8095`-`../LegacyCodebase/M_FRM_SAL.frm:8150`).
+- `ORM` base plus `ORO` free:
+  - `ADDSKUMIX` sums `GETSALSTK` across `ORM` base rows, writes `SC` base rows if at least one full set exists, then converts `STK` to full sets.
+  - Only the first free row gets `MAX(free B_PRD_QTY) * STK`; later free rows get zero. `MSS[9]='ORO'`, `MSS[14]='ORO'`, and `MSS[11]` stores total allocated free quantity (`../LegacyCodebase/M_FRM_SAL.frm:8152`-`../LegacyCodebase/M_FRM_SAL.frm:8204`).
+
+Side effects:
+
+- Adds free-benefit rows to `MSS`; all line amounts are `0.00`.
+- Adds base audit rows to `SC` for most branches; `AND`/`ORO` adds `SC` for base rows before adding `ORO` free rows, while PSH lacks comparable `SC` writes in its earlier multiple-free branch.
+
+Assumptions/unresolved:
+
+- `STK` is not locally declared or reset at entry in `ADDMLTQTYAND`/`ADDSKUMIX`; if it is module-level/global, prior branch values could leak. Golden-master fixtures should apply multiple schemes sequentially to verify.
+- In `ORO`/`AND`, `MSS[11]` uses the base row quantity from `rs`, while `MSS[10]` uses the free row quantity from `RSTMP`; preserve this source behavior until runtime proves intent.
+- `MSS[16]` UOM calculation sometimes reads `rs!CONFAC` after `rs` has moved to EOF, guarded only by `If rs.EOF = False` in some branches. Capture whether UI displays blank/stale UOM in these cases.
+
+Golden-master candidates:
+
+- Multiple-SKU free with `AND` base and `AND` free, exactly one complete set and multiple complete sets.
+- `AND` base plus two `ORO` free rows: main should allocate quantity to every `ORO` free row; PSH older branch appears first-row-only.
+- `ORO` base plus `AND` free with two qualifying base batches to confirm duplicated free rows per qualifying base batch.
+- `ORO` base plus `ORO` free with multiple free rows to verify first-row-only allocation and zero later rows.
+- `ORM` base plus `AND` free and `ORM` base plus `ORO` free; verify `STK` reset when two schemes are applied in one invoice.
 
 ### Main Group Scheme Applicators: Brand / Pack Size / Pack Type / Segment / Category
 
