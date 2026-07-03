@@ -32,7 +32,7 @@ Identified but not fully extracted in this pass:
 - `../LegacyCodebase/M_FRM_SAL_CHG.frm` appears to be a sales change/rate variant with analogous routines starting near line 2105.
 - `../LegacyCodebase/M_FRM_SAL_RAT.frm` appears to be another sales rate variant with analogous routines starting near line 2105.
 - `../LegacyCodebase/M_FRM_SAL_PSH.frm` includes the same scheme engine family, including extra UOM validators, around lines 7225-8067.
-- `../LegacyCodebase/M_FRM_SAL(CHG).frm` must still be compared against `M_FRM_SAL_CHG.frm`.
+- `../LegacyCodebase/M_FRM_SAL(CHG).frm` has now been source-diffed against `M_FRM_SAL_CHG.frm`; despite the filename, it declares itself as `M_FRM_SAL` and follows normal-sale `ord_idy`, print key, stock validation, and discount-total behavior in several important paths.
 - `../LegacyCodebase/M_FRM_SCH.frm` scheme master starts event/procedure code around line 1057; save/copy/display routines are known at lines 1855, 1860, 1941, 2029, 2530, 2593, 2676, 2835, 2910, 2985, 3079, 3325, 3392.
 - `../LegacyCodebase/M_FRM_SCH1.frm` and `../LegacyCodebase/M_FRM_SCHE.frm` have now been reachability-checked; SCH1 has real but uncompiled alternate scheme logic, and SCHE appears to be a control-only unused shell in this project.
 
@@ -1994,11 +1994,21 @@ Date: 2026-07-03. This update is still partial and source-cited. It deepens the 
 - Trigger/tables/validations: same reduced invoice save path as CHG for inspected behavior.
 - Variant-specific formulas and side effects:
   - The VB form class name is `M_FRM_SAL`, not `M_FRM_SAL_CHG`; because the active project also includes `LegacyCodebase/M_FRM_SAL.frm`, this file cannot be compiled alongside it without a name collision (`LegacyCodebase/M_FRM_SAL(CHG).frm:2101`; current source header begins `Begin VB.Form M_FRM_SAL`).
-  - `INL.ord_idy = "0"` (`LegacyCodebase/M_FRM_SAL(CHG).frm:2185`).
+  - `INL.ord_idy = "0"` and `dispdetails` reloads only `ord_idy='0'`, unlike CHG's `ord_idy='2'` (`LegacyCodebase/M_FRM_SAL(CHG).frm:2185`, `LegacyCodebase/M_FRM_SAL(CHG).frm:3424`-`LegacyCodebase/M_FRM_SAL(CHG).frm:3428`; `LegacyCodebase/M_FRM_SAL_CHG.frm:2178`, `LegacyCodebase/M_FRM_SAL_CHG.frm:3421`-`LegacyCodebase/M_FRM_SAL_CHG.frm:3425`).
   - Print flag checks `PRT_NME = M_FRM_SAL`; preview tag is `SAL` (`LegacyCodebase/M_FRM_SAL(CHG).frm:2252`, `LegacyCodebase/M_FRM_SAL(CHG).frm:4007`).
-  - Like RAT, `P_DIS_CAL` subtracts both add discount and trade/cash discount before tax (`LegacyCodebase/M_FRM_SAL(CHG).frm:3921`).
-- Side effects/report calls: same reduced `INL`/`INV`/`PRD.CUR_LEV`/`VOUCH.RP1` behavior as CHG, not the full modern `M_FRM_SAL.frm` `PNL`/`PNV`/`LNV` scheme path.
-- Golden-master candidates: compare old `(CHG)` invoice with current `M_FRM_SAL.frm` using identical header/line inputs; expect radically different downstream writes and report mirrors despite same form class name.
+  - Like RAT, `P_DIS_CAL` subtracts both add discount and trade/cash discount before tax, whereas CHG omits `MS[8]` in its display calculation (`LegacyCodebase/M_FRM_SAL(CHG).frm:3933`-`LegacyCodebase/M_FRM_SAL(CHG).frm:3942`; `LegacyCodebase/M_FRM_SAL_CHG.frm:3980`-`LegacyCodebase/M_FRM_SAL_CHG.frm:3987`).
+  - `(CHG)` actively blocks quantity entry when `CONPRDQTY(...) < 0`; the analogous CHG stock-out block is commented out (`LegacyCodebase/M_FRM_SAL(CHG).frm:3839`-`LegacyCodebase/M_FRM_SAL(CHG).frm:3847`, `LegacyCodebase/M_FRM_SAL_CHG.frm:3881`-`LegacyCodebase/M_FRM_SAL_CHG.frm:3889`).
+  - CHG permits manual numeric editing of `MS[4]` rate and `MS[5]` UOM and converts UOM through `UNTCAL`; `(CHG)` omits the rate edit branch and uses `MS[5]` Enter only for navigation (`LegacyCodebase/M_FRM_SAL_CHG.frm:3738`-`LegacyCodebase/M_FRM_SAL_CHG.frm:3779`, `LegacyCodebase/M_FRM_SAL_CHG.frm:3899`-`LegacyCodebase/M_FRM_SAL_CHG.frm:3908`; `LegacyCodebase/M_FRM_SAL(CHG).frm:3741`-`LegacyCodebase/M_FRM_SAL(CHG).frm:3758`, `LegacyCodebase/M_FRM_SAL(CHG).frm:3857`-`LegacyCodebase/M_FRM_SAL(CHG).frm:3868`).
+- Side effects/report calls:
+  - Same reduced `INL`/`INV`/`PRD.CUR_LEV`/`VOUCH.RP1` behavior as CHG, not the full modern `M_FRM_SAL.frm` `PNL`/`PNV`/`LNV` scheme path.
+  - CHG uses `On Error Resume Next` in save, detail display, and quantity entry; `(CHG)` removes those guards in corresponding inspected routines (`LegacyCodebase/M_FRM_SAL_CHG.frm:2124`, `LegacyCodebase/M_FRM_SAL_CHG.frm:3418`, `LegacyCodebase/M_FRM_SAL_CHG.frm:3835`; compare `LegacyCodebase/M_FRM_SAL(CHG).frm:2131`, `LegacyCodebase/M_FRM_SAL(CHG).frm:3421`, `LegacyCodebase/M_FRM_SAL(CHG).frm:3797`).
+- Assumptions/unresolved:
+  - The exact historical executable/project containing `M_FRM_SAL(CHG).frm` was not found. Because it declares `M_FRM_SAL`, treat it as an alternate normal-sale revision, not a callable form named `M_FRM_SAL(CHG)`.
+- Golden-master candidates:
+  - Compare old `(CHG)` invoice with current `M_FRM_SAL.frm` using identical header/line inputs; expect radically different downstream writes and report mirrors despite the same form class name.
+  - Save identical data through CHG and `(CHG)`: expect `ORD_IDY` `2` vs `0`, print key `M_FRM_SAL_CHG` vs `M_FRM_SAL`, and preview tag `SLP` vs `SAL`.
+  - Enter quantity above stock: CHG source should allow it because its guard is commented; `(CHG)` should reject it.
+  - Attempt manual rate/UOM editing to capture CHG-enabled versus `(CHG)`-restricted grid behavior.
 
 ### `M_FRM_SCH1.frm` Reachability, Save, Display, Product Lists
 
